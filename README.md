@@ -45,6 +45,13 @@ brew install uv just
 just install
 ```
 
+Optionally, copy the sample configuration. Every setting has a working default, so skip
+this unless you need to change something:
+
+```sh
+cp .env.example .env
+```
+
 **2. Authenticate and confirm access** (~1 min)
 
 ```sh
@@ -119,12 +126,41 @@ just install          # uv sync
 Requires [uv](https://docs.astral.sh/uv/), [just](https://just.systems), and Docker for
 the documentation steps.
 
+## Configuration
+
+Copy `.env.example` to `.env` to change any default. The file is optional — every value
+falls back to a working default — and it is read by **both** `just` (via
+`set dotenv-load`) and docker-compose, so the two cannot disagree about, say, which
+port the database is on. Shell variables override `.env`:
+
+```sh
+POSTGRES_PORT=6000 just db-up
+```
+
+`.env` is gitignored; `.env.example` is tracked. Keep real credentials out of the latter.
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `TARGET_CATALOG` | `gold-db-2_postgresql` | Catalog to extract, as shown by `just catalogs` |
+| `TARGET_SCHEMA` | `gold` | Schema inside that catalog |
+| `OUT_DIR` | `out` | Where generated files are written |
+| `LAKEHOUSE_HOST` / `LAKEHOUSE_PORT` | JGI lakehouse, `443` | Starburst endpoint |
+| `TRINO_USER` | your OS username | Recorded against queries in the Insights UI |
+| `TRINO_PASSWORD` | unset | See below |
+| `POSTGRES_*` | `postgres` / `lakehouse` / `golddocs` / `5433` | The throwaway documentation database |
+
+The `POSTGRES_*` values are not secrets: that container is local, disposable, and holds
+only extracted structure — no rows are ever copied out of the source database.
+
 ## Authentication
 
 OAuth2 by default — a browser opens on first use and the token is cached in your system
-keyring for later runs. Set `TRINO_PASSWORD` (and optionally `TRINO_USER`) for basic
-auth instead. Host and port default to the JGI lakehouse; override with `--host`/`--port`
-or `LAKEHOUSE_HOST`/`LAKEHOUSE_PORT`.
+keyring for later runs. Host and port default to the JGI lakehouse; override with
+`--host`/`--port` or `LAKEHOUSE_HOST`/`LAKEHOUSE_PORT`.
+
+Setting `TRINO_PASSWORD` switches every run to basic auth. Leave it unset for normal
+use: OAuth2 needs no stored credential. If a headless or service account requires it,
+prefer exporting it in the shell over writing it into `.env`.
 
 ## Use
 
@@ -194,8 +230,8 @@ static site. `relationships.real.*.svg` under `out/schemaspy/diagrams/summary/` 
 foreign-key ERD; SchemaSpy also generates `.implied.` variants inferred from naming,
 which are guesses rather than declared constraints.
 
-Docker services live in `docker-compose.yaml` and are configured by `.env`. The
-credentials there are not secrets — the database is local, disposable, and structure-only.
+Docker services live in `docker-compose.yaml`. See [Configuration](#configuration) for
+the settings they read.
 
 ## Load errors are expected, and informative
 
@@ -257,10 +293,12 @@ SELECT * FROM TABLE("<catalog>".system.query(query => 'SELECT version()'));
 ## Layout
 
 ```
-src/lakehouse_schema_extraction/   library: client, dialects
+src/lakehouse_schema_extraction/   library: client, dialects, LinkML refinement
 src/scripts/extract_ddl.py         CLI entry point (lakehouse-schema)
+src/scripts/refine_linkml.py       CLI entry point (lakehouse-refine-linkml)
 tests/                             offline tests over metadata fixtures
-docker-compose.yaml / .env         throwaway Postgres + SchemaSpy
+docker-compose.yaml                throwaway Postgres + SchemaSpy
+.env.example                       sample configuration; copy to .env
 justfile                           every workflow above
 ```
 
