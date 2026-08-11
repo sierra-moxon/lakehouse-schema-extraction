@@ -16,6 +16,16 @@ import yaml
 
 # Display names for catalogs. Anything unlisted falls back to a tidied catalog name,
 # so a newly federated database appears in the site without a code change.
+# MkDocs needs a literal `!!python/name:` tag here, which yaml.safe_dump refuses to
+# emit. The config carries a placeholder that is substituted into the dumped text.
+#
+# This mirrors bridge-schemas, which publishes LinkML gen-doc output successfully:
+# the mermaid2 plugin injects the library and provides the fence formatter. Material's
+# own mermaid support would also work, but it pulls mermaid from unpkg at page load,
+# so the diagrams break for anyone behind a restrictive network.
+MERMAID_FORMAT = "__MERMAID_FENCE_FORMAT__"
+MERMAID_FENCE_TAG = "!!python/name:mermaid2.fence_mermaid"
+
 CATALOG_LABELS = {
     "gold-db-2_postgresql": "GOLD",
     "img-db-2_postgresql": "IMG",
@@ -201,14 +211,23 @@ def render_mkdocs_config(rows: list[dict[str, Any]], repo_url: str) -> str:
             "features": ["navigation.instant", "navigation.tracking",
                          "navigation.sections", "search.suggest", "content.code.copy"],
         },
-        "plugins": ["search"],
+        "plugins": ["search", "mermaid2"],
         "markdown_extensions": [
             "admonition",
             "attr_list",
             "tables",
             {"toc": {"permalink": True}},
             "pymdownx.details",
-            "pymdownx.superfences",
+            # gen-doc emits ```mermaid class diagrams. Without this custom fence,
+            # superfences treats them as ordinary code blocks and they render as
+            # literal text -- which is what the published site showed before this.
+            {"pymdownx.superfences": {
+                "custom_fences": [{
+                    "name": "mermaid",
+                    "class": "mermaid",
+                    "format": MERMAID_FORMAT,
+                }]
+            }},
         ],
         "nav": nav,
     }
@@ -217,4 +236,10 @@ def render_mkdocs_config(rows: list[dict[str, Any]], repo_url: str) -> str:
         "# GENERATED FILE -- do not edit by hand.\n"
         "# Rebuild with `just docs-index`; the nav is derived from schemas/.\n"
     )
-    return header + yaml.safe_dump(config, sort_keys=False, width=100, allow_unicode=True)
+    body = yaml.safe_dump(config, sort_keys=False, width=100, allow_unicode=True)
+    # safe_dump cannot emit a `!!python/name:` tag, and MkDocs requires that exact form
+    # for the fence formatter, so the placeholder is swapped for it after dumping.
+    # safe_dump may or may not quote the placeholder depending on its content, so both
+    # forms are handled; the quoted one must go first or it would leave stray quotes.
+    body = body.replace(f"'{MERMAID_FORMAT}'", MERMAID_FENCE_TAG)
+    return header + body.replace(MERMAID_FORMAT, MERMAID_FENCE_TAG)

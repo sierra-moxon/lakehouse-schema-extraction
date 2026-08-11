@@ -103,7 +103,12 @@ class TestIndexPage:
 class TestMkdocsConfig:
     @pytest.fixture
     def config(self, schema_dir):
-        return yaml.safe_load(render_mkdocs_config(collect(schema_dir), "https://x/y"))
+        # safe_load rejects the !!python/name: tag MkDocs needs for the mermaid fence,
+        # so it is neutralised before parsing; TestMermaidSupport asserts on it directly.
+        raw = render_mkdocs_config(collect(schema_dir), "https://x/y")
+        return yaml.safe_load(
+            raw.replace("!!python/name:mermaid2.fence_mermaid", "fence_mermaid")
+        )
 
     def test_nav_starts_with_home(self, config):
         assert config["nav"][0] == {"Home": "index.md"}
@@ -123,6 +128,32 @@ class TestMkdocsConfig:
 
     def test_repo_url_is_applied(self, config):
         assert config["repo_url"] == "https://x/y"
+
+
+class TestMermaidSupport:
+    """gen-doc emits ```mermaid class diagrams; without this they render as raw text.
+
+    Matches the bridge-schemas configuration rather than Material's native mermaid
+    handling, to stay close to the reference LinkML documentation setup.
+    """
+
+    @pytest.fixture
+    def raw(self, schema_dir):
+        return render_mkdocs_config(collect(schema_dir), "https://x/y")
+
+    def test_mermaid2_plugin_is_enabled(self, raw):
+        assert "mermaid2" in yaml.safe_load(raw.replace(
+            "!!python/name:mermaid2.fence_mermaid", "placeholder"))["plugins"]
+
+    def test_fence_formatter_is_a_python_name_tag(self, raw):
+        """MkDocs requires the literal tag; yaml.safe_dump cannot emit it, so the
+        placeholder substitution must survive both quoted and unquoted dumping."""
+        assert "format: !!python/name:mermaid2.fence_mermaid" in raw
+        assert "__MERMAID_FENCE_FORMAT__" not in raw
+
+    def test_custom_fence_is_registered_for_mermaid(self, raw):
+        assert "name: mermaid" in raw
+        assert "class: mermaid" in raw
 
 
 class TestCatalogLabels:
