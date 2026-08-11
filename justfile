@@ -302,9 +302,13 @@ testdoc: gendoc site
 serve:
     uv run --group docs mkdocs serve
 
-# Publish the site to GitHub Pages. CI runs this; run it locally only to force a deploy.
+# Deliberately not `mkdocs gh-deploy`: that commits ~576MB of built HTML to a branch,
+# which every clone would then carry. CI uploads the site as a Pages artifact instead,
+# so no generated HTML is ever stored in git.
+# Trigger the CI workflow that builds and publishes the site
 deploy:
-    uv run --group docs mkdocs gh-deploy --force
+    gh workflow run deploy-docs.yml
+    @echo "watch it with: gh run watch"
 
 # Refresh schemas/ from a fresh extraction, then rebuild the site
 docs: promote testdoc

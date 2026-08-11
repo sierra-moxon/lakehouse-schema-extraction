@@ -1,9 +1,11 @@
 name: Deploy Documentation
 
-# Docs are never committed. Everything under docs/ and mkdocs.yml is regenerated here
-# from the committed schemas/ directory and published to the gh-pages branch. The
-# runner has no lakehouse access, so schemas/ is the input -- refresh it locally with
-# `just linkml-all && just promote` and commit that.
+# Publishes the MkDocs site to GitHub Pages via an artifact -- no built HTML is ever
+# committed. docs/, mkdocs.yml and site/ are all gitignored and regenerated here from
+# the committed schemas/ directory, which is the input because the runner has no
+# lakehouse access. Refresh it locally with `just linkml-all && just promote`.
+#
+# Requires: Settings -> Pages -> Source: "GitHub Actions".
 
 on:
   push:
@@ -16,23 +18,22 @@ on:
       - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
 
-# Only the most recent commit on main needs publishing; cancel superseded runs.
+permissions:
+  contents: read      # nothing is pushed back to the repository
+  pages: write
+  id-token: write     # lets Pages verify the deployment came from this workflow
+
+# Let an in-flight deployment finish rather than cancelling it; only queue-jump builds.
 concurrency:
-  group: deploy-docs
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write   # mkdocs gh-deploy pushes to the gh-pages branch
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # gh-deploy needs history to update gh-pages
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -48,16 +49,30 @@ jobs:
       - name: Install dependencies
         run: uv sync --group docs
 
+      # Generates docs/<catalog>/<schema>/ for every schema, then rebuilds
+      # docs/index.md and the mkdocs nav from what is actually on disk.
       - name: Generate reference pages and navigation
         run: just gendoc
 
       - name: Build site
-        run: |
-          touch docs/.nojekyll
-          just site
+        run: just site
 
-      - name: Publish to GitHub Pages
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          just deploy
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # The whole site directory becomes the deployment; nothing lands in git.
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

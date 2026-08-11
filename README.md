@@ -187,8 +187,20 @@ git push            # CI regenerates docs and deploys to gh-pages
 
 `.github/workflows/deploy-docs.yml` triggers on pushes to `main` that touch
 `schemas/**`, `src/**`, the justfile, or the workflow itself — plus manual
-`workflow_dispatch`. It runs `just gendoc` then `just deploy` (`mkdocs gh-deploy`),
-publishing to the `gh-pages` branch.
+`workflow_dispatch` (or `just deploy`). It builds the site and uploads it as a **Pages
+artifact**; `actions/deploy-pages` publishes it.
+
+**No built HTML is stored in git.** There is no `gh-pages` branch and no committed
+`site/`. This matters here because the built site is ~576MB — committing it to a branch
+would add that weight to every clone of a repository whose real source is 24 YAML files
+and some Python.
+
+Pages must be configured as **Settings → Pages → Source: "GitHub Actions"**. The
+workflow needs `pages: write` and `id-token: write`, which are declared in it.
+
+Note the ~1GB published-site limit applies regardless of deployment method. At 576MB
+there is headroom, but adding the six MySQL catalogs would likely exceed it; the lever
+then is trimming what `gen-doc` emits, not changing how it deploys.
 
 The index page and `mkdocs.yml` navigation are **generated from the schemas**, not
 hand-maintained: `lakehouse-build-docs` reads every `schemas/<catalog>/<schema>.linkml.yaml`
