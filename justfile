@@ -1,8 +1,13 @@
 # lakehouse-schema-extraction
 
-catalog := "gold-db-2_postgresql"
-schema  := "gold"
-out     := "out"
+# Load .env so recipes and docker-compose read the same settings. Without this, just
+# would use the fallbacks below while compose used .env, and the two could disagree
+# about the port. Missing .env is fine -- every value has a default.
+set dotenv-load := true
+
+catalog := env("TARGET_CATALOG", "gold-db-2_postgresql")
+schema  := env("TARGET_SCHEMA", "gold")
+out     := env("OUT_DIR", "out")
 
 # The throwaway Postgres is defined in docker-compose.yaml and configured by .env;
 # these mirror those defaults for commands that run on the host (schema-automator).

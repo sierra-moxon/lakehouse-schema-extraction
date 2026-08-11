@@ -7,6 +7,9 @@ __pycache__/
 dist/
 build/
 
+# local config; copy from .env.example. May hold a TRINO_PASSWORD.
+.env
+
 # extraction output
 out/
 *_schema.sql
