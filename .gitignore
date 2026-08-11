@@ -21,3 +21,6 @@ site/
 out/
 *_schema.sql
 *_schema.json
+
+# single-schema doc preview
+.preview/

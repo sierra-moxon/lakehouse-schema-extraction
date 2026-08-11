@@ -54,6 +54,37 @@ CATALOG_ORDER = [
 ]
 
 
+def normalise_repo_url(raw: str) -> str | None:
+    """Turn any git remote form into a browsable https URL.
+
+    Handles ``git@github.com:user/repo.git``, ``ssh://git@github.com/user/repo.git``
+    and ``https://github.com/user/repo.git``. Returns None if it cannot be parsed,
+    so callers fall back rather than publishing a broken link.
+    """
+    url = (raw or "").strip()
+    if not url:
+        return None
+    url = re.sub(r"^ssh://", "", url)
+    # scp-style `git@host:user/repo`, and `git@host/user/repo` left by stripping ssh://
+    match = re.match(r"^[\w.-]+@([\w.-]+)[:/](.+)$", url)
+    if match:
+        url = f"https://{match.group(1)}/{match.group(2)}"
+    elif url.startswith("git://"):
+        url = "https://" + url[len("git://"):]
+    if not url.startswith(("http://", "https://")):
+        return None
+    return url.removesuffix(".git").rstrip("/")
+
+
+def pages_url(repo_url: str) -> str | None:
+    """Derive the GitHub Pages URL for a repository, used for canonical links."""
+    match = re.match(r"^https?://github\.com/([^/]+)/([^/]+)$", repo_url or "")
+    if not match:
+        return None
+    owner, repo = match.groups()
+    return f"https://{owner.lower()}.github.io/{repo}/"
+
+
 def catalog_label(catalog: str) -> str:
     if catalog in CATALOG_LABELS:
         return CATALOG_LABELS[catalog]
@@ -200,27 +231,26 @@ def render_mkdocs_config(rows: list[dict[str, Any]], repo_url: str) -> str:
         "site_description": "LinkML schemas generated from databases federated behind "
                             "the JGI Starburst lakehouse",
         "repo_url": repo_url,
+        # Only affects canonical tags and sitemap.xml; page links stay relative.
+        **({"site_url": pages_url(repo_url)} if pages_url(repo_url) else {}),
+        # Theme, plugins and extensions mirror bridge-schemas, the reference LinkML
+        # documentation site, so this stays close to established practice.
         "theme": {
             "name": "material",
-            "palette": [
-                {"scheme": "default", "primary": "teal", "accent": "cyan",
-                 "toggle": {"icon": "material/brightness-7", "name": "Switch to dark"}},
-                {"scheme": "slate", "primary": "teal", "accent": "cyan",
-                 "toggle": {"icon": "material/brightness-4", "name": "Switch to light"}},
-            ],
-            "features": ["navigation.instant", "navigation.tracking",
-                         "navigation.sections", "search.suggest", "content.code.copy"],
+            "palette": {"primary": "teal", "accent": "cyan"},
         },
         "plugins": ["search", "mermaid2"],
         "markdown_extensions": [
+            # admonition backs the `!!! note` blocks on the generated index page.
             "admonition",
-            "attr_list",
-            "tables",
-            {"toc": {"permalink": True}},
-            "pymdownx.details",
+            # Required, not optional, and the one addition beyond bridge-schemas:
+            # gen-doc wraps every page body in `<div data-search-exclude markdown="1">`.
+            # Without md_in_html, Python-Markdown treats that div's contents as raw
+            # HTML and parses none of it, so headings, tables, links and mermaid
+            # fences all render as literal text.
+            "md_in_html",
             # gen-doc emits ```mermaid class diagrams. Without this custom fence,
-            # superfences treats them as ordinary code blocks and they render as
-            # literal text -- which is what the published site showed before this.
+            # superfences treats them as ordinary code blocks.
             {"pymdownx.superfences": {
                 "custom_fences": [{
                     "name": "mermaid",

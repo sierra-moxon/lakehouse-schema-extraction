@@ -298,7 +298,25 @@ testdoc: gendoc site
         echo "      'target not found' warnings above; the Linux CI build is unaffected."
     fi
 
-# Serve the documentation site locally at http://127.0.0.1:8000
+# Builds one schema into .preview/ and serves it. Seconds rather than the ~16 minutes
+# a full gendoc + site takes, and it uses the same generated config, so what renders
+# here is what CI publishes.
+# Preview a single schema's docs locally, e.g. `just preview smc-db_postgresql public`
+preview cat=catalog sch=schema:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    src="schemas/{{cat}}/{{sch}}.linkml.yaml"
+    test -f "$src" || { echo "no schema at $src"; exit 1; }
+    rm -rf .preview
+    mkdir -p ".preview/docs/{{cat}}/{{sch}}"
+    uvx --from linkml gen-doc -d ".preview/docs/{{cat}}/{{sch}}" "$src" </dev/null
+    uv run lakehouse-build-docs --only "{{cat}}/{{sch}}" \
+        --docs-dir .preview/docs --config .preview/mkdocs.yml
+    echo ""
+    echo "serving {{cat}}/{{sch}} -- open http://127.0.0.1:8000 (ctrl-c to stop)"
+    uv run --group docs mkdocs serve -f .preview/mkdocs.yml
+
+# Serve the whole documentation site locally at http://127.0.0.1:8000
 serve:
     uv run --group docs mkdocs serve
 

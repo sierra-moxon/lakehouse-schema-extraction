@@ -11,6 +11,8 @@ import yaml
 from lakehouse_schema_extraction.docs_site import (
     catalog_label,
     collect,
+    normalise_repo_url,
+    pages_url,
     render_index,
     render_mkdocs_config,
     summarise,
@@ -154,6 +156,49 @@ class TestMermaidSupport:
     def test_custom_fence_is_registered_for_mermaid(self, raw):
         assert "name: mermaid" in raw
         assert "class: mermaid" in raw
+
+
+class TestRepoUrl:
+    """The site's repository link is derived from the git remote, not hardcoded --
+    a hardcoded placeholder shipped a wrong link to the published site once already."""
+
+    @pytest.mark.parametrize("raw,expected", [
+        ("https://github.com/sierra-moxon/lakehouse-schema-extraction.git",
+         "https://github.com/sierra-moxon/lakehouse-schema-extraction"),
+        ("git@github.com:sierra-moxon/lakehouse-schema-extraction.git",
+         "https://github.com/sierra-moxon/lakehouse-schema-extraction"),
+        ("ssh://git@github.com/sierra-moxon/repo.git",
+         "https://github.com/sierra-moxon/repo"),
+        ("https://github.com/owner/repo/", "https://github.com/owner/repo"),
+        ("  https://github.com/owner/repo.git\n", "https://github.com/owner/repo"),
+    ])
+    def test_remote_forms_normalise_to_a_browsable_url(self, raw, expected):
+        assert normalise_repo_url(raw) == expected
+
+    @pytest.mark.parametrize("raw", ["", "   ", "not a url", "/local/path"])
+    def test_unparseable_remotes_return_none_so_callers_can_fall_back(self, raw):
+        assert normalise_repo_url(raw) is None
+
+    def test_pages_url_is_derived_from_the_repository(self):
+        assert pages_url("https://github.com/sierra-moxon/lakehouse-schema-extraction") \
+            == "https://sierra-moxon.github.io/lakehouse-schema-extraction/"
+
+    def test_pages_url_lowercases_the_owner(self):
+        """github.io hostnames are lowercase even when the account name is not."""
+        assert pages_url("https://github.com/Sierra-Moxon/repo") \
+            == "https://sierra-moxon.github.io/repo/"
+
+    def test_non_github_remote_yields_no_site_url(self):
+        assert pages_url("https://gitlab.com/owner/repo") is None
+
+    def test_site_url_is_set_in_the_config(self, schema_dir):
+        raw = render_mkdocs_config(
+            collect(schema_dir), "https://github.com/sierra-moxon/repo")
+        assert "site_url: https://sierra-moxon.github.io/repo/" in raw
+
+    def test_site_url_is_omitted_for_non_github_remotes(self, schema_dir):
+        raw = render_mkdocs_config(collect(schema_dir), "https://example.org/repo")
+        assert "site_url" not in raw
 
 
 class TestCatalogLabels:
