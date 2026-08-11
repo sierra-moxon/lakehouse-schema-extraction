@@ -1,0 +1,170 @@
+id: https://w3id.org/jgi/expression
+name: expression
+title: plant-db-7_postgresql.expression
+description: Generated from plant-db-7_postgresql.expression by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  expression: https://w3id.org/jgi/expression/
+default_prefix: expression
+default_range: string
+imports:
+- linkml:types
+classes:
+  CellBitvector:
+    attributes:
+      cell_id:
+        identifier: true
+        range: integer
+      bit_vector:
+        range: string
+    aliases:
+    - cell_bitvector
+  CellOld:
+    attributes:
+      cell_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      cell_order:
+        range: integer
+        required: true
+      experiment_set_id:
+        range: integer
+      condition_vector:
+        range: string
+      expression_vector:
+        range: double
+        multivalued: true
+      ux:
+        range: double
+      uy:
+        range: double
+      sample:
+        range: string
+      organism:
+        range: string
+      cell_type:
+        range: string
+      replicate:
+        range: string
+      treatment:
+        range: string
+      total_expression:
+        range: double
+      bit_vector:
+        range: string
+    aliases:
+    - cell_old
+  ExperimentSet:
+    attributes:
+      experiment_set_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      metadata:
+        range: string
+      proteomes:
+        range: string
+      active:
+        range: integer
+    aliases:
+    - experiment_set
+  GeneBitvector:
+    attributes:
+      gene_id:
+        identifier: true
+        range: integer
+      bit_vector:
+        range: string
+      created_at:
+        range: datetime
+    aliases:
+    - gene_bitvector
+  Cell:
+    attributes:
+      cell_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+      cell_order:
+        range: integer
+      experiment_set_id:
+        range: ExperimentSet
+      condition_vector:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+      sample:
+        range: string
+      organism:
+        range: string
+      cell_type:
+        range: string
+      replicate:
+        range: string
+      treatment:
+        range: string
+      total_expression:
+        range: double
+      bit_vector:
+        range: string
+      expression_vector_gz:
+        range: string
+      bit_vector_gz:
+        range: string
+    aliases:
+    - cell
+  Condition:
+    attributes:
+      condition_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      condition_order:
+        range: integer
+        required: true
+      experiment_set_id:
+        range: ExperimentSet
+      condition_type:
+        range: string
+    aliases:
+    - condition
+  Gene:
+    attributes:
+      gene_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      gene_order:
+        range: integer
+        required: true
+      experiment_set_id:
+        range: ExperimentSet
+      bit_vector:
+        range: string
+      defline:
+        range: string
+      feature_id:
+        range: integer
+      expression_vector_gz:
+        range: string
+      bit_vector_gz:
+        range: string
+    aliases:
+    - gene

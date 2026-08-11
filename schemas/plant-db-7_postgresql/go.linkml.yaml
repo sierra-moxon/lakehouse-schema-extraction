@@ -1,0 +1,31 @@
+id: https://w3id.org/jgi/go
+name: go
+title: plant-db-7_postgresql.go
+description: Generated from plant-db-7_postgresql.go by schema-automator, with types and nullability refined
+  from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  go: https://w3id.org/jgi/go/
+default_prefix: go
+default_range: string
+imports:
+- linkml:types
+classes:
+  Db2go:
+    attributes:
+      db:
+        range: string
+      db_id:
+        range: string
+      db_name:
+        range: string
+      db_description:
+        range: string
+      go_id:
+        range: string
+      go_category:
+        range: string
+      go_description:
+        range: string
+    aliases:
+    - db2go

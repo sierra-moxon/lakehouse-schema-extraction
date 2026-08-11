@@ -1,0 +1,226 @@
+id: https://w3id.org/jgi/img_rnaseq
+name: img_rnaseq
+title: img-db-2_postgresql.img_rnaseq
+description: Generated from img-db-2_postgresql.img_rnaseq by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_rnaseq: https://w3id.org/jgi/img_rnaseq/
+default_prefix: img_rnaseq
+default_range: string
+imports:
+- linkml:types
+classes:
+  RnaseqDataset:
+    attributes:
+      dataset_oid:
+        identifier: true
+        range: decimal
+      sample_oid:
+        range: string
+      reference_taxon_oid:
+        range: decimal
+        required: true
+      notes:
+        range: string
+      gold_id:
+        range: string
+      er_project_id:
+        range: decimal
+      er_sample_id:
+        range: decimal
+      analysis_project_id:
+        range: string
+      add_date:
+        range: datetime
+      is_public:
+        range: string
+      submission_id:
+        range: decimal
+      in_file:
+        range: string
+      obsolete_flag:
+        range: string
+      dataset_type:
+        range: string
+      release_date:
+        range: datetime
+      jgi_rnd_flag:
+        range: string
+      its_ap_id:
+        range: decimal
+      its_sp_id:
+        range: decimal
+      combined_assembly_flag:
+        range: string
+      intergenic_flag:
+        range: string
+      quality:
+        range: string
+      pem_value:
+        range: decimal
+      as_read_count:
+        range: integer
+    aliases:
+    - rnaseq_dataset
+  RnaseqExperiment:
+    attributes:
+      exp_oid:
+        identifier: true
+        range: integer
+      project_name:
+        range: string
+      exp_name:
+        range: string
+      description:
+        range: string
+      ext_accession:
+        range: string
+      exp_date:
+        range: string
+      exp_contact:
+        range: string
+      method_type:
+        range: string
+      add_date:
+        range: datetime
+      notes:
+        range: string
+      is_public:
+        range: string
+      submission_id:
+        range: integer
+      in_file:
+        range: string
+        required: true
+    aliases:
+    - rnaseq_experiment
+  RnaseqSample:
+    attributes:
+      sample_oid:
+        range: string
+      description:
+        range: string
+      sample_origin:
+        range: string
+      ncbi_taxon_id:
+        range: integer
+      organism_name:
+        range: string
+      img_taxon_oid:
+        range: integer
+      experiment:
+        range: integer
+      notes:
+        range: string
+      experiment_date:
+        range: string
+      gold_id:
+        range: string
+      project_sample_id:
+        range: decimal
+      er_project_id:
+        range: decimal
+      er_sample_id:
+        range: decimal
+      analysis_project_id:
+        range: decimal
+      dataset_oid:
+        identifier: true
+        range: string
+      add_date:
+        range: datetime
+      is_public:
+        range: string
+      submission_id:
+        range: integer
+      in_file:
+        range: string
+      obsolete_flag:
+        range: string
+    aliases:
+    - rnaseq_sample
+  RnaseqSampleExtLinks:
+    attributes:
+      sample_oid:
+        range: string
+      db_name:
+        range: string
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - rnaseq_sample_ext_links
+  RnaseqSampleSop:
+    attributes:
+      sample_oid:
+        range: string
+        required: true
+      tag:
+        range: string
+      value:
+        range: string
+    aliases:
+    - rnaseq_sample_sop
+  Usermaster:
+    attributes:
+      user_id:
+        identifier: true
+        range: decimal
+      id_type:
+        range: string
+    aliases:
+    - usermaster
+  RnaseqDatasetStats:
+    attributes:
+      dataset_oid:
+        range: RnaseqDataset
+      gene_count:
+        range: decimal
+      total_reads_count:
+        range: decimal
+      avg_reads_count:
+        range: decimal
+    aliases:
+    - rnaseq_dataset_stats
+  RnaseqExperimentExtLinks:
+    attributes:
+      exp_oid:
+        range: RnaseqExperiment
+      db_name:
+        range: string
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - rnaseq_experiment_ext_links
+  RnaseqExperimentPubs:
+    attributes:
+      exp_oid:
+        range: RnaseqExperiment
+      pubs:
+        range: string
+    aliases:
+    - rnaseq_experiment_pubs
+  RnaseqExperimentSop:
+    attributes:
+      exp_oid:
+        range: RnaseqExperiment
+      tag:
+        range: string
+      value:
+        range: string
+    aliases:
+    - rnaseq_experiment_sop
+  RnaseqExperimentStats:
+    attributes:
+      exp_oid:
+        range: RnaseqExperiment
+      num_samples:
+        range: integer
+      gene_count:
+        range: integer
+    aliases:
+    - rnaseq_experiment_stats

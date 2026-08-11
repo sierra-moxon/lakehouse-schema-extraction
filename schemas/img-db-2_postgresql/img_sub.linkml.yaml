@@ -1,0 +1,1025 @@
+id: https://w3id.org/jgi/img_sub
+name: img_sub
+title: img-db-2_postgresql.img_sub
+description: Generated from img-db-2_postgresql.img_sub by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_sub: https://w3id.org/jgi/img_sub/
+default_prefix: img_sub
+default_range: string
+imports:
+- linkml:types
+classes:
+  AnalysisProjectPermissions:
+    attributes:
+      gold_id:
+        range: string
+      contact_oid:
+        range: integer
+    aliases:
+    - analysis_project_permissions
+  AnnotationContigsProteinsCounts:
+    attributes:
+      submission_id:
+        range: integer
+      split_number:
+        range: integer
+      contigs_count:
+        range: integer
+      bp_count:
+        range: integer
+      proteins_count:
+        range: integer
+      aa_count:
+        range: integer
+    aliases:
+    - annotation_contigs_proteins_counts
+  AnnotationJobSbatchArgs:
+    attributes:
+      submission_id:
+        range: integer
+      job_id:
+        range: string
+      sbatch_args:
+        range: string
+      dependency_after:
+        range: integer
+      number_of_array_tasks:
+        range: integer
+    aliases:
+    - annotation_job_sbatch_args
+  AnnotationJobStats:
+    attributes:
+      submission_id:
+        range: integer
+      job_id:
+        range: string
+      submit_time:
+        range: datetime
+      start_time:
+        range: datetime
+      end_time:
+        range: datetime
+      elapsed_time:
+        range: string
+      alloc_cpus:
+        range: integer
+      job_state:
+        range: string
+    aliases:
+    - annotation_job_stats
+  AnnotationStepStats:
+    attributes:
+      submission_id:
+        range: integer
+      split_number:
+        range: integer
+      step:
+        range: string
+      command:
+        range: string
+      run_time:
+        range: string
+      used_memory_in_kb:
+        range: integer
+      cpu_percent:
+        range: integer
+      annotations_count:
+        range: integer
+      used_versions:
+        range: string
+    aliases:
+    - annotation_step_stats
+  Announcement:
+    attributes:
+      type:
+        range: string
+      notes:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - announcement
+  Batch:
+    attributes:
+      batch_id:
+        range: integer
+      database:
+        range: string
+      no_submissions:
+        range: integer
+      start_date:
+        range: datetime
+      annot_ready_date:
+        range: datetime
+      finish_date:
+        range: datetime
+    aliases:
+    - batch
+  BinMethodcv:
+    attributes:
+      cv_term:
+        range: string
+    aliases:
+    - bin_methodcv
+  Contact:
+    attributes:
+      contact_oid:
+        identifier: true
+        range: integer
+      username:
+        range: string
+      password:
+        range: string
+      name:
+        range: string
+      title:
+        range: string
+      department:
+        range: string
+      email:
+        range: string
+      phone:
+        range: string
+      organization:
+        range: string
+      address:
+        range: string
+      city:
+        range: string
+      state:
+        range: string
+      country:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+      super_user:
+        range: string
+      img_editor:
+        range: string
+      img_group:
+        range: integer
+      jgi_user:
+        range: string
+      img_editing_level:
+        range: string
+      caliban_id:
+        range: integer
+      caliban_user_name:
+        range: string
+      is_group_account:
+        range: string
+      opt_in:
+        range: string
+      keycloak_id:
+        range: string
+      ariel_contact_id:
+        range: integer
+      caliban_id_backup:
+        range: integer
+    aliases:
+    - contact
+  ContactImgGroups:
+    attributes:
+      contact_oid:
+        range: integer
+      img_group:
+        range: integer
+      role:
+        range: string
+    aliases:
+    - contact_img_groups
+  ContactJgiAccounts:
+    attributes:
+      contact_oid:
+        range: integer
+      jgi_user_id:
+        range: integer
+      jgi_user_name:
+        range: string
+    aliases:
+    - contact_jgi_accounts
+  ContactRnaDataPermissions:
+    attributes:
+      contact_oid:
+        range: integer
+      dataset_oid:
+        range: integer
+    aliases:
+    - contact_rna_data_permissions
+  ContactRnaexpPermissions:
+    attributes:
+      contact_oid:
+        range: integer
+      rnaexp_permissions:
+        range: integer
+    aliases:
+    - contact_rnaexp_permissions
+  ContactTaxonPermissions:
+    attributes:
+      contact_oid:
+        range: integer
+      taxon_permissions:
+        range: integer
+    aliases:
+    - contact_taxon_permissions
+  ContactWorkspaceGroup:
+    attributes:
+      contact_oid:
+        range: integer
+      data_set_type:
+        range: string
+      data_set_name:
+        range: string
+      group_id:
+        range: integer
+    aliases:
+    - contact_workspace_group
+  Countrycv:
+    attributes:
+      cv_term:
+        range: string
+      longitude:
+        range: string
+      latitude:
+        range: string
+    aliases:
+    - countrycv
+  GeneMyimgEnzymes:
+    attributes:
+      gene_oid:
+        range: integer
+      ec_number:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - gene_myimg_enzymes
+  GeneMyimgFunctions:
+    attributes:
+      gene_oid:
+        range: integer
+      product_name:
+        range: string
+      prot_desc:
+        range: string
+      ec_number:
+        range: string
+      pubmed_id:
+        range: string
+      inference:
+        range: string
+      is_pseudogene:
+        range: string
+      notes:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+      gene_symbol:
+        range: string
+      obsolete_flag:
+        range: string
+      is_public:
+        range: string
+    aliases:
+    - gene_myimg_functions
+  GeneMyimgGroups:
+    attributes:
+      gene_oid:
+        range: decimal
+      contact_oid:
+        range: decimal
+      group_id:
+        range: decimal
+    aliases:
+    - gene_myimg_groups
+  Genecallingcv:
+    attributes:
+      cv_term:
+        range: string
+      cv_order:
+        range: integer
+    aliases:
+    - genecallingcv
+  ImgGroup:
+    attributes:
+      group_id:
+        range: integer
+      group_name:
+        range: string
+      lead:
+        range: integer
+      add_date:
+        range: datetime
+      comments:
+        range: string
+    aliases:
+    - img_group
+  ImgGroupNews:
+    attributes:
+      group_id:
+        range: integer
+      news_id:
+        range: integer
+      title:
+        range: string
+      description:
+        range: string
+      posted_by:
+        range: integer
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      is_public:
+        range: string
+      released_by:
+        range: integer
+      release_date:
+        range: datetime
+    aliases:
+    - img_group_news
+  KbasePangenome:
+    attributes:
+      pangenome_id:
+        range: string
+      rep_clade_name:
+        range: string
+      gtdb_domain:
+        range: string
+      gtdb_phylum:
+        range: string
+      gtdb_class:
+        range: string
+      gtdb_order:
+        range: string
+      gtdb_family:
+        range: string
+      gtdb_genus:
+        range: string
+      gtdb_species:
+        range: string
+    aliases:
+    - kbase_pangenome
+  KbasePangenomeMembers:
+    attributes:
+      pangenome_id:
+        range: string
+      member_id:
+        range: string
+      checkm_completeness:
+        range: decimal
+      checkm_contamination:
+        range: decimal
+      new_completeness:
+        range: decimal
+    aliases:
+    - kbase_pangenome_members
+  LockStatus:
+    attributes:
+      lock_status:
+        range: string
+      script:
+        identifier: true
+        range: string
+    aliases:
+    - lock_status
+  MerfsAggregateFileSize:
+    attributes:
+      pre_aggregate_file_size_gb:
+        range: decimal
+      submission_id:
+        range: integer
+      post_aggregate_file_size_gb:
+        range: decimal
+      status:
+        range: integer
+      start_date:
+        range: datetime
+      end_date:
+        range: datetime
+      agg_sum_files:
+        range: decimal
+    aliases:
+    - merfs_aggregate_file_size
+  Mygene:
+    attributes:
+      mygene_oid:
+        range: integer
+      gene_symbol:
+        range: string
+      gene_display_name:
+        range: string
+      product_name:
+        range: string
+      ec_number:
+        range: string
+      locus_tag:
+        range: string
+      locus_type:
+        range: string
+      scaffold:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      is_pseudogene:
+        range: string
+      description:
+        range: string
+      protein_seq_accid:
+        range: string
+      taxon:
+        range: integer
+      img_orf_type:
+        range: string
+      obsolete_flag:
+        range: string
+      aa_residue:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      hitgene_oid:
+        range: integer
+      dna_coords:
+        range: string
+      is_public:
+        range: string
+      replacing_gene:
+        range: string
+      created_by:
+        range: integer
+    aliases:
+    - mygene
+  MygeneImgGroups:
+    attributes:
+      mygene_oid:
+        range: decimal
+      contact_oid:
+        range: decimal
+      group_id:
+        range: decimal
+    aliases:
+    - mygene_img_groups
+  MyimgBioClusterNp:
+    attributes:
+      cluster_id:
+        range: string
+      taxon_oid:
+        range: integer
+      compound_oid:
+        range: integer
+      ncbi_acc:
+        range: string
+      ncbi_taxon:
+        range: decimal
+      is_partial:
+        range: string
+      is_public:
+        range: string
+      comments:
+        range: string
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+    aliases:
+    - myimg_bio_cluster_np
+  NotToRelease:
+    attributes:
+      taxon_oid:
+        range: integer
+      description:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - not_to_release
+  RequestAccount:
+    attributes:
+      request_oid:
+        range: integer
+      username:
+        range: string
+      group_name:
+        range: string
+      name:
+        range: string
+      title:
+        range: string
+      department:
+        range: string
+      email:
+        range: string
+      phone:
+        range: string
+      organization:
+        range: string
+      address:
+        range: string
+      city:
+        range: string
+      state:
+        range: string
+      country:
+        range: string
+      comments:
+        range: string
+      notes:
+        range: string
+      status:
+        range: string
+      request_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      assign_contact_oid:
+        range: integer
+    aliases:
+    - request_account
+  RequestStatuscv:
+    attributes:
+      cv_term:
+        range: string
+    aliases:
+    - request_statuscv
+  RnaseqNotify:
+    attributes:
+      submission_id:
+        range: integer
+      dataset_oid:
+        range: integer
+      submission_date:
+        range: datetime
+      reference_taxon_oid:
+        range: integer
+      reference_taxon:
+        range: string
+      project:
+        range: string
+      loading_date:
+        range: datetime
+      pi:
+        range: string
+      its_spid:
+        range: integer
+      its_apid:
+        range: integer
+      rna_processed_date:
+        range: datetime
+      notified:
+        range: string
+      pi_email:
+        range: string
+      dataset_url:
+        range: string
+      submission_id_url:
+        range: string
+      reference_taxon_oid_url:
+        range: string
+      reference_taxon_url:
+        range: string
+      project_url:
+        range: string
+      main_contact:
+        range: string
+      supplemental_contact:
+        range: string
+      gold_id:
+        range: string
+      person_notified:
+        range: string
+      email_rna_data:
+        range: string
+      name_rna_data:
+        range: string
+      main_contact_name:
+        range: string
+      database:
+        range: string
+      jgi_rnd_flag:
+        range: string
+      in_file:
+        range: string
+      is_img_public:
+        range: string
+      analysis_project_id:
+        range: string
+      add_date:
+        range: datetime
+      projectid:
+        range: string
+      sampleid:
+        range: string
+      email_pm_contact:
+        range: string
+      name_pm_contact:
+        range: string
+      dual_role:
+        range: string
+      dataset_oid_spid_list:
+        range: string
+      combined_assembly:
+        range: string
+    aliases:
+    - rnaseq_notify
+  Submission:
+    attributes:
+      database:
+        range: string
+      contact:
+        range: integer
+      project_info:
+        range: integer
+      submission_date:
+        range: datetime
+      genbank_file:
+        range: string
+      img_ec_flag:
+        range: string
+      img_product_flag:
+        range: string
+      species_code:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      comments:
+        range: string
+      scaffold_count:
+        range: integer
+      error_file:
+        range: string
+      status:
+        range: integer
+      gene_calling_flag:
+        range: string
+      file_location:
+        range: string
+      sample_oid:
+        range: integer
+      submission_id:
+        range: integer
+      contigs_file:
+        range: string
+      singlets_file:
+        range: string
+      binning_file:
+        range: string
+      is_img_public:
+        range: string
+      img_taxon_oid:
+        range: integer
+      admin_notes:
+        range: string
+      mol_topology:
+        range: string
+      approval_status:
+        range: string
+      approved_by:
+        range: integer
+      replace_taxon_oid:
+        range: integer
+      error_msg:
+        range: string
+      img_dev_flag:
+        range: string
+      remove_duplicate_flag:
+        range: string
+      seq_status:
+        range: string
+      subtitle:
+        range: string
+      bin_method:
+        range: string
+      stats_file:
+        range: string
+      assembled_seq_file:
+        range: string
+      assembler_used:
+        range: string
+      reads_for_assembly:
+        range: string
+      unassembled_454_file:
+        range: string
+      unassembled_454_quality_trim:
+        range: string
+      unassembled_454_trim_method:
+        range: string
+      unassembled_illumina_file:
+        range: string
+      cluster_seq:
+        range: string
+      quality_based_trim:
+        range: string
+      seq_coverage_file:
+        range: string
+      unassembled_illum_quality_trim:
+        range: string
+      unassembled_illum_trim_method:
+        range: string
+      loaded_into_img:
+        range: string
+      in_file:
+        range: string
+      permute:
+        range: string
+      all_reads:
+        range: string
+      assembly_qd_report:
+        range: string
+      assembly_qc_report:
+        range: string
+      info_file:
+        range: string
+      agp_file:
+        range: string
+      add_to_portal:
+        range: string
+      portal_url:
+        range: string
+      portal_release_date:
+        range: datetime
+      names_map_file:
+        range: string
+      batch_id:
+        range: integer
+      prev_submission_id:
+        range: integer
+      embargo_days:
+        range: integer
+      refseq_project_id:
+        range: integer
+      gbk_project_id:
+        range: integer
+      gff_file:
+        range: string
+      approval_date:
+        range: datetime
+      bam_file:
+        range: string
+      result_wig_directory:
+        range: string
+      result_exp_file:
+        range: string
+      reference_sub_id:
+        range: integer
+      exp_experiment_id:
+        range: integer
+      library_info:
+        range: string
+      genbank_id:
+        range: string
+      h5_files:
+        range: string
+      rqc_assembly_id:
+        range: integer
+      unassembled_pacbio_file:
+        range: string
+      jat_key_id:
+        range: string
+      analysis_project_id:
+        range: string
+      passed_quality_chk:
+        range: string
+      is_jgi:
+        range: string
+      contact_email:
+        range: string
+      met_processing:
+        range: string
+      set_embargo_date:
+        range: string
+      pushed_to_met_ws:
+        range: string
+      img_term_transfer_date:
+        range: datetime
+      is_contaminated:
+        range: string
+      genome_completion:
+        range: float
+      img_handler:
+        range: string
+      jgi_rnd_flag:
+        range: string
+      pass_to_qaqc:
+        range: string
+      protein_faa_file:
+        range: string
+      compute_platform:
+        range: string
+      source:
+        range: string
+      send_email:
+        range: string
+      jamo_archive:
+        range: string
+      img_beehive:
+        range: string
+      annotation_version:
+        range: string
+    aliases:
+    - submission
+  SubmissionDataFiles:
+    attributes:
+      submission_id:
+        range: integer
+      file_type:
+        range: string
+      file_name:
+        range: string
+      md5sum:
+        range: string
+    aliases:
+    - submission_data_files
+  SubmissionDataFilesDmpath:
+    attributes:
+      submission_id:
+        range: integer
+      file_type:
+        range: string
+      file_name:
+        range: string
+      restore_date:
+        range: datetime
+    aliases:
+    - submission_data_files_dmpath
+  SubmissionHistory:
+    attributes:
+      submission_id:
+        range: integer
+      status:
+        range: integer
+      comments:
+        range: string
+      username:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - submission_history
+  SubmissionImgContacts:
+    attributes:
+      submission_id:
+        range: integer
+      img_contacts:
+        range: integer
+    aliases:
+    - submission_img_contacts
+  SubmissionProcStats:
+    attributes:
+      submission_id:
+        range: integer
+      step:
+        range: string
+      description:
+        range: string
+      total_seq:
+        range: integer
+      total_bases:
+        range: integer
+      shortest_seq:
+        range: integer
+      longest_seq:
+        range: integer
+      avg_seq:
+        range: integer
+      median_seq:
+        range: integer
+      standard_dev:
+        range: integer
+      picture_file:
+        range: string
+      type_of_feature:
+        range: string
+      no_pred_features:
+        range: integer
+    aliases:
+    - submission_proc_stats
+  SubmissionProcSteps:
+    attributes:
+      submission_id:
+        range: integer
+      step:
+        range: string
+      program_used:
+        range: string
+      program_version:
+        range: string
+      input_file:
+        range: string
+      input_file_format:
+        range: string
+      output_file:
+        range: string
+      output_file_format:
+        range: string
+      reference_db:
+        range: string
+      command_arg:
+        range: string
+      comments:
+        range: string
+      start_at:
+        range: datetime
+      end_at:
+        range: datetime
+    aliases:
+    - submission_proc_steps
+  SubmissionQuerycv:
+    attributes:
+      term_oid:
+        range: decimal
+      cv_term:
+        range: string
+    aliases:
+    - submission_querycv
+  SubmissionReadsFile:
+    attributes:
+      submission_id:
+        range: integer
+      reads_file:
+        range: string
+    aliases:
+    - submission_reads_file
+  SubmissionSamples:
+    attributes:
+      submission_id:
+        range: integer
+      sample_oid:
+        range: integer
+    aliases:
+    - submission_samples
+  SubmissionStatuscv:
+    attributes:
+      term_oid:
+        range: integer
+      cv_term:
+        range: string
+      cv_type:
+        range: string
+      terminal_status:
+        range: string
+    aliases:
+    - submission_statuscv
+  TaxonGeneInfo:
+    attributes:
+      taxon_oid:
+        range: integer
+      gene_prefix:
+        range: string
+      min_value:
+        range: integer
+      max_value:
+        range: integer
+    aliases:
+    - taxon_gene_info
+  TaxonScaffoldInfo:
+    attributes:
+      taxon_oid:
+        range: integer
+      scaf_prefix:
+        range: string
+      min_value:
+        range: integer
+      max_value:
+        range: integer
+    aliases:
+    - taxon_scaffold_info
+  YesnocvSub:
+    attributes:
+      cv_term:
+        range: string
+    aliases:
+    - yesnocv_sub
+  Yesnoonlycv:
+    attributes:
+      cv_term:
+        range: string
+    aliases:
+    - yesnoonlycv

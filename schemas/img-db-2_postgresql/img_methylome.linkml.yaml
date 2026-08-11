@@ -1,0 +1,250 @@
+id: https://w3id.org/jgi/img_methylome
+name: img_methylome
+title: img-db-2_postgresql.img_methylome
+description: Generated from img-db-2_postgresql.img_methylome by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_methylome: https://w3id.org/jgi/img_methylome/
+default_prefix: img_methylome
+default_range: string
+imports:
+- linkml:types
+classes:
+  MethExp:
+    attributes:
+      exp_oid:
+        range: integer
+        required: true
+      project_name:
+        range: string
+      exp_name:
+        range: string
+      description:
+        range: string
+      exp_date:
+        range: string
+      exp_contact:
+        range: string
+      add_date:
+        range: datetime
+      notes:
+        range: string
+      is_public:
+        range: string
+      chemistry_type:
+        range: string
+    aliases:
+    - meth_exp
+  MethExperiment:
+    attributes:
+      exp_oid:
+        identifier: true
+        range: integer
+      project_name:
+        range: string
+      exp_name:
+        range: string
+      description:
+        range: string
+      exp_date:
+        range: string
+      exp_contact:
+        range: string
+      add_date:
+        range: datetime
+      notes:
+        range: string
+      is_public:
+        range: string
+      chemistry_type:
+        range: string
+    aliases:
+    - meth_experiment
+  MethModification:
+    attributes:
+      modification_oid:
+        identifier: true
+        range: integer
+      motif_summary:
+        range: integer
+        required: true
+      refid:
+        range: string
+      img_scaffold_oid:
+        range: integer
+      img_taxon_oid:
+        range: integer
+      tool_name:
+        range: string
+      type:
+        range: string
+      start_coord:
+        range: decimal
+      end_coord:
+        range: decimal
+      score:
+        range: decimal
+      strand:
+        range: string
+      phase:
+        range: string
+      ipd_ratio:
+        range: decimal
+      context:
+        range: string
+      coverage:
+        range: decimal
+      motif_string:
+        range: string
+      sample:
+        range: integer
+      experiment:
+        range: integer
+      methylation_coord:
+        range: decimal
+    aliases:
+    - meth_modification
+  MethMotif:
+    attributes:
+      motif_oid:
+        identifier: true
+        range: integer
+      refid:
+        range: string
+      img_scaffold_oid:
+        range: integer
+      img_taxon_oid:
+        range: integer
+      tool_name:
+        range: string
+      type:
+        range: string
+      start_coord:
+        range: decimal
+      end_coord:
+        range: decimal
+      score:
+        range: decimal
+      strand:
+        range: string
+      phase:
+        range: string
+      ipd_ratio:
+        range: decimal
+      context:
+        range: string
+      coverage:
+        range: decimal
+      motif_string:
+        range: string
+      sample:
+        range: integer
+      experiment:
+        range: integer
+    aliases:
+    - meth_motif
+  MethExperimentExtLinks:
+    attributes:
+      exp_oid:
+        range: MethExperiment
+      db_name:
+        range: string
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - meth_experiment_ext_links
+  MethExperimentPublications:
+    attributes:
+      exp_oid:
+        range: MethExperiment
+      publications:
+        range: string
+    aliases:
+    - meth_experiment_publications
+  MethSample:
+    attributes:
+      sample_oid:
+        identifier: true
+        range: integer
+      description:
+        range: string
+      organism_name:
+        range: string
+      img_taxon_oid:
+        range: integer
+      experiment:
+        range: MethExperiment
+    aliases:
+    - meth_sample
+  MethFunctionCoverage:
+    attributes:
+      exp_oid:
+        range: MethExperiment
+      sample_oid:
+        range: MethSample
+      function_type:
+        range: string
+      function_id:
+        range: string
+        required: true
+      modification_count:
+        range: decimal
+    aliases:
+    - meth_function_coverage
+  MethMotifSummary:
+    attributes:
+      motif_summ_oid:
+        identifier: true
+        range: integer
+      experiment:
+        range: MethExperiment
+      sample:
+        range: MethSample
+      img_taxon_oid:
+        range: integer
+      motif_string:
+        range: string
+      center_pos:
+        range: decimal
+      fraction:
+        range: decimal
+      n_detected:
+        range: decimal
+      n_genome:
+        range: decimal
+      group_tag:
+        range: string
+      partner_motif_string:
+        range: string
+      mean_score:
+        range: decimal
+      mean_ipd_ratio:
+        range: decimal
+      mean_coverage:
+        range: decimal
+      objective_score:
+        range: decimal
+      modification_type:
+        range: string
+    aliases:
+    - meth_motif_summary
+  MethStats:
+    attributes:
+      exp_oid:
+        identifier: true
+        range: MethExperiment
+      sample_oid:
+        range: MethSample
+      n_coding_mods:
+        range: decimal
+      n_anticoding_mods:
+        range: decimal
+      n_noncoding_mods:
+        range: decimal
+      n_both_strand_mods:
+        range: decimal
+    aliases:
+    - meth_stats

@@ -1,0 +1,115 @@
+id: https://w3id.org/jgi/public
+name: public
+title: img-db-2_postgresql.public
+description: Generated from img-db-2_postgresql.public by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  public: https://w3id.org/jgi/public/
+default_prefix: public
+default_range: string
+imports:
+- linkml:types
+classes:
+  AltTranscript:
+    attributes:
+      alt_transcript_oid:
+        identifier: true
+        range: integer
+      gene:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      strand:
+        range: string
+      is_pseudogene:
+        range: string
+      aa_checksum:
+        range: string
+      name:
+        range: string
+      ext_accession:
+        range: string
+      description:
+        range: string
+      aa_residue:
+        range: string
+    aliases:
+    - alt_transcript
+  Gene:
+    attributes:
+      gene_oid:
+        identifier: true
+        range: integer
+      gene_symbol:
+        range: string
+      gene_display_name:
+        range: string
+      product_name:
+        range: string
+      locus_tag:
+        range: string
+      locus_type:
+        range: string
+      scaffold:
+        range: integer
+      chromosome:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      is_partial_w:
+        range: string
+      start_coord_w:
+        range: integer
+      end_coord_w:
+        range: integer
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      aa_checksum:
+        range: string
+      is_pseudogene:
+        range: string
+      description:
+        range: string
+      protein_seq_accid:
+        range: string
+      taxon:
+        range: integer
+      obsolete_flag:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      img_product_source:
+        range: string
+      cds_frag_coord:
+        range: string
+      partial_gene:
+        range: string
+      copy_number:
+        range: integer
+      est_copy:
+        range: integer
+      gc_percent:
+        range: decimal
+      codon_start:
+        range: integer
+      transl_table:
+        range: integer
+    aliases:
+    - gene

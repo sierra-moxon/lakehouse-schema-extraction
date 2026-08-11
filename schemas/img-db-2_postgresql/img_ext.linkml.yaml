@@ -1,0 +1,1415 @@
+id: https://w3id.org/jgi/img_ext
+name: img_ext
+title: img-db-2_postgresql.img_ext
+description: Generated from img-db-2_postgresql.img_ext by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_ext: https://w3id.org/jgi/img_ext/
+default_prefix: img_ext
+default_range: string
+imports:
+- linkml:types
+classes:
+  Assertioncv:
+    attributes:
+      term_cv:
+        identifier: true
+        range: string
+      description:
+        range: string
+    aliases:
+    - assertioncv
+  BcExtLinks:
+    attributes:
+      cluster_id:
+        range: string
+      db_name:
+        range: string
+      id:
+        range: string
+    aliases:
+    - bc_ext_links
+  CellLocalization:
+    attributes:
+      loc_type:
+        range: string
+        required: true
+      definition:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - cell_localization
+  Componentcv:
+    attributes:
+      component_cv:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - componentcv
+  CompoundExtDb:
+    attributes:
+      db_name:
+        range: string
+        required: true
+      url_template:
+        range: string
+    aliases:
+    - compound_ext_db
+  DbSource:
+    attributes:
+      db_code:
+        range: string
+        required: true
+      name:
+        range: string
+      base_url:
+        range: string
+    aliases:
+    - db_source
+  DtAllPhyloTaxonStats:
+    attributes:
+      taxon_oid:
+        range: decimal
+        required: true
+      data_type:
+        range: string
+      homolog_taxon:
+        range: decimal
+        required: true
+      gene_count_30:
+        range: decimal
+      gene_count_60:
+        range: decimal
+      gene_count_90:
+        range: decimal
+      est_copy_30:
+        range: decimal
+      est_copy_60:
+        range: decimal
+      est_copy_90:
+        range: decimal
+    aliases:
+    - dt_all_phylo_taxon_stats
+  DtPhyloTaxonStats:
+    attributes:
+      taxon_oid:
+        range: decimal
+        required: true
+      data_type:
+        range: string
+      homolog_taxon:
+        range: decimal
+        required: true
+      gene_count_30:
+        range: decimal
+      gene_count_60:
+        range: decimal
+      gene_count_90:
+        range: decimal
+      est_copy_30:
+        range: decimal
+      est_copy_60:
+        range: decimal
+      est_copy_90:
+        range: decimal
+    aliases:
+    - dt_phylo_taxon_stats
+  GeneFunctionHistory:
+    attributes:
+      annot_oid:
+        range: integer
+        required: true
+      author:
+        range: string
+      contact:
+        range: integer
+      taxon:
+        range: integer
+      img_build:
+        range: integer
+      gene_oid:
+        range: integer
+      prev_build_gene_oid:
+        range: integer
+      function_old:
+        range: integer
+      function_new:
+        range: integer
+      evidence_old:
+        range: string
+      evidence_new:
+        range: string
+      confidence_old:
+        range: string
+      confidence_new:
+        range: string
+      action:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+      aa_checksum:
+        range: string
+      cell_loc_old:
+        range: string
+      cell_loc_new:
+        range: string
+    aliases:
+    - gene_function_history
+  GeneMyimgGroups:
+    attributes:
+      gene_oid:
+        range: decimal
+      contact_oid:
+        range: decimal
+      group_id:
+        range: decimal
+    aliases:
+    - gene_myimg_groups
+  ImgBuild:
+    attributes:
+      build_oid:
+        range: integer
+        required: true
+      build_number:
+        range: integer
+      build_date:
+        range: datetime
+      release_date:
+        range: datetime
+      img_version:
+        range: string
+      seq_dir:
+        range: string
+    aliases:
+    - img_build
+  ImgBuildHistory:
+    attributes:
+      build_oid:
+        identifier: true
+        range: integer
+      build_number:
+        range: integer
+      build_date:
+        range: datetime
+      release_date:
+        range: datetime
+      img_version:
+        range: string
+      seq_dir:
+        range: string
+    aliases:
+    - img_build_history
+  ImgCompoundActivity:
+    attributes:
+      compound_oid:
+        range: integer
+        required: true
+      activity:
+        range: string
+    aliases:
+    - img_compound_activity
+  ImgCompoundMeshdTree:
+    attributes:
+      compound_oid:
+        range: decimal
+      node:
+        range: string
+    aliases:
+    - img_compound_meshd_tree
+  ImgGoldPhenotype:
+    attributes:
+      cv_type:
+        range: string
+        required: true
+      cv_value:
+        range: string
+        required: true
+    aliases:
+    - img_gold_phenotype
+  ImgJobParamcv:
+    attributes:
+      cv_term:
+        range: string
+        required: true
+    aliases:
+    - img_job_paramcv
+  ImgJobStatuscv:
+    attributes:
+      cv_term:
+        range: string
+        required: true
+    aliases:
+    - img_job_statuscv
+  ImgJobTypecv:
+    attributes:
+      cv_term:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - img_job_typecv
+  ImgPartsList:
+    attributes:
+      parts_list_oid:
+        range: integer
+        required: true
+      parts_list_name:
+        range: string
+      definition:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - img_parts_list
+  ImgPartsListBackup:
+    attributes:
+      parts_list_oid:
+        range: integer
+        required: true
+      parts_list_name:
+        range: string
+      definition:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - img_parts_list_backup
+  ImgPartsListHistory:
+    attributes:
+      annot_oid:
+        range: integer
+        required: true
+      author:
+        range: string
+      contact:
+        range: integer
+      img_build:
+        range: integer
+      parts_list_oid:
+        range: integer
+      parts_list:
+        range: integer
+      parts_list_old:
+        range: string
+      parts_list_new:
+        range: string
+      action:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - img_parts_list_history
+  Imgtermcv:
+    attributes:
+      term_cv:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - imgtermcv
+  MeshDtree:
+    attributes:
+      name:
+        range: string
+      node:
+        range: string
+    aliases:
+    - mesh_dtree
+  Mygene:
+    attributes:
+      mygene_oid:
+        range: integer
+        required: true
+      gene_symbol:
+        range: string
+      gene_display_name:
+        range: string
+      product_name:
+        range: string
+      ec_number:
+        range: string
+      locus_tag:
+        range: string
+      locus_type:
+        range: string
+      scaffold:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      is_pseudogene:
+        range: string
+      description:
+        range: string
+      protein_seq_accid:
+        range: string
+      taxon:
+        range: integer
+      img_orf_type:
+        range: string
+      obsolete_flag:
+        range: string
+      aa_residue:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      hitgene_oid:
+        range: integer
+      dna_coords:
+        range: string
+      is_public:
+        range: string
+      replacing_gene:
+        range: string
+      created_by:
+        range: integer
+    aliases:
+    - mygene
+  MygeneImgGroups:
+    attributes:
+      mygene_oid:
+        range: decimal
+      contact_oid:
+        range: decimal
+      group_id:
+        range: decimal
+    aliases:
+    - mygene_img_groups
+  MygeneTerms:
+    attributes:
+      mygene_oid:
+        range: integer
+      term_oid:
+        range: integer
+      evidence:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - mygene_terms
+  MyimgBioClusterNp:
+    attributes:
+      cluster_id:
+        range: string
+        required: true
+      taxon_oid:
+        range: integer
+      compound_oid:
+        range: integer
+        required: true
+      ncbi_acc:
+        range: string
+      ncbi_taxon:
+        range: decimal
+      is_partial:
+        range: string
+      is_public:
+        range: string
+      comments:
+        range: string
+      modified_by:
+        range: decimal
+        required: true
+      mod_date:
+        range: datetime
+    aliases:
+    - myimg_bio_cluster_np
+  NaturalProduct:
+    attributes:
+      np_id:
+        range: decimal
+        required: true
+      np_product_name:
+        range: string
+      np_product_link:
+        range: string
+      project_oid:
+        range: decimal
+      taxon:
+        range: decimal
+      cluster_id:
+        range: string
+      genbank_id:
+        range: string
+      evidence:
+        range: string
+        required: true
+      np_type:
+        range: string
+      activity:
+        range: string
+      compound_oid:
+        range: decimal
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+    aliases:
+    - natural_product
+  NpActivityCv:
+    attributes:
+      cv_term:
+        range: string
+        required: true
+      name:
+        range: string
+    aliases:
+    - np_activity_cv
+  NpBiosynthesisSource:
+    attributes:
+      cluster_id:
+        range: string
+      taxon_oid:
+        range: integer
+      compound_oid:
+        range: integer
+      ncbi_acc:
+        range: string
+      ncbi_taxon:
+        range: decimal
+      is_partial:
+        range: string
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+    aliases:
+    - np_biosynthesis_source
+  NpSimilarity:
+    attributes:
+      compound_oid1:
+        range: integer
+        required: true
+      compound_oid2:
+        range: integer
+        required: true
+      sim_score:
+        range: decimal
+      source:
+        range: string
+    aliases:
+    - np_similarity
+  PathwayNetwork:
+    attributes:
+      network_oid:
+        range: integer
+        required: true
+      network_name:
+        range: string
+      eqn_grammer:
+        range: string
+      description:
+        range: string
+      comments:
+        range: string
+      image_id:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - pathway_network
+  PublicSet:
+    attributes:
+      name:
+        range: string
+        required: true
+      set_type:
+        range: string
+        required: true
+      contact_oid:
+        range: decimal
+        required: true
+      description:
+        range: string
+        required: true
+      add_date:
+        range: datetime
+      scaffold_count:
+        range: decimal
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      ir_order:
+        range: string
+      family:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      set_id:
+        range: decimal
+    aliases:
+    - public_set
+  Statuscv:
+    attributes:
+      term_cv:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - statuscv
+  TaxonCathfunfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_cathfunfam_count
+  TaxonCogCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_cog_count
+  TaxonEcCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_ec_count
+  TaxonKoCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_ko_count
+  TaxonPfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_pfam_count
+  TaxonSmartCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_smart_count
+  TaxonSupfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_supfam_count
+  TaxonTigrCount:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      data_type:
+        range: string
+      func_id:
+        range: string
+        required: true
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_tigr_count
+  TaxonUpdateRequest:
+    attributes:
+      taxon_oid:
+        range: integer
+      requested_by:
+        range: integer
+      request_date:
+        range: datetime
+      refresh_date:
+        range: datetime
+    aliases:
+    - taxon_update_request
+  Yesnocv:
+    attributes:
+      flag_cv:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - yesnocv
+  GeneHistory:
+    attributes:
+      annot_oid:
+        range: integer
+        required: true
+      author:
+        range: string
+      contact:
+        range: integer
+      taxon:
+        range: integer
+      img_build:
+        range: ImgBuildHistory
+      gene_oid:
+        range: integer
+      prev_build_gene_oid:
+        range: integer
+      aa_checksum:
+        range: string
+      img_orf_type_old:
+        range: string
+      img_orf_type_new:
+        range: string
+      action:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - gene_history
+  GeneMyimgFunctions:
+    attributes:
+      gene_oid:
+        range: integer
+      product_name:
+        range: string
+      prot_desc:
+        range: string
+      ec_number:
+        range: string
+      pubmed_id:
+        range: string
+      inference:
+        range: string
+      is_pseudogene:
+        range: Yesnocv
+      notes:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+      gene_symbol:
+        range: string
+      obsolete_flag:
+        range: string
+      is_public:
+        range: string
+    aliases:
+    - gene_myimg_functions
+  ImgCompound:
+    attributes:
+      compound_oid:
+        range: integer
+        required: true
+      ext_accession:
+        range: string
+      db_source:
+        range: DbSource
+      compound_name:
+        range: string
+      common_name:
+        range: string
+      class:
+        range: string
+      composition:
+        range: string
+      formula:
+        range: string
+      cas_number:
+        range: string
+      status:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      mol_weight:
+        range: decimal
+      num_atoms:
+        range: decimal
+      np_class:
+        range: string
+      np_sub_class:
+        range: string
+      smiles:
+        range: string
+      inchi:
+        range: string
+      inchi_key:
+        range: string
+      num_bonds:
+        range: decimal
+      is_sm:
+        range: string
+    aliases:
+    - img_compound
+  ImgPathway:
+    attributes:
+      pathway_oid:
+        range: integer
+        required: true
+      pathway_name:
+        range: string
+      handle:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      is_valid:
+        range: Yesnocv
+    aliases:
+    - img_pathway
+  ImgReaction:
+    attributes:
+      rxn_oid:
+        range: integer
+        required: true
+      rxn_name:
+        range: string
+      rxn_definition:
+        range: string
+      rxn_equation:
+        range: string
+      is_reversible:
+        range: Yesnocv
+      comments:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      rxn_type:
+        range: string
+    aliases:
+    - img_reaction
+  ImgTerm:
+    attributes:
+      term_oid:
+        range: integer
+        required: true
+      term:
+        range: string
+      term_type:
+        range: Imgtermcv
+      definition:
+        range: string
+      comments:
+        range: string
+      is_root:
+        range: Yesnocv
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      is_valid:
+        range: Yesnocv
+      pubmed_id:
+        range: string
+    aliases:
+    - img_term
+  MyimgJob:
+    attributes:
+      img_job_id:
+        range: decimal
+        required: true
+      contact:
+        range: decimal
+        required: true
+      add_date:
+        range: datetime
+      status:
+        range: ImgJobStatuscv
+      job_type:
+        range: ImgJobTypecv
+      database:
+        range: string
+        required: true
+      is_public:
+        range: Yesnocv
+      log_file:
+        range: string
+      data_path:
+        range: string
+      comments:
+        range: string
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+      admin_notes:
+        range: string
+      user_notes:
+        range: string
+    aliases:
+    - myimg_job
+  PathwayNetworkParents:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      parent:
+        range: PathwayNetwork
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - pathway_network_parents
+  PathwayNetworkPartsLists:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      parts_list:
+        range: integer
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - pathway_network_parts_lists
+  PathwayNetworkTaxons:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      taxon:
+        range: integer
+      confidence:
+        range: string
+      evidence:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - pathway_network_taxons
+  PhenotypeRule:
+    attributes:
+      rule_id:
+        range: decimal
+        required: true
+      cv_type:
+        range: ImgGoldPhenotype
+      cv_value:
+        range: ImgGoldPhenotype
+      description:
+        range: string
+      rule:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: decimal
+      rule_type:
+        range: string
+      name:
+        range: string
+    aliases:
+    - phenotype_rule
+  GeneImgFunctions:
+    attributes:
+      gene_oid:
+        range: integer
+      function:
+        range: ImgTerm
+      f_order:
+        range: integer
+      evidence:
+        range: string
+      confidence:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      cell_loc:
+        range: CellLocalization
+      f_flag:
+        range: string
+      taxon:
+        range: decimal
+      scaffold:
+        range: decimal
+    aliases:
+    - gene_img_functions
+  ImgCompoundAliases:
+    attributes:
+      compound_oid:
+        range: ImgCompound
+      aliases:
+        range: string
+    aliases:
+    - img_compound_aliases
+  ImgCompoundExtLinks:
+    attributes:
+      compound_oid:
+        range: ImgCompound
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - img_compound_ext_links
+  ImgCompoundKeggCompounds:
+    attributes:
+      compound_oid:
+        range: ImgCompound
+      compound:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - img_compound_kegg_compounds
+  ImgPartsListImgTerms:
+    attributes:
+      parts_list_oid:
+        range: integer
+      list_order:
+        range: integer
+      term:
+        range: ImgTerm
+    aliases:
+    - img_parts_list_img_terms
+  ImgPathwayAssertions:
+    attributes:
+      pathway_oid:
+        range: ImgPathway
+      taxon_node:
+        range: integer
+      status:
+        range: Assertioncv
+      evidence:
+        range: string
+      comments:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      taxon:
+        range: integer
+    aliases:
+    - img_pathway_assertions
+  ImgPathwayCComponents:
+    attributes:
+      pathway_oid:
+        range: ImgPathway
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      compound:
+        range: ImgCompound
+      main_flag:
+        range: Yesnocv
+    aliases:
+    - img_pathway_c_components
+  ImgPathwayHistory:
+    attributes:
+      annot_oid:
+        range: integer
+        required: true
+      author:
+        range: string
+      contact:
+        range: integer
+      img_build:
+        range: ImgBuildHistory
+      pathway_oid:
+        range: integer
+      pathway:
+        range: ImgPathway
+      prev_build_pathway_oid:
+        range: integer
+      pathway_name_old:
+        range: string
+      handle_old:
+        range: string
+      pathway_name_new:
+        range: string
+      handle_new:
+        range: string
+      action:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - img_pathway_history
+  ImgPathwayReactions:
+    attributes:
+      pathway_oid:
+        range: ImgPathway
+      rxn_order:
+        range: integer
+      is_mandatory:
+        range: string
+      rxn:
+        range: ImgReaction
+    aliases:
+    - img_pathway_reactions
+  ImgPathwayTComponents:
+    attributes:
+      pathway_oid:
+        range: ImgPathway
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      term:
+        range: ImgTerm
+      main_flag:
+        range: Yesnocv
+    aliases:
+    - img_pathway_t_components
+  ImgPathwayTaxons:
+    attributes:
+      pathway_oid:
+        range: ImgPathway
+      taxon:
+        range: integer
+      confidence:
+        range: string
+      evidence:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      status:
+        range: Statuscv
+    aliases:
+    - img_pathway_taxons
+  ImgReactionAssocNetworks:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      network:
+        range: PathwayNetwork
+      comments:
+        range: string
+    aliases:
+    - img_reaction_assoc_networks
+  ImgReactionAssocPaths:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      pathway:
+        range: ImgPathway
+      comments:
+        range: string
+    aliases:
+    - img_reaction_assoc_paths
+  ImgReactionAssocRxns:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      rxn:
+        range: ImgReaction
+      comments:
+        range: string
+    aliases:
+    - img_reaction_assoc_rxns
+  ImgReactionCComponents:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      compound:
+        range: ImgCompound
+      main_flag:
+        range: Yesnocv
+      sub_cell_loc:
+        range: CellLocalization
+    aliases:
+    - img_reaction_c_components
+  ImgReactionCatalysts:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      catalysts:
+        range: ImgTerm
+    aliases:
+    - img_reaction_catalysts
+  ImgReactionExtLinks:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - img_reaction_ext_links
+  ImgReactionTComponents:
+    attributes:
+      rxn_oid:
+        range: ImgReaction
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      term:
+        range: ImgTerm
+      main_flag:
+        range: Yesnocv
+      sub_cell_loc:
+        range: CellLocalization
+    aliases:
+    - img_reaction_t_components
+  ImgTermChildren:
+    attributes:
+      term_oid:
+        range: ImgTerm
+      child:
+        range: ImgTerm
+      rel_type:
+        range: integer
+      c_order:
+        range: integer
+    aliases:
+    - img_term_children
+  ImgTermEnzymes:
+    attributes:
+      term_oid:
+        range: ImgTerm
+      enzymes:
+        range: string
+    aliases:
+    - img_term_enzymes
+  ImgTermGraphPath:
+    attributes:
+      graph_path_oid:
+        range: integer
+        required: true
+      term_1:
+        range: ImgTerm
+      term_2:
+        range: ImgTerm
+      distance:
+        range: integer
+    aliases:
+    - img_term_graph_path
+  ImgTermHistory:
+    attributes:
+      annot_oid:
+        range: integer
+        required: true
+      author:
+        range: string
+      contact:
+        range: integer
+      img_build:
+        range: ImgBuildHistory
+      term_oid:
+        range: integer
+      term:
+        range: ImgTerm
+      prev_build_term_oid:
+        range: integer
+      term_old:
+        range: string
+      term_new:
+        range: string
+      term_type_old:
+        range: string
+      term_type_new:
+        range: string
+      action:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - img_term_history
+  ImgTermSynonyms:
+    attributes:
+      term_oid:
+        range: ImgTerm
+      synonyms:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      a_flag:
+        range: string
+    aliases:
+    - img_term_synonyms
+  MyimgJobParameters:
+    attributes:
+      img_job_id:
+        range: MyimgJob
+      param_type:
+        range: ImgJobParamcv
+      param_value:
+        range: string
+    aliases:
+    - myimg_job_parameters
+  MyimgJobUsers:
+    attributes:
+      img_job_id:
+        range: MyimgJob
+      users:
+        range: decimal
+    aliases:
+    - myimg_job_users
+  PathwayNetworkCComponents:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      compound:
+        range: ImgCompound
+      main_flag:
+        range: Yesnocv
+    aliases:
+    - pathway_network_c_components
+  PathwayNetworkImgPathways:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      pathway:
+        range: ImgPathway
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+    aliases:
+    - pathway_network_img_pathways
+  PathwayNetworkTComponents:
+    attributes:
+      network_oid:
+        range: PathwayNetwork
+      c_type:
+        range: Componentcv
+      stoich:
+        range: integer
+      term:
+        range: ImgTerm
+      main_flag:
+        range: Yesnocv
+    aliases:
+    - pathway_network_t_components
+  PhenotypeRuleTaxons:
+    attributes:
+      rule_id:
+        range: PhenotypeRule
+      taxon:
+        range: decimal
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+    aliases:
+    - phenotype_rule_taxons

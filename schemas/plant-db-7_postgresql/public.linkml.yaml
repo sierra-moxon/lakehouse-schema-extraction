@@ -1,0 +1,4993 @@
+id: https://w3id.org/jgi/public
+name: public
+title: plant-db-7_postgresql.public
+description: Generated from plant-db-7_postgresql.public by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  public: https://w3id.org/jgi/public/
+default_prefix: public
+default_range: string
+imports:
+- linkml:types
+classes:
+  Analysis:
+    attributes:
+      analysis_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        description: "A way of grouping analyses. This\n    should be a handy short identifier that can\
+          \ help people find an\n    analysis they want. For instance \"tRNAscan\", \"cDNA\", \"FlyPep\"\
+          ,\n    \"SwissProt\", and it should not be assumed to be unique. For instance, there may be\
+          \ lots of separate analyses done against a cDNA database."
+      description:
+        range: string
+      program:
+        range: string
+        required: true
+        description: Program name, e.g. blastx, blastp, sim4, genscan.
+      programversion:
+        range: string
+        required: true
+        description: Version description, e.g. TBLASTX 2.0MP-WashU [09-Nov-2000].
+      algorithm:
+        range: string
+        description: Algorithm name, e.g. blast.
+      sourcename:
+        range: string
+        description: Source name, e.g. cDNA, SwissProt.
+      sourceversion:
+        range: string
+      sourceuri:
+        range: string
+        description: This is an optional, permanent URL or URI for the source of the  analysis. The idea
+          is that someone could recreate the analysis directly by going to this URI and fetching the source
+          data (e.g. the blast database, or the training model).
+      timeexecuted:
+        range: datetime
+        required: true
+      is_obsolete:
+        range: boolean
+        required: true
+    description: "An analysis is a particular type of a\n    computational analysis; it may be a blast\
+      \ of one sequence against\n    another, or an all by all blast, or a different kind of analysis\n\
+      \    altogether. It is a single unit of computation."
+    aliases:
+    - analysis
+  Atin:
+    attributes:
+      ap:
+        range: string
+      at:
+        range: string
+      description:
+        range: string
+      apid:
+        range: integer
+      atid:
+        range: integer
+    aliases:
+    - atin
+  Channel:
+    attributes:
+      channel_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      definition:
+        range: string
+        required: true
+    description: Different array platforms can record signals from one or more channels (cDNA arrays typically
+      use two CCD, but Affymetrix uses only one).
+    aliases:
+    - channel
+  CleanupIpr97:
+    attributes:
+      analysis_id:
+        range: integer
+      name:
+        range: string
+      description:
+        range: string
+      program:
+        range: string
+      programversion:
+        range: string
+      algorithm:
+        range: string
+      sourcename:
+        range: string
+      sourceversion:
+        range: string
+      sourceuri:
+        range: string
+      timeexecuted:
+        range: datetime
+      is_obsolete:
+        range: boolean
+    aliases:
+    - cleanup_ipr97
+  CleanupIpr97Test:
+    attributes:
+      analysis_id:
+        range: integer
+      name:
+        range: string
+      description:
+        range: string
+      program:
+        range: string
+      programversion:
+        range: string
+      algorithm:
+        range: string
+      sourcename:
+        range: string
+      sourceversion:
+        range: string
+      sourceuri:
+        range: string
+      timeexecuted:
+        range: datetime
+      is_obsolete:
+        range: boolean
+    aliases:
+    - cleanup_ipr97_test
+  Curate:
+    attributes:
+      feature_id:
+        range: integer
+      featureprop_id:
+        range: integer
+      value:
+        range: string
+    aliases:
+    - curate
+  Cv:
+    attributes:
+      cv_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+        description: 'The name of the ontology. This
+
+          corresponds to the obo-format -namespace-. cv names uniquely identify
+
+          the cv. In OBO file format, the cv.name is known as the namespace.'
+      definition:
+        range: string
+        description: 'A text description of the criteria for
+
+          membership of this ontology.'
+    description: 'A controlled vocabulary or ontology. A cv is
+
+      composed of cvterms (AKA terms, classes, types, universals - relations
+
+      and properties are also stored in cvterm) and the relationships
+
+      between them.'
+    aliases:
+    - cv
+  Db:
+    attributes:
+      db_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      urlprefix:
+        range: string
+      url:
+        range: string
+    description: 'A database authority. Typical databases in
+
+      bioinformatics are FlyBase, GO, UniProt, NCBI, MGI, etc. The authority
+
+      is generally known by this shortened form, which is unique within the
+
+      bioinformatics and biomedical realm.  To Do - add support for URIs,
+
+      URNs (e.g. LSIDs). We can do this by treating the URL as a URI -
+
+      however, some applications may expect this to be resolvable - to be
+
+      decided.'
+    aliases:
+    - db
+  DenormalizedSixspeciesStaging:
+    attributes:
+      method_id:
+        range: string
+      method_name:
+        range: string
+      cluster_id:
+        range: string
+      cluster_name:
+        range: string
+      protein_name:
+        range: string
+      transcript_id:
+        range: string
+      proteome_id:
+        range: string
+      type:
+        range: string
+      gathering_threshold:
+        range: string
+      score:
+        range: double
+      significance:
+        range: double
+      family_size:
+        range: string
+    aliases:
+    - denormalized_sixspecies_staging
+  DiamondparanoidOrtholog:
+    attributes:
+      proteome_a:
+        range: integer
+        required: true
+      locus_a:
+        range: string
+        required: true
+      proteome_b:
+        range: integer
+        required: true
+      locus_b:
+        range: string
+        required: true
+      cluster_id:
+        range: integer
+      cluster_score:
+        range: integer
+      inparalog_a:
+        range: float
+      inparalog_b:
+        range: float
+      cardinality:
+        range: string
+    aliases:
+    - diamondparanoid_ortholog
+  Eimage:
+    attributes:
+      eimage_id:
+        identifier: true
+        range: integer
+      eimage_data:
+        range: string
+        description: We expect images in eimage_data (e.g. JPEGs) to be uuencoded.
+      eimage_type:
+        range: string
+        required: true
+        description: Describes the type of data in eimage_data.
+      image_uri:
+        range: string
+    aliases:
+    - eimage
+  Environment:
+    attributes:
+      environment_id:
+        identifier: true
+        range: integer
+      uniquename:
+        range: string
+        required: true
+      description:
+        range: string
+    description: The environmental component of a phenotype description.
+    aliases:
+    - environment
+  Expression:
+    attributes:
+      expression_id:
+        identifier: true
+        range: integer
+      uniquename:
+        range: string
+        required: true
+      md5checksum:
+        range: string
+      description:
+        range: string
+    description: The expression table is essentially a bridge table.
+    aliases:
+    - expression
+  FilteredGoTerms:
+    attributes:
+      accession:
+        range: string
+      name:
+        range: string
+      namespace:
+        range: string
+      description:
+        range: string
+    aliases:
+    - filtered_go_terms
+  GffMeta:
+    attributes:
+      name:
+        range: string
+      hostname:
+        range: string
+      starttime:
+        range: datetime
+        required: true
+    aliases:
+    - gff_meta
+  GoDesc:
+    attributes:
+      go_term:
+        range: string
+      description:
+        range: string
+    aliases:
+    - go_desc
+  Interproxml97:
+    attributes:
+      db:
+        range: string
+      accession:
+        range: string
+      name:
+        range: string
+      version:
+        range: string
+    aliases:
+    - interproxml97
+  IprDomains:
+    attributes:
+      ipr:
+        range: string
+      db:
+        range: string
+      dbkey:
+        range: string
+      db_id:
+        range: integer
+      ipr_id:
+        range: integer
+    aliases:
+    - ipr_domains
+  IprType:
+    attributes:
+      ipr_id:
+        range: string
+      type:
+        range: string
+    aliases:
+    - ipr_type
+  Mageml:
+    attributes:
+      mageml_id:
+        identifier: true
+        range: integer
+      mage_package:
+        range: string
+        required: true
+      mage_ml:
+        range: string
+        required: true
+    description: This table is for storing extra bits of MAGEml in a denormalized form. More normalization
+      would require many more tables.
+    aliases:
+    - mageml
+  MaterializedView:
+    attributes:
+      materialized_view_id:
+        range: integer
+        required: true
+      last_update:
+        range: datetime
+      refresh_time:
+        range: integer
+      name:
+        range: string
+      mv_schema:
+        range: string
+      mv_table:
+        range: string
+      mv_specs:
+        range: string
+      indexed:
+        range: string
+      query:
+        range: string
+      special_index:
+        range: string
+    aliases:
+    - materialized_view
+  NdGeolocation:
+    attributes:
+      nd_geolocation_id:
+        identifier: true
+        range: integer
+      description:
+        range: string
+        description: A textual representation of the location, if this is the original georeference. Optional
+          if the original georeference is available in lat/long coordinates.
+      latitude:
+        range: float
+        description: The decimal latitude coordinate of the georeference, using positive and negative
+          sign to indicate N and S, respectively.
+      longitude:
+        range: float
+        description: The decimal longitude coordinate of the georeference, using positive and negative
+          sign to indicate E and W, respectively.
+      geodetic_datum:
+        range: string
+        description: The geodetic system on which the geo-reference coordinates are based. For geo-references
+          measured between 1984 and 2010, this will typically be WGS84.
+      altitude:
+        range: float
+        description: The altitude (elevation) of the location in meters. If the altitude is only known
+          as a range, this is the average, and altitude_dev will hold half of the width of the range.
+    description: 'The geo-referencable location of the stock. NOTE: This entity is subject to change as
+      a more general and possibly more OpenGIS-compliant geolocation module may be introduced into Chado.'
+    aliases:
+    - nd_geolocation
+  Organism:
+    attributes:
+      organism_id:
+        identifier: true
+        range: integer
+      abbreviation:
+        range: string
+      genus:
+        range: string
+        required: true
+      species:
+        range: string
+        required: true
+        description: 'A type of organism is always
+
+          uniquely identified by genus and species. When mapping from the NCBI
+
+          taxonomy names.dmp file, this column must be used where it
+
+          is present, as the common_name column is not always unique (e.g. environmental
+
+          samples). If a particular strain or subspecies is to be represented,
+
+          this is appended onto the species name. Follows standard NCBI taxonomy
+
+          pattern.'
+      common_name:
+        range: string
+      comment:
+        range: string
+    description: 'The organismal taxonomic
+
+      classification. Note that phylogenies are represented using the
+
+      phylogeny module, and taxonomies can be represented using the cvterm
+
+      module or the phylogeny module.'
+    aliases:
+    - organism
+  PacAnnotation:
+    attributes:
+      protein_name:
+        range: string
+      protein_id:
+        range: string
+      transcript_name:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: string
+      db:
+        range: string
+      accession:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+    aliases:
+    - pac_annotation
+  PacAnnotationInfo:
+    attributes:
+      db:
+        range: string
+      accession:
+        range: string
+      namespace:
+        range: string
+      name:
+        range: string
+      description:
+        range: string
+    aliases:
+    - pac_annotation_info
+  PacCluster:
+    attributes:
+      method_id:
+        range: string
+      primaryidentifier:
+        range: string
+      secondaryidentifier:
+        range: string
+      type:
+        range: string
+      proteomeid:
+        range: string
+      memberprimaryidentifier:
+        range: string
+      membersecondaryidentifier:
+        range: string
+    aliases:
+    - pac_cluster
+  PacClusterWorklist:
+    attributes:
+      dbxref_id:
+        range: integer
+      accession:
+        range: string
+    aliases:
+    - pac_cluster_worklist
+  PacExon:
+    attributes:
+      proteome:
+        range: string
+      primaryidentifier:
+        range: string
+      secondaryidentifier:
+        range: string
+      scaffold:
+        range: string
+      exons:
+        range: string
+    aliases:
+    - pac_exon
+  PacGene:
+    attributes:
+      proteome:
+        range: string
+      primaryidentifier:
+        range: string
+      secondaryidentifier:
+        range: string
+      transcripts:
+        range: string
+      deflines:
+        range: string
+      symbols:
+        range: string
+      synonyms:
+        range: string
+      scaffold:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      strand:
+        range: integer
+      ordinal:
+        range: integer
+    aliases:
+    - pac_gene
+  PacGeneExpressionTable:
+    attributes:
+      sample_name:
+        range: string
+      experiment_group:
+        range: string
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+      expression:
+        range: string
+      expression_qualification:
+        range: string
+        multivalued: true
+    aliases:
+    - pac_gene_expression_table
+  PacGeneStage:
+    attributes:
+      gene_name:
+        range: string
+      gene_uniquename:
+        range: string
+      transcript_name:
+        range: string
+      defline:
+        range: string
+      symbol:
+        range: string
+      synonym:
+        range: string
+      chromosome_name:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      strand:
+        range: integer
+      rank:
+        range: integer
+    aliases:
+    - pac_gene_stage
+  PacHmmNonconstituentScoreIn2:
+    attributes:
+      method_id:
+        range: string
+      method_name:
+        range: string
+      cluster_id:
+        range: string
+      cluster_name:
+        range: string
+      protein_name:
+        range: string
+      transcript_id:
+        range: string
+      proteome_id:
+        range: string
+      type:
+        range: string
+      gathering_threshold:
+        range: string
+      score:
+        range: double
+      significance:
+        range: double
+      family_size:
+        range: string
+    aliases:
+    - pac_hmm_nonconstituent_score_in_2
+  PacOrganism:
+    attributes:
+      proteome:
+        range: string
+      organism_name:
+        range: string
+      organism_shortname:
+        range: string
+      organism_commonname:
+        range: string
+      tax_id:
+        range: string
+      genome_version:
+        range: string
+      annotation_version:
+        range: string
+    aliases:
+    - pac_organism
+  PacProteinAnnotation:
+    attributes:
+      primaryidentifier:
+        range: string
+      secondaryidentifier:
+        range: string
+      gene_secondaryidentifier:
+        range: string
+      db:
+        range: string
+      accession:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+    aliases:
+    - pac_protein_annotation
+  PacProteinFamily:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family
+  PacSyntenyView:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view
+  PacTmp:
+    attributes:
+      uniquename:
+        range: string
+      accession:
+        range: integer
+    aliases:
+    - pac_tmp
+  PacTranscript:
+    attributes:
+      proteome:
+        range: string
+      primaryidentifier:
+        range: string
+      secondaryidentifier:
+        range: string
+      gene:
+        range: string
+      protein:
+        range: string
+      scaffold:
+        range: string
+      longest:
+        range: integer
+      transcript_fmin:
+        range: integer
+      transcript_fmax:
+        range: integer
+      cds_fmin:
+        range: integer
+      cds_fmax:
+        range: integer
+      strand:
+        range: integer
+      protein_seq:
+        range: string
+      cds_seq:
+        range: string
+    aliases:
+    - pac_transcript
+  PhcsIn2:
+    attributes:
+      method_id:
+        range: string
+      method_name:
+        range: string
+      cluster_id:
+        range: string
+      cluster_name:
+        range: string
+      protein_name:
+        range: string
+      transcript_id:
+        range: string
+      proteome_id:
+        range: string
+      type:
+        range: string
+      gathering_threshold:
+        range: string
+      score:
+        range: double
+      significance:
+        range: double
+      family_size:
+        range: string
+    aliases:
+    - phcs_in_2
+  PhcsIn3:
+    attributes:
+      method_id:
+        range: string
+      method_name:
+        range: string
+      cluster_id:
+        range: string
+      cluster_name:
+        range: string
+      protein_name:
+        range: string
+      transcript_id:
+        range: string
+      proteome_id:
+        range: string
+      type:
+        range: string
+      gathering_threshold:
+        range: string
+      score:
+        range: double
+      significance:
+        range: double
+      family_size:
+        range: string
+    aliases:
+    - phcs_in_3
+  Project:
+    attributes:
+      project_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+        required: true
+    aliases:
+    - project
+  ReleaseInPhytozome:
+    attributes:
+      accession:
+        range: string
+    aliases:
+    - release_in_phytozome
+  RnaSeqSamples:
+    attributes:
+      genus:
+        range: string
+      species:
+        range: string
+      value:
+        range: string
+      count:
+        range: integer
+    aliases:
+    - rna_seq_samples
+  RnaSeqSummary:
+    attributes:
+      genus:
+        range: string
+      species:
+        range: string
+      value:
+        range: string
+      dbxref_id:
+        range: integer
+      count:
+        range: integer
+    aliases:
+    - rna_seq_summary
+  Tableinfo:
+    attributes:
+      tableinfo_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      primary_key_column:
+        range: string
+      is_view:
+        range: integer
+        required: true
+      view_on_table_id:
+        range: integer
+      superclass_table_id:
+        range: integer
+      is_updateable:
+        range: integer
+        required: true
+      modification_date:
+        range: date
+        required: true
+    aliases:
+    - tableinfo
+  TairGoAnnot:
+    attributes:
+      name:
+        range: string
+      accession:
+        range: string
+      namespace:
+        range: string
+    aliases:
+    - tair_go_annot
+  TairGoTemp:
+    attributes:
+      arabi_gene:
+        range: string
+      relationship:
+        range: string
+      goterm:
+        range: string
+      evidencecode:
+        range: string
+    aliases:
+    - tair_go_temp
+  TempCath:
+    attributes:
+      ac:
+        range: string
+      de:
+        range: string
+    aliases:
+    - temp_cath
+  TempEcDesc:
+    attributes:
+      ecacc:
+        range: string
+      description:
+        range: string
+    aliases:
+    - temp_ec_desc
+  TempEcmap:
+    attributes:
+      metacycacc:
+        range: string
+      ecacc:
+        range: string
+    aliases:
+    - temp_ecmap
+  TempPirsf:
+    attributes:
+      ac:
+        range: string
+      de:
+        range: string
+    aliases:
+    - temp_pirsf
+  TmpHmmJsonb:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - tmp_hmm_jsonb
+  TmpUniquename:
+    attributes:
+      uniquename:
+        range: string
+    aliases:
+    - tmp_uniquename
+  TopHit:
+    attributes:
+      top_hit_id:
+        identifier: true
+        range: integer
+      query_feature_id:
+        range: integer
+        required: true
+      homolog_feature_id:
+        range: integer
+        required: true
+      score:
+        range: double
+      type_id:
+        range: integer
+    aliases:
+    - top_hit
+  TrackingArchiveDirectory:
+    attributes:
+      tracking_archive_directory_id:
+        identifier: true
+        range: integer
+      host:
+        range: string
+      path:
+        range: string
+        required: true
+    aliases:
+    - tracking_archive_directory
+  TrackingBundleCopy:
+    attributes:
+      tracking_bundle_id:
+        range: integer
+      bundle_name:
+        range: string
+      organism_id:
+        range: integer
+      version:
+        range: string
+      creation_datetime:
+        range: datetime
+      active:
+        range: boolean
+      bundle_type:
+        range: string
+    aliases:
+    - tracking_bundle_copy
+  UncuratedPathwayLayouts:
+    attributes:
+      grp_id:
+        range: integer
+      grpprop_id:
+        range: integer
+      uniquename:
+        range: string
+      value:
+        range: string
+    aliases:
+    - uncurated_pathway_layouts
+  ViewGrps:
+    attributes:
+      dbxref_id:
+        range: integer
+      accession:
+        range: string
+    aliases:
+    - view_grps
+  AnalysisSet:
+    attributes:
+      analysis_set_id:
+        range: integer
+        required: true
+      analysis_set:
+        range: integer
+        required: true
+      db_id:
+        range: Db
+      version:
+        range: string
+        required: true
+    aliases:
+    - analysis_set
+  Analysisgrp:
+    attributes:
+      analysisgrp_id:
+        identifier: true
+        range: integer
+      rawscore:
+        range: double
+      normscore:
+        range: double
+      significance:
+        range: double
+      identity:
+        range: double
+      analysis_id:
+        range: Analysis
+      grp_id:
+        range: integer
+        required: true
+    aliases:
+    - analysisgrp
+  Analysisgrpmember:
+    attributes:
+      analysisgrpmember_id:
+        identifier: true
+        range: integer
+      rawscore:
+        range: double
+      normscore:
+        range: double
+      significance:
+        range: double
+      identity:
+        range: double
+      analysis_id:
+        range: Analysis
+      grpmember_id:
+        range: integer
+        required: true
+    aliases:
+    - analysisgrpmember
+  CellLine:
+    attributes:
+      cell_line_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+        required: true
+      organism_id:
+        range: Organism
+      timeaccessioned:
+        range: datetime
+        required: true
+      timelastmodified:
+        range: datetime
+        required: true
+    aliases:
+    - cell_line
+  Dbxref:
+    attributes:
+      dbxref_id:
+        identifier: true
+        range: integer
+      db_id:
+        range: Db
+      accession:
+        range: string
+        required: true
+        description: The local part of the identifier. Guaranteed by the db authority to be unique for
+          that db.
+      version:
+        range: string
+        required: true
+      description:
+        range: string
+    description: A unique, global, big_public, stable identifier. Not necessarily an external reference
+      - can reference data items inside the particular chado instance being used. Typically a row in a
+      table can be uniquely identified with a primary identifier (called dbxref_id); a table may also
+      have secondary identifiers (in a linking table &lt;T&gt;_dbxref), A dbxref is generally written
+      as &lt;DB&gt;:&lt;ACCESSION&gt; or as &lt;DB&gt;:&lt;ACCESSION&gt;:&lt;VERSION&gt;.
+    aliases:
+    - dbxref
+  ExpressionImage:
+    attributes:
+      expression_image_id:
+        identifier: true
+        range: integer
+      expression_id:
+        range: Expression
+      eimage_id:
+        range: Eimage
+    aliases:
+    - expression_image
+  Magedocumentation:
+    attributes:
+      magedocumentation_id:
+        identifier: true
+        range: integer
+      mageml_id:
+        range: Mageml
+      tableinfo_id:
+        range: Tableinfo
+      row_id:
+        range: integer
+        required: true
+      mageidentifier:
+        range: string
+        required: true
+    aliases:
+    - magedocumentation
+  TrackingBundle:
+    attributes:
+      tracking_bundle_id:
+        identifier: true
+        range: integer
+      bundle_name:
+        range: string
+      organism_id:
+        range: Organism
+      version:
+        range: string
+      creation_datetime:
+        range: datetime
+        required: true
+      active:
+        range: boolean
+        required: true
+      bundle_type:
+        range: string
+    aliases:
+    - tracking_bundle
+  CellLineDbxref:
+    attributes:
+      cell_line_dbxref_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+    aliases:
+    - cell_line_dbxref
+  Cvterm:
+    attributes:
+      cvterm_id:
+        identifier: true
+        range: integer
+      cv_id:
+        range: Cv
+      name:
+        range: string
+        required: true
+        description: 'A concise human-readable name or
+
+          label for the cvterm. Uniquely identifies a cvterm within a cv.'
+      definition:
+        range: string
+        description: 'A human-readable text
+
+          definition.'
+      dbxref_id:
+        range: Dbxref
+      is_obsolete:
+        range: integer
+        required: true
+        description: 'Boolean 0=false,1=true; see
+
+          GO documentation for details of obsoletion. Note that two terms with
+
+          different primary dbxrefs may exist if one is obsolete.'
+      is_relationshiptype:
+        range: integer
+        required: true
+        description: 'Boolean
+
+          0=false,1=true relations or relationship types (also known as Typedefs
+
+          in OBO format, or as properties or slots) form a cv/ontology in
+
+          themselves. We use this flag to indicate whether this cvterm is an
+
+          actual term/class/universal or a relation. Relations may be drawn from
+
+          the OBO Relations ontology, but are not exclusively drawn from there.'
+    description: 'A term, class, universal or type within an
+
+      ontology or controlled vocabulary.  This table is also used for
+
+      relations and properties. cvterms constitute nodes in the graph
+
+      defined by the collection of cvterms and cvterm_relationships.'
+    aliases:
+    - cvterm
+  GrpDbxref:
+    attributes:
+      grp_dbxref_id:
+        identifier: true
+        range: integer
+      is_current:
+        range: boolean
+        required: true
+      dbxref_id:
+        range: Dbxref
+      grp_id:
+        range: integer
+        required: true
+    aliases:
+    - grp_dbxref
+  OrganismDbxref:
+    attributes:
+      organism_dbxref_id:
+        identifier: true
+        range: integer
+      organism_id:
+        range: Organism
+      dbxref_id:
+        range: Dbxref
+    aliases:
+    - organism_dbxref
+  TrackingBundleComponent:
+    attributes:
+      tracking_bundle_component_id:
+        identifier: true
+        range: integer
+      tracking_bundle_id:
+        range: TrackingBundle
+      component:
+        range: string
+        required: true
+      step:
+        range: integer
+      is_redo:
+        range: boolean
+        required: true
+      start_datetime:
+        range: datetime
+        required: true
+      end_datetime:
+        range: datetime
+        required: true
+    aliases:
+    - tracking_bundle_component
+  TrackingBundleData:
+    attributes:
+      tracking_bundle_data_id:
+        identifier: true
+        range: integer
+      tracking_bundle_id:
+        range: TrackingBundle
+      key:
+        range: string
+        required: true
+      value:
+        range: string
+        required: true
+    aliases:
+    - tracking_bundle_data
+  Analysisprop:
+    attributes:
+      analysisprop_id:
+        identifier: true
+        range: integer
+      analysis_id:
+        range: Analysis
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - analysisprop
+  CellLineRelationship:
+    attributes:
+      cell_line_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: CellLine
+      object_id:
+        range: CellLine
+      type_id:
+        range: Cvterm
+    aliases:
+    - cell_line_relationship
+  CellLineprop:
+    attributes:
+      cell_lineprop_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - cell_lineprop
+  Chadoprop:
+    attributes:
+      chadoprop_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property, represented as text. Numeric values are converted to their
+          text representation.
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value ordering. Any
+
+          cv can have multiple values for any particular property type -
+
+          these are ordered in a list using rank, counting from zero. For
+
+          properties that are single-valued rather than multi-valued, the
+
+          default 0 value should be used.'
+    description: This table is different from other prop tables in the database, as it is for storing
+      information about the database itself, like schema version
+    aliases:
+    - chadoprop
+  Contact:
+    attributes:
+      contact_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+    description: Model persons, institutes, groups, organizations, etc.
+    aliases:
+    - contact
+  Cvprop:
+    attributes:
+      cvprop_id:
+        identifier: true
+        range: integer
+      cv_id:
+        range: Cv
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property, represented as text. Numeric values are converted to their
+          text representation.
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value ordering. Any
+
+          cv can have multiple values for any particular property type -
+
+          these are ordered in a list using rank, counting from zero. For
+
+          properties that are single-valued rather than multi-valued, the
+
+          default 0 value should be used.'
+    description: Additional extensible properties can be attached to a cv using this table.  A notable
+      example would be the cv version
+    aliases:
+    - cvprop
+  CvtermDbxref:
+    attributes:
+      cvterm_dbxref_id:
+        identifier: true
+        range: integer
+      cvterm_id:
+        range: Cvterm
+      dbxref_id:
+        range: Dbxref
+      is_for_definition:
+        range: integer
+        required: true
+        description: 'A
+
+          cvterm.definition should be supported by one or more references. If
+
+          this column is true, the dbxref is not for a term in an external database -
+
+          it is a dbxref for provenance information for the definition.'
+    description: 'In addition to the primary
+
+      identifier (cvterm.dbxref_id) a cvterm can have zero or more secondary
+
+      identifiers/dbxrefs, which may refer to records in external
+
+      databases. The exact semantics of cvterm_dbxref are not fixed. For
+
+      example: the dbxref could be a pubmed ID that is pertinent to the
+
+      cvterm, or it could be an equivalent or similar term in another
+
+      ontology. For example, GO cvterms are typically linked to InterPro
+
+      IDs, even though the nature of the relationship between them is
+
+      largely one of statistical association. The dbxref may be have data
+
+      records attached in the same database instance, or it could be a
+
+      "hanging" dbxref pointing to some external database. NOTE: If the
+
+      desired objective is to link two cvterms together, and the nature of
+
+      the relation is known and holds for all instances of the subject
+
+      cvterm then consider instead using cvterm_relationship together with a
+
+      well-defined relation.'
+    aliases:
+    - cvterm_dbxref
+  CvtermRelationship:
+    attributes:
+      cvterm_relationship_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      subject_id:
+        range: Cvterm
+      object_id:
+        range: Cvterm
+    description: 'A relationship linking two
+
+      cvterms. Each cvterm_relationship constitutes an edge in the graph
+
+      defined by the collection of cvterms and cvterm_relationships. The
+
+      meaning of the cvterm_relationship depends on the definition of the
+
+      cvterm R refered to by type_id. However, in general the definitions
+
+      are such that the statement "all SUBJs REL some OBJ" is true. The
+
+      cvterm_relationship statement is about the subject, not the
+
+      object. For example "insect wing part_of thorax".'
+    aliases:
+    - cvterm_relationship
+  Cvtermpath:
+    attributes:
+      cvtermpath_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      subject_id:
+        range: Cvterm
+      object_id:
+        range: Cvterm
+      cv_id:
+        range: Cv
+      pathdistance:
+        range: integer
+        description: 'The number of steps
+
+          required to get from the subject cvterm to the object cvterm, counting
+
+          from zero (reflexive relationship).'
+    description: 'The reflexive transitive closure of
+
+      the cvterm_relationship relation.'
+    aliases:
+    - cvtermpath
+  Cvtermprop:
+    attributes:
+      cvtermprop_id:
+        identifier: true
+        range: integer
+      cvterm_id:
+        range: Cvterm
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        required: true
+        description: The value of the property, represented as text. Numeric values are converted to their
+          text representation.
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value ordering. Any
+
+          cvterm can have multiple values for any particular property type -
+
+          these are ordered in a list using rank, counting from zero. For
+
+          properties that are single-valued rather than multi-valued, the
+
+          default 0 value should be used.'
+    description: Additional extensible properties can be attached to a cvterm using this table. Corresponds
+      to -AnnotationProperty- in W3C OWL format.
+    aliases:
+    - cvtermprop
+  Cvtermsynonym:
+    attributes:
+      cvtermsynonym_id:
+        identifier: true
+        range: integer
+      cvterm_id:
+        range: Cvterm
+      synonym:
+        range: string
+        required: true
+      type_id:
+        range: Cvterm
+    description: 'A cvterm actually represents a
+
+      distinct class or concept. A concept can be refered to by different
+
+      phrases or names. In addition to the primary name (cvterm.name) there
+
+      can be a number of alternative aliases or synonyms. For example, "T
+
+      cell" as a synonym for "T lymphocyte".'
+    aliases:
+    - cvtermsynonym
+  DbxrefRelationship:
+    attributes:
+      dbxref_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Dbxref
+      object_id:
+        range: Dbxref
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: Additional notes or comments.
+      rank:
+        range: integer
+        required: true
+        description: The ordering of subject dbxref with respect to the object dbxref may be important
+          (for example, exon ordering on a transcript - not always derivable if you take trans spliced
+          genes into consideration). Rank is used to order these; starts from zero.
+    description: 'Dbxref can be arranged in
+
+      graphs, e.g. "goterm is_a anoter_goter"; If type is
+
+      thought of as a verb, the each arc or edge makes a statement
+
+      [Subject Verb Object]. The object can also be thought of as parent
+
+      (containing dbxref), and subject as child (contained dbxref or
+
+      subdbxref). We include the relationship rank/order, because even
+
+      though most of the time we can order things implicitly by sequence
+
+      coordinates, we can not always do this - e.g. transpliced genes. It is also
+
+      useful for quickly getting implicit introns.'
+    aliases:
+    - dbxref_relationship
+  Dbxrefprop:
+    attributes:
+      dbxrefprop_id:
+        identifier: true
+        range: integer
+      dbxref_id:
+        range: Dbxref
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        required: true
+      rank:
+        range: integer
+        required: true
+    description: Metadata about a dbxref. Note that this is not defined in the dbxref module, as it depends
+      on the cvterm table. This table has a structure analagous to cvtermprop.
+    aliases:
+    - dbxrefprop
+  EnvironmentCvterm:
+    attributes:
+      environment_cvterm_id:
+        identifier: true
+        range: integer
+      environment_id:
+        range: Environment
+      cvterm_id:
+        range: Cvterm
+    aliases:
+    - environment_cvterm
+  ExpressionCvterm:
+    attributes:
+      expression_cvterm_id:
+        identifier: true
+        range: integer
+      expression_id:
+        range: Expression
+      cvterm_id:
+        range: Cvterm
+      rank:
+        range: integer
+        required: true
+      cvterm_type_id:
+        range: Cvterm
+    aliases:
+    - expression_cvterm
+  Expressionprop:
+    attributes:
+      expressionprop_id:
+        identifier: true
+        range: integer
+      expression_id:
+        range: Expression
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - expressionprop
+  Feature:
+    attributes:
+      feature_id:
+        identifier: true
+        range: integer
+      dbxref_id:
+        range: Dbxref
+      organism_id:
+        range: Organism
+      name:
+        range: string
+        description: 'The optional human-readable common name for
+
+          a feature, for display purposes.'
+      uniquename:
+        range: string
+        required: true
+        description: 'The unique name for a feature; may
+
+          not be necessarily be particularly human-readable, although this is
+
+          preferred. This name must be unique for this type of feature within
+
+          this organism.'
+      residues:
+        range: string
+        description: 'A sequence of alphabetic characters
+
+          representing biological residues (nucleic acids, amino acids). This
+
+          column does not need to be manifested for all features; it is optional
+
+          for features such as exons where the residues can be derived from the
+
+          featureloc. It is recommended that the value for this column be
+
+          manifested for features which may may non-contiguous sublocations (e.g.
+
+          transcripts), since derivation at query time is non-trivial. For
+
+          expressed sequence, the DNA sequence should be used rather than the
+
+          RNA sequence. The default storage method for the residues column is
+
+          EXTERNAL, which will store it uncompressed to make substring operations
+
+          faster.'
+      seqlen:
+        range: integer
+        description: 'The length of the residue feature. See
+
+          column:residues. This column is partially redundant with the residues
+
+          column, and also with featureloc. This column is required because the
+
+          location may be unknown and the residue sequence may not be
+
+          manifested, yet it may be desirable to store and query the length of
+
+          the feature. The seqlen should always be manifested where the length
+
+          of the sequence is known.'
+      md5checksum:
+        range: string
+        description: 'The 32-character checksum of the sequence,
+
+          calculated using the MD5 algorithm. This is practically guaranteed to
+
+          be unique for any feature. This column thus acts as a unique
+
+          identifier on the mathematical sequence.'
+      type_id:
+        range: Cvterm
+      is_analysis:
+        range: boolean
+        required: true
+        description: 'Boolean indicating whether this
+
+          feature is annotated or the result of an automated analysis. Analysis
+
+          results also use the companalysis module. Note that the dividing line
+
+          between analysis and annotation may be fuzzy, this should be determined on
+
+          a per-project basis in a consistent manner. One requirement is that
+
+          there should only be one non-analysis version of each wild-type gene
+
+          feature in a genome, whereas the same gene feature can be predicted
+
+          multiple times in different analyses.'
+      is_obsolete:
+        range: boolean
+        required: true
+        description: 'Boolean indicating whether this
+
+          feature has been obsoleted. Some chado instances may choose to simply
+
+          remove the feature altogether, others may choose to keep an obsolete
+
+          row in the table.'
+      timeaccessioned:
+        range: datetime
+        required: true
+        description: 'For handling object
+
+          accession or modification timestamps (as opposed to database auditing data,
+
+          handled elsewhere). The expectation is that these fields would be
+
+          available to software interacting with chado.'
+      timelastmodified:
+        range: datetime
+        required: true
+        description: 'For handling object
+
+          accession or modification timestamps (as opposed to database auditing data,
+
+          handled elsewhere). The expectation is that these fields would be
+
+          available to software interacting with chado.'
+    description: 'A feature is a biological sequence or a
+
+      section of a biological sequence, or a collection of such
+
+      sections. Examples include genes, exons, transcripts, regulatory
+
+      regions, polypeptides, protein domains, chromosome sequences, sequence
+
+      variations, cross-genome match regions such as hits and HSPs and so
+
+      on; see the Sequence Ontology for more. The combination of
+
+      organism_id, uniquename and type_id should be unique.'
+    aliases:
+    - feature
+  Featuremap:
+    attributes:
+      featuremap_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+      description:
+        range: string
+      unittype_id:
+        range: Cvterm
+    aliases:
+    - featuremap
+  Genotype:
+    attributes:
+      genotype_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        description: "Optional alternative name for a genotype, \nfor display purposes."
+      uniquename:
+        range: string
+        required: true
+        description: "The unique name for a genotype; \ntypically derived from the features making up\
+          \ the genotype."
+      description:
+        range: string
+      type_id:
+        range: Cvterm
+    description: Genetic context. A genotype is defined by a collection of features, mutations, balancers,
+      deficiencies, haplotype blocks, or engineered constructs.
+    aliases:
+    - genotype
+  Grp:
+    attributes:
+      grp_id:
+        identifier: true
+        range: integer
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+      uniquename:
+        range: string
+        required: true
+      type_id:
+        range: Cvterm
+      is_analysis:
+        range: boolean
+        required: true
+      is_obsolete:
+        range: boolean
+        required: true
+    aliases:
+    - grp
+  Library:
+    attributes:
+      library_id:
+        identifier: true
+        range: integer
+      organism_id:
+        range: Organism
+      name:
+        range: string
+      uniquename:
+        range: string
+        required: true
+      type_id:
+        range: Cvterm
+      is_obsolete:
+        range: integer
+        required: true
+      timeaccessioned:
+        range: datetime
+        required: true
+      timelastmodified:
+        range: datetime
+        required: true
+    aliases:
+    - library
+  NdExperiment:
+    attributes:
+      nd_experiment_id:
+        identifier: true
+        range: integer
+      nd_geolocation_id:
+        range: NdGeolocation
+      type_id:
+        range: Cvterm
+    aliases:
+    - nd_experiment
+  NdGeolocationprop:
+    attributes:
+      nd_geolocationprop_id:
+        identifier: true
+        range: integer
+      nd_geolocation_id:
+        range: NdGeolocation
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property.
+      rank:
+        range: integer
+        required: true
+        description: The rank of the property value, if the property has an array of values.
+    description: Property/value associations for geolocations. This table can store the properties such
+      as location and environment
+    aliases:
+    - nd_geolocationprop
+  NdProtocol:
+    attributes:
+      nd_protocol_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+        description: The protocol name.
+      type_id:
+        range: Cvterm
+    description: A protocol can be anything that is done as part of the experiment.
+    aliases:
+    - nd_protocol
+  NdReagent:
+    attributes:
+      nd_reagent_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+        description: The name of the reagent. The name should be unique for a given type.
+      type_id:
+        range: Cvterm
+      feature_id:
+        range: integer
+        description: If the reagent is a primer, the feature that it corresponds to. More generally, the
+          corresponding feature for any reagent that has a sequence that maps to another sequence.
+    description: A reagent such as a primer, an enzyme, an adapter oligo, a linker oligo. Reagents are
+      used in genotyping experiments, or in any other kind of experiment.
+    aliases:
+    - nd_reagent
+  Organismprop:
+    attributes:
+      organismprop_id:
+        identifier: true
+        range: integer
+      organism_id:
+        range: Organism
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Tag-value properties - follows standard chado model.
+    aliases:
+    - organismprop
+  Phenotype:
+    attributes:
+      phenotype_id:
+        identifier: true
+        range: integer
+      uniquename:
+        range: string
+        required: true
+      name:
+        range: string
+      observable_id:
+        range: Cvterm
+      attr_id:
+        range: Cvterm
+      value:
+        range: string
+        description: Value of attribute - unconstrained free text. Used only if cvalue_id is not appropriate.
+      cvalue_id:
+        range: Cvterm
+      assay_id:
+        range: Cvterm
+    description: 'A phenotypic statement, or a single
+
+      atomic phenotypic observation, is a controlled sentence describing
+
+      observable effects of non-wild type function. E.g. Obs=eye, attribute=color, cvalue=red.'
+    aliases:
+    - phenotype
+  Phylotree:
+    attributes:
+      phylotree_id:
+        identifier: true
+        range: integer
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+      type_id:
+        range: Cvterm
+      analysis_id:
+        range: Analysis
+      comment:
+        range: string
+    description: Global anchor for phylogenetic tree.
+    aliases:
+    - phylotree
+  ProjectRelationship:
+    attributes:
+      project_relationship_id:
+        identifier: true
+        range: integer
+      subject_project_id:
+        range: Project
+      object_project_id:
+        range: Project
+      type_id:
+        range: Cvterm
+    description: A project can be composed of several smaller scale projects
+    aliases:
+    - project_relationship
+  Projectprop:
+    attributes:
+      projectprop_id:
+        identifier: true
+        range: integer
+      project_id:
+        range: Project
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - projectprop
+  Pub:
+    attributes:
+      pub_id:
+        identifier: true
+        range: integer
+      title:
+        range: string
+        description: Descriptive general heading.
+      volumetitle:
+        range: string
+        description: Title of part if one of a series.
+      volume:
+        range: string
+      series_name:
+        range: string
+        description: Full name of (journal) series.
+      issue:
+        range: string
+      pyear:
+        range: string
+      pages:
+        range: string
+        description: Page number range[s], e.g. 457--459, viii + 664pp, lv--lvii.
+      miniref:
+        range: string
+      uniquename:
+        range: string
+        required: true
+      type_id:
+        range: Cvterm
+      is_obsolete:
+        range: boolean
+      publisher:
+        range: string
+      pubplace:
+        range: string
+      big_publication_date:
+        range: string
+    description: 'A documented provenance artefact - big_publications,
+
+      documents, personal communication.'
+    aliases:
+    - pub
+  Stock:
+    attributes:
+      stock_id:
+        identifier: true
+        range: integer
+      dbxref_id:
+        range: Dbxref
+      organism_id:
+        range: Organism
+      name:
+        range: string
+        description: The name is a human-readable local name for a stock.
+      uniquename:
+        range: string
+        required: true
+      description:
+        range: string
+        description: The description is the genetic description provided in the stock list.
+      type_id:
+        range: Cvterm
+      is_obsolete:
+        range: boolean
+        required: true
+    description: 'Any stock can be globally identified by the
+
+      combination of organism, uniquename and stock type. A stock is the physical entities, either living
+      or preserved, held by collections. Stocks belong to a collection; they have IDs, type, organism,
+      description and may have a genotype.'
+    aliases:
+    - stock
+  Synonym:
+    attributes:
+      synonym_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+        description: The synonym itself. Should be human-readable machine-searchable ascii text.
+      type_id:
+        range: Cvterm
+      synonym_sgml:
+        range: string
+        required: true
+        description: The fully specified synonym, with any non-ascii characters encoded in SGML.
+    description: A synonym for a feature. One feature can have multiple synonyms, and the same synonym
+      can apply to multiple features.
+    aliases:
+    - synonym
+  TrackingBundleFile:
+    attributes:
+      tracking_bundle_file_id:
+        identifier: true
+        range: integer
+      tracking_bundle_id:
+        range: TrackingBundle
+      tracking_archive_directory_id:
+        range: TrackingArchiveDirectory
+      tracking_bundle_component_id:
+        range: TrackingBundleComponent
+      filename:
+        range: string
+        required: true
+      filetype:
+        range: string
+        required: true
+      subtype:
+        range: string
+      md5sum:
+        range: string
+    aliases:
+    - tracking_bundle_file
+  Analysisfeature:
+    attributes:
+      analysisfeature_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      analysis_id:
+        range: Analysis
+      rawscore:
+        range: double
+        description: This is the native score generated by the program; for example, the bitscore generated
+          by blast, sim4 or genscan scores. One should not assume that high is necessarily better than
+          low.
+      normscore:
+        range: double
+        description: "This is the rawscore but\n    semi-normalized. Complete normalization to allow comparison\
+          \ of\n    features generated by different programs would be nice but too\n    difficult. Instead\
+          \ the normalization should strive to enforce the\n    following semantics: * normscores are\
+          \ floating point numbers >= 0,\n    * high normscores are better than low one. For most programs,\
+          \ it would be sufficient to make the normscore the same as this rawscore, providing these semantics\
+          \ are satisfied."
+      significance:
+        range: double
+        description: "This is some kind of expectation or probability metric, representing the probability\
+          \ that the analysis would appear randomly given the model. As such, any program or person querying\
+          \ this table can assume the following semantics:\n   * 0 <= significance <= n, where n is a\
+          \ positive number, theoretically unbounded but unlikely to be more than 10\n  * low numbers\
+          \ are better than high numbers."
+      identity:
+        range: double
+        description: Percent identity between the locations compared.  Note that these 4 metrics do not
+          cover the full range of scores possible; it would be undesirable to list every score possible,
+          as this should be kept extensible. instead, for non-standard scores, use the analysisprop table.
+    description: "Computational analyses generate features (e.g. Genscan generates transcripts and exons;\
+      \ sim4 alignments generate similarity/match features). analysisfeatures are stored using the feature\
+      \ table from the sequence module. The analysisfeature table is used to decorate these features,\
+      \ with analysis specific attributes. A feature is an analysisfeature if and only if there is a corresponding\
+      \ entry in the analysisfeature table. analysisfeatures will have two or more featureloc entries,\n\
+      \ with rank indicating query/subject"
+    aliases:
+    - analysisfeature
+  Biomaterial:
+    attributes:
+      biomaterial_id:
+        identifier: true
+        range: integer
+      taxon_id:
+        range: Organism
+      biosourceprovider_id:
+        range: Contact
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+      description:
+        range: string
+    description: A biomaterial represents the MAGE concept of BioSource, BioSample, and LabeledExtract.
+      It is essentially some biological material (tissue, cells, serum) that may have been processed.
+      Processed biomaterials should be traceable back to raw biomaterials via the biomaterialrelationship
+      table.
+    aliases:
+    - biomaterial
+  CellLineCvterm:
+    attributes:
+      cell_line_cvterm_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - cell_line_cvterm
+  CellLineFeature:
+    attributes:
+      cell_line_feature_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      feature_id:
+        range: Feature
+      pub_id:
+        range: Pub
+    aliases:
+    - cell_line_feature
+  CellLineLibrary:
+    attributes:
+      cell_line_library_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      library_id:
+        range: Library
+      pub_id:
+        range: Pub
+    aliases:
+    - cell_line_library
+  CellLinePub:
+    attributes:
+      cell_line_pub_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      pub_id:
+        range: Pub
+    aliases:
+    - cell_line_pub
+  CellLineSynonym:
+    attributes:
+      cell_line_synonym_id:
+        identifier: true
+        range: integer
+      cell_line_id:
+        range: CellLine
+      synonym_id:
+        range: Synonym
+      pub_id:
+        range: Pub
+      is_current:
+        range: boolean
+        required: true
+      is_internal:
+        range: boolean
+        required: true
+    aliases:
+    - cell_line_synonym
+  CellLinepropPub:
+    attributes:
+      cell_lineprop_pub_id:
+        identifier: true
+        range: integer
+      cell_lineprop_id:
+        range: CellLineprop
+      pub_id:
+        range: Pub
+    aliases:
+    - cell_lineprop_pub
+  ContactRelationship:
+    attributes:
+      contact_relationship_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      subject_id:
+        range: Contact
+      object_id:
+        range: Contact
+    description: Model relationships between contacts
+    aliases:
+    - contact_relationship
+  ExpressionCvtermprop:
+    attributes:
+      expression_cvtermprop_id:
+        identifier: true
+        range: integer
+      expression_cvterm_id:
+        range: ExpressionCvterm
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: 'The value of the
+
+          property, represented as text. Numeric values are converted to their
+
+          text representation. This is less efficient than using native database
+
+          types, but is easier to query.'
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value
+
+          ordering. Any expression_cvterm can have multiple values for any particular
+
+          property type - these are ordered in a list using rank, counting from
+
+          zero. For properties that are single-valued rather than multi-valued,
+
+          the default 0 value should be used.'
+    description: 'Extensible properties for
+
+      expression to cvterm associations. Examples: qualifiers.'
+    aliases:
+    - expression_cvtermprop
+  ExpressionPub:
+    attributes:
+      expression_pub_id:
+        identifier: true
+        range: integer
+      expression_id:
+        range: Expression
+      pub_id:
+        range: Pub
+    aliases:
+    - expression_pub
+  FeatureCvterm:
+    attributes:
+      feature_cvterm_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+      is_not:
+        range: boolean
+        required: true
+        description: If this is set to true, then this annotation is interpreted as a NEGATIVE annotation
+          - i.e. the feature does NOT have the specified function, process, component, part, etc. See
+          GO docs for more details.
+      rank:
+        range: integer
+        required: true
+    description: Associate a term from a cv with a feature, for example, GO annotation.
+    aliases:
+    - feature_cvterm
+  FeatureDbxref:
+    attributes:
+      feature_dbxref_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+        description: True if this secondary dbxref is the most up to date accession in the corresponding
+          db. Retired accessions should set this field to false
+    description: Links a feature to dbxrefs. This is for secondary identifiers; primary identifiers should
+      use feature.dbxref_id.
+    aliases:
+    - feature_dbxref
+  FeatureExpression:
+    attributes:
+      feature_expression_id:
+        identifier: true
+        range: integer
+      expression_id:
+        range: Expression
+      feature_id:
+        range: Feature
+      pub_id:
+        range: Pub
+    aliases:
+    - feature_expression
+  FeatureGenotype:
+    attributes:
+      feature_genotype_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      genotype_id:
+        range: Genotype
+      chromosome_id:
+        range: Feature
+      rank:
+        range: integer
+        required: true
+        description: 'rank can be used for
+
+          n-ploid organisms or to preserve order.'
+      cgroup:
+        range: integer
+        required: true
+        description: 'Spatially distinguishable
+
+          group. group can be used for distinguishing the chromosomal groups,
+
+          for example (RNAi products and so on can be treated as different
+
+          groups, as they do not fall on a particular chromosome).'
+      cvterm_id:
+        range: Cvterm
+    aliases:
+    - feature_genotype
+  FeaturePhenotype:
+    attributes:
+      feature_phenotype_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      phenotype_id:
+        range: Phenotype
+    aliases:
+    - feature_phenotype
+  FeaturePub:
+    attributes:
+      feature_pub_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      pub_id:
+        range: Pub
+      rank:
+        range: integer
+        required: true
+    description: Provenance. Linking table between features and big_publications that mention them.
+    aliases:
+    - feature_pub
+  FeatureRelationship:
+    attributes:
+      feature_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Feature
+      object_id:
+        range: Feature
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: Additional notes or comments.
+      rank:
+        range: integer
+        required: true
+        description: The ordering of subject features with respect to the object feature may be important
+          (for example, exon ordering on a transcript - not always derivable if you take trans spliced
+          genes into consideration). Rank is used to order these; starts from zero.
+    description: 'Features can be arranged in
+
+      graphs, e.g. "exon part_of transcript part_of gene"; If type is
+
+      thought of as a verb, the each arc or edge makes a statement
+
+      [Subject Verb Object]. The object can also be thought of as parent
+
+      (containing feature), and subject as child (contained feature or
+
+      subfeature). We include the relationship rank/order, because even
+
+      though most of the time we can order things implicitly by sequence
+
+      coordinates, we can not always do this - e.g. transpliced genes. It is also
+
+      useful for quickly getting implicit introns.'
+    aliases:
+    - feature_relationship
+  FeatureResidues:
+    attributes:
+      feature_id:
+        range: Feature
+      chunk:
+        range: integer
+        required: true
+      base_start:
+        range: integer
+        required: true
+      base_end:
+        range: integer
+        required: true
+      residues:
+        range: string
+        required: true
+    aliases:
+    - feature_residues
+  FeatureSynonym:
+    attributes:
+      feature_synonym_id:
+        identifier: true
+        range: integer
+      synonym_id:
+        range: Synonym
+      feature_id:
+        range: Feature
+      pub_id:
+        range: Pub
+      is_current:
+        range: boolean
+        required: true
+        description: The is_current boolean indicates whether the linked synonym is the  current -official-
+          symbol for the linked feature.
+      is_internal:
+        range: boolean
+        required: true
+        description: Typically a synonym exists so that somebody querying the db with an obsolete name
+          can find the object theyre looking for (under its current name.  If the synonym has been used
+          big_publicly and deliberately (e.g. in a paper), it may also be listed in reports as a synonym.
+          If the synonym was not used deliberately (e.g. there was a typo which went big_public), then
+          the is_internal boolean may be set to -true- so that it is known that the synonym is -internal-
+          and should be queryable but should not be listed in reports as a valid synonym.
+    description: Linking table between feature and synonym.
+    aliases:
+    - feature_synonym
+  Featureloc:
+    attributes:
+      featureloc_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      srcfeature_id:
+        range: Feature
+      fmin:
+        range: integer
+        description: 'The leftmost/minimal boundary in the linear range represented by the featureloc.
+          Sometimes (e.g. in Bioperl) this is called -start- although this is confusing because it does
+          not necessarily represent the 5-prime coordinate. Important: This is space-based (interbase)
+          coordinates, counting from zero. To convert this to the leftmost position in a base-oriented
+          system (eg GFF, Bioperl), add 1 to fmin.'
+      is_fmin_partial:
+        range: boolean
+        required: true
+        description: 'This is typically
+
+          false, but may be true if the value for column:fmin is inaccurate or
+
+          the leftmost part of the range is unknown/unbounded.'
+      fmax:
+        range: integer
+        description: 'The rightmost/maximal boundary in the linear range represented by the featureloc.
+          Sometimes (e.g. in bioperl) this is called -end- although this is confusing because it does
+          not necessarily represent the 3-prime coordinate. Important: This is space-based (interbase)
+          coordinates, counting from zero. No conversion is required to go from fmax to the rightmost
+          coordinate in a base-oriented system that counts from 1 (e.g. GFF, Bioperl).'
+      is_fmax_partial:
+        range: boolean
+        required: true
+        description: 'This is typically
+
+          false, but may be true if the value for column:fmax is inaccurate or
+
+          the rightmost part of the range is unknown/unbounded.'
+      strand:
+        range: integer
+        description: 'The orientation/directionality of the
+
+          location. Should be 0, -1 or +1.'
+      phase:
+        range: integer
+        description: 'Phase of translation with
+
+          respect to srcfeature_id.
+
+          Values are 0, 1, 2. It may not be possible to manifest this column for
+
+          some features such as exons, because the phase is dependant on the
+
+          spliceform (the same exon can appear in multiple spliceforms). This column is mostly useful
+          for predicted exons and CDSs.'
+      residue_info:
+        range: string
+        description: 'Alternative residues,
+
+          when these differ from feature.residues. For instance, a SNP feature
+
+          located on a wild and mutant protein would have different alternative residues.
+
+          for alignment/similarity features, the alternative residues is used to
+
+          represent the alignment string (CIGAR format). Note on variation
+
+          features; even if we do not want to instantiate a mutant
+
+          chromosome/contig feature, we can still represent a SNP etc with 2
+
+          locations, one (rank 0) on the genome, the other (rank 1) would have
+
+          most fields null, except for alternative residues.'
+      locgroup:
+        range: integer
+        required: true
+        description: 'This is used to manifest redundant,
+
+          derivable extra locations for a feature. The default locgroup=0 is
+
+          used for the DIRECT location of a feature. Important: most Chado users may
+
+          never use featurelocs WITH logroup > 0. Transitively derived locations
+
+          are indicated with locgroup > 0. For example, the position of an exon on
+
+          a BAC and in global chromosome coordinates. This column is used to
+
+          differentiate these groupings of locations. The default locgroup 0
+
+          is used for the main or primary location, from which the others can be
+
+          derived via coordinate transformations. Another example of redundant
+
+          locations is storing ORF coordinates relative to both transcript and
+
+          genome. Redundant locations open the possibility of the database
+
+          getting into inconsistent states; this schema gives us the flexibility
+
+          of both warehouse instantiations with redundant locations (easier for
+
+          querying) and management instantiations with no redundant
+
+          locations. An example of using both locgroup and rank: imagine a
+
+          feature indicating a conserved region between the chromosomes of two
+
+          different species. We may want to keep redundant locations on both
+
+          contigs and chromosomes. We would thus have 4 locations for the single
+
+          conserved region feature - two distinct locgroups (contig level and
+
+          chromosome level) and two distinct ranks (for the two species).'
+      rank:
+        range: integer
+        required: true
+        description: 'Used when a feature has >1
+
+          location, otherwise the default rank 0 is used. Some features (e.g.
+
+          blast hits and HSPs) have two locations - one on the query and one on
+
+          the subject. Rank is used to differentiate these. Rank=0 is always
+
+          used for the query, Rank=1 for the subject. For multiple alignments,
+
+          assignment of rank is arbitrary. Rank is also used for
+
+          sequence_variant features, such as SNPs. Rank=0 indicates the wildtype
+
+          (or baseline) feature, Rank=1 indicates the mutant (or compared) feature.'
+    description: 'The location of a feature relative to
+
+      another feature. Important: interbase coordinates are used. This is
+
+      vital as it allows us to represent zero-length features e.g. splice
+
+      sites, insertion points without an awkward fuzzy system. Features
+
+      typically have exactly ONE location, but this need not be the
+
+      case. Some features may not be localized (e.g. a gene that has been
+
+      characterized genetically but no sequence or molecular information is
+
+      available). Note on multiple locations: Each feature can have 0 or
+
+      more locations. Multiple locations do NOT indicate non-contiguous
+
+      locations (if a feature such as a transcript has a non-contiguous
+
+      location, then the subfeatures such as exons should always be
+
+      manifested). Instead, multiple featurelocs for a feature designate
+
+      alternate locations or grouped locations; for instance, a feature
+
+      designating a blast hit or hsp will have two locations, one on the
+
+      query feature, one on the subject feature. Features representing
+
+      sequence variation could have alternate locations instantiated on a
+
+      feature on the mutant strain. The column:rank is used to
+
+      differentiate these different locations. Reflexive locations should
+
+      never be stored - this is for -proper- (i.e. non-self) locations only; nothing should be located
+      relative to itself.'
+    aliases:
+    - featureloc
+  FeaturemapPub:
+    attributes:
+      featuremap_pub_id:
+        identifier: true
+        range: integer
+      featuremap_id:
+        range: Featuremap
+      pub_id:
+        range: Pub
+    aliases:
+    - featuremap_pub
+  Featurepos:
+    attributes:
+      featurepos_id:
+        identifier: true
+        range: integer
+      featuremap_id:
+        range: Featuremap
+      feature_id:
+        range: Feature
+      map_feature_id:
+        range: Feature
+      mappos:
+        range: double
+        required: true
+    aliases:
+    - featurepos
+  Featureprop:
+    attributes:
+      featureprop_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property, represented as text. Numeric values are converted to their
+          text representation. This is less efficient than using native database types, but is easier
+          to query.
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value ordering. Any
+
+          feature can have multiple values for any particular property type -
+
+          these are ordered in a list using rank, counting from zero. For
+
+          properties that are single-valued rather than multi-valued, the
+
+          default 0 value should be used'
+    description: A feature can have any number of slot-value property tags attached to it. This is an
+      alternative to hardcoding a list of columns in the relational schema, and is completely extensible.
+    aliases:
+    - featureprop
+  Featurepropjson:
+    attributes:
+      featurepropjson_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      type_id:
+        range: Cvterm
+      rank:
+        range: integer
+        required: true
+      value:
+        range: string
+        required: true
+    description: Properties attached to a feature when a JSON structure is appropriate
+    aliases:
+    - featurepropjson
+  Featurerange:
+    attributes:
+      featurerange_id:
+        identifier: true
+        range: integer
+      featuremap_id:
+        range: Featuremap
+      feature_id:
+        range: Feature
+      leftstartf_id:
+        range: Feature
+      leftendf_id:
+        range: Feature
+      rightstartf_id:
+        range: Feature
+      rightendf_id:
+        range: Feature
+      rangestr:
+        range: string
+    description: In cases where the start and end of a mapped feature is a range, leftendf and rightstartf
+      are populated. leftstartf_id, leftendf_id, rightstartf_id, rightendf_id are the ids of features
+      with respect to which the feature is being mapped. These may be cytological bands.
+    aliases:
+    - featurerange
+  Genotypeprop:
+    attributes:
+      genotypeprop_id:
+        identifier: true
+        range: integer
+      genotype_id:
+        range: Genotype
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - genotypeprop
+  GrpCvterm:
+    attributes:
+      grp_cvterm_id:
+        identifier: true
+        range: integer
+      is_not:
+        range: boolean
+        required: true
+      cvterm_id:
+        range: Cvterm
+      grp_id:
+        range: integer
+        required: true
+      pub_id:
+        range: Pub
+    aliases:
+    - grp_cvterm
+  GrpPub:
+    attributes:
+      grp_pub_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      grp_id:
+        range: integer
+        required: true
+    aliases:
+    - grp_pub
+  GrpRelationship:
+    attributes:
+      grp_relationship_id:
+        identifier: true
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      subject_id:
+        range: Grp
+      object_id:
+        range: Grp
+    aliases:
+    - grp_relationship
+  Grploc:
+    attributes:
+      grploc_id:
+        identifier: true
+        range: integer
+      grp_id:
+        range: Grp
+      srcfeature_id:
+        range: Feature
+      fmin:
+        range: integer
+      is_fmin_partial:
+        range: boolean
+        required: true
+      fmax:
+        range: integer
+      is_fmax_partial:
+        range: boolean
+        required: true
+      strand:
+        range: integer
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - grploc
+  Grpmember:
+    attributes:
+      grpmember_id:
+        identifier: true
+        range: integer
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      grp_id:
+        range: Grp
+    aliases:
+    - grpmember
+  GrpmemberCvterm:
+    attributes:
+      grpmember_cvterm_id:
+        identifier: true
+        range: integer
+      is_not:
+        range: boolean
+        required: true
+      cvterm_id:
+        range: Cvterm
+      grpmember_id:
+        range: integer
+        required: true
+      pub_id:
+        range: Pub
+    aliases:
+    - grpmember_cvterm
+  Grpprop:
+    attributes:
+      grpprop_id:
+        identifier: true
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      grp_id:
+        range: Grp
+    aliases:
+    - grpprop
+  GrppropPub:
+    attributes:
+      grpprop_pub_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      grpprop_id:
+        range: integer
+        required: true
+    aliases:
+    - grpprop_pub
+  LibraryCvterm:
+    attributes:
+      library_cvterm_id:
+        identifier: true
+        range: integer
+      library_id:
+        range: Library
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+    description: The table library_cvterm links a library to controlled vocabularies which describe the
+      library.  For instance, there might be a link to the anatomy cv for "head" or "testes" for a head
+      or testes library.
+    aliases:
+    - library_cvterm
+  LibraryDbxref:
+    attributes:
+      library_dbxref_id:
+        identifier: true
+        range: integer
+      library_id:
+        range: Library
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+    aliases:
+    - library_dbxref
+  LibraryFeature:
+    attributes:
+      library_feature_id:
+        identifier: true
+        range: integer
+      library_id:
+        range: Library
+      feature_id:
+        range: Feature
+    description: library_feature links a library to the clones which are contained in the library.  Examples
+      of such linked features might be "cDNA_clone" or  "genomic_clone".
+    aliases:
+    - library_feature
+  LibraryPub:
+    attributes:
+      library_pub_id:
+        identifier: true
+        range: integer
+      library_id:
+        range: Library
+      pub_id:
+        range: Pub
+    aliases:
+    - library_pub
+  LibrarySynonym:
+    attributes:
+      library_synonym_id:
+        identifier: true
+        range: integer
+      synonym_id:
+        range: Synonym
+      library_id:
+        range: Library
+      pub_id:
+        range: Pub
+      is_current:
+        range: boolean
+        required: true
+        description: The is_current bit indicates whether the linked synonym is the current -official-
+          symbol for the linked library.
+      is_internal:
+        range: boolean
+        required: true
+        description: 'Typically a synonym
+
+          exists so that somebody querying the database with an obsolete name
+
+          can find the object they are looking for under its current name.  If
+
+          the synonym has been used big_publicly and deliberately (e.g. in a paper), it my also be listed
+          in reports as a synonym.   If the synonym was not used deliberately (e.g., there was a typo
+          which went big_public), then the is_internal bit may be set to "true" so that it is known that
+          the synonym is "internal" and should be queryable but should not be listed in reports as a valid
+          synonym.'
+    aliases:
+    - library_synonym
+  Libraryprop:
+    attributes:
+      libraryprop_id:
+        identifier: true
+        range: integer
+      library_id:
+        range: Library
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - libraryprop
+  NdExperimentContact:
+    attributes:
+      nd_experiment_contact_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      contact_id:
+        range: Contact
+    aliases:
+    - nd_experiment_contact
+  NdExperimentDbxref:
+    attributes:
+      nd_experiment_dbxref_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      dbxref_id:
+        range: Dbxref
+    description: Cross-reference experiment to accessions, images, etc
+    aliases:
+    - nd_experiment_dbxref
+  NdExperimentGenotype:
+    attributes:
+      nd_experiment_genotype_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      genotype_id:
+        range: Genotype
+    description: 'Linking table: experiments to the genotypes they produce. There is a one-to-one relationship
+      between an experiment and a genotype since each genotype record should point to one experiment.
+      Add a new experiment_id for each genotype record.'
+    aliases:
+    - nd_experiment_genotype
+  NdExperimentPhenotype:
+    attributes:
+      nd_experiment_phenotype_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      phenotype_id:
+        range: Phenotype
+    description: 'Linking table: experiments to the phenotypes they produce. There is a one-to-one relationship
+      between an experiment and a phenotype since each phenotype record should point to one experiment.
+      Add a new experiment_id for each phenotype record.'
+    aliases:
+    - nd_experiment_phenotype
+  NdExperimentProject:
+    attributes:
+      nd_experiment_project_id:
+        identifier: true
+        range: integer
+      project_id:
+        range: Project
+      nd_experiment_id:
+        range: NdExperiment
+    aliases:
+    - nd_experiment_project
+  NdExperimentProtocol:
+    attributes:
+      nd_experiment_protocol_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      nd_protocol_id:
+        range: NdProtocol
+    description: 'Linking table: experiments to the protocols they involve.'
+    aliases:
+    - nd_experiment_protocol
+  NdExperimentPub:
+    attributes:
+      nd_experiment_pub_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      pub_id:
+        range: Pub
+    description: Linking nd_experiment(s) to big_publication(s)
+    aliases:
+    - nd_experiment_pub
+  NdExperimentStock:
+    attributes:
+      nd_experiment_stock_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      stock_id:
+        range: Stock
+      type_id:
+        range: Cvterm
+    description: Part of a stock or a clone of a stock that is used in an experiment
+    aliases:
+    - nd_experiment_stock
+  NdExperimentprop:
+    attributes:
+      nd_experimentprop_id:
+        identifier: true
+        range: integer
+      nd_experiment_id:
+        range: NdExperiment
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - nd_experimentprop
+  NdProtocolReagent:
+    attributes:
+      nd_protocol_reagent_id:
+        identifier: true
+        range: integer
+      nd_protocol_id:
+        range: NdProtocol
+      reagent_id:
+        range: NdReagent
+      type_id:
+        range: Cvterm
+    aliases:
+    - nd_protocol_reagent
+  NdProtocolprop:
+    attributes:
+      nd_protocolprop_id:
+        identifier: true
+        range: integer
+      nd_protocol_id:
+        range: NdProtocol
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property.
+      rank:
+        range: integer
+        required: true
+        description: The rank of the property value, if the property has an array of values.
+    description: Property/value associations for protocol.
+    aliases:
+    - nd_protocolprop
+  NdReagentRelationship:
+    attributes:
+      nd_reagent_relationship_id:
+        identifier: true
+        range: integer
+      subject_reagent_id:
+        range: NdReagent
+      object_reagent_id:
+        range: NdReagent
+      type_id:
+        range: Cvterm
+    description: Relationships between reagents. Some reagents form a group. i.e., they are used all together
+      or not at all. Examples are adapter/linker/enzyme experiment reagents.
+    aliases:
+    - nd_reagent_relationship
+  NdReagentprop:
+    attributes:
+      nd_reagentprop_id:
+        identifier: true
+        range: integer
+      nd_reagent_id:
+        range: NdReagent
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - nd_reagentprop
+  Phendesc:
+    attributes:
+      phendesc_id:
+        identifier: true
+        range: integer
+      genotype_id:
+        range: Genotype
+      environment_id:
+        range: Environment
+      description:
+        range: string
+        required: true
+      type_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+    description: A summary of a _set_ of phenotypic statements for any one gcontext made in any one big_publication.
+    aliases:
+    - phendesc
+  PhenotypeComparison:
+    attributes:
+      phenotype_comparison_id:
+        identifier: true
+        range: integer
+      genotype1_id:
+        range: Genotype
+      environment1_id:
+        range: Environment
+      genotype2_id:
+        range: Genotype
+      environment2_id:
+        range: Environment
+      phenotype1_id:
+        range: Phenotype
+      phenotype2_id:
+        range: Phenotype
+      pub_id:
+        range: Pub
+      organism_id:
+        range: Organism
+    description: Comparison of phenotypes e.g., genotype1/environment1/phenotype1 "non-suppressible" with
+      respect to genotype2/environment2/phenotype2.
+    aliases:
+    - phenotype_comparison
+  PhenotypeCvterm:
+    attributes:
+      phenotype_cvterm_id:
+        identifier: true
+        range: integer
+      phenotype_id:
+        range: Phenotype
+      cvterm_id:
+        range: Cvterm
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - phenotype_cvterm
+  Phenstatement:
+    attributes:
+      phenstatement_id:
+        identifier: true
+        range: integer
+      genotype_id:
+        range: Genotype
+      environment_id:
+        range: Environment
+      phenotype_id:
+        range: Phenotype
+      type_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+    description: Phenotypes are things like "larval lethal".  Phenstatements are things like "dpp-1 is
+      recessive larval lethal". So essentially phenstatement is a linking table expressing the relationship
+      between genotype, environment, and phenotype.
+    aliases:
+    - phenstatement
+  Phylonode:
+    attributes:
+      phylonode_id:
+        identifier: true
+        range: integer
+      phylotree_id:
+        range: Phylotree
+      parent_phylonode_id:
+        range: Phylonode
+      left_idx:
+        range: integer
+        required: true
+      right_idx:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      feature_id:
+        range: Feature
+      label:
+        range: string
+      distance:
+        range: double
+    description: "This is the most pervasive\n       element in the phylogeny module, cataloging the \"\
+      phylonodes\" of\n       tree graphs. Edges are implied by the parent_phylonode_id\n       reflexive\
+      \ closure. For all nodes in a nested set implementation the left and right index will be *between*\
+      \ the parents left and right indexes."
+    aliases:
+    - phylonode
+  PhylotreePub:
+    attributes:
+      phylotree_pub_id:
+        identifier: true
+        range: integer
+      phylotree_id:
+        range: Phylotree
+      pub_id:
+        range: Pub
+    description: Tracks citations global to the tree e.g. multiple sequence alignment supporting tree
+      construction.
+    aliases:
+    - phylotree_pub
+  ProjectContact:
+    attributes:
+      project_contact_id:
+        identifier: true
+        range: integer
+      project_id:
+        range: Project
+      contact_id:
+        range: Contact
+    description: Linking project(s) to contact(s)
+    aliases:
+    - project_contact
+  ProjectPub:
+    attributes:
+      project_pub_id:
+        identifier: true
+        range: integer
+      project_id:
+        range: Project
+      pub_id:
+        range: Pub
+    description: Linking project(s) to big_publication(s)
+    aliases:
+    - project_pub
+  Protocol:
+    attributes:
+      protocol_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+        required: true
+      uri:
+        range: string
+      protocoldescription:
+        range: string
+      hardwaredescription:
+        range: string
+      softwaredescription:
+        range: string
+    description: Procedural notes on how data was prepared and processed.
+    aliases:
+    - protocol
+  PubDbxref:
+    attributes:
+      pub_dbxref_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+    description: 'Handle links to repositories,
+
+      e.g. Pubmed, Biosis, zoorec, OCLC, Medline, ISSN, coden...'
+    aliases:
+    - pub_dbxref
+  PubRelationship:
+    attributes:
+      pub_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Pub
+      object_id:
+        range: Pub
+      type_id:
+        range: Cvterm
+    description: 'Handle relationships between
+
+      big_publications, e.g. when one big_publication makes others obsolete, when one
+
+      big_publication contains errata with respect to other big_publication(s), or
+
+      when one big_publication also appears in another pub.'
+    aliases:
+    - pub_relationship
+  Pubauthor:
+    attributes:
+      pubauthor_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      rank:
+        range: integer
+        required: true
+        description: Order of author in author list for this pub - order is important.
+      editor:
+        range: boolean
+        description: 'Indicates whether the author is an editor for linked big_publication. Note: this
+          is a boolean field but does not follow the normal chado convention for naming booleans.'
+      surname:
+        range: string
+        required: true
+      givennames:
+        range: string
+        description: First name, initials
+      suffix:
+        range: string
+        description: Jr., Sr., etc
+    description: An author for a big_publication. Note the denormalisation (hence lack of _ in table name)
+      - this is deliberate as it is in general too hard to assign IDs to authors.
+    aliases:
+    - pubauthor
+  Pubprop:
+    attributes:
+      pubprop_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        required: true
+      rank:
+        range: integer
+    description: Property-value pairs for a pub. Follows standard chado pattern.
+    aliases:
+    - pubprop
+  StockCvterm:
+    attributes:
+      stock_cvterm_id:
+        identifier: true
+        range: integer
+      stock_id:
+        range: Stock
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+      is_not:
+        range: boolean
+        required: true
+      rank:
+        range: integer
+        required: true
+    description: stock_cvterm links a stock to cvterms. This is for secondary cvterms; primary cvterms
+      should use stock.type_id.
+    aliases:
+    - stock_cvterm
+  StockDbxref:
+    attributes:
+      stock_dbxref_id:
+        identifier: true
+        range: integer
+      stock_id:
+        range: Stock
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+        description: The is_current boolean indicates whether the linked dbxref is the current -official-
+          dbxref for the linked stock.
+    description: stock_dbxref links a stock to dbxrefs. This is for secondary identifiers; primary identifiers
+      should use stock.dbxref_id.
+    aliases:
+    - stock_dbxref
+  StockGenotype:
+    attributes:
+      stock_genotype_id:
+        identifier: true
+        range: integer
+      stock_id:
+        range: Stock
+      genotype_id:
+        range: Genotype
+    description: 'Simple table linking a stock to
+
+      a genotype. Features with genotypes can be linked to stocks thru feature_genotype -> genotype ->
+      stock_genotype -> stock.'
+    aliases:
+    - stock_genotype
+  StockPub:
+    attributes:
+      stock_pub_id:
+        identifier: true
+        range: integer
+      stock_id:
+        range: Stock
+      pub_id:
+        range: Pub
+    description: Provenance. Linking table between stocks and, for example, a stocklist computer file.
+    aliases:
+    - stock_pub
+  StockRelationship:
+    attributes:
+      stock_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Stock
+      object_id:
+        range: Stock
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: stock_relationship.value is for additional notes or comments.
+      rank:
+        range: integer
+        required: true
+        description: stock_relationship.rank is the ordering of subject stocks with respect to the object
+          stock may be important where rank is used to order these; starts from zero.
+    aliases:
+    - stock_relationship
+  Stockcollection:
+    attributes:
+      stockcollection_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      contact_id:
+        range: Contact
+      name:
+        range: string
+        description: name is the collection.
+      uniquename:
+        range: string
+        required: true
+        description: uniqename is the value of the collection cv.
+    description: The lab or stock center distributing the stocks in their collection.
+    aliases:
+    - stockcollection
+  Stockprop:
+    attributes:
+      stockprop_id:
+        identifier: true
+        range: integer
+      stock_id:
+        range: Stock
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: 'A stock can have any number of
+
+      slot-value property tags attached to it. This is an alternative to
+
+      hardcoding a list of columns in the relational schema, and is
+
+      completely extensible. There is a unique constraint, stockprop_c1, for
+
+      the combination of stock_id, rank, and type_id. Multivalued property-value pairs must be differentiated
+      by rank.'
+    aliases:
+    - stockprop
+  Study:
+    attributes:
+      study_id:
+        identifier: true
+        range: integer
+      contact_id:
+        range: Contact
+      pub_id:
+        range: Pub
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - study
+  TrackingBundleFileData:
+    attributes:
+      tracking_bundle_file_id:
+        range: TrackingBundleFile
+      key:
+        range: string
+        required: true
+      value:
+        range: string
+        required: true
+    aliases:
+    - tracking_bundle_file_data
+  Analysisfeatureprop:
+    attributes:
+      analysisfeatureprop_id:
+        identifier: true
+        range: integer
+      analysisfeature_id:
+        range: Analysisfeature
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - analysisfeatureprop
+  Arraydesign:
+    attributes:
+      arraydesign_id:
+        identifier: true
+        range: integer
+      manufacturer_id:
+        range: Contact
+      platformtype_id:
+        range: Cvterm
+      substratetype_id:
+        range: Cvterm
+      protocol_id:
+        range: Protocol
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+        required: true
+      version:
+        range: string
+      description:
+        range: string
+      array_dimensions:
+        range: string
+      element_dimensions:
+        range: string
+      num_of_elements:
+        range: integer
+      num_array_columns:
+        range: integer
+      num_array_rows:
+        range: integer
+      num_grid_columns:
+        range: integer
+      num_grid_rows:
+        range: integer
+      num_sub_columns:
+        range: integer
+      num_sub_rows:
+        range: integer
+    description: 'General properties about an array.
+
+      An array is a template used to generate physical slides, etc.  It
+
+      contains layout information, as well as global array properties, such
+
+      as material (glass, nylon) and spot dimensions (in rows/columns).'
+    aliases:
+    - arraydesign
+  BiomaterialDbxref:
+    attributes:
+      biomaterial_dbxref_id:
+        identifier: true
+        range: integer
+      biomaterial_id:
+        range: Biomaterial
+      dbxref_id:
+        range: Dbxref
+    aliases:
+    - biomaterial_dbxref
+  BiomaterialGrpmember:
+    attributes:
+      biomaterial_grpmember_id:
+        range: integer
+        required: true
+      grpmember_id:
+        range: Grpmember
+      biomaterial_id:
+        range: Biomaterial
+    aliases:
+    - biomaterial_grpmember
+  BiomaterialRelationship:
+    attributes:
+      biomaterial_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Biomaterial
+      type_id:
+        range: Cvterm
+      object_id:
+        range: Biomaterial
+    description: Relate biomaterials to one another. This is a way to track a series of treatments or
+      material splits/merges, for instance.
+    aliases:
+    - biomaterial_relationship
+  Biomaterialprop:
+    attributes:
+      biomaterialprop_id:
+        identifier: true
+        range: integer
+      biomaterial_id:
+        range: Biomaterial
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Extra biomaterial properties that are not accounted for in biomaterial.
+    aliases:
+    - biomaterialprop
+  Biomaterialpropjson:
+    attributes:
+      biomaterialpropjson_id:
+        range: integer
+        required: true
+      biomaterial_id:
+        range: Biomaterial
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - biomaterialpropjson
+  CellLineCvtermprop:
+    attributes:
+      cell_line_cvtermprop_id:
+        identifier: true
+        range: integer
+      cell_line_cvterm_id:
+        range: CellLineCvterm
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - cell_line_cvtermprop
+  FeatureCvtermDbxref:
+    attributes:
+      feature_cvterm_dbxref_id:
+        identifier: true
+        range: integer
+      feature_cvterm_id:
+        range: FeatureCvterm
+      dbxref_id:
+        range: Dbxref
+      type_id:
+        range: Cvterm
+    description: Additional dbxrefs for an association. Rows in the feature_cvterm table may be backed
+      up by dbxrefs. For example, a feature_cvterm association that was inferred via a protein-protein
+      interaction may be backed by by refering to the dbxref for the alternate protein. Corresponds to
+      the WITH column in a GO gene association file (but can also be used for other analagous associations).
+      See http://www.geneontology.org/doc/GO.annotation.shtml#file for more details.
+    aliases:
+    - feature_cvterm_dbxref
+  FeatureCvtermPub:
+    attributes:
+      feature_cvterm_pub_id:
+        identifier: true
+        range: integer
+      feature_cvterm_id:
+        range: FeatureCvterm
+      pub_id:
+        range: Pub
+    description: 'Secondary pubs for an
+
+      association. Each feature_cvterm association is supported by a single
+
+      primary big_publication. Additional secondary pubs can be added using this
+
+      linking table (in a GO gene association file, these corresponding to
+
+      any IDs after the pipe symbol in the big_publications column.'
+    aliases:
+    - feature_cvterm_pub
+  FeatureCvtermprop:
+    attributes:
+      feature_cvtermprop_id:
+        identifier: true
+        range: integer
+      feature_cvterm_id:
+        range: FeatureCvterm
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: 'The value of the
+
+          property, represented as text. Numeric values are converted to their
+
+          text representation. This is less efficient than using native database
+
+          types, but is easier to query.'
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value
+
+          ordering. Any feature_cvterm can have multiple values for any particular
+
+          property type - these are ordered in a list using rank, counting from
+
+          zero. For properties that are single-valued rather than multi-valued,
+
+          the default 0 value should be used.'
+    description: 'Extensible properties for
+
+      feature to cvterm associations. Examples: GO evidence codes;
+
+      qualifiers; metadata such as the date on which the entry was curated
+
+      and the source of the association. See the featureprop table for
+
+      meanings of type_id, value and rank.'
+    aliases:
+    - feature_cvtermprop
+  FeatureDbxrefEvidence:
+    attributes:
+      feature_dbxref_evidence_id:
+        range: integer
+        required: true
+      feature_dbxref_id:
+        range: FeatureDbxref
+      feature_id:
+        range: Feature
+    description: 'the link between
+
+      a feature and a dbxref is based on an analysis result. This
+
+      table captures the analysis result which lead to the linkage.'
+    aliases:
+    - feature_dbxref_evidence
+  FeatureExpressionprop:
+    attributes:
+      feature_expressionprop_id:
+        identifier: true
+        range: integer
+      feature_expression_id:
+        range: FeatureExpression
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: 'Extensible properties for
+
+      feature_expression (comments, for example). Modeled on feature_cvtermprop.'
+    aliases:
+    - feature_expressionprop
+  FeatureGrpmember:
+    attributes:
+      feature_grpmember_id:
+        identifier: true
+        range: integer
+      grpmember_id:
+        range: Grpmember
+      feature_id:
+        range: Feature
+    aliases:
+    - feature_grpmember
+  FeaturePubprop:
+    attributes:
+      feature_pubprop_id:
+        identifier: true
+        range: integer
+      feature_pub_id:
+        range: FeaturePub
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Property or attribute of a feature_pub link.
+    aliases:
+    - feature_pubprop
+  FeatureRelationshipPub:
+    attributes:
+      feature_relationship_pub_id:
+        identifier: true
+        range: integer
+      feature_relationship_id:
+        range: FeatureRelationship
+      pub_id:
+        range: Pub
+    description: Provenance. Attach optional evidence to a feature_relationship in the form of a big_publication.
+    aliases:
+    - feature_relationship_pub
+  FeatureRelationshipprop:
+    attributes:
+      feature_relationshipprop_id:
+        identifier: true
+        range: integer
+      feature_relationship_id:
+        range: FeatureRelationship
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: 'The value of the
+
+          property, represented as text. Numeric values are converted to their
+
+          text representation. This is less efficient than using native database
+
+          types, but is easier to query.'
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value
+
+          ordering. Any feature_relationship can have multiple values for any particular
+
+          property type - these are ordered in a list using rank, counting from
+
+          zero. For properties that are single-valued rather than multi-valued,
+
+          the default 0 value should be used.'
+    description: 'Extensible properties
+
+      for feature_relationships. Analagous structure to featureprop. This
+
+      table is largely optional and not used with a high frequency. Typical
+
+      scenarios may be if one wishes to attach additional data to a
+
+      feature_relationship - for example to say that the
+
+      feature_relationship is only true in certain contexts.'
+    aliases:
+    - feature_relationshipprop
+  FeaturelocPub:
+    attributes:
+      featureloc_pub_id:
+        identifier: true
+        range: integer
+      featureloc_id:
+        range: Featureloc
+      pub_id:
+        range: Pub
+    description: Provenance of featureloc. Linking table between featurelocs and big_publications that
+      mention them.
+    aliases:
+    - featureloc_pub
+  FeaturepropEvidence:
+    attributes:
+      featureprop_evidence_id:
+        range: integer
+        required: true
+      featureprop_id:
+        range: Featureprop
+      feature_id:
+        range: Feature
+    aliases:
+    - featureprop_evidence
+  FeaturepropPub:
+    attributes:
+      featureprop_pub_id:
+        identifier: true
+        range: integer
+      featureprop_id:
+        range: Featureprop
+      pub_id:
+        range: Pub
+    description: Provenance. Any featureprop assignment can optionally be supported by a big_publication.
+    aliases:
+    - featureprop_pub
+  GrpPubprop:
+    attributes:
+      grp_pubprop_id:
+        identifier: true
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      grp_pub_id:
+        range: GrpPub
+    aliases:
+    - grp_pubprop
+  GrpRelationshipProp:
+    attributes:
+      grpprop_id:
+        identifier: true
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      grp_relationship_id:
+        range: GrpRelationship
+    aliases:
+    - grp_relationship_prop
+  GrpRelationshipPub:
+    attributes:
+      grp_relationship_pub_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      grp_relationship_id:
+        range: GrpRelationship
+    aliases:
+    - grp_relationship_pub
+  GrpmemberDbxref:
+    attributes:
+      grpmember_dbxref_id:
+        range: integer
+        required: true
+      grpmember_id:
+        range: Grpmember
+      dbxref_id:
+        range: Dbxref
+      is_current:
+        range: boolean
+        required: true
+    aliases:
+    - grpmember_dbxref
+  GrpmemberPub:
+    attributes:
+      grpmember_pub_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      grpmember_id:
+        range: Grpmember
+    aliases:
+    - grpmember_pub
+  Grpmemberprop:
+    attributes:
+      grpmemberprop_id:
+        identifier: true
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+      type_id:
+        range: Cvterm
+      grpmember_id:
+        range: Grpmember
+    aliases:
+    - grpmemberprop
+  LibraryFeatureprop:
+    attributes:
+      library_featureprop_id:
+        range: integer
+        required: true
+      library_feature_id:
+        range: LibraryFeature
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - library_featureprop
+  LibrarypropPub:
+    attributes:
+      libraryprop_pub_id:
+        identifier: true
+        range: integer
+      libraryprop_id:
+        range: Libraryprop
+      pub_id:
+        range: Pub
+    aliases:
+    - libraryprop_pub
+  NdExperimentStockDbxref:
+    attributes:
+      nd_experiment_stock_dbxref_id:
+        identifier: true
+        range: integer
+      nd_experiment_stock_id:
+        range: NdExperimentStock
+      dbxref_id:
+        range: Dbxref
+    description: Cross-reference experiment_stock to accessions, images, etc
+    aliases:
+    - nd_experiment_stock_dbxref
+  NdExperimentStockprop:
+    attributes:
+      nd_experiment_stockprop_id:
+        identifier: true
+        range: integer
+      nd_experiment_stock_id:
+        range: NdExperimentStock
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: The value of the property.
+      rank:
+        range: integer
+        required: true
+        description: The rank of the property value, if the property has an array of values.
+    description: Property/value associations for experiment_stocks. This table can store the properties
+      such as treatment
+    aliases:
+    - nd_experiment_stockprop
+  OrganismGrpmember:
+    attributes:
+      organism_grpmember_id:
+        identifier: true
+        range: integer
+      grpmember_id:
+        range: Grpmember
+      organism_id:
+        range: Organism
+    aliases:
+    - organism_grpmember
+  PhenotypeComparisonCvterm:
+    attributes:
+      phenotype_comparison_cvterm_id:
+        identifier: true
+        range: integer
+      phenotype_comparison_id:
+        range: PhenotypeComparison
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - phenotype_comparison_cvterm
+  PhylonodeDbxref:
+    attributes:
+      phylonode_dbxref_id:
+        identifier: true
+        range: integer
+      phylonode_id:
+        range: Phylonode
+      dbxref_id:
+        range: Dbxref
+    description: For example, for orthology, paralogy group identifiers; could also be used for NCBI taxonomy;
+      for sequences, refer to phylonode_feature, feature associated dbxrefs.
+    aliases:
+    - phylonode_dbxref
+  PhylonodeOrganism:
+    attributes:
+      phylonode_organism_id:
+        identifier: true
+        range: integer
+      phylonode_id:
+        range: Phylonode
+      organism_id:
+        range: Organism
+    description: This linking table should only be used for nodes in taxonomy trees; it provides a mapping
+      between the node and an organism. One node can have zero or one organisms, one organism can have
+      zero or more nodes (although typically it should only have one in the standard NCBI taxonomy tree).
+    aliases:
+    - phylonode_organism
+  PhylonodePub:
+    attributes:
+      phylonode_pub_id:
+        identifier: true
+        range: integer
+      phylonode_id:
+        range: Phylonode
+      pub_id:
+        range: Pub
+    aliases:
+    - phylonode_pub
+  PhylonodeRelationship:
+    attributes:
+      phylonode_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Phylonode
+      object_id:
+        range: Phylonode
+      type_id:
+        range: Cvterm
+      rank:
+        range: integer
+      phylotree_id:
+        range: Phylotree
+    description: "This is for \nrelationships that are not strictly hierarchical; for example,\nhorizontal\
+      \ gene transfer. Most phylogenetic trees are strictly\nhierarchical, nevertheless it is here for\
+      \ completeness."
+    aliases:
+    - phylonode_relationship
+  Phylonodeprop:
+    attributes:
+      phylonodeprop_id:
+        identifier: true
+        range: integer
+      phylonode_id:
+        range: Phylonode
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        required: true
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - phylonodeprop
+  Protocolparam:
+    attributes:
+      protocolparam_id:
+        identifier: true
+        range: integer
+      protocol_id:
+        range: Protocol
+      name:
+        range: string
+        required: true
+      datatype_id:
+        range: Cvterm
+      unittype_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: 'Parameters related to a
+
+      protocol. For example, if the protocol is a soak, this might include attributes of bath temperature
+      and duration.'
+    aliases:
+    - protocolparam
+  StockCvtermprop:
+    attributes:
+      stock_cvtermprop_id:
+        identifier: true
+        range: integer
+      stock_cvterm_id:
+        range: StockCvterm
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+        description: 'The value of the
+
+          property, represented as text. Numeric values are converted to their
+
+          text representation. This is less efficient than using native database
+
+          types, but is easier to query.'
+      rank:
+        range: integer
+        required: true
+        description: 'Property-Value
+
+          ordering. Any stock_cvterm can have multiple values for any particular
+
+          property type - these are ordered in a list using rank, counting from
+
+          zero. For properties that are single-valued rather than multi-valued,
+
+          the default 0 value should be used.'
+    description: 'Extensible properties for
+
+      stock to cvterm associations. Examples: GO evidence codes;
+
+      qualifiers; metadata such as the date on which the entry was curated
+
+      and the source of the association. See the stockprop table for
+
+      meanings of type_id, value and rank.'
+    aliases:
+    - stock_cvtermprop
+  StockDbxrefprop:
+    attributes:
+      stock_dbxrefprop_id:
+        identifier: true
+        range: integer
+      stock_dbxref_id:
+        range: StockDbxref
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: 'A stock_dbxref can have any number of
+
+      slot-value property tags attached to it. This is useful for storing properties related to dbxref
+      annotations of stocks, such as evidence codes, and references, and metadata, such as create/modify
+      dates. This is an alternative to
+
+      hardcoding a list of columns in the relational schema, and is
+
+      completely extensible. There is a unique constraint, stock_dbxrefprop_c1, for
+
+      the combination of stock_dbxref_id, rank, and type_id. Multivalued property-value pairs must be
+      differentiated by rank.'
+    aliases:
+    - stock_dbxrefprop
+  StockRelationshipCvterm:
+    attributes:
+      stock_relationship_cvterm_id:
+        identifier: true
+        range: integer
+      stock_relationship_id:
+        range: StockRelationship
+      cvterm_id:
+        range: Cvterm
+      pub_id:
+        range: Pub
+    description: For germplasm maintenance and pedigree data, stock_relationship. type_id will record
+      cvterms such as "is a female parent of", "a parent for mutation", "is a group_id of", "is a source_id
+      of", etc The cvterms for higher categories such as "generative", "derivative" or "maintenance" can
+      be stored in table stock_relationship_cvterm
+    aliases:
+    - stock_relationship_cvterm
+  StockRelationshipPub:
+    attributes:
+      stock_relationship_pub_id:
+        identifier: true
+        range: integer
+      stock_relationship_id:
+        range: StockRelationship
+      pub_id:
+        range: Pub
+    description: Provenance. Attach optional evidence to a stock_relationship in the form of a big_publication.
+    aliases:
+    - stock_relationship_pub
+  StockcollectionStock:
+    attributes:
+      stockcollection_stock_id:
+        identifier: true
+        range: integer
+      stockcollection_id:
+        range: Stockcollection
+      stock_id:
+        range: Stock
+    description: 'stockcollection_stock links
+
+      a stock collection to the stocks which are contained in the collection.'
+    aliases:
+    - stockcollection_stock
+  Stockcollectionprop:
+    attributes:
+      stockcollectionprop_id:
+        identifier: true
+        range: integer
+      stockcollection_id:
+        range: Stockcollection
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: 'The table stockcollectionprop
+
+      contains the value of the stock collection such as website/email URLs;
+
+      the value of the stock collection order URLs.'
+    aliases:
+    - stockcollectionprop
+  StockpropPub:
+    attributes:
+      stockprop_pub_id:
+        identifier: true
+        range: integer
+      stockprop_id:
+        range: Stockprop
+      pub_id:
+        range: Pub
+    description: Provenance. Any stockprop assignment can optionally be supported by a big_publication.
+    aliases:
+    - stockprop_pub
+  Studydesign:
+    attributes:
+      studydesign_id:
+        identifier: true
+        range: integer
+      study_id:
+        range: Study
+      description:
+        range: string
+    aliases:
+    - studydesign
+  Studyprop:
+    attributes:
+      studyprop_id:
+        identifier: true
+        range: integer
+      study_id:
+        range: Study
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - studyprop
+  Treatment:
+    attributes:
+      treatment_id:
+        identifier: true
+        range: integer
+      rank:
+        range: integer
+        required: true
+      biomaterial_id:
+        range: Biomaterial
+      type_id:
+        range: Cvterm
+      protocol_id:
+        range: Protocol
+      name:
+        range: string
+    description: 'A biomaterial may undergo multiple
+
+      treatments. Examples of treatments: apoxia, fluorophore and biotin labeling.'
+    aliases:
+    - treatment
+  Arraydesignprop:
+    attributes:
+      arraydesignprop_id:
+        identifier: true
+        range: integer
+      arraydesign_id:
+        range: Arraydesign
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Extra array design properties that are not accounted for in arraydesign.
+    aliases:
+    - arraydesignprop
+  Assay:
+    attributes:
+      assay_id:
+        identifier: true
+        range: integer
+      arraydesign_id:
+        range: Arraydesign
+      protocol_id:
+        range: Protocol
+      assaydate:
+        range: datetime
+      arrayidentifier:
+        range: string
+      arraybatchidentifier:
+        range: string
+      operator_id:
+        range: Contact
+      dbxref_id:
+        range: Dbxref
+      name:
+        range: string
+      description:
+        range: string
+    description: 'An assay consists of a physical instance of
+
+      an array, combined with the conditions used to create the array
+
+      (protocols, technician information). The assay can be thought of as a hybridization.'
+    aliases:
+    - assay
+  BiomaterialTreatment:
+    attributes:
+      biomaterial_treatment_id:
+        identifier: true
+        range: integer
+      biomaterial_id:
+        range: Biomaterial
+      treatment_id:
+        range: Treatment
+      unittype_id:
+        range: Cvterm
+      value:
+        range: float
+      rank:
+        range: integer
+        required: true
+    description: Link biomaterials to treatments. Treatments have an order of operations (rank), and associated
+      measurements (unittype_id, value).
+    aliases:
+    - biomaterial_treatment
+  Element:
+    attributes:
+      element_id:
+        identifier: true
+        range: integer
+      feature_id:
+        range: Feature
+      arraydesign_id:
+        range: Arraydesign
+      type_id:
+        range: Cvterm
+      dbxref_id:
+        range: Dbxref
+    description: Represents a feature of the array. This is typically a region of the array coated or
+      bound to DNA.
+    aliases:
+    - element
+  FeatureRelationshippropPub:
+    attributes:
+      feature_relationshipprop_pub_id:
+        identifier: true
+        range: integer
+      feature_relationshipprop_id:
+        range: FeatureRelationshipprop
+      pub_id:
+        range: Pub
+    description: Provenance for feature_relationshipprop.
+    aliases:
+    - feature_relationshipprop_pub
+  GrpmemberpropPub:
+    attributes:
+      grpmemberprop_pub_id:
+        identifier: true
+        range: integer
+      pub_id:
+        range: Pub
+      grpmemberprop_id:
+        range: Grpmemberprop
+    aliases:
+    - grpmemberprop_pub
+  Studydesignprop:
+    attributes:
+      studydesignprop_id:
+        identifier: true
+        range: integer
+      studydesign_id:
+        range: Studydesign
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - studydesignprop
+  Studyfactor:
+    attributes:
+      studyfactor_id:
+        identifier: true
+        range: integer
+      studydesign_id:
+        range: Studydesign
+      type_id:
+        range: Cvterm
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+    aliases:
+    - studyfactor
+  StudypropFeature:
+    attributes:
+      studyprop_feature_id:
+        identifier: true
+        range: integer
+      studyprop_id:
+        range: Studyprop
+      feature_id:
+        range: Feature
+      type_id:
+        range: Cvterm
+    aliases:
+    - studyprop_feature
+  StudypropFeatureNew:
+    attributes:
+      studyprop_feature_id:
+        range: integer
+        required: true
+      studyprop_id:
+        range: Studyprop
+      feature_id:
+        range: Feature
+      type_id:
+        range: integer
+    aliases:
+    - studyprop_feature_new
+  Acquisition:
+    attributes:
+      acquisition_id:
+        identifier: true
+        range: integer
+      assay_id:
+        range: Assay
+      protocol_id:
+        range: Protocol
+      channel_id:
+        range: Channel
+      acquisitiondate:
+        range: datetime
+      name:
+        range: string
+      uri:
+        range: string
+    description: This represents the scanning of hybridized material. The output of this process is typically
+      a digital image of an array.
+    aliases:
+    - acquisition
+  AssayBiomaterial:
+    attributes:
+      assay_biomaterial_id:
+        identifier: true
+        range: integer
+      assay_id:
+        range: Assay
+      biomaterial_id:
+        range: Biomaterial
+      channel_id:
+        range: Channel
+      rank:
+        range: integer
+        required: true
+    description: A biomaterial can be hybridized many times (technical replicates), or combined with other
+      biomaterials in a single hybridization (for two-channel arrays).
+    aliases:
+    - assay_biomaterial
+  AssayProject:
+    attributes:
+      assay_project_id:
+        identifier: true
+        range: integer
+      assay_id:
+        range: Assay
+      project_id:
+        range: Project
+    description: Link assays to projects.
+    aliases:
+    - assay_project
+  Assayprop:
+    attributes:
+      assayprop_id:
+        identifier: true
+        range: integer
+      assay_id:
+        range: Assay
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Extra assay properties that are not accounted for in assay.
+    aliases:
+    - assayprop
+  Control:
+    attributes:
+      control_id:
+        identifier: true
+        range: integer
+      type_id:
+        range: Cvterm
+      assay_id:
+        range: Assay
+      tableinfo_id:
+        range: Tableinfo
+      row_id:
+        range: integer
+        required: true
+      name:
+        range: string
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - control
+  ElementRelationship:
+    attributes:
+      element_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Element
+      type_id:
+        range: Cvterm
+      object_id:
+        range: Element
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Sometimes we want to combine measurements from multiple elements to get a composite value.
+      Affymetrix combines many probes to form a probeset measurement, for instance.
+    aliases:
+    - element_relationship
+  StudyAssay:
+    attributes:
+      study_assay_id:
+        identifier: true
+        range: integer
+      study_id:
+        range: Study
+      assay_id:
+        range: Assay
+    aliases:
+    - study_assay
+  Studyfactorvalue:
+    attributes:
+      studyfactorvalue_id:
+        identifier: true
+        range: integer
+      studyfactor_id:
+        range: Studyfactor
+      assay_id:
+        range: Assay
+      factorvalue:
+        range: string
+      name:
+        range: string
+      rank:
+        range: integer
+        required: true
+    aliases:
+    - studyfactorvalue
+  AcquisitionRelationship:
+    attributes:
+      acquisition_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Acquisition
+      type_id:
+        range: Cvterm
+      object_id:
+        range: Acquisition
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Multiple monochrome images may be merged to form a multi-color image. Red-green images
+      of 2-channel hybridizations are an example of this.
+    aliases:
+    - acquisition_relationship
+  Acquisitionprop:
+    attributes:
+      acquisitionprop_id:
+        identifier: true
+        range: integer
+      acquisition_id:
+        range: Acquisition
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Parameters associated with image acquisition.
+    aliases:
+    - acquisitionprop
+  Quantification:
+    attributes:
+      quantification_id:
+        identifier: true
+        range: integer
+      acquisition_id:
+        range: Acquisition
+      operator_id:
+        range: Contact
+      protocol_id:
+        range: Protocol
+      analysis_id:
+        range: Analysis
+      quantificationdate:
+        range: datetime
+      name:
+        range: string
+      uri:
+        range: string
+    description: Quantification is the transformation of an image acquisition to numeric data. This typically
+      involves statistical procedures.
+    aliases:
+    - quantification
+  Elementresult:
+    attributes:
+      elementresult_id:
+        identifier: true
+        range: integer
+      element_id:
+        range: Element
+      quantification_id:
+        range: Quantification
+      signal:
+        range: double
+        required: true
+    description: An element on an array produces a measurement when hybridized to a biomaterial (traceable
+      through quantification_id). This is the base data from which tables that actually contain data inherit.
+    aliases:
+    - elementresult
+  QuantificationRelationship:
+    attributes:
+      quantification_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Quantification
+      type_id:
+        range: Cvterm
+      object_id:
+        range: Quantification
+    description: There may be multiple rounds of quantification, this allows us to keep an audit trail
+      of what values went where.
+    aliases:
+    - quantification_relationship
+  Quantificationprop:
+    attributes:
+      quantificationprop_id:
+        identifier: true
+        range: integer
+      quantification_id:
+        range: Quantification
+      type_id:
+        range: Cvterm
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Extra quantification properties that are not accounted for in quantification.
+    aliases:
+    - quantificationprop
+  ElementresultRelationship:
+    attributes:
+      elementresult_relationship_id:
+        identifier: true
+        range: integer
+      subject_id:
+        range: Elementresult
+      type_id:
+        range: Cvterm
+      object_id:
+        range: Elementresult
+      value:
+        range: string
+      rank:
+        range: integer
+        required: true
+    description: Sometimes we want to combine measurements from multiple elements to get a composite value.
+      Affymetrix combines many probes to form a probeset measurement, for instance.
+    aliases:
+    - elementresult_relationship

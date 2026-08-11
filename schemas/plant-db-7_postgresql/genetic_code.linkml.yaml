@@ -1,0 +1,43 @@
+id: https://w3id.org/jgi/genetic_code
+name: genetic_code
+title: plant-db-7_postgresql.genetic_code
+description: Generated from plant-db-7_postgresql.genetic_code by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  genetic_code: https://w3id.org/jgi/genetic_code/
+default_prefix: genetic_code
+default_range: string
+imports:
+- linkml:types
+classes:
+  Gencode:
+    attributes:
+      gencode_id:
+        identifier: true
+        range: integer
+      organismstr:
+        range: string
+        required: true
+    aliases:
+    - gencode
+  GencodeCodonAa:
+    attributes:
+      gencode_id:
+        range: Gencode
+      codon:
+        range: string
+        required: true
+      aa:
+        range: string
+        required: true
+    aliases:
+    - gencode_codon_aa
+  GencodeStartcodon:
+    attributes:
+      gencode_id:
+        range: Gencode
+      codon:
+        range: string
+    aliases:
+    - gencode_startcodon

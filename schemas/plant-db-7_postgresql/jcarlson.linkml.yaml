@@ -1,0 +1,613 @@
+id: https://w3id.org/jgi/jcarlson
+name: jcarlson
+title: plant-db-7_postgresql.jcarlson
+description: Generated from plant-db-7_postgresql.jcarlson by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  jcarlson: https://w3id.org/jgi/jcarlson/
+default_prefix: jcarlson
+default_range: string
+imports:
+- linkml:types
+classes:
+  Aa127558:
+    attributes:
+      feature_id:
+        range: integer
+      uniquename:
+        range: string
+    aliases:
+    - aa_127558
+  AdamIn:
+    attributes:
+      gene_name:
+        range: string
+      transcript_name:
+        range: string
+    aliases:
+    - adam_in
+  AtExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      feature_id:
+        range: integer
+      json_obj:
+        range: string
+      biomaterial_id:
+        range: integer
+    aliases:
+    - at_expression
+  AtMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+      total_expression:
+        range: double
+    aliases:
+    - at_metadata
+  AtUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+      biomaterial_id:
+        range: integer
+      value:
+        range: string
+    aliases:
+    - at_umap
+  BackupSize:
+    attributes:
+      size:
+        range: integer
+      backup_date:
+        range: date
+    aliases:
+    - backup_size
+  CheckThese:
+    attributes:
+      analysis_id:
+        range: integer
+    aliases:
+    - check_these
+  DbxrefRelCount:
+    attributes:
+      sub_db:
+        range: integer
+      obj_id:
+        range: integer
+      type_id:
+        range: integer
+      cnt:
+        range: integer
+    aliases:
+    - dbxref_rel_count
+  DbxrefUpdate:
+    attributes:
+      dbxref_id:
+        range: integer
+      accession:
+        range: string
+      feature_id:
+        range: integer
+      db_id:
+        range: integer
+      version:
+        range: string
+      new_dbxref_id:
+        range: integer
+    aliases:
+    - dbxref_update
+  DoubleAnalysis:
+    attributes:
+      feature_id:
+        range: integer
+      lower_analysis:
+        range: integer
+      upper_analysis:
+        range: integer
+      lower_program:
+        range: string
+      upper_program:
+        range: string
+    aliases:
+    - double_analysis
+  Ee127558:
+    attributes:
+      feature_id:
+        range: integer
+    aliases:
+    - ee_127558
+  EsExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      feature_id:
+        range: integer
+      json_obj:
+        range: string
+      biomaterial_id:
+        range: integer
+    aliases:
+    - es_expression
+  EsMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+      total_expression:
+        range: double
+    aliases:
+    - es_metadata
+  EsUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+      biomaterial_id:
+        range: integer
+    aliases:
+    - es_umap
+  FeaturesToDelete:
+    attributes:
+      feature_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      organism_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      residues:
+        range: string
+      seqlen:
+        range: integer
+      md5checksum:
+        range: string
+      type_id:
+        range: integer
+      is_analysis:
+        range: boolean
+      is_obsolete:
+        range: boolean
+      timeaccessioned:
+        range: datetime
+      timelastmodified:
+        range: datetime
+    aliases:
+    - features_to_delete
+  G3din:
+    attributes:
+      acc:
+        range: string
+      descript:
+        range: string
+    aliases:
+    - g3din
+  Gg127558:
+    attributes:
+      uniquename:
+        range: string
+      feature_id:
+        range: integer
+      name:
+        range: string
+    aliases:
+    - gg_127558
+  Gggg:
+    attributes:
+      ipr:
+        range: string
+      pf:
+        range: string
+      ipr_id:
+        range: integer
+      pf_id:
+        range: integer
+    aliases:
+    - gggg
+  Go53In:
+    attributes:
+      acc:
+        range: string
+      des:
+        range: string
+    aliases:
+    - go_53_in
+  Go96In:
+    attributes:
+      acc:
+        range: string
+      des:
+        range: string
+    aliases:
+    - go_96_in
+  GoIn:
+    attributes:
+      ipr:
+        range: string
+      goterm:
+        range: string
+      namespace:
+        range: string
+      descr:
+        range: string
+      go_id:
+        range: integer
+      ipr_id:
+        range: integer
+    aliases:
+    - go_in
+  In97:
+    attributes:
+      acc:
+        range: string
+      versio:
+        range: string
+      des:
+        range: string
+    aliases:
+    - in_97
+  InsertedBuscos:
+    attributes:
+      feature_id:
+        range: integer
+      value:
+        range: string
+    aliases:
+    - inserted_buscos
+  IprDbIn:
+    attributes:
+      ipr:
+        range: string
+      db_name:
+        range: string
+      acc:
+        range: string
+      ipr_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      db_id:
+        range: integer
+    aliases:
+    - ipr_db_in
+  IprIn:
+    attributes:
+      acc:
+        range: string
+      version:
+        range: string
+      des:
+        range: string
+      dbxref_id:
+        range: integer
+    aliases:
+    - ipr_in
+  LoadedGrps:
+    attributes:
+      dbxref_id:
+        range: integer
+      accession:
+        range: string
+      proteome1:
+        range: string
+      proteome2:
+        range: string
+    aliases:
+    - loaded_grps
+  LoadedPacGrps:
+    attributes:
+      accession:
+        range: string
+      proteome_id1:
+        range: string
+      proteome_id2:
+        range: string
+    aliases:
+    - loaded_pac_grps
+  MetacycGrp:
+    attributes:
+      pathid:
+        range: string
+      pathname:
+        range: string
+      json:
+        range: string
+      grp_id:
+        range: integer
+    aliases:
+    - metacyc_grp
+  MetacycGrpL2:
+    attributes:
+      pathid:
+        range: string
+      pathname:
+        range: string
+      json:
+        range: string
+      grp_id:
+        range: integer
+    aliases:
+    - metacyc_grp_l2
+  MetacycGrpmember:
+    attributes:
+      grpidentifier:
+        range: string
+      rank:
+        range: integer
+      reaction:
+        range: string
+      ec:
+        range: string
+      grp_id:
+        range: integer
+      grpmember_id:
+        range: integer
+      reaction_dbxref:
+        range: integer
+      ec_dbxref:
+        range: integer
+    aliases:
+    - metacyc_grpmember
+  MetacycGrpmemberL2:
+    attributes:
+      grpidentifier:
+        range: string
+      rank:
+        range: integer
+      reaction:
+        range: string
+      ec:
+        range: string
+      grp_id:
+        range: integer
+      grpmember_id:
+        range: integer
+    aliases:
+    - metacyc_grpmember_l2
+  OldEvidence:
+    attributes:
+      feature_dbxref_evidence_id:
+        range: integer
+      feature_dbxref_id:
+        range: integer
+      feature_id:
+        range: integer
+    aliases:
+    - old_evidence
+  OldPdefs:
+    attributes:
+      name:
+        range: string
+      uniquename:
+        range: string
+      value:
+        range: string
+      feature_id:
+        range: integer
+    aliases:
+    - old_pdefs
+  Panther10in:
+    attributes:
+      acc:
+        range: string
+      descrip:
+        range: string
+    aliases:
+    - panther10in
+  PfamMap:
+    attributes:
+      new_dbxref:
+        range: integer
+      accession:
+        range: string
+      old_dbxref:
+        range: integer
+    aliases:
+    - pfam_map
+  SiExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+    aliases:
+    - si_expression
+  SiMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+    aliases:
+    - si_metadata
+  SiUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+    aliases:
+    - si_umap
+  SignalMap:
+    attributes:
+      null_dbxref:
+        range: integer
+      good_dbxref:
+        range: integer
+    aliases:
+    - signal_map
+  SpExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      feature_id:
+        range: integer
+      json_obj:
+        range: string
+      biomaterial_id:
+        range: integer
+    aliases:
+    - sp_expression
+  SpMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+      total_expression:
+        range: double
+    aliases:
+    - sp_metadata
+  SpUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+      biomaterial_id:
+        range: integer
+      value:
+        range: string
+    aliases:
+    - sp_umap
+  Tt127558:
+    attributes:
+      feature_id:
+        range: integer
+      uniquename:
+        range: string
+    aliases:
+    - tt_127558
+  UncuratedPathwayLayours:
+    attributes:
+      grp_id:
+        range: integer
+      grpprop_id:
+        range: integer
+      uniquename:
+        range: string
+      value:
+        range: string
+    aliases:
+    - uncurated_pathway_layours
+  UntrackedAnalysisFeatures:
+    attributes:
+      feature_id:
+        range: integer
+    aliases:
+    - untracked_analysis_features
+  WasInFeatureDbxref:
+    attributes:
+      feature_dbxref_id:
+        range: integer
+      feature_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      is_current:
+        range: boolean
+    aliases:
+    - was_in_feature_dbxref
+  WasTheMax:
+    attributes:
+      max:
+        range: integer
+    aliases:
+    - was_the_max

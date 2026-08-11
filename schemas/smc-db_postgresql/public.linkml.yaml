@@ -1,0 +1,5581 @@
+id: https://w3id.org/jgi/public
+name: public
+title: smc-db_postgresql.public
+description: Generated from smc-db_postgresql.public by schema-automator, with types and nullability refined
+  from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  public: https://w3id.org/jgi/public/
+default_prefix: public
+default_range: string
+imports:
+- linkml:types
+classes:
+  ApiUsage:
+    attributes:
+      api_track_id:
+        identifier: true
+        range: integer
+      route:
+        range: string
+      method:
+        range: string
+      ip:
+        range: string
+      user_agent:
+        range: string
+      country:
+        range: string
+      user_id:
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+    aliases:
+    - api_usage
+  Blog:
+    attributes:
+      blog_id:
+        identifier: true
+        range: integer
+      title:
+        range: string
+      blog_text:
+        range: string
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      dt_publish:
+        range: datetime
+      user_id:
+        range: integer
+        required: true
+      is_hidden:
+        range: boolean
+    aliases:
+    - blog
+  Contigs:
+    attributes:
+      contig_id:
+        identifier: true
+        range: integer
+      smc_id:
+        range: integer
+        required: true
+      contig_name:
+        range: string
+      size_bp:
+        range: integer
+      gc_percent:
+        range: decimal
+      dna_sequence_file_id:
+        range: integer
+    aliases:
+    - contigs
+  Role:
+    attributes:
+      role_id:
+        identifier: true
+        range: integer
+      role_name:
+        range: string
+        required: true
+      permissions:
+        range: string
+        multivalued: true
+        required: true
+      is_superuser:
+        range: boolean
+        required: true
+      is_anonymous:
+        range: boolean
+        required: true
+    aliases:
+    - role
+  SmcDownloads:
+    attributes:
+      download_id:
+        identifier: true
+        range: integer
+      file_id:
+        range: integer
+      file_name:
+        range: string
+      file_size:
+        range: integer
+      route:
+        range: string
+      method:
+        range: string
+      ip:
+        range: string
+      user_agent:
+        range: string
+      country:
+        range: string
+      user_id:
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+    aliases:
+    - smc_downloads
+  SmcUsers:
+    attributes:
+      user_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      username:
+        range: string
+      first_name:
+        range: string
+      last_name:
+        range: string
+      email:
+        range: string
+      is_enabled:
+        range: boolean
+        required: true
+      role_id:
+        range: Role
+      login_count:
+        range: integer
+    aliases:
+    - smc_users
+  Activity:
+    attributes:
+      activity_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      activity_type:
+        range: string
+        required: true
+      object_type:
+        range: string
+      object_id:
+        range: integer
+      actor_id:
+        range: SmcUsers
+      owner_id:
+        range: SmcUsers
+    aliases:
+    - activity
+  AnalysisTool:
+    attributes:
+      analysis_tool_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      tool_name:
+        range: string
+      version:
+        range: string
+      alias:
+        range: string
+      url:
+        range: string
+      owner_id:
+        range: SmcUsers
+    aliases:
+    - analysis_tool
+  BgcAnnotation:
+    attributes:
+      bgc_annotation_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_id:
+        range: integer
+      annotator_tool:
+        range: string
+      owner_id:
+        range: SmcUsers
+      rank:
+        range: integer
+    aliases:
+    - bgc_annotation
+  BgcClass:
+    attributes:
+      bgc_class_id:
+        identifier: true
+        range: integer
+      class_name:
+        range: string
+        required: true
+      owner_id:
+        range: SmcUsers
+      full_name:
+        range: string
+      bgc_category:
+        range: string
+    aliases:
+    - bgc_class
+  Collection:
+    attributes:
+      collection_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      collection_type:
+        range: string
+      collection_name:
+        range: string
+      owner_id:
+        range: SmcUsers
+      public_collection:
+        range: boolean
+    aliases:
+    - collection
+  SmcFiles:
+    attributes:
+      file_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      description:
+        range: string
+      uri:
+        range: string
+      size:
+        range: integer
+      file_name:
+        range: string
+      mime_type:
+        range: string
+      owner_id:
+        range: SmcUsers
+      file_type:
+        range: string
+    aliases:
+    - smc_files
+  SourceDataType:
+    attributes:
+      source_data_type_id:
+        identifier: true
+        range: integer
+      data_name:
+        range: string
+      owner_id:
+        range: SmcUsers
+      data_type:
+        range: string
+        required: true
+    aliases:
+    - source_data_type
+  UserSession:
+    attributes:
+      session_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      user_token:
+        range: string
+      session_timestamp:
+        range: datetime
+      user_id:
+        range: SmcUsers
+      meta:
+        range: string
+    aliases:
+    - user_session
+  BgcAnalysis:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      created:
+        range: datetime
+        required: true
+      modified:
+        range: datetime
+        required: true
+      is_system_owner:
+        range: boolean
+        required: true
+      source_data_id:
+        range: integer
+      analysis_file_id:
+        range: SmcFiles
+      analysis_tool_id:
+        range: AnalysisTool
+      owner_id:
+        range: SmcUsers
+    aliases:
+    - bgc_analysis
+  BgcToBgcClass:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      bgc_id:
+        range: integer
+        required: true
+      bgc_class_id:
+        range: BgcClass
+    aliases:
+    - bgc_to_bgc_class
+  CollectionMembers:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      collection_id:
+        range: Collection
+      collection_type:
+        range: string
+        required: true
+      member_id:
+        range: integer
+        required: true
+    aliases:
+    - collection_members
+  Gene:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene
+  Gene1:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_1
+  Gene10:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_10
+  Gene100:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_100
+  Gene11:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_11
+  Gene12:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_12
+  Gene13:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_13
+  Gene14:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_14
+  Gene15:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_15
+  Gene16:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_16
+  Gene17:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_17
+  Gene18:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_18
+  Gene19:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_19
+  Gene2:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_2
+  Gene20:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_20
+  Gene21:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_21
+  Gene22:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_22
+  Gene23:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_23
+  Gene24:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_24
+  Gene25:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_25
+  Gene26:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_26
+  Gene27:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_27
+  Gene28:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_28
+  Gene29:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_29
+  Gene3:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_3
+  Gene30:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_30
+  Gene31:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_31
+  Gene32:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_32
+  Gene33:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_33
+  Gene34:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_34
+  Gene35:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_35
+  Gene36:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_36
+  Gene37:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_37
+  Gene38:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_38
+  Gene39:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_39
+  Gene4:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_4
+  Gene40:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_40
+  Gene41:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_41
+  Gene42:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_42
+  Gene43:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_43
+  Gene44:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_44
+  Gene45:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_45
+  Gene46:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_46
+  Gene47:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_47
+  Gene48:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_48
+  Gene49:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_49
+  Gene5:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_5
+  Gene50:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_50
+  Gene51:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_51
+  Gene52:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_52
+  Gene53:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_53
+  Gene54:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_54
+  Gene55:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_55
+  Gene56:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_56
+  Gene57:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_57
+  Gene58:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_58
+  Gene59:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_59
+  Gene6:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_6
+  Gene60:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_60
+  Gene61:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_61
+  Gene62:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_62
+  Gene63:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_63
+  Gene64:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_64
+  Gene65:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_65
+  Gene66:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_66
+  Gene67:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_67
+  Gene68:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_68
+  Gene69:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_69
+  Gene7:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_7
+  Gene70:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_70
+  Gene71:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_71
+  Gene72:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_72
+  Gene73:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_73
+  Gene74:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_74
+  Gene75:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_75
+  Gene76:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_76
+  Gene77:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_77
+  Gene78:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_78
+  Gene79:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_79
+  Gene8:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_8
+  Gene80:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_80
+  Gene81:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_81
+  Gene82:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_82
+  Gene83:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_83
+  Gene84:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_84
+  Gene85:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_85
+  Gene86:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_86
+  Gene87:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_87
+  Gene88:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_88
+  Gene89:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_89
+  Gene9:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_9
+  Gene90:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_90
+  Gene91:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_91
+  Gene92:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_92
+  Gene93:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_93
+  Gene94:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_94
+  Gene95:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_95
+  Gene96:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_96
+  Gene97:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_97
+  Gene98:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_98
+  Gene99:
+    attributes:
+      gene_id:
+        range: integer
+        required: true
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      bgc_annotation_id:
+        range: BgcAnnotation
+      contig_name:
+        range: string
+        required: true
+      start_nt:
+        range: integer
+      end_nt:
+        range: integer
+      gene_name:
+        range: string
+      gene_type:
+        range: string
+      source:
+        range: string
+      description:
+        range: string
+      domain_flag:
+        range: boolean
+      score:
+        range: string
+      attributes:
+        name: attributes
+        range: string
+      owner_id:
+        range: SmcUsers
+      translation:
+        range: string
+      translate_table:
+        range: integer
+      phase:
+        range: string
+      attr_id:
+        range: string
+      parent_id:
+        range: string
+      strand:
+        range: string
+    aliases:
+    - gene_99
+  SourceDataToSecmetFiles:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      source_data_id:
+        range: integer
+      secmet_file_id:
+        range: SmcFiles
+    aliases:
+    - source_data_to_secmet_files
+  TaskQueue:
+    attributes:
+      task_id:
+        identifier: true
+        range: integer
+      dt_created:
+        range: datetime
+        required: true
+      dt_modified:
+        range: datetime
+        required: true
+      task_name:
+        range: string
+      task_status:
+        range: string
+      worker_name:
+        range: string
+      input_file_id:
+        range: SmcFiles
+      output_file_id:
+        range: SmcFiles
+      owner_id:
+        range: SmcUsers
+      task_options:
+        range: string
+      task_options_other:
+        range: string
+      dt_start:
+        range: datetime
+      dt_end:
+        range: datetime
+      exit_code:
+        range: integer
+      error_msg:
+        range: string
+    aliases:
+    - task_queue
+  BgcAnalysisToSecmetFile:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      bgc_analysis_id:
+        range: BgcAnalysis
+      secmet_file_id:
+        range: SmcFiles
+    aliases:
+    - bgc_analysis_to_secmet_file

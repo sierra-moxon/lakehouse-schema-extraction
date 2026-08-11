@@ -1,0 +1,1525 @@
+id: https://w3id.org/jgi/img_gold
+name: img_gold
+title: img-db-2_postgresql.img_gold
+description: Generated from img-db-2_postgresql.img_gold by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_gold: https://w3id.org/jgi/img_gold/
+default_prefix: img_gold
+default_range: string
+imports:
+- linkml:types
+classes:
+  GoldAnalysisProject:
+    attributes:
+      gold_analysis_project_id:
+        range: integer
+        required: true
+      its_analysis_project_id:
+        range: integer
+      analysis_project_name:
+        range: string
+      ncbi_tax_id:
+        range: integer
+      img_dataset_id:
+        range: integer
+      analysis_product_name:
+        range: string
+      visibility:
+        range: string
+      domain:
+        range: string
+      ncbi_phylum:
+        range: string
+      ncbi_class:
+        range: string
+      ncbi_order:
+        range: string
+      ncbi_family:
+        range: string
+      ncbi_genus:
+        range: string
+      ncbi_species:
+        range: string
+      gold_analysis_project_type:
+        range: string
+      gold_proposal_name:
+        range: string
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      reference_img_oid:
+        range: integer
+      pi_name:
+        range: string
+      pi_email:
+        range: string
+      submitter_contact_oid:
+        range: integer
+      ecosystem_type:
+        range: string
+      specimen:
+        range: string
+      comments:
+        range: string
+      reference_img_experiment_id:
+        range: integer
+      reference_gold_ap_id:
+        range: integer
+      gold_id:
+        identifier: true
+        range: string
+      genome_size:
+        range: integer
+      gene_count:
+        range: integer
+      scaffold_count:
+        range: integer
+      its_analysis_project_name:
+        range: string
+      contig_count:
+        range: integer
+      genbank_low_quality_annotation:
+        range: string
+      genbank_low_quality_genome:
+        range: string
+      completion_date:
+        range: datetime
+      binning_method:
+        range: string
+      gene_calling_method:
+        range: string
+      submission_id:
+        range: integer
+      img_analysis_complete:
+        range: string
+      status:
+        range: string
+      is_gene_primp:
+        range: string
+      gene_primp_date:
+        range: datetime
+      is_decontamination:
+        range: string
+      is_img_annotation:
+        range: string
+      its_annotation_at_id:
+        range: integer
+      its_assembly_at_id:
+        range: integer
+      is_assembled:
+        range: string
+      genome_type:
+        range: string
+      study_gold_id:
+        range: string
+      locus_tag:
+        range: string
+      cultured:
+        range: string
+      jgi_sequenced:
+        range: string
+      reference_gold_id:
+        range: string
+      strain:
+        range: string
+      mod_date:
+        range: datetime
+      submission_type:
+        range: string
+      submitter_email:
+        range: string
+      review_status:
+        range: string
+      caliban_id:
+        range: integer
+      assembly_method:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      sequencing_depth:
+        range: string
+      img_use:
+        range: string
+      gold_phylogeny:
+        range: string
+      uncultured_type:
+        range: string
+      culture_type:
+        range: string
+      ncbi_superkingdom:
+        range: string
+      external:
+        range: string
+      pipeline_version:
+        range: string
+      its_data_utilization_status:
+        range: string
+      is_genbank_anomalous_assembly:
+        range: string
+      img_annotation_version:
+        range: string
+    aliases:
+    - gold_analysis_project
+  GoldAnalysisProjectGenbanks:
+    attributes:
+      gold_id:
+        range: string
+        required: true
+      genbank_id:
+        range: string
+      assembly_accession:
+        range: string
+      type:
+        range: string
+    aliases:
+    - gold_analysis_project_genbanks
+  GoldAnalysisProjectJgiAwardDois:
+    attributes:
+      gold_id:
+        range: string
+        required: true
+      jgi_award_doi:
+        range: string
+    aliases:
+    - gold_analysis_project_jgi_award_dois
+  GoldAnalysisProjectSraRuns:
+    attributes:
+      gold_id:
+        range: string
+        required: true
+      sra_run:
+        range: string
+    aliases:
+    - gold_analysis_project_sra_runs
+  GoldApGenbank:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      gold_analysis_project_id:
+        range: integer
+      genbank_id:
+        range: string
+      assembly_accession:
+        range: string
+    aliases:
+    - gold_ap_genbank
+  GoldApGenbankAnomalousReasons:
+    attributes:
+      gold_id:
+        range: string
+      genbank_anomalous_reason:
+        range: string
+    aliases:
+    - gold_ap_genbank_anomalous_reasons
+  GoldApPublications:
+    attributes:
+      gold_id:
+        range: string
+        required: true
+      pubmed_id:
+        range: integer
+      journal_name:
+        range: string
+      volume:
+        range: string
+      issue:
+        range: string
+      page:
+        range: string
+      title:
+        range: string
+      publication_date:
+        range: string
+      doi:
+        range: string
+    aliases:
+    - gold_ap_publications
+  GoldContactcv:
+    attributes:
+      cv_term:
+        range: string
+        required: true
+    aliases:
+    - gold_contactcv
+  GoldImgNatProdEntity:
+    attributes:
+      gold_np_id:
+        identifier: true
+        range: integer
+      np_id:
+        range: integer
+        required: true
+      project_oid:
+        range: integer
+      img_oid:
+        range: integer
+      bio_cluster_id:
+        range: integer
+      evidence:
+        range: string
+        required: true
+      activity:
+        range: string
+    aliases:
+    - gold_img_nat_prod_entity
+  GoldMasterAnalysisProject:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      gold_id:
+        range: string
+      organism_id:
+        range: decimal
+      external:
+        range: string
+      its_analysis_project_id:
+        range: decimal
+      analysis_project_name:
+        range: string
+      img_taxon_id:
+        range: decimal
+      its_product_name:
+        range: string
+      is_public:
+        range: string
+      analysis_project_type:
+        range: string
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      specimen:
+        range: string
+      comments:
+        range: string
+      est_size:
+        range: decimal
+      gene_count:
+        range: decimal
+      scaffold_count:
+        range: decimal
+      its_analysis_project_name:
+        range: string
+      contig_count:
+        range: decimal
+      genbank_low_quality_annotation:
+        range: string
+      completion_date:
+        range: datetime
+      binning_method:
+        range: string
+      gene_calling_method:
+        range: string
+      submission_id:
+        range: decimal
+      status_id:
+        range: decimal
+      is_decontamination:
+        range: string
+      its_annotation_at_id:
+        range: decimal
+      study_id:
+        range: decimal
+      reference_ap_id:
+        range: decimal
+      mod_date:
+        range: datetime
+      is_primary:
+        range: string
+      review_status:
+        range: string
+      sequencing_depth:
+        range: string
+      img_use:
+        range: string
+      pipeline_annotation_method:
+        range: string
+      replaces_ap_id:
+        range: decimal
+      img_annotation_version:
+        range: string
+      is_mag_or_meg:
+        range: string
+    aliases:
+    - gold_master_analysis_project
+  GoldMasterAnalysisProjectPublication:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      publication_id:
+        range: decimal
+    aliases:
+    - gold_master_analysis_project_publication
+  GoldMasterAnalysisProjectSraRun:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      sra_run_id:
+        range: string
+    aliases:
+    - gold_master_analysis_project_sra_run
+  GoldMasterAssembly:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      method:
+        range: string
+    aliases:
+    - gold_master_assembly
+  GoldMasterBiosample:
+    attributes:
+      biosample_id:
+        range: decimal
+      gold_id:
+        range: string
+      active:
+        range: string
+      is_public:
+        range: string
+      ncbi_taxonomy_id:
+        range: decimal
+      sample_collection_site:
+        range: string
+      sample_isolation_country_id:
+        range: decimal
+      sample_collection_year:
+        range: decimal
+      sample_collection_month:
+        range: decimal
+      sample_collection_day:
+        range: decimal
+      geographic_location:
+        range: string
+      latitude:
+        range: decimal
+      longitude:
+        range: decimal
+      host_name:
+        range: string
+      host_gender:
+        range: string
+      host_taxonomy_id:
+        range: decimal
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      host_body_site:
+        range: string
+      host_body_subsite:
+        range: string
+      mrn:
+        range: string
+      patient_visit_number:
+        range: decimal
+      longhurst_code:
+        range: string
+      proport_ocean:
+        range: string
+      proport_isolation:
+        range: string
+      proport_station:
+        range: string
+      proport_woa_temperature:
+        range: decimal
+      proport_woa_salinity:
+        range: decimal
+      proport_woa_dissolved_oxygen:
+        range: decimal
+      proport_woa_silicate:
+        range: decimal
+      proport_woa_phosphate:
+        range: decimal
+      proport_woa_nitrate:
+        range: decimal
+      growth_temperature:
+        range: decimal
+      pressure:
+        range: string
+      chlorophyll_concentration:
+        range: string
+      oxygen_concentration:
+        range: string
+      salinity_concentration:
+        range: string
+      nitrate_concentration:
+        range: string
+      ph1:
+        range: decimal
+      ph2:
+        range: decimal
+      depth:
+        range: decimal
+      depth2:
+        range: decimal
+      altitude:
+        range: decimal
+      altitude2:
+        range: decimal
+      elevation:
+        range: decimal
+      elevation2:
+        range: decimal
+      subsurface_depth:
+        range: decimal
+      subsurface_depth2:
+        range: decimal
+      habitat:
+        range: string
+    aliases:
+    - gold_master_biosample
+  GoldMasterContact:
+    attributes:
+      contact_id:
+        range: decimal
+      name:
+        range: string
+      email:
+        range: string
+      caliban_id:
+        range: decimal
+      orcid_id:
+        range: string
+      chariel_id:
+        range: decimal
+    aliases:
+    - gold_master_contact
+  GoldMasterCvapStatus:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvap_status
+  GoldMasterCvbioticRelationship:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvbiotic_relationship
+  GoldMasterCvcellArrangement:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvcell_arrangement
+  GoldMasterCvcountry:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvcountry
+  GoldMasterCvdisease:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvdisease
+  GoldMasterCvenergySource:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvenergy_source
+  GoldMasterCvhabitat:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvhabitat
+  GoldMasterCvmetabolism:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvmetabolism
+  GoldMasterCvphenotype:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvphenotype
+  GoldMasterCvrelevance:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvrelevance
+  GoldMasterCvseqQuality:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvseq_quality
+  GoldMasterCvseqStatus:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_cvseq_status
+  GoldMasterDwApDataUtilizationStatus:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      data_utilization_status:
+        range: string
+    aliases:
+    - gold_master_dw_ap_data_utilization_status
+  GoldMasterGenbank:
+    attributes:
+      analysis_project_id:
+        range: decimal
+      genbank_id:
+        range: string
+      assembly_accession:
+        range: string
+      type:
+        range: string
+      is_ncbi_public:
+        range: string
+      anomalous_assembly:
+        range: string
+      anomalous_reason:
+        range: string
+    aliases:
+    - gold_master_genbank
+  GoldMasterHmpProject:
+    attributes:
+      project_id:
+        range: decimal
+      hmp_id:
+        range: decimal
+    aliases:
+    - gold_master_hmp_project
+  GoldMasterInstitution:
+    attributes:
+      id:
+        range: decimal
+      name:
+        range: string
+      country:
+        range: string
+      url:
+        range: string
+    aliases:
+    - gold_master_institution
+  GoldMasterItsProposal:
+    attributes:
+      its_proposal_id:
+        range: decimal
+      proposal_name:
+        range: string
+      award_doi:
+        range: string
+    aliases:
+    - gold_master_its_proposal
+  GoldMasterJournal:
+    attributes:
+      journal_id:
+        range: decimal
+      title:
+        range: string
+    aliases:
+    - gold_master_journal
+  GoldMasterLonghurstCode:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+      description:
+        range: string
+    aliases:
+    - gold_master_longhurst_code
+  GoldMasterOrganism:
+    attributes:
+      organism_id:
+        range: decimal
+      gold_id:
+        range: string
+      active:
+        range: string
+      is_public:
+        range: string
+      ncbi_taxonomy_id:
+        range: decimal
+      domain:
+        range: string
+      ncbi_superkingdom:
+        range: string
+      ncbi_kingdom:
+        range: string
+      ncbi_phylum:
+        range: string
+      ncbi_class:
+        range: string
+      ncbi_order:
+        range: string
+      ncbi_family:
+        range: string
+      ncbi_genus:
+        range: string
+      ncbi_species:
+        range: string
+      cultured:
+        range: string
+      strain:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      gold_phylogeny:
+        range: string
+      uncultured_type:
+        range: string
+      culture_type:
+        range: string
+      latitude:
+        range: decimal
+      longitude:
+        range: decimal
+      altitude:
+        range: decimal
+      altitude2:
+        range: decimal
+      depth:
+        range: decimal
+      depth2:
+        range: decimal
+      elevation:
+        range: decimal
+      elevation2:
+        range: decimal
+      subsurface_depth1:
+        range: decimal
+      subsurface_depth2:
+        range: decimal
+      clade:
+        range: string
+      sample_collection_site:
+        range: string
+      oxygen_concentration:
+        range: string
+      oxygen_requirement:
+        range: string
+      cell_shape:
+        range: string
+      motility:
+        range: string
+      sporulation:
+        range: string
+      temperature_range:
+        range: string
+      salinity:
+        range: string
+      sample_isolation_country_id:
+        range: decimal
+      geographic_location:
+        range: string
+      gram_stain:
+        range: string
+      host_name:
+        range: string
+      type_strain:
+        range: string
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      host_body_site:
+        range: string
+      host_body_subsite:
+        range: string
+      ecotype:
+        range: string
+      proport_ocean:
+        range: string
+      proport_isolation:
+        range: string
+      proport_station:
+        range: string
+      proport_woa_temperature:
+        range: decimal
+      proport_woa_salinity:
+        range: decimal
+      proport_woa_dissolved_oxygen:
+        range: decimal
+      proport_woa_silicate:
+        range: decimal
+      proport_woa_phosphate:
+        range: decimal
+      proport_woa_nitrate:
+        range: decimal
+      viral_group:
+        range: string
+      viral_subgroup:
+        range: string
+      sample_collection_temperature:
+        range: decimal
+      pressure:
+        range: string
+      chlorophyll_concentration:
+        range: string
+      salinity_concentration:
+        range: string
+      nitrate_concentration:
+        range: string
+      ph1:
+        range: decimal
+      ph2:
+        range: decimal
+    aliases:
+    - gold_master_organism
+  GoldMasterOrganismBioticRel:
+    attributes:
+      organism_id:
+        range: decimal
+      biotic_relationship_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_biotic_rel
+  GoldMasterOrganismCellArrangement:
+    attributes:
+      organism_id:
+        range: decimal
+      cell_arrangement_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_cell_arrangement
+  GoldMasterOrganismDisease:
+    attributes:
+      organism_id:
+        range: decimal
+      disease_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_disease
+  GoldMasterOrganismEnergySource:
+    attributes:
+      organism_id:
+        range: decimal
+      energy_source_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_energy_source
+  GoldMasterOrganismHabitat:
+    attributes:
+      organism_id:
+        range: decimal
+      habitat_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_habitat
+  GoldMasterOrganismMetabolism:
+    attributes:
+      organism_id:
+        range: decimal
+      metabolism_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_metabolism
+  GoldMasterOrganismPhenotype:
+    attributes:
+      organism_id:
+        range: decimal
+      phenotype_id:
+        range: decimal
+    aliases:
+    - gold_master_organism_phenotype
+  GoldMasterPermission:
+    attributes:
+      permission_id:
+        range: decimal
+      contact_id:
+        range: decimal
+      user_role:
+        range: string
+      study_id:
+        range: decimal
+      project_id:
+        range: decimal
+      analysis_project_id:
+        range: decimal
+      biosample_id:
+        range: decimal
+      organism_id:
+        range: decimal
+    aliases:
+    - gold_master_permission
+  GoldMasterProject:
+    attributes:
+      project_id:
+        range: decimal
+      gold_id:
+        range: string
+      project_name:
+        range: string
+      active:
+        range: string
+      is_public:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      master_study_id:
+        range: decimal
+      organism_id:
+        range: decimal
+      ncbi_bioproject_id:
+        range: decimal
+      its_proposal_id:
+        range: decimal
+      gpts_proposal_id:
+        range: decimal
+      its_spid:
+        range: decimal
+      its_sample_id:
+        range: decimal
+      pmo_project_id:
+        range: decimal
+      sequencing_strategy:
+        range: string
+      project_status:
+        range: string
+      ncbi_bioproject_accession:
+        range: string
+      ncbi_biosample_accession:
+        range: string
+      its_data_utilization_status:
+        range: string
+      sequencing_status_id:
+        range: decimal
+      sequencing_quality_id:
+        range: decimal
+      ncbi_locus_tag:
+        range: string
+      description:
+        range: string
+      funding_program:
+        range: string
+      funding_year:
+        range: decimal
+      project_oid:
+        range: decimal
+      sample_oid:
+        range: decimal
+    aliases:
+    - gold_master_project
+  GoldMasterProjectAnalysisProject:
+    attributes:
+      project_id:
+        range: decimal
+      analysis_project_id:
+        range: decimal
+    aliases:
+    - gold_master_project_analysis_project
+  GoldMasterProjectBiosample:
+    attributes:
+      project_id:
+        range: decimal
+      biosample_id:
+        range: decimal
+    aliases:
+    - gold_master_project_biosample
+  GoldMasterProjectCollaborator:
+    attributes:
+      project_id:
+        range: decimal
+      institution_id:
+        range: decimal
+    aliases:
+    - gold_master_project_collaborator
+  GoldMasterProjectGenomePublication:
+    attributes:
+      project_id:
+        range: decimal
+      publication_id:
+        range: decimal
+    aliases:
+    - gold_master_project_genome_publication
+  GoldMasterProjectRelevance:
+    attributes:
+      project_id:
+        range: decimal
+      relevance_id:
+        range: decimal
+    aliases:
+    - gold_master_project_relevance
+  GoldMasterProjectSequencingCenter:
+    attributes:
+      project_id:
+        range: decimal
+      institution_id:
+        range: decimal
+    aliases:
+    - gold_master_project_sequencing_center
+  GoldMasterProjectSequencingMethod:
+    attributes:
+      project_id:
+        range: decimal
+      sequencing_method_id:
+        range: decimal
+    aliases:
+    - gold_master_project_sequencing_method
+  GoldMasterPublication:
+    attributes:
+      publication_id:
+        range: decimal
+      pubmed_id:
+        range: decimal
+      journal_id:
+        range: decimal
+      volume:
+        range: string
+      issue:
+        range: string
+      page:
+        range: string
+      title:
+        range: string
+      publication_date:
+        range: datetime
+      doi:
+        range: string
+    aliases:
+    - gold_master_publication
+  GoldMasterSequencingMethod:
+    attributes:
+      id:
+        range: decimal
+      term:
+        range: string
+    aliases:
+    - gold_master_sequencing_method
+  GoldMasterSraExperiment:
+    attributes:
+      project_id:
+        range: decimal
+      sra_experiment_id:
+        range: string
+    aliases:
+    - gold_master_sra_experiment
+  GoldMasterStudy:
+    attributes:
+      study_id:
+        range: decimal
+      gold_id:
+        range: string
+      study_name:
+        range: string
+      active:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      is_public:
+        range: string
+      contact_id:
+        range: decimal
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+    aliases:
+    - gold_master_study
+  GoldMasterTimestamp:
+    attributes:
+      id:
+        range: integer
+      last_synced:
+        range: datetime
+    aliases:
+    - gold_master_timestamp
+  GoldSequencingProject:
+    attributes:
+      gold_id:
+        identifier: true
+        range: string
+      display_name:
+        range: string
+        required: true
+      strain:
+        range: string
+      phylogeny:
+        range: string
+      ncbi_taxon_id:
+        range: string
+      domain:
+        range: string
+      ncbi_kingdom:
+        range: string
+      ncbi_phylum:
+        range: string
+      ncbi_class:
+        range: string
+      ncbi_order:
+        range: string
+      ncbi_family:
+        range: string
+      ncbi_genus:
+        range: string
+      ncbi_species:
+        range: string
+      clade:
+        range: string
+      ncbi_project_id:
+        range: integer
+      isolation:
+        range: string
+      oxygen_req:
+        range: string
+      cell_shape:
+        range: string
+      motility:
+        range: string
+      sporulation:
+        range: string
+      temp_range:
+        range: string
+      salinity:
+        range: string
+      comments:
+        range: string
+      seq_status:
+        range: string
+      img_taxon_oid:
+        range: integer
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      contact_oid:
+        range: integer
+      iso_country:
+        range: string
+      date_collected:
+        range: string
+      geo_location:
+        range: string
+      latitude:
+        range: string
+      longitude:
+        range: string
+      altitude:
+        range: string
+      gram_stain:
+        range: string
+      host_name:
+        range: string
+      host_gender:
+        range: string
+      host_ncbi_taxid:
+        range: integer
+      biotic_rel:
+        range: string
+      hmp_id:
+        range: integer
+      locus_tag:
+        range: string
+      funding_program:
+        range: string
+      type_strain:
+        range: string
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      sample_body_site:
+        range: string
+      sample_body_subsite:
+        range: string
+      mrn:
+        range: integer
+      visit_num:
+        range: integer
+      replicate_num:
+        range: integer
+      pmo_project_id:
+        range: integer
+      project_id:
+        range: integer
+      cultured:
+        range: string
+      uncultured_type:
+        range: string
+      culture_type:
+        range: string
+      bioproject_accession:
+        range: string
+      biosample_accession:
+        range: string
+      its_spid:
+        range: integer
+      pi_email:
+        range: string
+      pi_name:
+        range: string
+      legacy_project_type:
+        range: string
+      seq_quality:
+        range: string
+      depth:
+        range: string
+      sequencing_strategy:
+        range: string
+      pm_email:
+        range: string
+      pm_name:
+        range: string
+      ecotype:
+        range: string
+      longhurst_code:
+        range: string
+      longhurst_description:
+        range: string
+      project_status:
+        range: string
+      sequencing_quality:
+        range: string
+      sequencing_depth:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      proport_ocean:
+        range: string
+      proport_isolation:
+        range: string
+      proport_station:
+        range: string
+      proport_woa_temperature:
+        range: decimal
+      proport_woa_salinity:
+        range: decimal
+      proport_woa_dissolved_oxygen:
+        range: decimal
+      proport_woa_silicate:
+        range: decimal
+      proport_woa_phosphate:
+        range: decimal
+      proport_woa_nitrate:
+        range: decimal
+      viral_group:
+        range: string
+      viral_subgroup:
+        range: string
+      gpts_proposal_id:
+        range: integer
+      its_proposal_id:
+        range: integer
+      sample_collect_temp:
+        range: string
+      pressure:
+        range: string
+      chlorophyll_concentration:
+        range: string
+      oxygen_concentration:
+        range: string
+      salinity_concentration:
+        range: string
+      nitrate_concentration:
+        range: string
+      ph:
+        range: string
+      sequencing_status:
+        range: string
+      funding_year:
+        range: integer
+      latitude_n:
+        range: double
+      longitude_n:
+        range: double
+      altitude_in_meters:
+        range: decimal
+      altitude_in_meters2:
+        range: decimal
+      depth_in_meters:
+        range: decimal
+      depth_in_meters2:
+        range: decimal
+      elevation_in_meters:
+        range: decimal
+      elevation_in_meters2:
+        range: decimal
+      subsurface_depth_in_meters:
+        range: decimal
+      subsurface_depth_in_meters2:
+        range: decimal
+      its_data_utilization_status:
+        range: string
+      its_proposal_name:
+        range: string
+      biosample_gold_id:
+        range: string
+      description:
+        range: string
+    aliases:
+    - gold_sequencing_project
+  GoldSpSra:
+    attributes:
+      gold_id:
+        range: string
+        required: true
+      sra_id:
+        range: string
+    aliases:
+    - gold_sp_sra
+  GoldStudy:
+    attributes:
+      study_id:
+        identifier: true
+        range: integer
+      gold_id:
+        range: string
+        required: true
+      study_name:
+        range: string
+      contact_oid:
+        range: integer
+      contact_email:
+        range: string
+      ecosystem:
+        range: string
+      ecosystem_category:
+        range: string
+      ecosystem_type:
+        range: string
+      ecosystem_subtype:
+        range: string
+      specific_ecosystem:
+        range: string
+      mod_date:
+        range: datetime
+      ariel_contact_id:
+        range: integer
+      keycloak_id:
+        range: string
+      orcid_id:
+        range: string
+      caliban_id:
+        range: integer
+    aliases:
+    - gold_study
+  GoldAnalysisProjectLookup2:
+    attributes:
+      gold_id:
+        range: GoldAnalysisProject
+      its_spid:
+        range: integer
+      project_oid:
+        range: integer
+      sample_oid:
+        range: integer
+      sp_gold_id:
+        range: string
+      pmo_project_id:
+        range: integer
+    aliases:
+    - gold_analysis_project_lookup2
+  GoldAnalysisProjectUsers:
+    attributes:
+      gold_id:
+        range: GoldAnalysisProject
+      name:
+        range: string
+      email:
+        range: string
+      role:
+        range: string
+      caliban_id:
+        range: integer
+      ariel_contact_id:
+        range: integer
+      keycloak_id:
+        range: string
+      orcid_id:
+        range: string
+    aliases:
+    - gold_analysis_project_users
+  GoldSpCellArrangement:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      cell_arrangement:
+        range: string
+    aliases:
+    - gold_sp_cell_arrangement
+  GoldSpCollaborator:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      name:
+        range: string
+      country:
+        range: string
+      url:
+        range: string
+    aliases:
+    - gold_sp_collaborator
+  GoldSpDisease:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      disease:
+        range: string
+    aliases:
+    - gold_sp_disease
+  GoldSpEnergySource:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      energy_source:
+        range: string
+    aliases:
+    - gold_sp_energy_source
+  GoldSpGenomePublications:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      pubmed_id:
+        range: integer
+      journal_name:
+        range: string
+      volume:
+        range: string
+      issue:
+        range: string
+      page:
+        range: string
+      title:
+        range: string
+      publication_date:
+        range: string
+      doi:
+        range: string
+    aliases:
+    - gold_sp_genome_publications
+  GoldSpHabitat:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      habitat:
+        range: string
+    aliases:
+    - gold_sp_habitat
+  GoldSpMetabolism:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      metabolism:
+        range: string
+    aliases:
+    - gold_sp_metabolism
+  GoldSpPhenotype:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      phenotype:
+        range: string
+    aliases:
+    - gold_sp_phenotype
+  GoldSpRelevance:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      relevance:
+        range: string
+    aliases:
+    - gold_sp_relevance
+  GoldSpSeqCenter:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      name:
+        range: string
+      country:
+        range: string
+      url:
+        range: string
+    aliases:
+    - gold_sp_seq_center
+  GoldSpSeqMethod:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      seq_method:
+        range: string
+    aliases:
+    - gold_sp_seq_method
+  GoldSpStudyGoldId:
+    attributes:
+      gold_id:
+        range: GoldSequencingProject
+      study_gold_id:
+        range: string
+    aliases:
+    - gold_sp_study_gold_id

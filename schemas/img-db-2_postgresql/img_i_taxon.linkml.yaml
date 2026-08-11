@@ -1,0 +1,319 @@
+id: https://w3id.org/jgi/img_i_taxon
+name: img_i_taxon
+title: img-db-2_postgresql.img_i_taxon
+description: Generated from img-db-2_postgresql.img_i_taxon by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_i_taxon: https://w3id.org/jgi/img_i_taxon/
+default_prefix: img_i_taxon
+default_range: string
+imports:
+- linkml:types
+classes:
+  GeneMyimgEnzymes:
+    attributes:
+      gene_oid:
+        range: integer
+      ec_number:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - gene_myimg_enzymes
+  GeneMyimgTerms:
+    attributes:
+      gene_oid:
+        range: integer
+      term_oid:
+        range: integer
+      evidence:
+        range: string
+      modified_by:
+        range: integer
+      mod_date:
+        range: datetime
+    aliases:
+    - gene_myimg_terms
+  ITaxonOriginal070323:
+    attributes:
+      taxon_oid:
+        range: integer
+      taxon_name:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      strain:
+        range: string
+      taxon_display_name:
+        range: string
+      ncbi_taxon_id:
+        range: integer
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      ir_order:
+        range: string
+      family:
+        range: string
+      jgi_species_code:
+        range: string
+      comments:
+        range: string
+      env_sample:
+        range: integer
+      seq_status:
+        range: string
+      seq_center:
+        range: string
+      is_public:
+        range: string
+        required: true
+      is_replaced:
+        range: string
+      img_ec_flag:
+        range: string
+      funding_agency:
+        range: string
+      jgi_project_id:
+        range: integer
+      img_version:
+        range: string
+      ncbi_species_code:
+        range: string
+      ncbi_project_id:
+        range: integer
+      gold_id:
+        range: string
+      release_date:
+        range: datetime
+      add_date:
+        range: datetime
+      ornl_species_code:
+        range: string
+      is_big_euk:
+        range: string
+      host_ncbi_taxon_id:
+        range: decimal
+      is_std_reference:
+        range: string
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      project:
+        range: integer
+      genome_type:
+        range: string
+      gram_stain:
+        range: string
+      is_proxygene_set:
+        range: string
+      obsolete_flag:
+        range: string
+        required: true
+      is_pangenome:
+        range: string
+      edit_flag:
+        range: string
+      submission_id:
+        range: decimal
+      img_product_flag:
+        range: string
+      refseq_project_id:
+        range: integer
+      gbk_project_id:
+        range: integer
+      is_low_quality:
+        range: string
+      phylodist_date:
+        range: datetime
+      proposal_name:
+        range: string
+      sample_gold_id:
+        range: string
+      phylodist_method:
+        range: string
+      in_file:
+        range: string
+      ncbi_bioproject_id:
+        range: string
+      combined_sample_flag:
+        range: string
+      high_quality_flag:
+        range: string
+      taxonomy_lock:
+        range: string
+      locked_by:
+        range: integer
+      lock_date:
+        range: datetime
+      distmatrix_date:
+        range: datetime
+      analysis_project_id:
+        range: string
+      legacy_gold_id:
+        range: string
+      ani_species:
+        range: string
+      study_gold_id:
+        range: string
+      sequencing_gold_id:
+        range: string
+      genome_completion:
+        range: decimal
+      is_nr:
+        range: string
+      its_ap_id:
+        range: integer
+      analysis_product_name:
+        range: string
+      analysis_project_type:
+        range: string
+      jgi_rnd_flag:
+        range: string
+      has_coverage:
+        range: string
+    aliases:
+    - i_taxon_original_070323
+  KpTmp:
+    attributes:
+      id:
+        range: integer
+    aliases:
+    - kp_tmp
+  Taxon:
+    attributes:
+      taxon_oid:
+        range: integer
+      genus:
+        range: string
+      species:
+        range: string
+      strain:
+        range: string
+      taxon_display_name:
+        range: string
+      ncbi_taxon_id:
+        range: integer
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      ir_order:
+        range: string
+      family:
+        range: string
+      jgi_species_code:
+        range: string
+      comments:
+        range: string
+      seq_status:
+        range: string
+      seq_center:
+        range: string
+      is_public:
+        range: string
+        required: true
+      is_replaced:
+        range: string
+      funding_agency:
+        range: string
+      jgi_project_id:
+        range: integer
+      img_version:
+        range: string
+      ncbi_species_code:
+        range: string
+      release_date:
+        range: datetime
+      add_date:
+        range: datetime
+      is_big_euk:
+        range: string
+      host_ncbi_taxon_id:
+        range: decimal
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      genome_type:
+        range: string
+      gram_stain:
+        range: string
+      obsolete_flag:
+        range: string
+        required: true
+      is_pangenome:
+        range: string
+      submission_id:
+        range: decimal
+      phylodist_date:
+        range: datetime
+      proposal_name:
+        range: string
+      sample_gold_id:
+        range: string
+      phylodist_method:
+        range: string
+      in_file:
+        range: string
+      combined_sample_flag:
+        range: string
+      high_quality_flag:
+        range: string
+      analysis_project_id:
+        range: string
+      ani_species:
+        range: string
+      study_gold_id:
+        range: string
+      sequencing_gold_id:
+        range: string
+      genome_completion:
+        range: decimal
+      its_ap_id:
+        range: integer
+      analysis_product_name:
+        range: string
+      analysis_project_type:
+        range: string
+      jgi_rnd_flag:
+        range: string
+      has_coverage:
+        range: string
+      has_per_sample_coverage:
+        range: string
+    aliases:
+    - taxon
+  TaxonHistory:
+    attributes:
+      taxon_oid:
+        range: decimal
+      modified_by:
+        range: decimal
+      mod_date:
+        range: datetime
+      comments_old:
+        range: string
+      is_public_old:
+        range: string
+      obsolete_flag_old:
+        range: string
+      is_public_new:
+        range: string
+      obsolete_flag_new:
+        range: string
+      comments_new:
+        range: string
+    aliases:
+    - taxon_history

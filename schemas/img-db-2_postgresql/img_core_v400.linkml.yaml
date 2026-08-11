@@ -1,0 +1,3794 @@
+id: https://w3id.org/jgi/img_core_v400
+name: img_core_v400
+title: img-db-2_postgresql.img_core_v400
+description: Generated from img-db-2_postgresql.img_core_v400 by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_core_v400: https://w3id.org/jgi/img_core_v400/
+default_prefix: img_core_v400
+default_range: string
+imports:
+- linkml:types
+classes:
+  AccessionTypes:
+    attributes:
+      accession_id:
+        range: string
+      type:
+        range: string
+    aliases:
+    - accession_types
+  ActinoAbcGenes:
+    attributes:
+      gene_oid:
+        range: integer
+    aliases:
+    - actino_abc_genes
+  ActinoCassette:
+    attributes:
+      group_oid:
+        range: integer
+    aliases:
+    - actino_cassette
+  ActinoCassetteGenes:
+    attributes:
+      group_oid:
+        range: integer
+      genes:
+        range: integer
+    aliases:
+    - actino_cassette_genes
+  AltTranscript:
+    attributes:
+      alt_transcript_oid:
+        identifier: true
+        range: integer
+      gene:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      strand:
+        range: string
+      is_pseudogene:
+        range: string
+      aa_checksum:
+        range: string
+      name:
+        range: string
+      ext_accession:
+        range: string
+      description:
+        range: string
+      aa_residue:
+        range: string
+    aliases:
+    - alt_transcript
+  Asv5Taxons:
+    attributes:
+      taxon_oid:
+        range: integer
+    aliases:
+    - asv5_taxons
+  BcType:
+    attributes:
+      bc_code:
+        range: string
+        required: true
+      bc_desc:
+        range: string
+    aliases:
+    - bc_type
+  BcgTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+      add_date:
+        range: datetime
+    aliases:
+    - bcg_taxons
+  BiocycClass:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      comments:
+        range: string
+    aliases:
+    - biocyc_class
+  BiocycPathway:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      net_rxn_eqn:
+        range: string
+      credits:
+        range: string
+    aliases:
+    - biocyc_pathway
+  BiocycProtein:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      systematic_name:
+        range: string
+      comments:
+        range: string
+      func_status:
+        range: string
+      biocyc_gene:
+        range: string
+    aliases:
+    - biocyc_protein
+  CathFunfam:
+    attributes:
+      accession:
+        range: string
+        required: true
+      description:
+        range: string
+      sub_id:
+        range: string
+    aliases:
+    - cath_funfam
+  Cog2014:
+    attributes:
+      cog:
+        range: string
+      func:
+        range: string
+      name:
+        range: string
+    aliases:
+    - cog2014
+  CogFunction:
+    attributes:
+      function_code:
+        identifier: true
+        range: string
+      definition:
+        range: string
+      function_group:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - cog_function
+  CogFunctions:
+    attributes:
+      cog_id:
+        range: string
+        required: true
+      functions:
+        range: string
+    aliases:
+    - cog_functions
+  CogSpecies:
+    attributes:
+      species_code:
+        identifier: true
+        range: string
+      cog_species_name:
+        range: string
+      taxon:
+        range: integer
+      species_family:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - cog_species
+  Cogfunc2014:
+    attributes:
+      code:
+        range: string
+      name:
+        range: string
+    aliases:
+    - cogfunc2014
+  DbSource:
+    attributes:
+      db_code:
+        identifier: true
+        range: string
+      name:
+        range: string
+      base_url:
+        range: string
+    aliases:
+    - db_source
+  DeleteGenes:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+    aliases:
+    - delete_genes
+  DeleteScaffolds:
+    attributes:
+      scaffold_oid:
+        range: integer
+        required: true
+    aliases:
+    - delete_scaffolds
+  DeleteTaxons:
+    attributes:
+      old_taxon_oid:
+        range: integer
+        required: true
+      taxon_name:
+        range: string
+    aliases:
+    - delete_taxons
+  DtAllPhyloTaxonStats:
+    attributes:
+      taxon_oid:
+        range: decimal
+      data_type:
+        range: string
+      homolog_taxon:
+        range: decimal
+      gene_count_30:
+        range: decimal
+      gene_count_60:
+        range: decimal
+      gene_count_90:
+        range: decimal
+      est_copy_30:
+        range: decimal
+      est_copy_60:
+        range: decimal
+      est_copy_90:
+        range: decimal
+    aliases:
+    - dt_all_phylo_taxon_stats
+  DtCog:
+    attributes:
+      cog_id:
+        range: string
+      name:
+        range: string
+    aliases:
+    - dt_cog
+  DtCogStats:
+    attributes:
+      taxon_oid:
+        identifier: true
+        range: decimal
+      total_cog_gene_count:
+        range: decimal
+      amino_acid_metabolism:
+        range: decimal
+      amino_acid_metabolism_pc:
+        range: decimal
+      carbohydrate_metabolism:
+        range: decimal
+      carbohydrate_metabolism_pc:
+        range: decimal
+      cell_cycle:
+        range: decimal
+      cell_cycle_pc:
+        range: decimal
+      cell_motility:
+        range: decimal
+      cell_motility_pc:
+        range: decimal
+      cell_wall_biogenesis:
+        range: decimal
+      cell_wall_biogenesis_pc:
+        range: decimal
+      chromatin_structure:
+        range: decimal
+      chromatin_structure_pc:
+        range: decimal
+      coenzyme_transport:
+        range: decimal
+      coenzyme_transport_pc:
+        range: decimal
+      cytoskeleton:
+        range: decimal
+      cytoskeleton_pc:
+        range: decimal
+      defense_mechanisms:
+        range: decimal
+      defense_mechanisms_pc:
+        range: decimal
+      energy_production:
+        range: decimal
+      energy_production_pc:
+        range: decimal
+      extracellular_structures:
+        range: decimal
+      extracellular_structures_pc:
+        range: decimal
+      function_unknown:
+        range: decimal
+      function_unknown_pc:
+        range: decimal
+      general_function_only:
+        range: decimal
+      general_function_only_pc:
+        range: decimal
+      ion_transport:
+        range: decimal
+      ion_transport_pc:
+        range: decimal
+      intracellular_trafficking:
+        range: decimal
+      intracellular_trafficking_pc:
+        range: decimal
+      lipid_metabolism:
+        range: decimal
+      lipid_metabolism_pc:
+        range: decimal
+      nuclear_structure:
+        range: decimal
+      nuclear_structure_pc:
+        range: decimal
+      nucleotide_metabolism:
+        range: decimal
+      nucleotide_metabolism_pc:
+        range: decimal
+      posttrans_modification:
+        range: decimal
+      posttrans_modification_pc:
+        range: decimal
+      rna_processing:
+        range: decimal
+      rna_processing_pc:
+        range: decimal
+      replication_repair:
+        range: decimal
+      replication_repair_pc:
+        range: decimal
+      secondary_metabolites:
+        range: decimal
+      secondary_metabolites_pc:
+        range: decimal
+      signal_transduction:
+        range: decimal
+      signal_transduction_pc:
+        range: decimal
+      transcription:
+        range: decimal
+      transcription_pc:
+        range: decimal
+      translation:
+        range: decimal
+      translation_pc:
+        range: decimal
+      mobilome:
+        range: decimal
+      mobilome_pc:
+        range: decimal
+    aliases:
+    - dt_cog_stats
+  DtHtHits:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      phylo_level:
+        range: string
+      phylo_val:
+        range: string
+      homolog:
+        range: integer
+        required: true
+      rank:
+        range: integer
+      rev_gene_oid:
+        range: integer
+    aliases:
+    - dt_ht_hits
+  DtImgGeneProtPepSample:
+    attributes:
+      gene_oid:
+        range: integer
+      taxon:
+        range: integer
+      gene_display_name:
+        range: string
+      gene_seq_length:
+        range: integer
+      pep_seq_length:
+        range: integer
+      pep_spectral_cnt:
+        range: integer
+      coverage:
+        range: decimal
+      protein_oid:
+        range: integer
+      peptide_oid:
+        range: integer
+      peptide_seq:
+        range: string
+      sample_oid:
+        range: integer
+      sample_desc:
+        range: string
+      exp_oid:
+        range: integer
+    aliases:
+    - dt_img_gene_prot_pep_sample
+  DtImgTerm:
+    attributes:
+      term_oid:
+        range: integer
+      name:
+        range: string
+    aliases:
+    - dt_img_term
+  DtImgTermPath:
+    attributes:
+      term_oid:
+        range: integer
+      map_term:
+        range: integer
+    aliases:
+    - dt_img_term_path
+  DtIntergenic:
+    attributes:
+      scaffold_oid:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+    aliases:
+    - dt_intergenic
+  DtKo:
+    attributes:
+      ko_id:
+        range: string
+      name:
+        range: string
+    aliases:
+    - dt_ko
+  DtKoEcCogPfam:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      ec:
+        range: string
+      cog:
+        range: string
+      pfam:
+        range: string
+        required: true
+    aliases:
+    - dt_ko_ec_cog_pfam
+  DtKogStats:
+    attributes:
+      taxon_oid:
+        identifier: true
+        range: decimal
+      total_kog_gene_count:
+        range: decimal
+      amino_acid_metabolism:
+        range: decimal
+      amino_acid_metabolism_pc:
+        range: decimal
+      carbohydrate_metabolism:
+        range: decimal
+      carbohydrate_metabolism_pc:
+        range: decimal
+      cell_cycle:
+        range: decimal
+      cell_cycle_pc:
+        range: decimal
+      cell_motility:
+        range: decimal
+      cell_motility_pc:
+        range: decimal
+      cell_wall_biogenesis:
+        range: decimal
+      cell_wall_biogenesis_pc:
+        range: decimal
+      chromatin_structure:
+        range: decimal
+      chromatin_structure_pc:
+        range: decimal
+      coenzyme_transport:
+        range: decimal
+      coenzyme_transport_pc:
+        range: decimal
+      cytoskeleton:
+        range: decimal
+      cytoskeleton_pc:
+        range: decimal
+      defense_mechanisms:
+        range: decimal
+      defense_mechanisms_pc:
+        range: decimal
+      energy_production:
+        range: decimal
+      energy_production_pc:
+        range: decimal
+      extracellular_structures:
+        range: decimal
+      extracellular_structures_pc:
+        range: decimal
+      function_unknown:
+        range: decimal
+      function_unknown_pc:
+        range: decimal
+      general_function_only:
+        range: decimal
+      general_function_only_pc:
+        range: decimal
+      ion_transport:
+        range: decimal
+      ion_transport_pc:
+        range: decimal
+      intracellular_trafficking:
+        range: decimal
+      intracellular_trafficking_pc:
+        range: decimal
+      lipid_metabolism:
+        range: decimal
+      lipid_metabolism_pc:
+        range: decimal
+      nuclear_structure:
+        range: decimal
+      nuclear_structure_pc:
+        range: decimal
+      nucleotide_metabolism:
+        range: decimal
+      nucleotide_metabolism_pc:
+        range: decimal
+      posttrans_modification:
+        range: decimal
+      posttrans_modification_pc:
+        range: decimal
+      rna_processing:
+        range: decimal
+      rna_processing_pc:
+        range: decimal
+      replication_repair:
+        range: decimal
+      replication_repair_pc:
+        range: decimal
+      secondary_metabolites:
+        range: decimal
+      secondary_metabolites_pc:
+        range: decimal
+      signal_transduction:
+        range: decimal
+      signal_transduction_pc:
+        range: decimal
+      transcription:
+        range: decimal
+      transcription_pc:
+        range: decimal
+      translation:
+        range: decimal
+      translation_pc:
+        range: decimal
+    aliases:
+    - dt_kog_stats
+  DtPfam:
+    attributes:
+      pfam_id:
+        range: string
+      name:
+        range: string
+    aliases:
+    - dt_pfam
+  DtPhyloTaxonStats:
+    attributes:
+      taxon_oid:
+        range: decimal
+      data_type:
+        range: string
+      homolog_taxon:
+        range: decimal
+      gene_count_30:
+        range: decimal
+      gene_count_60:
+        range: decimal
+      gene_count_90:
+        range: decimal
+      est_copy_30:
+        range: decimal
+      est_copy_60:
+        range: decimal
+      est_copy_90:
+        range: decimal
+    aliases:
+    - dt_phylo_taxon_stats
+  DtPhylodistNewTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      taxon_name:
+        range: string
+    aliases:
+    - dt_phylodist_new_taxons
+  DtPhylumDistGenes:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      gene_oid:
+        range: integer
+      homolog:
+        range: integer
+      homolog_taxon:
+        range: integer
+      perc_ident_bin:
+        range: integer
+      percent_identity:
+        range: decimal
+      bit_score:
+        range: decimal
+    aliases:
+    - dt_phylum_dist_genes
+  DtPhylumDistStats:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      perc_ident_bin:
+        range: integer
+      gene_count:
+        range: integer
+      taxon_count:
+        range: integer
+    aliases:
+    - dt_phylum_dist_stats
+  DtScogGenes:
+    attributes:
+      gene_oid:
+        range: integer
+      taxon_oid:
+        range: integer
+      cog_id:
+        range: string
+    aliases:
+    - dt_scog_genes
+  DtScogs:
+    attributes:
+      cog_id:
+        range: string
+      cog_name:
+        range: string
+      single_copy:
+        range: string
+    aliases:
+    - dt_scogs
+  DtTaxonKmoduleMcr:
+    attributes:
+      taxon_oid:
+        range: integer
+      module_id:
+        range: string
+      mcr:
+        range: decimal
+    aliases:
+    - dt_taxon_kmodule_mcr
+  DtTaxonNodeLite:
+    attributes:
+      node_oid:
+        range: integer
+        required: true
+      display_name:
+        range: string
+      rank_name:
+        range: string
+      taxon:
+        range: integer
+      parent:
+        range: integer
+    aliases:
+    - dt_taxon_node_lite
+  DtTfam:
+    attributes:
+      tfam_id:
+        range: string
+      name:
+        range: string
+    aliases:
+    - dt_tfam
+  DtTfamsToExclude:
+    attributes:
+      tfam_id:
+        range: string
+    aliases:
+    - dt_tfams_to_exclude
+  Enzyme:
+    attributes:
+      ec_number:
+        identifier: true
+        range: string
+      enzyme_name:
+        range: string
+      systematic_name:
+        range: string
+      parent_class:
+        range: string
+      comments:
+        range: string
+      rxn_desc:
+        range: string
+      cas_number:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - enzyme
+  EnzymeEnzAliases:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      enz_aliases:
+        range: string
+    aliases:
+    - enzyme_enz_aliases
+  EnzymeTransferred:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      enzyme_name:
+        range: string
+      systematic_name:
+        range: string
+      parent_class:
+        range: string
+      comments:
+        range: string
+      rxn_desc:
+        range: string
+      cas_number:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - enzyme_transferred
+  ExcludeFunc:
+    attributes:
+      function_id:
+        range: string
+      name:
+        range: string
+    aliases:
+    - exclude_func
+  Gene:
+    attributes:
+      gene_oid:
+        identifier: true
+        range: integer
+      gene_symbol:
+        range: string
+      gene_display_name:
+        range: string
+      product_name:
+        range: string
+      locus_tag:
+        range: string
+      locus_type:
+        range: string
+      scaffold:
+        range: integer
+      chromosome:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      is_partial_w:
+        range: string
+      start_coord_w:
+        range: integer
+      end_coord_w:
+        range: integer
+      dna_seq_length:
+        range: integer
+      aa_seq_length:
+        range: integer
+      aa_checksum:
+        range: string
+      is_pseudogene:
+        range: string
+      description:
+        range: string
+      protein_seq_accid:
+        range: string
+      taxon:
+        range: integer
+      obsolete_flag:
+        range: string
+      add_date:
+        range: datetime
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      img_product_source:
+        range: string
+      cds_frag_coord:
+        range: string
+      partial_gene:
+        range: string
+      copy_number:
+        range: integer
+      est_copy:
+        range: integer
+      gc_percent:
+        range: decimal
+      transl_table:
+        range: integer
+    aliases:
+    - gene
+  GeneAliases:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      aliases:
+        range: string
+    aliases:
+    - gene_aliases
+  GeneBiocycRxns:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      biocyc_enzrxn:
+        range: string
+      biocyc_rxn:
+        range: string
+      ec_number:
+        range: string
+      common_name:
+        range: string
+      assign_basis:
+        range: string
+      add_date:
+        range: datetime
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_biocyc_rxns
+  GeneCathfam:
+    attributes:
+      gene_oid:
+        range: integer
+      db_name:
+        range: string
+      id:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_cathfam
+  GeneExceptions:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      gb_tag:
+        range: string
+      exception:
+        range: string
+    aliases:
+    - gene_exceptions
+  GeneFeatureTags:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      tag:
+        range: string
+      value:
+        range: string
+      notes:
+        range: string
+    aliases:
+    - gene_feature_tags
+  GeneFragCoords:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      frag_order:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+    aliases:
+    - gene_frag_coords
+  GeneGoTerms:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      go_type:
+        range: string
+      go_id:
+        range: string
+      go_evidence:
+        range: string
+      reference:
+        range: string
+      xref:
+        range: string
+    aliases:
+    - gene_go_terms
+  GeneKoEnzymes:
+    attributes:
+      gene_oid:
+        range: integer
+      enzymes:
+        range: string
+      ko_id:
+        range: string
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_ko_enzymes
+  GeneKoEnzymesNew:
+    attributes:
+      gene_oid:
+        range: integer
+      enzymes:
+        range: string
+      ko_id:
+        range: string
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_ko_enzymes_new
+  GeneKoTerms:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      ko_terms:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      subj_start:
+        range: integer
+      subj_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      kegg_gene:
+        range: string
+      img_ko_flag:
+        range: string
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_ko_terms
+  GeneNotes:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      notes:
+        range: string
+    aliases:
+    - gene_notes
+  GeneParalogs:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      paralog:
+        range: integer
+      percent_identity:
+        range: decimal
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      subj_start:
+        range: integer
+      subj_end:
+        range: integer
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+    aliases:
+    - gene_paralogs
+  GenePfamFamilies:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      pfam_family:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      subj_start:
+        range: integer
+      subj_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_pfam_families
+  GeneSigPeptides:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      feature_type:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      comments:
+        range: string
+    aliases:
+    - gene_sig_peptides
+  GeneSmart:
+    attributes:
+      gene_oid:
+        range: integer
+      db_name:
+        range: string
+      id:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_smart
+  GeneSuperfam:
+    attributes:
+      gene_oid:
+        range: integer
+      db_name:
+        range: string
+      id:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_superfam
+  GenomeProperty:
+    attributes:
+      prop_accession:
+        identifier: true
+        range: string
+      name:
+        range: string
+      description:
+        range: string
+      threshold:
+        range: integer
+      type:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - genome_property
+  ImageRoiEnzymes:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      enzymes:
+        range: string
+    aliases:
+    - image_roi_enzymes
+  ImgBuild:
+    attributes:
+      build_oid:
+        identifier: true
+        range: integer
+      build_number:
+        range: integer
+      build_date:
+        range: datetime
+        required: true
+      release_date:
+        range: datetime
+        required: true
+      img_version:
+        range: string
+        required: true
+      seq_dir:
+        range: string
+        required: true
+    aliases:
+    - img_build
+  ImgContentHistory:
+    attributes:
+      img_version:
+        identifier: true
+        range: string
+      release_date:
+        range: datetime
+      bacteria:
+        range: integer
+      archaea:
+        range: integer
+      eukaryota:
+        range: integer
+      plasmids:
+        range: integer
+      viruses:
+        range: integer
+      total_genomes:
+        range: integer
+      total_genes:
+        range: integer
+      jgi_genomes:
+        range: integer
+      gfragment:
+        range: integer
+    aliases:
+    - img_content_history
+  ImgFuncsInfo:
+    attributes:
+      function:
+        range: string
+      isolates:
+        range: string
+      metagenomes:
+        range: string
+    aliases:
+    - img_funcs_info
+  ImgIuigTarballs11202023:
+    attributes:
+      taxon_oid:
+        range: integer
+    aliases:
+    - img_iuig_tarballs_11202023
+  ImgOrfType:
+    attributes:
+      orf_type:
+        identifier: true
+        range: string
+      definition:
+        range: string
+        required: true
+      mod_date:
+        range: datetime
+        required: true
+      modified_by:
+        range: integer
+        required: true
+    aliases:
+    - img_orf_type
+  ImgUmagBinTarballs02062024:
+    attributes:
+      taxon_oid:
+        range: integer
+    aliases:
+    - img_umag_bin_tarballs_02062024
+  ImgnrTaxons062123:
+    attributes:
+      taxon_oid:
+        range: integer
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      ir_order:
+        range: string
+      family:
+        range: string
+      genus:
+        range: string
+      species:
+        range: string
+      taxon_display_name:
+        range: string
+    aliases:
+    - imgnr_taxons_062123
+  Interpro:
+    attributes:
+      ext_accession:
+        identifier: true
+        range: string
+      name:
+        range: string
+      type:
+        range: string
+    aliases:
+    - interpro
+  IsoPlasmids:
+    attributes:
+      plasmid_id:
+        range: string
+      taxon_oid:
+        range: integer
+      scaffold:
+        range: string
+      source:
+        range: string
+    aliases:
+    - iso_plasmids
+  KeggGene:
+    attributes:
+      kegg_gene_id:
+        identifier: true
+        range: string
+      aa_seq_length:
+        range: integer
+      checksum:
+        range: string
+    aliases:
+    - kegg_gene
+  KmImageRoi:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      shape:
+        range: string
+      roi_type:
+        range: string
+      roi_label:
+        range: string
+      x_coord:
+        range: integer
+        required: true
+      y_coord:
+        range: integer
+        required: true
+      height:
+        range: integer
+        required: true
+      width:
+        range: integer
+        required: true
+      add_date:
+        range: datetime
+      coord_string:
+        range: string
+      kegg_module:
+        range: string
+    aliases:
+    - km_image_roi
+  KmImageRoiKoTerms:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      ko_terms:
+        range: string
+    aliases:
+    - km_image_roi_ko_terms
+  Ko2cog:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      cog_id:
+        range: string
+    aliases:
+    - ko2cog
+  Ko2ec:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      ec_number:
+        range: string
+    aliases:
+    - ko2ec
+  Ko2go:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      go_id:
+        range: string
+    aliases:
+    - ko2go
+  Ko2module:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      module_id:
+        range: string
+    aliases:
+    - ko2module
+  Ko2pathway:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      image_id:
+        range: string
+    aliases:
+    - ko2pathway
+  Ko2reaction:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      reaction_id:
+        range: string
+    aliases:
+    - ko2reaction
+  Ko2tc:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      tc_id:
+        range: string
+    aliases:
+    - ko2tc
+  KoTerm:
+    attributes:
+      ko_id:
+        range: string
+      ko_name:
+        range: string
+      definition:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - ko_term
+  KoTermModules:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      modules:
+        range: string
+    aliases:
+    - ko_term_modules
+  KoTermPathways:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      pathway_oid:
+        range: integer
+      image_id:
+        range: string
+    aliases:
+    - ko_term_pathways
+  KoTermTcFamilies:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      tc_families:
+        range: string
+    aliases:
+    - ko_term_tc_families
+  Kog:
+    attributes:
+      kog_id:
+        identifier: true
+        range: string
+      kog_name:
+        range: string
+        required: true
+      description:
+        range: string
+      db_source:
+        range: string
+      add_date:
+        range: datetime
+      seq_length:
+        range: integer
+    aliases:
+    - kog
+  KogFunction:
+    attributes:
+      function_code:
+        identifier: true
+        range: string
+      definition:
+        range: string
+      function_group:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - kog_function
+  KpActino:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+    aliases:
+    - kp_actino
+  KpPseudo:
+    attributes:
+      gene_oid:
+        range: integer
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      locus_tag:
+        range: string
+      aa_seq_length:
+        range: integer
+      product_name:
+        range: string
+      gene_display_name:
+        range: string
+    aliases:
+    - kp_pseudo
+  KpTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      taxon_name:
+        range: string
+    aliases:
+    - kp_taxons
+  MapTaxonPairs:
+    attributes:
+      new_taxon_oid:
+        range: integer
+        required: true
+      old_taxon_oid:
+        range: integer
+    aliases:
+    - map_taxon_pairs
+  MerfsGeneMapping:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      merfs_gene_id:
+        range: string
+      locus_tag:
+        range: string
+      taxon:
+        range: integer
+    aliases:
+    - merfs_gene_mapping
+  MvGeneTmhmmStats:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      cnt:
+        range: decimal
+    aliases:
+    - mv_gene_tmhmm_stats
+  NewTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+      taxon_name:
+        range: string
+    aliases:
+    - new_taxons
+  NewTaxonsBatch:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      taxon_name:
+        range: string
+    aliases:
+    - new_taxons_batch
+  OldTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      taxon_name:
+        range: string
+    aliases:
+    - old_taxons
+  ParalogGroupGenes:
+    attributes:
+      group_oid:
+        range: integer
+        required: true
+      genes:
+        range: integer
+    aliases:
+    - paralog_group_genes
+  Pfam2go:
+    attributes:
+      pfam_id:
+        range: string
+      go_id:
+        range: string
+      go_term:
+        range: string
+      go_category:
+        range: string
+    aliases:
+    - pfam2go
+  PfamClan:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+      previous_name:
+        range: string
+    aliases:
+    - pfam_clan
+  PfamClanPfamFamilies:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      pfam_families:
+        range: string
+    aliases:
+    - pfam_clan_pfam_families
+  PfamDead:
+    attributes:
+      dead_pfam_id:
+        range: string
+      name:
+        range: string
+      comments:
+        range: string
+      new_pfam_id:
+        range: string
+    aliases:
+    - pfam_dead
+  PfamFamily:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      name:
+        range: string
+      description:
+        range: string
+      seq_length:
+        range: integer
+      db_source:
+        range: string
+      add_date:
+        range: datetime
+      previous_name:
+        range: string
+      type:
+        range: string
+      comments:
+        range: string
+      change_status:
+        range: string
+      is_scp_marker:
+        range: string
+    aliases:
+    - pfam_family
+  PositionalCluster:
+    attributes:
+      group_oid:
+        identifier: true
+        range: integer
+      cluster_name:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - positional_cluster
+  PositionalClusterGenes:
+    attributes:
+      group_oid:
+        range: decimal
+        required: true
+      genes:
+        range: integer
+    aliases:
+    - positional_cluster_genes
+  Reaction:
+    attributes:
+      ext_accession:
+        range: string
+      rxn_name:
+        range: string
+      rxn_definition:
+        range: string
+      rxn_equation:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - reaction
+  RefseqUniprot:
+    attributes:
+      refseq_protein_id:
+        range: string
+      uniprot_id:
+        range: string
+    aliases:
+    - refseq_uniprot
+  ScaffoldNxFeature:
+    attributes:
+      scaffold_oid:
+        range: integer
+        required: true
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      strand:
+        range: string
+      seq_length:
+        range: integer
+    aliases:
+    - scaffold_nx_feature
+  ScaffoldRepeats:
+    attributes:
+      scaffold_oid:
+        range: integer
+        required: true
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      n_copies:
+        range: integer
+      type:
+        range: string
+    aliases:
+    - scaffold_repeats
+  Smart:
+    attributes:
+      domain:
+        range: string
+      accession:
+        range: string
+      definition:
+        range: string
+      description:
+        range: string
+    aliases:
+    - smart
+  Superfamily:
+    attributes:
+      name:
+        range: string
+      accession:
+        range: integer
+      description:
+        range: string
+    aliases:
+    - superfamily
+  T1:
+    attributes:
+      f1:
+        range: integer
+      f2:
+        range: string
+    aliases:
+    - t1
+  T2:
+    attributes:
+      f1:
+        range: integer
+      f2:
+        range: string
+    aliases:
+    - t2
+  T3:
+    attributes:
+      f1:
+        range: integer
+      f2:
+        range: string
+      f3:
+        range: string
+    aliases:
+    - t3
+  TarballRefreshTaxons:
+    attributes:
+      taxon_oid:
+        range: integer
+      taxon_name:
+        range: string
+    aliases:
+    - tarball_refresh_taxons
+  TaxonAssemblyStats:
+    attributes:
+      num_filtered_reads:
+        range: decimal
+      num_mapped_reads:
+        range: decimal
+      tot_size_filtered_reads:
+        range: decimal
+      tot_size_mapped_reads:
+        range: decimal
+      avg_cov_assembled_seq:
+        range: decimal
+      taxon_oid:
+        range: integer
+      average_scp:
+        range: decimal
+      median_scp:
+        range: decimal
+      std_dev_scp:
+        range: decimal
+      mode_scp:
+        range: decimal
+      est_num_of_genomes:
+        range: decimal
+      est_avg_genome_size:
+        range: decimal
+    aliases:
+    - taxon_assembly_stats
+  TaxonCathfunfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_cathfunfam_count
+  TaxonCogCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_cog_count
+  TaxonCrisprDetails:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      contig_id:
+        range: string
+      crispr_no:
+        range: integer
+      pos:
+        range: integer
+      repeat_seq:
+        range: string
+      spacer_seq:
+        range: string
+      tool_code:
+        range: string
+    aliases:
+    - taxon_crispr_details
+  TaxonCrisprSummary:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      contig_id:
+        range: string
+      crispr_no:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+    aliases:
+    - taxon_crispr_summary
+  TaxonEcCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_ec_count
+  TaxonGenePrefix:
+    attributes:
+      taxon_oid:
+        range: integer
+      id_prefix:
+        range: string
+      data_type:
+        range: string
+    aliases:
+    - taxon_gene_prefix
+  TaxonGtdbtkLineage:
+    attributes:
+      taxon_oid:
+        range: integer
+      gtdbtk_lineage:
+        range: string
+      gtdbtk_domain:
+        range: string
+      gtdbtk_phylum:
+        range: string
+      gtdbtk_class:
+        range: string
+      gtdbtk_order:
+        range: string
+      gtdbtk_family:
+        range: string
+      gtdbtk_genus:
+        range: string
+      gtdbtk_species:
+        range: string
+      checkm_completeness:
+        range: float
+      checkm_contamination:
+        range: float
+      version_info:
+        range: string
+    aliases:
+    - taxon_gtdbtk_lineage
+  TaxonKoCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_ko_count
+  TaxonPfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_pfam_count
+  TaxonScafPrefix:
+    attributes:
+      taxon_oid:
+        range: integer
+      id_prefix:
+        range: string
+      data_type:
+        range: string
+    aliases:
+    - taxon_scaf_prefix
+  TaxonSmartCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_smart_count
+  TaxonSmcStats:
+    attributes:
+      taxon_oid:
+        range: integer
+      smc_id:
+        range: integer
+      bgc_count:
+        range: integer
+      n_scaffolds:
+        range: integer
+      no_bases:
+        range: integer
+      gc_content:
+        range: decimal
+    aliases:
+    - taxon_smc_stats
+  TaxonStats:
+    attributes:
+      taxon_oid:
+        identifier: true
+        range: integer
+      total_gene_count:
+        range: integer
+      cds_genes:
+        range: integer
+      cds_genes_pc:
+        range: float
+      rna_genes:
+        range: integer
+      rna_genes_pc:
+        range: float
+      rrna_genes:
+        range: integer
+      rrna_genes_pc:
+        range: float
+      rrna5s_genes:
+        range: integer
+      rrna5s_genes_pc:
+        range: float
+      rrna16s_genes:
+        range: integer
+      rrna16s_genes_pc:
+        range: float
+      rrna23s_genes:
+        range: integer
+      rrna23s_genes_pc:
+        range: float
+      trna_genes:
+        range: integer
+      trna_genes_pc:
+        range: float
+      other_rna_genes:
+        range: integer
+      other_rna_genes_pc:
+        range: float
+      genes_w_func_pred:
+        range: integer
+      genes_w_func_pred_pc:
+        range: float
+      genes_in_enzymes:
+        range: integer
+      genes_in_enzymes_pc:
+        range: float
+      genes_in_kegg:
+        range: integer
+      genes_in_kegg_pc:
+        range: float
+      genes_not_in_kegg:
+        range: integer
+      genes_not_in_kegg_pc:
+        range: float
+      genes_in_paralogs:
+        range: integer
+      genes_in_paralogs_pc:
+        range: float
+      genes_in_cog:
+        range: integer
+      genes_in_cog_pc:
+        range: float
+      genes_in_pfam:
+        range: integer
+      genes_in_pfam_pc:
+        range: float
+      genes_in_tigrfam:
+        range: integer
+      genes_in_tigrfam_pc:
+        range: float
+      pseudo_genes:
+        range: integer
+      pseudo_genes_pc:
+        range: float
+      genes_in_myimg:
+        range: integer
+      genes_in_myimg_pc:
+        range: float
+      pfam_clusters:
+        range: integer
+      paralog_groups:
+        range: integer
+      n_scaffolds:
+        range: integer
+      total_coding_bases:
+        range: integer
+      total_gatc:
+        range: integer
+      total_g:
+        range: integer
+      total_a:
+        range: integer
+      total_t:
+        range: integer
+      total_c:
+        range: integer
+      total_n:
+        range: integer
+      total_x:
+        range: integer
+      total_gc:
+        range: integer
+      count_go:
+        range: integer
+      gc_percent:
+        range: decimal
+      total_bases:
+        range: integer
+      genes_revised:
+        range: integer
+      genes_revised_pc:
+        range: integer
+      genes_obsolete:
+        range: integer
+      genes_obsolete_pc:
+        range: integer
+      mod_date:
+        range: datetime
+      rrna18s_genes:
+        range: integer
+      rrna18s_genes_pc:
+        range: float
+      rrna28s_genes:
+        range: integer
+      rrna28s_genes_pc:
+        range: float
+      uncharacterized_genes:
+        range: integer
+      uncharacterized_genes_pc:
+        range: float
+      genes_signalp:
+        range: integer
+      genes_signalp_pc:
+        range: float
+      genes_transmembrane:
+        range: integer
+      genes_transmembrane_pc:
+        range: float
+      cog_clusters:
+        range: integer
+      tigrfam_clusters:
+        range: integer
+      total_cassettes:
+        range: integer
+      genes_in_metacyc:
+        range: integer
+      genes_in_metacyc_pc:
+        range: float
+      genes_not_in_metacyc:
+        range: integer
+      genes_not_in_metacyc_pc:
+        range: float
+      genes_in_ko:
+        range: integer
+      genes_in_ko_pc:
+        range: float
+      genes_not_in_ko:
+        range: integer
+      genes_not_in_ko_pc:
+        range: float
+      genes_hor_transfer:
+        range: integer
+      genes_hor_transfer_pc:
+        range: float
+      crispr_count:
+        range: integer
+      genes_in_sp:
+        range: integer
+      genes_in_sp_pc:
+        range: float
+      genes_not_in_sp:
+        range: integer
+      genes_not_in_sp_pc:
+        range: float
+      genes_in_kog:
+        range: integer
+      genes_in_kog_pc:
+        range: float
+      kog_clusters:
+        range: integer
+      genes_in_supfam:
+        range: integer
+      genes_in_supfam_pc:
+        range: float
+      genes_in_smart:
+        range: integer
+      genes_in_smart_pc:
+        range: float
+      genes_in_cathfunfam:
+        range: integer
+      genes_in_cathfunfam_pc:
+        range: float
+      total_bcgs:
+        range: integer
+      genes_in_bcgs:
+        range: integer
+      genes_in_bcgs_pc:
+        range: float
+      predicted_plasmid_contigs:
+        range: integer
+      smc_bcgs:
+        range: integer
+    aliases:
+    - taxon_stats
+  TaxonStatsMerfs:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      total_gene_count:
+        range: integer
+      cds_genes:
+        range: integer
+      cds_genes_pc:
+        range: float
+      rna_genes:
+        range: integer
+      rna_genes_pc:
+        range: float
+      rrna_genes:
+        range: integer
+      rrna_genes_pc:
+        range: float
+      rrna5s_genes:
+        range: integer
+      rrna5s_genes_pc:
+        range: float
+      rrna16s_genes:
+        range: integer
+      rrna16s_genes_pc:
+        range: float
+      rrna23s_genes:
+        range: integer
+      rrna23s_genes_pc:
+        range: float
+      trna_genes:
+        range: integer
+      trna_genes_pc:
+        range: float
+      other_rna_genes:
+        range: integer
+      other_rna_genes_pc:
+        range: float
+      genes_w_func_pred:
+        range: integer
+      genes_w_func_pred_pc:
+        range: float
+      genes_in_enzymes:
+        range: integer
+      genes_in_enzymes_pc:
+        range: float
+      genes_in_kegg:
+        range: integer
+      genes_in_kegg_pc:
+        range: float
+      genes_not_in_kegg:
+        range: integer
+      genes_not_in_kegg_pc:
+        range: float
+      genes_in_cog:
+        range: integer
+      genes_in_cog_pc:
+        range: float
+      genes_in_pfam:
+        range: integer
+      genes_in_pfam_pc:
+        range: float
+      pfam_clusters:
+        range: integer
+      n_scaffolds:
+        range: integer
+      total_coding_bases:
+        range: integer
+      total_gc:
+        range: integer
+      gc_percent:
+        range: decimal
+      total_bases:
+        range: integer
+      mod_date:
+        range: datetime
+      rrna18s_genes:
+        range: integer
+      rrna18s_genes_pc:
+        range: float
+      rrna28s_genes:
+        range: integer
+      rrna28s_genes_pc:
+        range: float
+      avg_gene_length:
+        range: decimal
+      cog_clusters:
+        range: integer
+      genes_in_metacyc:
+        range: integer
+      genes_in_metacyc_pc:
+        range: float
+      genes_not_in_metacyc:
+        range: integer
+      genes_not_in_metacyc_pc:
+        range: float
+      genes_in_ko:
+        range: integer
+      genes_in_ko_pc:
+        range: float
+      genes_not_in_ko:
+        range: integer
+      genes_not_in_ko_pc:
+        range: float
+      crispr_count:
+        range: integer
+      genes_in_biosynthetic:
+        range: decimal
+      genes_in_biosynthetic_pc:
+        range: float
+      total_biosynthetic:
+        range: integer
+      datatype:
+        range: string
+      genes_in_tigrfam:
+        range: integer
+      tigrfam_clusters:
+        range: integer
+      genes_in_tigrfam_pc:
+        range: integer
+      bin_count:
+        range: integer
+      genes_in_smart:
+        range: integer
+      genes_in_smart_pc:
+        range: float
+      genes_in_supfam:
+        range: integer
+      genes_in_supfam_pc:
+        range: float
+      genes_in_cathfunfam:
+        range: integer
+      genes_in_cathfunfam_pc:
+        range: float
+      predicted_viral_contigs:
+        range: integer
+      scaffolds_2kb:
+        range: integer
+      scaffolds_4kb:
+        range: integer
+      predicted_plasmid_contigs:
+        range: integer
+      euk_bin_count:
+        range: integer
+      smc_bcgs:
+        range: integer
+      semibin_count:
+        range: integer
+      euk_semibin_count:
+        range: integer
+    aliases:
+    - taxon_stats_merfs
+  TaxonSupfamCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_supfam_count
+  TaxonTaxonScaffoldInfo:
+    attributes:
+      taxon_oid:
+        range: integer
+      scaf_prefix:
+        range: string
+      min_value:
+        range: integer
+      max_value:
+        range: integer
+    aliases:
+    - taxon_taxon_scaffold_info
+  TaxonTigrCount:
+    attributes:
+      taxon_oid:
+        range: integer
+      data_type:
+        range: string
+      func_id:
+        range: string
+      gene_count:
+        range: decimal
+    aliases:
+    - taxon_tigr_count
+  TcFamily:
+    attributes:
+      tc_family_num:
+        identifier: true
+        range: string
+      tc_family_name:
+        range: string
+    aliases:
+    - tc_family
+  TigrRole:
+    attributes:
+      role_id:
+        identifier: true
+        range: integer
+      main_role:
+        range: string
+      sub_role:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - tigr_role
+  Tigrfam:
+    attributes:
+      ext_accession:
+        identifier: true
+        range: string
+      abbr_name:
+        range: string
+      expanded_name:
+        range: string
+      isology_type:
+        range: string
+      add_date:
+        range: datetime
+      gene_symbol:
+        range: string
+      ls_nc_model:
+        range: decimal
+      ls_nc_domain:
+        range: decimal
+      ls_ga_model:
+        range: decimal
+      ls_ga_domain:
+        range: decimal
+      ls_tc_model:
+        range: decimal
+      ls_tc_domain:
+        range: decimal
+    aliases:
+    - tigrfam
+  TmpGenes:
+    attributes:
+      gene_oid:
+        range: integer
+    aliases:
+    - tmp_genes
+  Yesnocv:
+    attributes:
+      flag_cv:
+        identifier: true
+        range: string
+      description:
+        range: string
+    aliases:
+    - yesnocv
+  BiocycClassParents:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      parents:
+        range: BiocycClass
+    aliases:
+    - biocyc_class_parents
+  BiocycClassSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_class_synonyms
+  BiocycClassTypes:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      types:
+        range: string
+    aliases:
+    - biocyc_class_types
+  BiocycComp:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      mol_wt:
+        range: decimal
+      common_name:
+        range: string
+      systematic_name:
+        range: string
+      comments:
+        range: string
+      smiles:
+        range: string
+      db_source:
+        range: DbSource
+      formula:
+        range: string
+      inch_i_key:
+        range: string
+    aliases:
+    - biocyc_comp
+  BiocycPathwayComments:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      comments:
+        range: string
+    aliases:
+    - biocyc_pathway_comments
+  BiocycPathwayExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_pathway_ext_links
+  BiocycPathwayInSpecies:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      in_species:
+        range: string
+    aliases:
+    - biocyc_pathway_in_species
+  BiocycPathwayPwyLinks:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      pwy_links:
+        range: string
+    aliases:
+    - biocyc_pathway_pwy_links
+  BiocycPathwaySubPwys:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      sub_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_pathway_sub_pwys
+  BiocycPathwaySuperPwys:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      super_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_pathway_super_pwys
+  BiocycPathwayTaxonRange:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      taxon_range:
+        range: string
+    aliases:
+    - biocyc_pathway_taxon_range
+  BiocycPathwayTypes:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      types:
+        range: string
+    aliases:
+    - biocyc_pathway_types
+  BiocycProteinExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_protein_ext_links
+  BiocycProteinInSpecies:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      in_species:
+        range: string
+    aliases:
+    - biocyc_protein_in_species
+  BiocycProteinSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_protein_synonyms
+  BiocycProteinTypes:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      types:
+        range: string
+    aliases:
+    - biocyc_protein_types
+  BiocycReaction:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      balance_state:
+        range: string
+      ec_number:
+        range: string
+      is_official_ec:
+        range: Yesnocv
+      is_orphan:
+        range: Yesnocv
+      is_spontaneous:
+        range: Yesnocv
+      comments:
+        range: string
+    aliases:
+    - biocyc_reaction
+  Cog:
+    attributes:
+      cog_id:
+        identifier: true
+        range: string
+      cog_name:
+        range: string
+        required: true
+      description:
+        range: string
+      db_source:
+        range: DbSource
+      add_date:
+        range: datetime
+      seq_length:
+        range: integer
+    aliases:
+    - cog
+  CogPathway:
+    attributes:
+      cog_pathway_oid:
+        identifier: true
+        range: integer
+      function:
+        range: CogFunction
+      cog_pathway_name:
+        range: string
+    aliases:
+    - cog_pathway
+  Compound:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_source:
+        range: DbSource
+      compound_name:
+        range: string
+      common_name:
+        range: string
+      class:
+        range: string
+      formula:
+        range: string
+      parent:
+        range: string
+      status:
+        range: string
+      add_date:
+        range: datetime
+      family:
+        range: string
+      mol_weight:
+        range: decimal
+      num_atoms:
+        range: decimal
+      smiles:
+        range: string
+      inchi:
+        range: string
+      inchi_key:
+        range: string
+      cas_number:
+        range: string
+    aliases:
+    - compound
+  EnzymeExtLinks:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - enzyme_ext_links
+  GeneEssentialGenes:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      ext_id:
+        range: string
+      essentiality:
+        range: Yesnocv
+      assertion_error:
+        range: decimal
+      sp_id:
+        range: string
+      func_role:
+        range: string
+      func_cat:
+        range: string
+    aliases:
+    - gene_essential_genes
+  GeneExtLinks:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+      xref:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - gene_ext_links
+  GenePdbXrefs:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+      xref:
+        range: string
+    aliases:
+    - gene_pdb_xrefs
+  GeneXrefFamilies:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+      description:
+        range: string
+      xref:
+        range: string
+      taxon:
+        range: integer
+      scaffold:
+        range: integer
+    aliases:
+    - gene_xref_families
+  GenomePropertyParents:
+    attributes:
+      prop_accession:
+        range: GenomeProperty
+      parents:
+        range: GenomeProperty
+    aliases:
+    - genome_property_parents
+  GoTerm:
+    attributes:
+      go_id:
+        identifier: true
+        range: string
+      go_term:
+        range: string
+        required: true
+      go_type:
+        range: string
+      definition:
+        range: string
+      comments:
+        range: string
+      is_root:
+        range: Yesnocv
+      is_obsolete:
+        range: Yesnocv
+      db_source:
+        range: DbSource
+      add_date:
+        range: datetime
+    aliases:
+    - go_term
+  ImageRoiKoTerms:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      ko_terms:
+        range: KoTerm
+    aliases:
+    - image_roi_ko_terms
+  ImageRoiReactions:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      reactions:
+        range: Reaction
+    aliases:
+    - image_roi_reactions
+  InterproGoTerms:
+    attributes:
+      ext_accession:
+        range: Interpro
+      go_terms:
+        range: string
+    aliases:
+    - interpro_go_terms
+  KeggGeneKoTerms:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      ko_term:
+        range: KoTerm
+    aliases:
+    - kegg_gene_ko_terms
+  KeggGeneNcbiGeneIds:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      ncbi_gene_id:
+        range: string
+      source:
+        range: string
+    aliases:
+    - kegg_gene_ncbi_gene_ids
+  KeggGeneUniprotIds:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      uniprot_id:
+        range: string
+      source:
+        range: string
+    aliases:
+    - kegg_gene_uniprot_ids
+  KeggPathway:
+    attributes:
+      pathway_oid:
+        range: integer
+        required: true
+      pathway_name:
+        range: string
+        required: true
+      title:
+        range: string
+        required: true
+      description:
+        range: string
+      category:
+        range: string
+      db_source:
+        range: DbSource
+      image_id:
+        range: string
+      kegg_id:
+        range: string
+      image_file:
+        range: string
+      add_date:
+        range: datetime
+      ko_pathway_id:
+        range: string
+    aliases:
+    - kegg_pathway
+  KoTermClasses:
+    attributes:
+      ko_id:
+        range: KoTerm
+      class:
+        range: string
+      ko_pathway_id:
+        range: string
+    aliases:
+    - ko_term_classes
+  KoTermEnzymes:
+    attributes:
+      ko_id:
+        range: KoTerm
+      enzymes:
+        range: string
+    aliases:
+    - ko_term_enzymes
+  KoTermReactions:
+    attributes:
+      ko_id:
+        range: KoTerm
+      reactions:
+        range: Reaction
+    aliases:
+    - ko_term_reactions
+  KogFamilies:
+    attributes:
+      kog_id:
+        range: Kog
+      families:
+        range: string
+    aliases:
+    - kog_families
+  KogFunctions:
+    attributes:
+      kog_id:
+        range: Kog
+      functions:
+        range: KogFunction
+    aliases:
+    - kog_functions
+  KogPathway:
+    attributes:
+      kog_pathway_oid:
+        identifier: true
+        range: integer
+      function:
+        range: KogFunction
+      kog_pathway_name:
+        range: string
+    aliases:
+    - kog_pathway
+  PfamFamilyExtLinks:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - pfam_family_ext_links
+  PropertyStep:
+    attributes:
+      step_accession:
+        identifier: true
+        range: string
+      genome_property:
+        range: GenomeProperty
+      name:
+        range: string
+      is_required:
+        range: integer
+      add_date:
+        range: datetime
+    aliases:
+    - property_step
+  ReactionEnzymes:
+    attributes:
+      ext_accession:
+        range: Reaction
+      enzymes:
+        range: string
+    aliases:
+    - reaction_enzymes
+  ReactionExtLinks:
+    attributes:
+      ext_accession:
+        range: Reaction
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - reaction_ext_links
+  ScaffoldExtLinks:
+    attributes:
+      scaffold_oid:
+        range: integer
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - scaffold_ext_links
+  Taxon:
+    attributes:
+      taxon_oid:
+        range: integer
+        required: true
+      genus:
+        range: string
+      species:
+        range: string
+      strain:
+        range: string
+      taxon_display_name:
+        range: string
+      ncbi_taxon_id:
+        range: integer
+      domain:
+        range: string
+      phylum:
+        range: string
+      ir_class:
+        range: string
+      ir_order:
+        range: string
+      family:
+        range: string
+      jgi_species_code:
+        range: string
+      comments:
+        range: string
+      seq_status:
+        range: string
+      seq_center:
+        range: string
+      is_public:
+        range: Yesnocv
+      is_replaced:
+        range: Yesnocv
+      funding_agency:
+        range: string
+      jgi_project_id:
+        range: integer
+      img_version:
+        range: string
+      ncbi_species_code:
+        range: string
+      release_date:
+        range: datetime
+      add_date:
+        range: datetime
+      is_big_euk:
+        range: Yesnocv
+      host_ncbi_taxon_id:
+        range: integer
+      mod_date:
+        range: datetime
+      modified_by:
+        range: integer
+      genome_type:
+        range: string
+      gram_stain:
+        range: string
+      obsolete_flag:
+        range: Yesnocv
+      is_pangenome:
+        range: Yesnocv
+      submission_id:
+        range: integer
+      phylodist_date:
+        range: datetime
+      proposal_name:
+        range: string
+      sample_gold_id:
+        range: string
+      phylodist_method:
+        range: string
+      in_file:
+        range: Yesnocv
+      combined_sample_flag:
+        range: string
+      high_quality_flag:
+        range: string
+      analysis_project_id:
+        range: string
+      ani_species:
+        range: string
+      study_gold_id:
+        range: string
+      sequencing_gold_id:
+        range: string
+      genome_completion:
+        range: float
+      its_ap_id:
+        range: integer
+      analysis_product_name:
+        range: string
+      analysis_project_type:
+        range: string
+      jgi_rnd_flag:
+        range: string
+      has_coverage:
+        range: string
+      has_per_sample_coverage:
+        range: string
+    aliases:
+    - taxon
+  TigrfamEnzymes:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      enzymes:
+        range: string
+    aliases:
+    - tigrfam_enzymes
+  TigrfamRoles:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      roles:
+        range: TigrRole
+    aliases:
+    - tigrfam_roles
+  BiocycCompExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_comp_ext_links
+  BiocycCompSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_comp_synonyms
+  BiocycCompTypes:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      types:
+        range: string
+    aliases:
+    - biocyc_comp_types
+  BiocycEnzrxn:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      biocyc_enzyme:
+        range: BiocycProtein
+      common_name:
+        range: string
+      assign_basis:
+        range: string
+      reaction:
+        range: BiocycReaction
+      rxn_direction:
+        range: string
+      comments:
+        range: string
+    aliases:
+    - biocyc_enzrxn
+  BiocycReactionExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_reaction_ext_links
+  BiocycReactionInPwys:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      in_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_reaction_in_pwys
+  BiocycReactionLeftHand:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      substrate:
+        range: BiocycComp
+      compartment:
+        range: string
+    aliases:
+    - biocyc_reaction_left_hand
+  BiocycReactionRightHand:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      substrate:
+        range: BiocycComp
+      compartment:
+        range: string
+    aliases:
+    - biocyc_reaction_right_hand
+  BiocycReactionSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_reaction_synonyms
+  BiocycReactionTypes:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      types:
+        range: string
+    aliases:
+    - biocyc_reaction_types
+  CogFamilies:
+    attributes:
+      cog_id:
+        range: Cog
+      families:
+        range: string
+    aliases:
+    - cog_families
+  CogPathwayCogMembers:
+    attributes:
+      cog_pathway_oid:
+        range: CogPathway
+      cog_members:
+        range: Cog
+    aliases:
+    - cog_pathway_cog_members
+  CompoundAliases:
+    attributes:
+      ext_accession:
+        range: Compound
+      aliases:
+        range: string
+    aliases:
+    - compound_aliases
+  CompoundExtLinks:
+    attributes:
+      ext_accession:
+        range: Compound
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - compound_ext_links
+  EnzymeProducts:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      products:
+        range: Compound
+    aliases:
+    - enzyme_products
+  EnzymeSubstrates:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      substrates:
+        range: Compound
+    aliases:
+    - enzyme_substrates
+  GeneCogGroups:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      cog:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      subj_start:
+        range: integer
+      subj_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      rank_order:
+        range: integer
+      taxon:
+        range: Taxon
+      scaffold:
+        range: integer
+    aliases:
+    - gene_cog_groups
+  GeneImgInterproHits:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      length:
+        range: integer
+      domaindb:
+        range: string
+      domainid:
+        range: string
+      domaindesc:
+        range: string
+      sfcount:
+        range: integer
+      sfstarts:
+        range: integer
+      sfends:
+        range: integer
+      sfscores:
+        range: integer
+      iprid:
+        range: string
+      iprdesc:
+        range: string
+      go_info:
+        range: string
+      url:
+        range: string
+      scaffold:
+        range: Taxon
+      taxon:
+        range: integer
+    aliases:
+    - gene_img_interpro_hits
+  GeneKogGroups:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      kog:
+        range: string
+      percent_identity:
+        range: decimal
+      query_start:
+        range: integer
+      query_end:
+        range: integer
+      subj_start:
+        range: integer
+      subj_end:
+        range: integer
+      evalue:
+        range: decimal
+      bit_score:
+        range: decimal
+      align_length:
+        range: integer
+      rank_order:
+        range: integer
+      taxon:
+        range: Taxon
+      scaffold:
+        range: integer
+    aliases:
+    - gene_kog_groups
+  GeneTigrfams:
+    attributes:
+      gene_oid:
+        range: integer
+        required: true
+      ext_accession:
+        range: string
+      sfstarts:
+        range: string
+      sfsends:
+        range: string
+      sfscores:
+        range: string
+      bit_score:
+        range: decimal
+      percent_identity:
+        range: decimal
+      evalue:
+        range: decimal
+      taxon:
+        range: Taxon
+      scaffold:
+        range: integer
+    aliases:
+    - gene_tigrfams
+  GoGraphPath:
+    attributes:
+      graph_path_id:
+        identifier: true
+        range: integer
+      term_1:
+        range: GoTerm
+      term_2:
+        range: GoTerm
+      distance:
+        range: integer
+      add_date:
+        range: datetime
+    aliases:
+    - go_graph_path
+  GoTermParents:
+    attributes:
+      go_id:
+        range: GoTerm
+      parent:
+        range: GoTerm
+      rel_type:
+        range: integer
+    aliases:
+    - go_term_parents
+  GoTermSynonyms:
+    attributes:
+      go_id:
+        range: GoTerm
+      synonyms:
+        range: string
+    aliases:
+    - go_term_synonyms
+  ImageRoi:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      shape:
+        range: string
+      roi_type:
+        range: string
+      roi_label:
+        range: string
+      x_coord:
+        range: integer
+        required: true
+      y_coord:
+        range: integer
+        required: true
+      height:
+        range: integer
+        required: true
+      width:
+        range: integer
+        required: true
+      pathway:
+        range: KeggPathway
+      add_date:
+        range: datetime
+      related_pathway:
+        range: KeggPathway
+      coord_string:
+        range: string
+    aliases:
+    - image_roi
+  ImageRoiCompounds:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      compounds:
+        range: Compound
+    aliases:
+    - image_roi_compounds
+  KeggModule:
+    attributes:
+      module_id:
+        range: string
+      module_name:
+        range: string
+      module_type:
+        range: string
+      definition:
+        range: string
+      pathway:
+        range: KeggPathway
+      ko_pathway_id:
+        range: string
+      image_id:
+        range: string
+    aliases:
+    - kegg_module
+  KeggPathwayRelatedPathways:
+    attributes:
+      pathway_oid:
+        range: KeggPathway
+      related_pathways:
+        range: KeggPathway
+    aliases:
+    - kegg_pathway_related_pathways
+  KoTermCogs:
+    attributes:
+      ko_id:
+        range: KoTerm
+      cogs:
+        range: Cog
+    aliases:
+    - ko_term_cogs
+  KoTermGoIds:
+    attributes:
+      ko_id:
+        range: KoTerm
+      go_ids:
+        range: GoTerm
+    aliases:
+    - ko_term_go_ids
+  KogPathwayKogMembers:
+    attributes:
+      kog_pathway_oid:
+        range: KogPathway
+      kog_members:
+        range: Kog
+    aliases:
+    - kog_pathway_kog_members
+  ParalogGroup:
+    attributes:
+      group_oid:
+        identifier: true
+        range: integer
+      taxon:
+        range: Taxon
+      add_date:
+        range: datetime
+      group_name:
+        range: string
+    aliases:
+    - paralog_group
+  PfamFamilyCogs:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      cog:
+        range: Cog
+      functions:
+        range: CogFunction
+    aliases:
+    - pfam_family_cogs
+  PfamFamilyGenomeProperties:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      property:
+        range: GenomeProperty
+      property_step:
+        range: PropertyStep
+    aliases:
+    - pfam_family_genome_properties
+  PropertyStepEvidences:
+    attributes:
+      step_accession:
+        range: PropertyStep
+      query:
+        range: string
+      method:
+        range: string
+    aliases:
+    - property_step_evidences
+  ReactionCompounds:
+    attributes:
+      ext_accession:
+        range: Reaction
+      compounds:
+        range: Compound
+    aliases:
+    - reaction_compounds
+  Scaffold:
+    attributes:
+      scaffold_oid:
+        identifier: true
+        range: integer
+      scaffold_name:
+        range: string
+        required: true
+      chromosome:
+        range: string
+      mol_topology:
+        range: string
+      mol_type:
+        range: string
+      taxon:
+        range: Taxon
+      env_sample:
+        range: integer
+      ext_accession:
+        range: string
+      db_source:
+        range: DbSource
+      seq_file:
+        range: string
+      last_update:
+        range: datetime
+      add_date:
+        range: datetime
+      read_depth:
+        range: decimal
+      dna_md5checksum:
+        range: string
+      contig_id_map:
+        range: string
+      contig_id_orig:
+        range: string
+    aliases:
+    - scaffold
+  ScaffoldStats:
+    attributes:
+      scaffold_oid:
+        identifier: true
+        range: integer
+      seq_length:
+        range: integer
+      tot_gatc:
+        range: integer
+      tot_g:
+        range: integer
+      tot_a:
+        range: integer
+      tot_t:
+        range: integer
+      tot_c:
+        range: integer
+      tot_n:
+        range: integer
+      tot_x:
+        range: integer
+      count_cog:
+        range: integer
+      count_kegg:
+        range: integer
+      count_enzymes:
+        range: integer
+      count_go:
+        range: integer
+      count_homologs:
+        range: integer
+      count_orthologs:
+        range: integer
+      count_paralogs:
+        range: integer
+      count_interpro:
+        range: integer
+      count_pfam:
+        range: integer
+      count_cds:
+        range: integer
+      count_rna:
+        range: integer
+      count_total_gene:
+        range: integer
+      first_gene:
+        range: integer
+      first_cds:
+        range: integer
+      gc_percent:
+        range: decimal
+      taxon:
+        range: Taxon
+      mod_date:
+        range: datetime
+    aliases:
+    - scaffold_stats
+  TaxonExtLinks:
+    attributes:
+      taxon_oid:
+        range: Taxon
+      db_name:
+        range: DbSource
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - taxon_ext_links
+  TaxonNodeLite:
+    attributes:
+      node_oid:
+        identifier: true
+        range: integer
+      display_name:
+        range: string
+      rank_name:
+        range: string
+      taxon:
+        range: Taxon
+      parent:
+        range: TaxonNodeLite
+    aliases:
+    - taxon_node_lite
+  TaxonReplacements:
+    attributes:
+      taxon_oid:
+        range: Taxon
+      old_taxon_oid:
+        range: integer
+      img_version:
+        range: string
+      release_date:
+        range: datetime
+      old_taxon_name:
+        range: string
+      comments:
+        range: string
+    aliases:
+    - taxon_replacements
+  TigrfamGenomeProperties:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      property:
+        range: GenomeProperty
+      property_step:
+        range: PropertyStep
+    aliases:
+    - tigrfam_genome_properties
+  BiocycEnzrxnExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_enzrxn_ext_links
+  BiocycEnzrxnProsthGroups:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      prosth_groups:
+        range: string
+    aliases:
+    - biocyc_enzrxn_prosth_groups
+  BiocycEnzrxnSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_enzrxn_synonyms
+  BiocycProteinCatalyzes:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      enzrxn:
+        range: BiocycEnzrxn
+      ec_number:
+        range: string
+    aliases:
+    - biocyc_protein_catalyzes
+  KeggModuleCompounds:
+    attributes:
+      module_id:
+        range: KeggModule
+      compounds:
+        range: Compound
+    aliases:
+    - kegg_module_compounds
+  KeggModuleKoTerms:
+    attributes:
+      module_id:
+        range: KeggModule
+      ko_terms:
+        range: KoTerm
+    aliases:
+    - kegg_module_ko_terms
+  KeggModuleReactions:
+    attributes:
+      module_id:
+        range: KeggModule
+      reactions:
+        range: Reaction
+    aliases:
+    - kegg_module_reactions
+  KeggPathwayModules:
+    attributes:
+      pathway_oid:
+        range: KeggPathway
+      modules:
+        range: KeggModule
+    aliases:
+    - kegg_pathway_modules

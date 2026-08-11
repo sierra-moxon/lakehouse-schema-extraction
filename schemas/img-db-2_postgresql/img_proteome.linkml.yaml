@@ -1,0 +1,456 @@
+id: https://w3id.org/jgi/img_proteome
+name: img_proteome
+title: img-db-2_postgresql.img_proteome
+description: Generated from img-db-2_postgresql.img_proteome by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_proteome: https://w3id.org/jgi/img_proteome/
+default_prefix: img_proteome
+default_range: string
+imports:
+- linkml:types
+classes:
+  MsExperiment:
+    attributes:
+      exp_oid:
+        identifier: true
+        range: integer
+      project_name:
+        range: string
+      exp_name:
+        range: string
+      description:
+        range: string
+      ext_accession:
+        range: string
+      exp_date:
+        range: string
+      exp_contact:
+        range: string
+      method_type:
+        range: string
+      protein_count:
+        range: integer
+      peptide_count:
+        range: integer
+      spectra_count:
+        range: integer
+      add_date:
+        range: datetime
+      notes:
+        range: string
+      is_public:
+        range: string
+    aliases:
+    - ms_experiment
+  MsExperimentPublications:
+    attributes:
+      exp_oid:
+        range: decimal
+      publications:
+        range: string
+    aliases:
+    - ms_experiment_publications
+  MsPeptideOld:
+    attributes:
+      peptide_oid:
+        range: integer
+        required: true
+      mass_tag_id:
+        range: string
+      protein:
+        range: integer
+      peptide_seq:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      frame:
+        range: integer
+      spectrum_ref:
+        range: string
+      tryptic_state:
+        range: string
+      first_aa:
+        range: string
+      prev_aa:
+        range: string
+      max_xcorr:
+        range: decimal
+      max_deltcn:
+        range: decimal
+      max_pep_prob:
+        range: decimal
+      filter_pass_obs:
+        range: integer
+      obs_mh:
+        range: decimal
+      calc_mh:
+        range: decimal
+      ion_perc:
+        range: double
+      match_spec_cnt:
+        range: integer
+      notes:
+        range: string
+      experiment:
+        range: integer
+      sample:
+        range: integer
+      sp_score:
+        range: decimal
+      sp_rank:
+        range: integer
+      is_unique:
+        range: string
+      total_intensity:
+        range: decimal
+    aliases:
+    - ms_peptide_old
+  MsProteinImgGenesOld:
+    attributes:
+      protein_oid:
+        range: integer
+        required: true
+      gene:
+        range: integer
+      genome:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      mod_date:
+        range: datetime
+      comments:
+        range: string
+    aliases:
+    - ms_protein_img_genes_old
+  MsProteinOld:
+    attributes:
+      protein_oid:
+        range: integer
+        required: true
+      protein_source_id:
+        range: string
+      protein_acc_id:
+        range: string
+      search_engine:
+        range: string
+      search_db:
+        range: string
+      score:
+        range: decimal
+      threshold:
+        range: decimal
+      seq_coverage:
+        range: decimal
+      pep_uniq_cnt:
+        range: integer
+      pep_nonuniq_cnt:
+        range: integer
+      pep_tot_cnt:
+        range: integer
+      spec_uniq_cnt:
+        range: integer
+      spec_tot_cnt:
+        range: integer
+      nsaf_score:
+        range: decimal
+      experiment:
+        range: integer
+      sample:
+        range: integer
+      protein_seq:
+        range: string
+      locus_tag:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      prot_seq_length:
+        range: integer
+      mol_wt:
+        range: decimal
+      pi:
+        range: decimal
+      description:
+        range: string
+      notes:
+        range: string
+    aliases:
+    - ms_protein_old
+  MsSampleExtLinks:
+    attributes:
+      sample_oid:
+        range: integer
+        required: true
+      db_name:
+        range: string
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - ms_sample_ext_links
+  MsSampleSop:
+    attributes:
+      sample_oid:
+        range: integer
+        required: true
+      tag:
+        range: string
+      value:
+        range: string
+    aliases:
+    - ms_sample_sop
+  PlanTable:
+    attributes:
+      statement_id:
+        range: string
+      plan_id:
+        range: decimal
+      timestamp:
+        range: datetime
+      remarks:
+        range: string
+      operation:
+        range: string
+      options:
+        range: string
+      object_node:
+        range: string
+      object_owner:
+        range: string
+      object_name:
+        range: string
+      object_alias:
+        range: string
+      object_instance:
+        range: decimal
+      object_type:
+        range: string
+      optimizer:
+        range: string
+      search_columns:
+        range: decimal
+      id:
+        range: decimal
+      parent_id:
+        range: decimal
+      depth:
+        range: decimal
+      position:
+        range: decimal
+      cost:
+        range: decimal
+      cardinality:
+        range: decimal
+      bytes:
+        range: decimal
+      other_tag:
+        range: string
+      partition_start:
+        range: string
+      partition_stop:
+        range: string
+      partition_id:
+        range: decimal
+      other:
+        range: string
+      distribution:
+        range: string
+      cpu_cost:
+        range: decimal
+      io_cost:
+        range: decimal
+      temp_space:
+        range: decimal
+      access_predicates:
+        range: string
+      filter_predicates:
+        range: string
+      projection:
+        range: string
+      time:
+        range: decimal
+      qblock_name:
+        range: string
+      other_xml:
+        range: string
+    aliases:
+    - plan_table
+  MsExperimentExtLinks:
+    attributes:
+      exp_oid:
+        range: MsExperiment
+      db_name:
+        range: string
+      id:
+        range: string
+      custom_url:
+        range: string
+    aliases:
+    - ms_experiment_ext_links
+  MsExperimentSop:
+    attributes:
+      exp_oid:
+        range: MsExperiment
+      tag:
+        range: string
+      value:
+        range: string
+    aliases:
+    - ms_experiment_sop
+  MsProtein:
+    attributes:
+      protein_oid:
+        identifier: true
+        range: integer
+      protein_source_id:
+        range: string
+      protein_acc_id:
+        range: string
+      search_engine:
+        range: string
+      search_db:
+        range: string
+      score:
+        range: decimal
+      threshold:
+        range: decimal
+      seq_coverage:
+        range: decimal
+      pep_uniq_cnt:
+        range: integer
+      pep_nonuniq_cnt:
+        range: integer
+      pep_tot_cnt:
+        range: integer
+      spec_uniq_cnt:
+        range: integer
+      spec_tot_cnt:
+        range: integer
+      nsaf_score:
+        range: decimal
+      experiment:
+        range: MsExperiment
+      sample:
+        range: integer
+      protein_seq:
+        range: string
+      locus_tag:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      prot_seq_length:
+        range: integer
+      mol_wt:
+        range: decimal
+      pi:
+        range: decimal
+      description:
+        range: string
+      notes:
+        range: string
+    aliases:
+    - ms_protein
+  MsSample:
+    attributes:
+      sample_oid:
+        range: integer
+        required: true
+      description:
+        range: string
+      sample_origin:
+        range: string
+      ncbi_taxon_id:
+        range: integer
+      organism_name:
+        range: string
+      img_taxon_oid:
+        range: integer
+      experiment:
+        range: MsExperiment
+    aliases:
+    - ms_sample
+  MsPeptide:
+    attributes:
+      peptide_oid:
+        identifier: true
+        range: integer
+      mass_tag_id:
+        range: string
+      protein:
+        range: MsProtein
+      peptide_seq:
+        range: string
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      frame:
+        range: integer
+      spectrum_ref:
+        range: string
+      tryptic_state:
+        range: string
+      first_aa:
+        range: string
+      prev_aa:
+        range: string
+      max_xcorr:
+        range: decimal
+      max_deltcn:
+        range: decimal
+      max_pep_prob:
+        range: decimal
+      filter_pass_obs:
+        range: integer
+      obs_mh:
+        range: decimal
+      calc_mh:
+        range: decimal
+      ion_perc:
+        range: double
+      match_spec_cnt:
+        range: integer
+      notes:
+        range: string
+      experiment:
+        range: MsExperiment
+      sample:
+        range: integer
+      sp_score:
+        range: decimal
+      sp_rank:
+        range: integer
+      is_unique:
+        range: string
+      total_intensity:
+        range: decimal
+    aliases:
+    - ms_peptide
+  MsProteinImgGenes:
+    attributes:
+      protein_oid:
+        range: MsProtein
+      gene:
+        range: integer
+      genome:
+        range: integer
+      start_coord:
+        range: integer
+      end_coord:
+        range: integer
+      mod_date:
+        range: datetime
+      comments:
+        range: string
+    aliases:
+    - ms_protein_img_genes

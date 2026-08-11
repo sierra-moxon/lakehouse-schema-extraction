@@ -1,0 +1,489 @@
+id: https://w3id.org/jgi/phillips
+name: phillips
+title: plant-db-7_postgresql.phillips
+description: Generated from plant-db-7_postgresql.phillips by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  phillips: https://w3id.org/jgi/phillips/
+default_prefix: phillips
+default_range: string
+imports:
+- linkml:types
+classes:
+  AtlasCells:
+    attributes:
+      biomaterial_id:
+        identifier: true
+        range: integer
+      cell_id:
+        range: string
+        required: true
+      taxon_id:
+        range: integer
+      metadata:
+        range: string
+    aliases:
+    - atlas_cells
+  AtlasExperimentSet:
+    attributes:
+      experiment_set_id:
+        identifier: true
+        range: integer
+      uniquename:
+        range: string
+        required: true
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      created_at:
+        range: datetime
+    aliases:
+    - atlas_experiment_set
+  AtlasExpressionData:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      cell_id:
+        range: string
+        required: true
+      gene_name:
+        range: string
+      transcript_id:
+        range: string
+      expression:
+        range: double
+      proteome_id:
+        range: string
+      group_id:
+        range: string
+      group_name:
+        range: string
+      metadata:
+        range: string
+      organism_name:
+        range: string
+    aliases:
+    - atlas_expression_data
+  AtlasFeatures:
+    attributes:
+      feature_id:
+        identifier: true
+        range: integer
+      gene_name:
+        range: string
+      transcript_id:
+        range: string
+    aliases:
+    - atlas_features
+  AtlasGroups:
+    attributes:
+      biomaterial_id:
+        range: integer
+        required: true
+      group_id:
+        range: string
+        required: true
+      group_name:
+        range: string
+    aliases:
+    - atlas_groups
+  AtlasOrganisms:
+    attributes:
+      id:
+        identifier: true
+        range: integer
+      organism_id:
+        range: integer
+        required: true
+      proteome_id:
+        range: string
+        required: true
+      organism_name:
+        range: string
+    aliases:
+    - atlas_organisms
+  CsExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      biomaterial_id:
+        range: integer
+    aliases:
+    - cs_expression
+  CsMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+      total_expression:
+        range: double
+    aliases:
+    - cs_metadata
+  CsUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+    aliases:
+    - cs_umap
+  Dnorm2:
+    attributes:
+      method_id:
+        range: string
+      method_name:
+        range: string
+      cluster_id:
+        range: string
+      cluster_name:
+        range: string
+      protein_name:
+        range: string
+      transcript_id:
+        range: string
+      proteome_id:
+        range: string
+      type:
+        range: string
+      gathering_threshold:
+        range: string
+      score:
+        range: double
+      significance:
+        range: double
+      family_size:
+        range: string
+    aliases:
+    - dnorm2
+  ExperimentSet:
+    attributes:
+      experiment_set_id:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      created_at:
+        range: datetime
+    aliases:
+    - experiment_set
+  ExpressionStaging:
+    attributes:
+      feature_id:
+        range: integer
+      biomaterial_id:
+        range: integer
+      expression:
+        range: double
+    aliases:
+    - expression_staging
+  HasHits:
+    attributes:
+      accession:
+        range: integer
+    aliases:
+    - has_hits
+  SiExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      feature_id:
+        range: integer
+      biomaterial_id:
+        range: integer
+    aliases:
+    - si_expression
+  SiMetadata:
+    attributes:
+      barcode:
+        range: string
+      orig_ident:
+        range: string
+      ncount_rna:
+        range: integer
+      nfeature_rna:
+        range: integer
+      seurat_clusters:
+        range: integer
+      sample:
+        range: string
+      species:
+        range: string
+      treatment:
+        range: string
+      replicate:
+        range: string
+      celltype:
+        range: string
+      total_expression:
+        range: double
+    aliases:
+    - si_metadata
+  SiUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+      biomaterial_id:
+        range: integer
+    aliases:
+    - si_umap
+  SpExpression:
+    attributes:
+      gene:
+        range: string
+      barcode:
+        range: string
+      expression:
+        range: double
+      biomaterial_id:
+        range: integer
+    aliases:
+    - sp_expression
+  SpUmap:
+    attributes:
+      barcode:
+        range: string
+      ux:
+        range: double
+      uy:
+        range: double
+    aliases:
+    - sp_umap
+  TadTemp:
+    attributes:
+      tracking_archive_directory_id:
+        range: integer
+      host:
+        range: string
+      path:
+        range: string
+    aliases:
+    - tad_temp
+  Temptf:
+    attributes:
+      filename:
+        range: string
+      md5sum:
+        range: string
+    aliases:
+    - temptf
+  TmpGrpDbxref:
+    attributes:
+      dbxref_id:
+        range: integer
+    aliases:
+    - tmp_grp_dbxref
+  TmpPennypac:
+    attributes:
+      id:
+        range: string
+    aliases:
+    - tmp_pennypac
+  AtlasCellMetadata:
+    attributes:
+      experiment_set_id:
+        range: AtlasExperimentSet
+      cell_id:
+        range: string
+        required: true
+      cell_order:
+        range: integer
+        required: true
+    aliases:
+    - atlas_cell_metadata
+  AtlasConditionMetadata:
+    attributes:
+      experiment_set_id:
+        range: AtlasExperimentSet
+      condition_id:
+        range: string
+        required: true
+      condition_order:
+        range: integer
+        required: true
+      condition_name:
+        range: string
+      condition_type:
+        range: string
+    aliases:
+    - atlas_condition_metadata
+  AtlasGeneMetadata:
+    attributes:
+      experiment_set_id:
+        range: AtlasExperimentSet
+      gene_id:
+        range: string
+        required: true
+      gene_order:
+        range: integer
+        required: true
+      gene_name:
+        range: string
+    aliases:
+    - atlas_gene_metadata
+  CellMetadata:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      cell_id:
+        range: string
+        required: true
+      cell_order:
+        range: integer
+        required: true
+    aliases:
+    - cell_metadata
+  ConditionMetadata:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      condition_id:
+        range: string
+        required: true
+      condition_order:
+        range: integer
+        required: true
+      condition_name:
+        range: string
+      condition_type:
+        range: string
+    aliases:
+    - condition_metadata
+  GeneMetadata:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      gene_id:
+        range: string
+        required: true
+      gene_order:
+        range: integer
+        required: true
+      gene_name:
+        range: string
+    aliases:
+    - gene_metadata
+  AtlasCellConditionMapping:
+    attributes:
+      experiment_set_id:
+        range: AtlasCellMetadata
+      cell_id:
+        range: AtlasCellMetadata
+      condition_id:
+        range: AtlasConditionMetadata
+      is_true:
+        range: boolean
+        required: true
+    aliases:
+    - atlas_cell_condition_mapping
+  AtlasCellData:
+    attributes:
+      experiment_set_id:
+        range: AtlasCellMetadata
+      cell_id:
+        range: AtlasCellMetadata
+      condition_vector:
+        range: string
+      gene_vector:
+        range: double
+        multivalued: true
+    aliases:
+    - atlas_cell_data
+  AtlasGeneData:
+    attributes:
+      experiment_set_id:
+        range: AtlasExperimentSet
+      gene_id:
+        range: AtlasGeneMetadata
+      cell_vector:
+        range: double
+        multivalued: true
+    aliases:
+    - atlas_gene_data
+  CellConditionMapping:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      cell_id:
+        range: CellMetadata
+      condition_id:
+        range: ConditionMetadata
+      is_true:
+        range: boolean
+        required: true
+    aliases:
+    - cell_condition_mapping
+  CellData:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      cell_id:
+        range: CellMetadata
+      condition_vector:
+        range: string
+      gene_vector:
+        range: double
+        multivalued: true
+    aliases:
+    - cell_data
+  ExpressionValues:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      cell_id:
+        range: CellMetadata
+      gene_id:
+        range: GeneMetadata
+      expression_value:
+        range: double
+        required: true
+    aliases:
+    - expression_values
+  GeneData:
+    attributes:
+      experiment_set_id:
+        range: ExperimentSet
+      gene_id:
+        range: GeneMetadata
+      cell_vector:
+        range: double
+        multivalued: true
+    aliases:
+    - gene_data

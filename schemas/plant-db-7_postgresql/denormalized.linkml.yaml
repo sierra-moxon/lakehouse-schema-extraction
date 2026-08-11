@@ -1,0 +1,5373 @@
+id: https://w3id.org/jgi/denormalized
+name: denormalized
+title: plant-db-7_postgresql.denormalized
+description: Generated from plant-db-7_postgresql.denormalized by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  denormalized: https://w3id.org/jgi/denormalized/
+default_prefix: denormalized
+default_range: string
+imports:
+- linkml:types
+classes:
+  AllPartitionedProteomes:
+    attributes:
+      proteome_id:
+        range: string
+    aliases:
+    - all_partitioned_proteomes
+  HmmConstituentJsonb:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb
+  HmmConstituentJsonb5043:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5043
+  HmmConstituentJsonb5260:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5260
+  HmmConstituentJsonb5261:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5261
+  HmmConstituentJsonb5262:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5262
+  HmmConstituentJsonb5263:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5263
+  HmmConstituentJsonb5264:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5264
+  HmmConstituentJsonb5265:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5265
+  HmmConstituentJsonb5266:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5266
+  HmmConstituentJsonb5267:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5267
+  HmmConstituentJsonb5268:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5268
+  HmmConstituentJsonb5269:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5269
+  HmmConstituentJsonb5270:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5270
+  HmmConstituentJsonb5271:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5271
+  HmmConstituentJsonb5272:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5272
+  HmmConstituentJsonb5273:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5273
+  HmmConstituentJsonb5274:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5274
+  HmmConstituentJsonb5275:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5275
+  HmmConstituentJsonb5679:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5679
+  HmmConstituentJsonb5698:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5698
+  HmmConstituentJsonb5724:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5724
+  HmmConstituentJsonb5761:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_constituent_jsonb_5761
+  HmmCount:
+    attributes:
+      proteome_id:
+        range: integer
+      method_id:
+        range: string
+      count:
+        range: integer
+    aliases:
+    - hmm_count
+  HmmNonconstituentJsonb:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb
+  HmmNonconstituentJsonb5043:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5043
+  HmmNonconstituentJsonb5260:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5260
+  HmmNonconstituentJsonb5261:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5261
+  HmmNonconstituentJsonb5262:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5262
+  HmmNonconstituentJsonb5263:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5263
+  HmmNonconstituentJsonb5264:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5264
+  HmmNonconstituentJsonb5265:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5265
+  HmmNonconstituentJsonb5266:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5266
+  HmmNonconstituentJsonb5267:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5267
+  HmmNonconstituentJsonb5268:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5268
+  HmmNonconstituentJsonb5269:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5269
+  HmmNonconstituentJsonb5270:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5270
+  HmmNonconstituentJsonb5271:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5271
+  HmmNonconstituentJsonb5272:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5272
+  HmmNonconstituentJsonb5273:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5273
+  HmmNonconstituentJsonb5274:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5274
+  HmmNonconstituentJsonb5275:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5275
+  HmmNonconstituentJsonb5679:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5679
+  HmmNonconstituentJsonb5698:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5698
+  HmmNonconstituentJsonb5724:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5724
+  HmmNonconstituentJsonb5761:
+    attributes:
+      uniquename:
+        range: string
+      method_id:
+        range: string
+      data:
+        range: string
+    aliases:
+    - hmm_nonconstituent_jsonb_5761
+  Jlp:
+    attributes:
+      proteome_id:
+        range: string
+      method_id:
+        range: string
+      cnt:
+        range: integer
+    aliases:
+    - jlp
+  JsonbCounts:
+    attributes:
+      table_name:
+        range: string
+      proteome_id:
+        range: string
+      transcript_count:
+        range: integer
+    aliases:
+    - jsonb_counts
+  PacProteinFamily5043:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5043
+  PacProteinFamily5260:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5260
+  PacProteinFamily5261:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5261
+  PacProteinFamily5262:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5262
+  PacProteinFamily5263:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5263
+  PacProteinFamily5264:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5264
+  PacProteinFamily5265:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5265
+  PacProteinFamily5266:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5266
+  PacProteinFamily5267:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5267
+  PacProteinFamily5268:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5268
+  PacProteinFamily5269:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5269
+  PacProteinFamily5270:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5270
+  PacProteinFamily5271:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5271
+  PacProteinFamily5272:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5272
+  PacProteinFamily5273:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5273
+  PacProteinFamily5274:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5274
+  PacProteinFamily5275:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5275
+  PacProteinFamily5679:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5679
+  PacProteinFamily5724:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5724
+  PacProteinFamily5761:
+    attributes:
+      grp_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      method_id:
+        range: string
+      method_name:
+        range: string
+      type_id:
+        range: integer
+      name:
+        range: string
+      cluster_id:
+        range: string
+      size:
+        range: integer
+      group_class:
+        range: string
+      gene_name:
+        range: string
+      gene_id:
+        range: integer
+      uniquename:
+        range: string
+      protein_id:
+        range: integer
+      protein_name:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - pac_protein_family_5761
+  PacSyntenyGrps:
+    attributes:
+      dbxref_id:
+        range: integer
+      uniquename:
+        range: string
+      accession:
+        range: string
+      organism1:
+        range: string
+      proteome_id1:
+        range: string
+      chrom1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      organism2:
+        range: string
+      proteome_id2:
+        range: string
+      chrom2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+      strand:
+        range: integer
+    aliases:
+    - pac_synteny_grps
+  PacSyntenyPairs:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs
+  PacSyntenyPairsOld:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old
+  PacSyntenyPairsOldP0:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p0
+  PacSyntenyPairsOldP1:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p1
+  PacSyntenyPairsOldP2:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p2
+  PacSyntenyPairsOldP3:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p3
+  PacSyntenyPairsOldP4:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p4
+  PacSyntenyPairsOldP5:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p5
+  PacSyntenyPairsOldP6:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p6
+  PacSyntenyPairsOldP7:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p7
+  PacSyntenyPairsOldP8:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p8
+  PacSyntenyPairsOldP9:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_old_p9
+  PacSyntenyPairsP0:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p0
+  PacSyntenyPairsP1:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p1
+  PacSyntenyPairsP2:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p2
+  PacSyntenyPairsP3:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p3
+  PacSyntenyPairsP4:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p4
+  PacSyntenyPairsP5:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p5
+  PacSyntenyPairsP6:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p6
+  PacSyntenyPairsP7:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p7
+  PacSyntenyPairsP8:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p8
+  PacSyntenyPairsP9:
+    attributes:
+      dbxref_id:
+        range: integer
+      grp_id:
+        range: integer
+      grp_uniquename:
+        range: string
+      feature1_id:
+        range: integer
+      gene1:
+        range: string
+      geneuniquename1:
+        range: string
+      start1:
+        range: integer
+      end1:
+        range: integer
+      feature2_id:
+        range: integer
+      gene2:
+        range: string
+      geneuniquename2:
+        range: string
+      start2:
+        range: integer
+      end2:
+        range: integer
+    aliases:
+    - pac_synteny_pairs_p9
+  PacSyntenyViewP0:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p0
+  PacSyntenyViewP1:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p1
+  PacSyntenyViewP2:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p2
+  PacSyntenyViewP3:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p3
+  PacSyntenyViewP4:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p4
+  PacSyntenyViewP5:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p5
+  PacSyntenyViewP6:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p6
+  PacSyntenyViewP7:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p7
+  PacSyntenyViewP8:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p8
+  PacSyntenyViewP9:
+    attributes:
+      feature_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      organism_id:
+        range: integer
+      proteome_id:
+        range: integer
+      chromosome:
+        range: string
+      ordinal:
+        range: integer
+      strand:
+        range: integer
+      families:
+        range: string
+    aliases:
+    - pac_synteny_view_p9
+  PartitionedCounts:
+    attributes:
+      table_name:
+        range: string
+      proteome_id:
+        range: string
+      transcript_count:
+        range: integer
+    aliases:
+    - partitioned_counts
+  PartitionedProteomes:
+    attributes:
+      proteome_id:
+        range: string
+    aliases:
+    - partitioned_proteomes
+  XdomainPfamAnnotation:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation
+  XdomainPfamAnnotationP0:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p0
+  XdomainPfamAnnotationP1:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p1
+  XdomainPfamAnnotationP10:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p10
+  XdomainPfamAnnotationP11:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p11
+  XdomainPfamAnnotationP12:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p12
+  XdomainPfamAnnotationP13:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p13
+  XdomainPfamAnnotationP14:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p14
+  XdomainPfamAnnotationP15:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p15
+  XdomainPfamAnnotationP16:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p16
+  XdomainPfamAnnotationP17:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p17
+  XdomainPfamAnnotationP18:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p18
+  XdomainPfamAnnotationP19:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p19
+  XdomainPfamAnnotationP2:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p2
+  XdomainPfamAnnotationP20:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p20
+  XdomainPfamAnnotationP21:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p21
+  XdomainPfamAnnotationP22:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p22
+  XdomainPfamAnnotationP23:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p23
+  XdomainPfamAnnotationP24:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p24
+  XdomainPfamAnnotationP25:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p25
+  XdomainPfamAnnotationP26:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p26
+  XdomainPfamAnnotationP27:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p27
+  XdomainPfamAnnotationP28:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p28
+  XdomainPfamAnnotationP29:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p29
+  XdomainPfamAnnotationP3:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p3
+  XdomainPfamAnnotationP30:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p30
+  XdomainPfamAnnotationP31:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p31
+  XdomainPfamAnnotationP32:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p32
+  XdomainPfamAnnotationP33:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p33
+  XdomainPfamAnnotationP34:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p34
+  XdomainPfamAnnotationP35:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p35
+  XdomainPfamAnnotationP36:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p36
+  XdomainPfamAnnotationP37:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p37
+  XdomainPfamAnnotationP38:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p38
+  XdomainPfamAnnotationP39:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p39
+  XdomainPfamAnnotationP4:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p4
+  XdomainPfamAnnotationP40:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p40
+  XdomainPfamAnnotationP41:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p41
+  XdomainPfamAnnotationP42:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p42
+  XdomainPfamAnnotationP43:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p43
+  XdomainPfamAnnotationP44:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p44
+  XdomainPfamAnnotationP45:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p45
+  XdomainPfamAnnotationP46:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p46
+  XdomainPfamAnnotationP47:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p47
+  XdomainPfamAnnotationP48:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p48
+  XdomainPfamAnnotationP49:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p49
+  XdomainPfamAnnotationP5:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p5
+  XdomainPfamAnnotationP50:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p50
+  XdomainPfamAnnotationP51:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p51
+  XdomainPfamAnnotationP52:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p52
+  XdomainPfamAnnotationP53:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p53
+  XdomainPfamAnnotationP54:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p54
+  XdomainPfamAnnotationP55:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p55
+  XdomainPfamAnnotationP56:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p56
+  XdomainPfamAnnotationP57:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p57
+  XdomainPfamAnnotationP58:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p58
+  XdomainPfamAnnotationP59:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p59
+  XdomainPfamAnnotationP6:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p6
+  XdomainPfamAnnotationP60:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p60
+  XdomainPfamAnnotationP61:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p61
+  XdomainPfamAnnotationP62:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p62
+  XdomainPfamAnnotationP63:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p63
+  XdomainPfamAnnotationP7:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p7
+  XdomainPfamAnnotationP8:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p8
+  XdomainPfamAnnotationP9:
+    attributes:
+      domain:
+        range: string
+      pfam_id:
+        range: string
+      pfam_name:
+        range: string
+      organism:
+        range: string
+      genome_id:
+        range: string
+      gene_id:
+        range: string
+      protein_id:
+        range: string
+      defline:
+        range: string
+      defline_source:
+        range: string
+      portal_url:
+        range: string
+      gene_url:
+        range: string
+      fmin:
+        range: integer
+      fmax:
+        range: integer
+      evalue:
+        range: double
+      bitscore:
+        range: double
+      source_table:
+        range: string
+    aliases:
+    - xdomain_pfam_annotation_p9
+  XdomainPfamLoaded:
+    attributes:
+      chunk:
+        identifier: true
+        range: string
+      domain:
+        range: string
+      nrows:
+        range: integer
+      loaded_at:
+        range: datetime
+    aliases:
+    - xdomain_pfam_loaded
+  XdomainProteinSequence:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence
+  XdomainProteinSequenceLoaded:
+    attributes:
+      chunk:
+        identifier: true
+        range: string
+      domain:
+        range: string
+      nrows:
+        range: integer
+      loaded_at:
+        range: datetime
+    aliases:
+    - xdomain_protein_sequence_loaded
+  XdomainProteinSequenceP0:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p0
+  XdomainProteinSequenceP1:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p1
+  XdomainProteinSequenceP10:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p10
+  XdomainProteinSequenceP11:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p11
+  XdomainProteinSequenceP12:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p12
+  XdomainProteinSequenceP13:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p13
+  XdomainProteinSequenceP14:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p14
+  XdomainProteinSequenceP15:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p15
+  XdomainProteinSequenceP16:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p16
+  XdomainProteinSequenceP17:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p17
+  XdomainProteinSequenceP18:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p18
+  XdomainProteinSequenceP19:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p19
+  XdomainProteinSequenceP2:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p2
+  XdomainProteinSequenceP20:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p20
+  XdomainProteinSequenceP21:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p21
+  XdomainProteinSequenceP22:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p22
+  XdomainProteinSequenceP23:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p23
+  XdomainProteinSequenceP24:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p24
+  XdomainProteinSequenceP25:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p25
+  XdomainProteinSequenceP26:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p26
+  XdomainProteinSequenceP27:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p27
+  XdomainProteinSequenceP28:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p28
+  XdomainProteinSequenceP29:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p29
+  XdomainProteinSequenceP3:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p3
+  XdomainProteinSequenceP30:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p30
+  XdomainProteinSequenceP31:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p31
+  XdomainProteinSequenceP32:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p32
+  XdomainProteinSequenceP33:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p33
+  XdomainProteinSequenceP34:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p34
+  XdomainProteinSequenceP35:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p35
+  XdomainProteinSequenceP36:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p36
+  XdomainProteinSequenceP37:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p37
+  XdomainProteinSequenceP38:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p38
+  XdomainProteinSequenceP39:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p39
+  XdomainProteinSequenceP4:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p4
+  XdomainProteinSequenceP40:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p40
+  XdomainProteinSequenceP41:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p41
+  XdomainProteinSequenceP42:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p42
+  XdomainProteinSequenceP43:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p43
+  XdomainProteinSequenceP44:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p44
+  XdomainProteinSequenceP45:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p45
+  XdomainProteinSequenceP46:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p46
+  XdomainProteinSequenceP47:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p47
+  XdomainProteinSequenceP48:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p48
+  XdomainProteinSequenceP49:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p49
+  XdomainProteinSequenceP5:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p5
+  XdomainProteinSequenceP50:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p50
+  XdomainProteinSequenceP51:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p51
+  XdomainProteinSequenceP52:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p52
+  XdomainProteinSequenceP53:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p53
+  XdomainProteinSequenceP54:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p54
+  XdomainProteinSequenceP55:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p55
+  XdomainProteinSequenceP56:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p56
+  XdomainProteinSequenceP57:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p57
+  XdomainProteinSequenceP58:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p58
+  XdomainProteinSequenceP59:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p59
+  XdomainProteinSequenceP6:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p6
+  XdomainProteinSequenceP60:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p60
+  XdomainProteinSequenceP61:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p61
+  XdomainProteinSequenceP62:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p62
+  XdomainProteinSequenceP63:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p63
+  XdomainProteinSequenceP7:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p7
+  XdomainProteinSequenceP8:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p8
+  XdomainProteinSequenceP9:
+    attributes:
+      domain:
+        range: string
+      genome_id:
+        range: string
+      protein_id:
+        range: string
+      aa_length:
+        range: integer
+      sequence:
+        range: string
+    aliases:
+    - xdomain_protein_sequence_p9

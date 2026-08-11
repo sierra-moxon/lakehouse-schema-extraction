@@ -1,0 +1,1659 @@
+id: https://w3id.org/jgi/img_sat_v450
+name: img_sat_v450
+title: img-db-2_postgresql.img_sat_v450
+description: Generated from img-db-2_postgresql.img_sat_v450 by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  img_sat_v450: https://w3id.org/jgi/img_sat_v450/
+default_prefix: img_sat_v450
+default_range: string
+imports:
+- linkml:types
+classes:
+  BiocycClass:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      comments:
+        range: string
+    aliases:
+    - biocyc_class
+  BiocycPathway:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      net_rxn_eqn:
+        range: string
+      credits:
+        range: string
+    aliases:
+    - biocyc_pathway
+  BiocycProtein:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      systematic_name:
+        range: string
+      comments:
+        range: string
+      func_status:
+        range: string
+      biocyc_gene:
+        range: string
+    aliases:
+    - biocyc_protein
+  Cog2014:
+    attributes:
+      cog:
+        range: string
+      func:
+        range: string
+      name:
+        range: string
+    aliases:
+    - cog2014
+  CogFunction:
+    attributes:
+      function_code:
+        identifier: true
+        range: string
+      definition:
+        range: string
+      function_group:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - cog_function
+  CogFunctions:
+    attributes:
+      cog_id:
+        range: string
+        required: true
+      functions:
+        range: string
+    aliases:
+    - cog_functions
+  CogSpecies:
+    attributes:
+      species_code:
+        identifier: true
+        range: string
+      cog_species_name:
+        range: string
+      taxon:
+        range: integer
+      species_family:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - cog_species
+  Cogfunc2014:
+    attributes:
+      code:
+        range: string
+      name:
+        range: string
+    aliases:
+    - cogfunc2014
+  CompoundAliases:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      aliases:
+        range: string
+    aliases:
+    - compound_aliases
+  DbSource:
+    attributes:
+      db_code:
+        identifier: true
+        range: string
+      name:
+        range: string
+        required: true
+      base_url:
+        range: string
+    aliases:
+    - db_source
+  DtKoEcCogPfam:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      ec:
+        range: string
+      cog:
+        range: string
+      pfam:
+        range: string
+        required: true
+    aliases:
+    - dt_ko_ec_cog_pfam
+  EggnogHierarchy:
+    attributes:
+      eggnog_oid:
+        identifier: true
+        range: integer
+      function_group:
+        range: string
+      level_1:
+        range: string
+      level_2:
+        range: string
+      nog_id:
+        range: string
+      type:
+        range: string
+    aliases:
+    - eggnog_hierarchy
+  EggnogMd52id2ont:
+    attributes:
+      md5_signature:
+        range: string
+      nog_id:
+        range: string
+      level_2:
+        range: string
+      type:
+        range: string
+    aliases:
+    - eggnog_md52id2ont
+  Enzyme:
+    attributes:
+      ec_number:
+        identifier: true
+        range: string
+      enzyme_name:
+        range: string
+      systematic_name:
+        range: string
+      parent_class:
+        range: string
+      comments:
+        range: string
+      rxn_desc:
+        range: string
+      cas_number:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - enzyme
+  EnzymeEnzAliases:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      enz_aliases:
+        range: string
+    aliases:
+    - enzyme_enz_aliases
+  EnzymeProducts:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      products:
+        range: string
+    aliases:
+    - enzyme_products
+  EnzymeSubstrates:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      substrates:
+        range: string
+    aliases:
+    - enzyme_substrates
+  EnzymeTransferred:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      enzyme_name:
+        range: string
+      systematic_name:
+        range: string
+      parent_class:
+        range: string
+      comments:
+        range: string
+      rxn_desc:
+        range: string
+      cas_number:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - enzyme_transferred
+  GenomeProperty:
+    attributes:
+      prop_accession:
+        identifier: true
+        range: string
+      name:
+        range: string
+      description:
+        range: string
+      threshold:
+        range: integer
+      type:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - genome_property
+  ImageRoiCompounds:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      compounds:
+        range: string
+    aliases:
+    - image_roi_compounds
+  ImageRoiEnzymes:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      enzymes:
+        range: string
+    aliases:
+    - image_roi_enzymes
+  ImageRoiKoTerms:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      ko_terms:
+        range: string
+    aliases:
+    - image_roi_ko_terms
+  ImageRoiReactions:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      reactions:
+        range: string
+    aliases:
+    - image_roi_reactions
+  ImgBuildHistory:
+    attributes:
+      build_oid:
+        identifier: true
+        range: integer
+      build_number:
+        range: integer
+        required: true
+      build_date:
+        range: datetime
+      release_date:
+        range: datetime
+      img_version:
+        range: string
+      seq_dir:
+        range: string
+    aliases:
+    - img_build_history
+  Interpro:
+    attributes:
+      ext_accession:
+        identifier: true
+        range: string
+      name:
+        range: string
+      type:
+        range: string
+    aliases:
+    - interpro
+  KeggGene:
+    attributes:
+      kegg_gene_id:
+        identifier: true
+        range: string
+      aa_seq_length:
+        range: integer
+      checksum:
+        range: string
+    aliases:
+    - kegg_gene
+  KmImageRoi:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      shape:
+        range: string
+      roi_type:
+        range: string
+      roi_label:
+        range: string
+      x_coord:
+        range: integer
+        required: true
+      y_coord:
+        range: integer
+        required: true
+      height:
+        range: integer
+        required: true
+      width:
+        range: integer
+        required: true
+      add_date:
+        range: datetime
+      coord_string:
+        range: string
+      kegg_module:
+        range: string
+    aliases:
+    - km_image_roi
+  KmImageRoiKoTerms:
+    attributes:
+      roi_id:
+        range: integer
+        required: true
+      ko_terms:
+        range: string
+    aliases:
+    - km_image_roi_ko_terms
+  Ko2cog:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      cog_id:
+        range: string
+    aliases:
+    - ko2cog
+  Ko2ec:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      ec_number:
+        range: string
+    aliases:
+    - ko2ec
+  Ko2go:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      go_id:
+        range: string
+    aliases:
+    - ko2go
+  Ko2module:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      module_id:
+        range: string
+    aliases:
+    - ko2module
+  Ko2pathway:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      image_id:
+        range: string
+    aliases:
+    - ko2pathway
+  Ko2reaction:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      reaction_id:
+        range: string
+    aliases:
+    - ko2reaction
+  Ko2tc:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      tc_id:
+        range: string
+    aliases:
+    - ko2tc
+  KoTerm:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      ko_name:
+        range: string
+      definition:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - ko_term
+  KoTermClasses:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      class:
+        range: string
+      ko_pathway_id:
+        range: string
+    aliases:
+    - ko_term_classes
+  KoTermEnzymes:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      enzymes:
+        range: string
+    aliases:
+    - ko_term_enzymes
+  KoTermModules:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      modules:
+        range: string
+    aliases:
+    - ko_term_modules
+  KoTermPathways:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      pathway_oid:
+        range: integer
+      image_id:
+        range: string
+    aliases:
+    - ko_term_pathways
+  KoTermReactions:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      reactions:
+        range: string
+    aliases:
+    - ko_term_reactions
+  KoTermTcFamilies:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      tc_families:
+        range: string
+    aliases:
+    - ko_term_tc_families
+  KogFunction:
+    attributes:
+      function_code:
+        identifier: true
+        range: string
+      definition:
+        range: string
+      function_group:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - kog_function
+  MpwPglCompound:
+    attributes:
+      compound_oid:
+        range: integer
+      compound_type:
+        range: string
+      compound_name:
+        range: string
+    aliases:
+    - mpw_pgl_compound
+  MpwPglGeneGroup:
+    attributes:
+      group_oid:
+        range: integer
+      gene:
+        range: string
+    aliases:
+    - mpw_pgl_gene_group
+  MpwPglPathway:
+    attributes:
+      pathway_oid:
+        range: integer
+      pathway_name:
+        range: string
+      file_name:
+        range: string
+      add_date:
+        range: string
+      mpw_id:
+        range: string
+      overall_reaction:
+        range: string
+    aliases:
+    - mpw_pgl_pathway
+  MpwPglPathwayReaction:
+    attributes:
+      pathway_oid:
+        range: integer
+      reaction_oid:
+        range: integer
+      reaction_order:
+        range: string
+      reaction_label:
+        range: string
+      cofactor:
+        range: string
+      requaired_condition:
+        range: string
+      protein_group:
+        range: integer
+      gene_group:
+        range: integer
+    aliases:
+    - mpw_pgl_pathway_reaction
+  MpwPglProteinGroup:
+    attributes:
+      group_oid:
+        range: integer
+      protein:
+        range: string
+    aliases:
+    - mpw_pgl_protein_group
+  MpwPglReaction:
+    attributes:
+      reaction_oid:
+        range: integer
+      condition:
+        range: string
+      equation:
+        range: string
+      ec:
+        range: string
+    aliases:
+    - mpw_pgl_reaction
+  MpwPglReactionCompounds:
+    attributes:
+      reaction_oid:
+        range: integer
+      compound_oid:
+        range: integer
+      type:
+        range: string
+    aliases:
+    - mpw_pgl_reaction_compounds
+  MpwPglTaxonomy:
+    attributes:
+      path_oid:
+        range: integer
+      taxon_name:
+        range: string
+    aliases:
+    - mpw_pgl_taxonomy
+  Pfam2go:
+    attributes:
+      pfam_id:
+        range: string
+      go_id:
+        range: string
+      go_term:
+        range: string
+      go_category:
+        range: string
+    aliases:
+    - pfam2go
+  PfamClan:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      name:
+        range: string
+        required: true
+      description:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+      previous_name:
+        range: string
+    aliases:
+    - pfam_clan
+  PfamClanPfamFamilies:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      pfam_families:
+        range: string
+    aliases:
+    - pfam_clan_pfam_families
+  PfamDead:
+    attributes:
+      dead_pfam_id:
+        range: string
+      name:
+        range: string
+      comments:
+        range: string
+      new_pfam_id:
+        range: string
+    aliases:
+    - pfam_dead
+  PfamFamily:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      name:
+        range: string
+      description:
+        range: string
+      seq_length:
+        range: integer
+      db_source:
+        range: string
+      add_date:
+        range: datetime
+      previous_name:
+        range: string
+      type:
+        range: string
+      comments:
+        range: string
+      change_status:
+        range: string
+      is_scp_marker:
+        range: string
+    aliases:
+    - pfam_family
+  Reaction:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      rxn_name:
+        range: string
+      rxn_definition:
+        range: string
+      rxn_equation:
+        range: string
+      comments:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - reaction
+  ReactionCompounds:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      compounds:
+        range: string
+    aliases:
+    - reaction_compounds
+  ReactionEnzymes:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      enzymes:
+        range: string
+    aliases:
+    - reaction_enzymes
+  SeedFunctionalRole:
+    attributes:
+      role_name:
+        range: string
+        required: true
+      subsystem:
+        range: string
+      level_1:
+        range: string
+      level_2:
+        range: string
+    aliases:
+    - seed_functional_role
+  TcFamily:
+    attributes:
+      tc_family_num:
+        identifier: true
+        range: string
+      tc_family_name:
+        range: string
+    aliases:
+    - tc_family
+  TcFamilyPfamsIain:
+    attributes:
+      tc_family_num:
+        range: string
+      pfam:
+        range: string
+      tc_num:
+        range: string
+      exceptions:
+        range: string
+    aliases:
+    - tc_family_pfams_iain
+  TigrRole:
+    attributes:
+      role_id:
+        identifier: true
+        range: integer
+      main_role:
+        range: string
+      sub_role:
+        range: string
+      add_date:
+        range: datetime
+    aliases:
+    - tigr_role
+  Tigrfam:
+    attributes:
+      ext_accession:
+        identifier: true
+        range: string
+      abbr_name:
+        range: string
+      expanded_name:
+        range: string
+      isology_type:
+        range: string
+      add_date:
+        range: datetime
+      gene_symbol:
+        range: string
+      ls_nc_model:
+        range: decimal
+      ls_nc_domain:
+        range: decimal
+      ls_ga_model:
+        range: decimal
+      ls_ga_domain:
+        range: decimal
+      ls_tc_model:
+        range: decimal
+      ls_tc_domain:
+        range: decimal
+    aliases:
+    - tigrfam
+  Yesnocv:
+    attributes:
+      flag_cv:
+        identifier: true
+        range: string
+      description:
+        range: string
+    aliases:
+    - yesnocv
+  BiocycClassParents:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      parents:
+        range: BiocycClass
+    aliases:
+    - biocyc_class_parents
+  BiocycClassSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_class_synonyms
+  BiocycClassTypes:
+    attributes:
+      unique_id:
+        range: BiocycClass
+      types:
+        range: string
+    aliases:
+    - biocyc_class_types
+  BiocycComp:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      systematic_name:
+        range: string
+      comments:
+        range: string
+      mol_wt:
+        range: decimal
+      smiles:
+        range: string
+      db_source:
+        range: DbSource
+      formula:
+        range: string
+      inch_i_key:
+        range: string
+    aliases:
+    - biocyc_comp
+  BiocycPathwayComments:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      comments:
+        range: string
+    aliases:
+    - biocyc_pathway_comments
+  BiocycPathwayExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_pathway_ext_links
+  BiocycPathwayInSpecies:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      in_species:
+        range: string
+    aliases:
+    - biocyc_pathway_in_species
+  BiocycPathwayPwyLinks:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      pwy_links:
+        range: string
+    aliases:
+    - biocyc_pathway_pwy_links
+  BiocycPathwaySubPwys:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      sub_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_pathway_sub_pwys
+  BiocycPathwaySuperPwys:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      super_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_pathway_super_pwys
+  BiocycPathwayTaxonRange:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      taxon_range:
+        range: string
+    aliases:
+    - biocyc_pathway_taxon_range
+  BiocycPathwayTypes:
+    attributes:
+      unique_id:
+        range: BiocycPathway
+      types:
+        range: string
+    aliases:
+    - biocyc_pathway_types
+  BiocycProteinExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_protein_ext_links
+  BiocycProteinInSpecies:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      in_species:
+        range: string
+    aliases:
+    - biocyc_protein_in_species
+  BiocycProteinSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_protein_synonyms
+  BiocycProteinTypes:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      types:
+        range: string
+    aliases:
+    - biocyc_protein_types
+  BiocycReaction:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      common_name:
+        range: string
+      balance_state:
+        range: string
+      ec_number:
+        range: string
+      is_official_ec:
+        range: Yesnocv
+      is_orphan:
+        range: Yesnocv
+      is_spontaneous:
+        range: Yesnocv
+      comments:
+        range: string
+    aliases:
+    - biocyc_reaction
+  Cog:
+    attributes:
+      cog_id:
+        identifier: true
+        range: string
+      cog_name:
+        range: string
+        required: true
+      description:
+        range: string
+      db_source:
+        range: DbSource
+      add_date:
+        range: datetime
+      seq_length:
+        range: integer
+    aliases:
+    - cog
+  CogPathway:
+    attributes:
+      cog_pathway_oid:
+        identifier: true
+        range: integer
+      function:
+        range: CogFunction
+      cog_pathway_name:
+        range: string
+    aliases:
+    - cog_pathway
+  Compound:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_source:
+        range: DbSource
+      compound_name:
+        range: string
+      common_name:
+        range: string
+      class:
+        range: string
+      formula:
+        range: string
+      parent:
+        range: string
+      status:
+        range: string
+      add_date:
+        range: datetime
+      family:
+        range: string
+      mol_weight:
+        range: decimal
+      num_atoms:
+        range: decimal
+      smiles:
+        range: string
+      inchi:
+        range: string
+      inchi_key:
+        range: string
+      cas_number:
+        range: string
+    aliases:
+    - compound
+  CompoundExtLinks:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - compound_ext_links
+  EnzymeExtLinks:
+    attributes:
+      ec_number:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - enzyme_ext_links
+  GenomePropertyParents:
+    attributes:
+      prop_accession:
+        range: GenomeProperty
+      parents:
+        range: GenomeProperty
+    aliases:
+    - genome_property_parents
+  GoTerm:
+    attributes:
+      go_id:
+        identifier: true
+        range: string
+      go_term:
+        range: string
+        required: true
+      go_type:
+        range: string
+      definition:
+        range: string
+      comments:
+        range: string
+      is_root:
+        range: Yesnocv
+      is_obsolete:
+        range: Yesnocv
+      db_source:
+        range: DbSource
+      add_date:
+        range: datetime
+    aliases:
+    - go_term
+  InterproGoTerms:
+    attributes:
+      ext_accession:
+        range: Interpro
+      go_terms:
+        range: string
+    aliases:
+    - interpro_go_terms
+  KeggGeneKoTerms:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      ko_term:
+        range: string
+    aliases:
+    - kegg_gene_ko_terms
+  KeggGeneNcbiGeneIds:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      ncbi_gene_id:
+        range: string
+      source:
+        range: string
+    aliases:
+    - kegg_gene_ncbi_gene_ids
+  KeggGeneUniprotIds:
+    attributes:
+      kegg_gene_id:
+        range: KeggGene
+      uniprot_id:
+        range: string
+      source:
+        range: string
+    aliases:
+    - kegg_gene_uniprot_ids
+  KeggPathway:
+    attributes:
+      pathway_oid:
+        identifier: true
+        range: integer
+      pathway_name:
+        range: string
+        required: true
+      title:
+        range: string
+        required: true
+      description:
+        range: string
+      category:
+        range: string
+      db_source:
+        range: DbSource
+      image_id:
+        range: string
+      kegg_id:
+        range: string
+      image_file:
+        range: string
+      add_date:
+        range: datetime
+      ko_pathway_id:
+        range: string
+    aliases:
+    - kegg_pathway
+  Kog:
+    attributes:
+      kog_id:
+        identifier: true
+        range: string
+      kog_name:
+        range: string
+        required: true
+      description:
+        range: string
+      db_source:
+        range: DbSource
+      add_date:
+        range: datetime
+      seq_length:
+        range: integer
+    aliases:
+    - kog
+  KogPathway:
+    attributes:
+      kog_pathway_oid:
+        identifier: true
+        range: integer
+      function:
+        range: KogFunction
+      kog_pathway_name:
+        range: string
+    aliases:
+    - kog_pathway
+  PfamFamilyExtLinks:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - pfam_family_ext_links
+  PropertyStep:
+    attributes:
+      step_accession:
+        identifier: true
+        range: string
+      genome_property:
+        range: GenomeProperty
+      name:
+        range: string
+      is_required:
+        range: integer
+      add_date:
+        range: datetime
+    aliases:
+    - property_step
+  ReactionExtLinks:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      db_name:
+        range: DbSource
+      id:
+        range: string
+    aliases:
+    - reaction_ext_links
+  TcFamilyImgTerms:
+    attributes:
+      tc_family_num:
+        range: TcFamily
+      img_terms:
+        range: integer
+      exceptions:
+        range: string
+    aliases:
+    - tc_family_img_terms
+  TcFamilyPfams:
+    attributes:
+      tc_family_num:
+        range: TcFamily
+      tc_num:
+        range: string
+      pfam:
+        range: string
+    aliases:
+    - tc_family_pfams
+  TcFamilyTfams:
+    attributes:
+      tc_family_num:
+        range: TcFamily
+      tfams:
+        range: Tigrfam
+      exceptions:
+        range: string
+      tc_num:
+        range: string
+    aliases:
+    - tc_family_tfams
+  TigrfamEnzymes:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      enzymes:
+        range: string
+    aliases:
+    - tigrfam_enzymes
+  TigrfamRoles:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      roles:
+        range: TigrRole
+    aliases:
+    - tigrfam_roles
+  BiocycCompExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_comp_ext_links
+  BiocycCompSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_comp_synonyms
+  BiocycCompTypes:
+    attributes:
+      unique_id:
+        range: BiocycComp
+      types:
+        range: string
+    aliases:
+    - biocyc_comp_types
+  BiocycEnzrxn:
+    attributes:
+      unique_id:
+        identifier: true
+        range: string
+      biocyc_enzyme:
+        range: BiocycProtein
+      common_name:
+        range: string
+      assign_basis:
+        range: string
+      reaction:
+        range: BiocycReaction
+      rxn_direction:
+        range: string
+      comments:
+        range: string
+    aliases:
+    - biocyc_enzrxn
+  BiocycReactionExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_reaction_ext_links
+  BiocycReactionInPwys:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      in_pwys:
+        range: BiocycPathway
+    aliases:
+    - biocyc_reaction_in_pwys
+  BiocycReactionLeftHand:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      substrate:
+        range: BiocycComp
+      compartment:
+        range: string
+    aliases:
+    - biocyc_reaction_left_hand
+  BiocycReactionRightHand:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      substrate:
+        range: BiocycComp
+      compartment:
+        range: string
+    aliases:
+    - biocyc_reaction_right_hand
+  BiocycReactionSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_reaction_synonyms
+  BiocycReactionTypes:
+    attributes:
+      unique_id:
+        range: BiocycReaction
+      types:
+        range: string
+    aliases:
+    - biocyc_reaction_types
+  CogFamilies:
+    attributes:
+      cog_id:
+        range: Cog
+      families:
+        range: string
+    aliases:
+    - cog_families
+  CogPathwayCogMembers:
+    attributes:
+      cog_pathway_oid:
+        range: CogPathway
+      cog_members:
+        range: Cog
+    aliases:
+    - cog_pathway_cog_members
+  GoGraphPath:
+    attributes:
+      graph_path_id:
+        identifier: true
+        range: integer
+      term_1:
+        range: GoTerm
+      term_2:
+        range: GoTerm
+      distance:
+        range: integer
+      add_date:
+        range: datetime
+    aliases:
+    - go_graph_path
+  GoTermParents:
+    attributes:
+      go_id:
+        range: GoTerm
+      parent:
+        range: GoTerm
+      rel_type:
+        range: integer
+    aliases:
+    - go_term_parents
+  GoTermSynonyms:
+    attributes:
+      go_id:
+        range: GoTerm
+      synonyms:
+        range: string
+    aliases:
+    - go_term_synonyms
+  ImageRoi:
+    attributes:
+      roi_id:
+        identifier: true
+        range: integer
+      shape:
+        range: string
+      roi_type:
+        range: string
+      roi_label:
+        range: string
+      x_coord:
+        range: integer
+        required: true
+      y_coord:
+        range: integer
+        required: true
+      height:
+        range: integer
+        required: true
+      width:
+        range: integer
+        required: true
+      pathway:
+        range: KeggPathway
+      add_date:
+        range: datetime
+      related_pathway:
+        range: KeggPathway
+      coord_string:
+        range: string
+    aliases:
+    - image_roi
+  KeggModule:
+    attributes:
+      module_id:
+        identifier: true
+        range: string
+      module_name:
+        range: string
+      module_type:
+        range: string
+      definition:
+        range: string
+      pathway:
+        range: KeggPathway
+      ko_pathway_id:
+        range: string
+      image_id:
+        range: string
+    aliases:
+    - kegg_module
+  KeggPathwayRelatedPathways:
+    attributes:
+      pathway_oid:
+        range: KeggPathway
+      related_pathways:
+        range: KeggPathway
+    aliases:
+    - kegg_pathway_related_pathways
+  KoTermCogs:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      cogs:
+        range: Cog
+    aliases:
+    - ko_term_cogs
+  KoTermGoIds:
+    attributes:
+      ko_id:
+        range: string
+        required: true
+      go_ids:
+        range: GoTerm
+    aliases:
+    - ko_term_go_ids
+  KogFamilies:
+    attributes:
+      kog_id:
+        range: Kog
+      families:
+        range: string
+    aliases:
+    - kog_families
+  KogFunctions:
+    attributes:
+      kog_id:
+        range: Kog
+      functions:
+        range: KogFunction
+    aliases:
+    - kog_functions
+  KogPathwayKogMembers:
+    attributes:
+      kog_pathway_oid:
+        range: KogPathway
+      kog_members:
+        range: Kog
+    aliases:
+    - kog_pathway_kog_members
+  PfamFamilyCogs:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      cog:
+        range: Cog
+      functions:
+        range: CogFunction
+    aliases:
+    - pfam_family_cogs
+  PfamFamilyGenomeProperties:
+    attributes:
+      ext_accession:
+        range: string
+        required: true
+      property:
+        range: GenomeProperty
+      property_step:
+        range: PropertyStep
+    aliases:
+    - pfam_family_genome_properties
+  PropertyStepEvidences:
+    attributes:
+      step_accession:
+        range: PropertyStep
+      query:
+        range: string
+      method:
+        range: string
+    aliases:
+    - property_step_evidences
+  TcFamilyCogs:
+    attributes:
+      tc_family_num:
+        range: TcFamily
+      cogs:
+        range: Cog
+      exceptions:
+        range: string
+    aliases:
+    - tc_family_cogs
+  TcFamilyGoTerms:
+    attributes:
+      tc_family_num:
+        range: TcFamily
+      tc_num:
+        range: string
+      go_id:
+        range: GoTerm
+    aliases:
+    - tc_family_go_terms
+  TigrfamGenomeProperties:
+    attributes:
+      ext_accession:
+        range: Tigrfam
+      property:
+        range: GenomeProperty
+      property_step:
+        range: PropertyStep
+    aliases:
+    - tigrfam_genome_properties
+  BiocycEnzrxnExtLinks:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      id:
+        range: string
+      db_name:
+        range: string
+    aliases:
+    - biocyc_enzrxn_ext_links
+  BiocycEnzrxnProsthGroups:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      prosth_groups:
+        range: string
+    aliases:
+    - biocyc_enzrxn_prosth_groups
+  BiocycEnzrxnSynonyms:
+    attributes:
+      unique_id:
+        range: BiocycEnzrxn
+      synonyms:
+        range: string
+    aliases:
+    - biocyc_enzrxn_synonyms
+  BiocycProteinCatalyzes:
+    attributes:
+      unique_id:
+        range: BiocycProtein
+      enzrxn:
+        range: BiocycEnzrxn
+      ec_number:
+        range: string
+    aliases:
+    - biocyc_protein_catalyzes
+  KeggModuleCompounds:
+    attributes:
+      module_id:
+        range: KeggModule
+      compounds:
+        range: string
+    aliases:
+    - kegg_module_compounds
+  KeggModuleKoTerms:
+    attributes:
+      module_id:
+        range: KeggModule
+      ko_terms:
+        range: string
+    aliases:
+    - kegg_module_ko_terms
+  KeggModuleReactions:
+    attributes:
+      module_id:
+        range: KeggModule
+      reactions:
+        range: string
+    aliases:
+    - kegg_module_reactions
+  KeggPathwayModules:
+    attributes:
+      pathway_oid:
+        range: KeggPathway
+      modules:
+        range: KeggModule
+    aliases:
+    - kegg_pathway_modules

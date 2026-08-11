@@ -1,0 +1,318 @@
+id: https://w3id.org/jgi/public
+name: public
+title: gcs-vm-1_postgresql.public
+description: Generated from gcs-vm-1_postgresql.public by schema-automator, with types and nullability
+  refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  public: https://w3id.org/jgi/public/
+default_prefix: public
+default_range: string
+imports:
+- linkml:types
+classes:
+  ApiAccessLog:
+    attributes:
+      request_time:
+        range: datetime
+        required: true
+      response_time:
+        range: integer
+        required: true
+      status_code:
+        range: string
+        required: true
+      remote_host:
+        range: string
+        required: true
+      api_key:
+        range: string
+      method:
+        range: string
+        required: true
+      request_url:
+        range: string
+        required: true
+      headers:
+        range: string
+        required: true
+      parameters:
+        range: string
+        required: true
+      error_message:
+        range: string
+    aliases:
+    - api_access_log
+  Concept:
+    attributes:
+      luid:
+        identifier: true
+        range: integer
+      type:
+        range: string
+        required: true
+    aliases:
+    - concept
+  ConceptIdentifierType:
+    attributes:
+      code:
+        identifier: true
+        range: string
+      description:
+        range: string
+        required: true
+    aliases:
+    - concept_identifier_type
+  Corpus:
+    attributes:
+      luid:
+        identifier: true
+        range: integer
+      label:
+        range: string
+        required: true
+    aliases:
+    - corpus
+  Publisher:
+    attributes:
+      luid:
+        identifier: true
+        range: integer
+      name:
+        range: string
+        required: true
+    aliases:
+    - publisher
+  ConceptIdentifier:
+    attributes:
+      concept:
+        range: Concept
+      identifier:
+        range: string
+        required: true
+      type:
+        range: ConceptIdentifierType
+    aliases:
+    - concept_identifier
+  Institution:
+    attributes:
+      luid:
+        range: Concept
+      name:
+        range: string
+        required: true
+      city:
+        range: string
+        required: true
+      country:
+        range: string
+        required: true
+    aliases:
+    - institution
+  JgiMetadata:
+    attributes:
+      id:
+        identifier: true
+        range: string
+      priority:
+        range: integer
+        required: true
+      media_type:
+        range: string
+        required: true
+      modified:
+        range: datetime
+        required: true
+      processed:
+        range: datetime
+      note:
+        range: string
+      content:
+        range: string
+      resolved:
+        range: string
+      response_time:
+        range: integer
+      luid:
+        range: Concept
+      jamo_date:
+        range: datetime
+      audit_path:
+        range: string
+    aliases:
+    - jgi_metadata
+  MeshKeyword:
+    attributes:
+      luid:
+        identifier: true
+        range: Concept
+      mesh_id:
+        range: string
+        required: true
+      keyword:
+        range: string
+        required: true
+    aliases:
+    - mesh_keyword
+  Practitioner:
+    attributes:
+      luid:
+        range: Concept
+      given_names:
+        range: string
+        required: true
+      surname:
+        range: string
+        required: true
+      orcid:
+        range: string
+      email:
+        range: string
+      uri:
+        range: string
+    aliases:
+    - practitioner
+  Publication:
+    attributes:
+      luid:
+        identifier: true
+        range: integer
+      publisher:
+        range: Publisher
+      abbreviation:
+        range: string
+      issn:
+        range: string
+      essn:
+        range: string
+      title:
+        range: string
+        required: true
+    aliases:
+    - publication
+  Relation:
+    attributes:
+      luid:
+        identifier: true
+        range: Concept
+      type:
+        range: string
+        required: true
+    aliases:
+    - relation
+  ConceptRelation:
+    attributes:
+      concept_a:
+        range: Concept
+      relation:
+        range: Relation
+      concept_b:
+        range: Concept
+    aliases:
+    - concept_relation
+  CorpusPublications:
+    attributes:
+      corpus:
+        range: Corpus
+      publication:
+        range: Publication
+    aliases:
+    - corpus_publications
+  Document:
+    attributes:
+      luid:
+        identifier: true
+        range: integer
+      publication:
+        range: Publication
+      title:
+        range: string
+        required: true
+      date:
+        range: date
+        required: true
+      volume:
+        range: string
+      issue:
+        range: string
+      elocation:
+        range: string
+      fpage:
+        range: string
+      lpage:
+        range: string
+    aliases:
+    - document
+  RecordStatus:
+    attributes:
+      luid:
+        identifier: true
+        range: JgiMetadata
+      status_code:
+        range: string
+        required: true
+    aliases:
+    - record_status
+  BinaryContent:
+    attributes:
+      document:
+        identifier: true
+        range: Document
+      modified:
+        range: datetime
+        required: true
+      media_type:
+        range: string
+        required: true
+      oid:
+        range: string
+    aliases:
+    - binary_content
+  DocumentConcept:
+    attributes:
+      document:
+        range: Document
+      concept:
+        range: Concept
+    aliases:
+    - document_concept
+  DocumentIdentifier:
+    attributes:
+      document:
+        range: Document
+      identifier:
+        range: string
+        required: true
+      type:
+        range: string
+        required: true
+    aliases:
+    - document_identifier
+  TextContent:
+    attributes:
+      document:
+        range: Document
+      version:
+        range: integer
+        required: true
+      modified:
+        range: datetime
+        required: true
+      content:
+        range: string
+    aliases:
+    - text_content
+  XmlContent:
+    attributes:
+      document:
+        range: Document
+      version:
+        range: integer
+        required: true
+      modified:
+        range: datetime
+        required: true
+      content:
+        range: string
+    aliases:
+    - xml_content

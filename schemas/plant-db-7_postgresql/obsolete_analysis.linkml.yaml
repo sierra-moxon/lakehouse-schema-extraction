@@ -1,0 +1,131 @@
+id: https://w3id.org/jgi/obsolete_analysis
+name: obsolete_analysis
+title: plant-db-7_postgresql.obsolete_analysis
+description: Generated from plant-db-7_postgresql.obsolete_analysis by schema-automator, with types and
+  nullability refined from native catalog metadata by lakehouse-schema-extraction.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  obsolete_analysis: https://w3id.org/jgi/obsolete_analysis/
+default_prefix: obsolete_analysis
+default_range: string
+imports:
+- linkml:types
+classes:
+  Analysisfeature:
+    attributes:
+      analysisfeature_id:
+        range: integer
+      feature_id:
+        range: integer
+      analysis_id:
+        range: integer
+      rawscore:
+        range: double
+      normscore:
+        range: double
+      significance:
+        range: double
+      identity:
+        range: double
+    aliases:
+    - analysisfeature
+  Analysisfeatureprop:
+    attributes:
+      analysisfeatureprop_id:
+        range: integer
+      analysisfeature_id:
+        range: integer
+      type_id:
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - analysisfeatureprop
+  Feature:
+    attributes:
+      feature_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      organism_id:
+        range: integer
+      name:
+        range: string
+      uniquename:
+        range: string
+      residues:
+        range: string
+      seqlen:
+        range: integer
+      md5checksum:
+        range: string
+      type_id:
+        range: integer
+      is_analysis:
+        range: boolean
+      is_obsolete:
+        range: boolean
+      timeaccessioned:
+        range: datetime
+      timelastmodified:
+        range: datetime
+    aliases:
+    - feature
+  FeatureDbxref:
+    attributes:
+      feature_dbxref_id:
+        range: integer
+      feature_id:
+        range: integer
+      dbxref_id:
+        range: integer
+      is_current:
+        range: boolean
+    aliases:
+    - feature_dbxref
+  FeatureRelationship:
+    attributes:
+      feature_relationship_id:
+        range: integer
+      subject_id:
+        range: integer
+      object_id:
+        range: integer
+      type_id:
+        range: integer
+      value:
+        range: string
+      rank:
+        range: integer
+    aliases:
+    - feature_relationship
+  Featureloc:
+    attributes:
+      featureloc_id:
+        range: integer
+      feature_id:
+        range: integer
+      srcfeature_id:
+        range: integer
+      fmin:
+        range: integer
+      is_fmin_partial:
+        range: boolean
+      fmax:
+        range: integer
+      is_fmax_partial:
+        range: boolean
+      strand:
+        range: integer
+      phase:
+        range: integer
+      residue_info:
+        range: string
+      locgroup:
+        range: integer
+      rank:
+        range: integer
+    aliases:
+    - featureloc
