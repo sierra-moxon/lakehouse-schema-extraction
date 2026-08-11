@@ -103,4 +103,9 @@ def meta() -> SchemaMetadata:
         extensions=[
             {"extension_name": "pg_trgm", "schema_name": "public"},
         ],
+        types=[
+            {"type_name": "strand", "type_kind": "enum", "labels": "'plus', 'minus'"},
+            {"type_name": "positive_int", "type_kind": "domain", "base_type": "integer",
+             "not_null": True, "default_expr": None},
+        ],
     )

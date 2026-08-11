@@ -117,6 +117,50 @@ just all
 
 Run `just` with no arguments at any point to list every recipe.
 
+## Sweeping every Postgres database at once
+
+The quickstart above documents one schema. To do all of them:
+
+```sh
+just targets        # preview: what would be processed, and what is skipped and why
+just all-postgres   # extract + load + LinkML + index, for every supported schema
+```
+
+`all-postgres` takes roughly 20 minutes and covers **24 schemas across 5 catalogs** —
+2521 tables and 2364 foreign keys. It deliberately excludes ERDs, which are far slower:
+
+```sh
+just schemaspy gold-db-2_postgresql gold    # one ERD, ~35 min for 390 relations
+just schemaspy-all                          # every ERD; hours. Background it.
+```
+
+Then open `out/index.html` (`just browse`) for a single page linking every schema's
+ERD, LinkML file, and DDL, with table and foreign-key counts. Schemas that declare no
+foreign keys are highlighted, since their ERDs and LinkML ranges carry no links.
+
+### What gets skipped
+
+`just targets` reports every skip with a reason and never drops anything silently.
+As of writing: 24 selected, 26 skipped — Oracle compatibility shims (`dbms_*`, `plv*`,
+`plunit`, `utl_file`, `oracle`, `pgagent`), schemas with no tables, and the
+`starburst-db_postgresql` infrastructure catalog. Use `just targets --all` to see them
+included, and edit the rules in `sweep.py`, which documents why each exists.
+
+### Output layout
+
+```
+out/<catalog>/<schema>.sql               DDL
+out/<catalog>/<schema>.json              structured metadata
+out/<catalog>/<schema>.linkml.yaml       LinkML schema
+out/<catalog>/<schema>.load-errors.log   psql errors from loading
+out/schemaspy/<catalog>/<schema>/        SchemaSpy site
+out/index.html                           index over all of the above
+```
+
+The catalog level is required, not cosmetic: `public` exists in five different catalogs
+and would otherwise collide. Each catalog also gets its own local database
+(`docs_<catalog>`) for the same reason — see `just db-list`.
+
 ## Install
 
 ```sh
@@ -260,6 +304,16 @@ These are the things that break naive catalog extraction, all covered by tests:
   loaded into SQLite, which has no `ALTER TABLE ADD CONSTRAINT`.)
 - **Sequences before tables.** `serial` columns default to `nextval`, which fails if the
   sequence does not exist yet.
+- **Enums and domains before tables.** One missing enum fails every `CREATE TABLE` using
+  it, and then each index and foreign key on those tables cascades into "relation does
+  not exist". A single missing type in smc-db produced 436 errors and cost 206 of its
+  223 foreign keys.
+- **`SET search_path` in the dump.** `pg_get_constraintdef` omits the schema for tables
+  on the source session's path, so references arrive as `REFERENCES yesnocv(id)`. They
+  only resolve on load if the path is set first.
+- **Sweeps must not read targets on stdin.** `docker`, `psql`, and `docker compose run`
+  all consume stdin, so a `while read` loop fed by a pipe silently processes only its
+  first target. The sweep recipes read on fd 3 instead.
 - **Extensions before indexes.** GOLD's indexes use `gin_trgm_ops`, which needs `pg_trgm`.
 - **Materialized views.** They are absent from `pg_views`, carry no rows in the column
   query, and would silently vanish. They need `CREATE MATERIALIZED VIEW` (there is no

@@ -27,6 +27,7 @@ class SchemaMetadata:
     views: list[dict] = field(default_factory=list)
     sequences: list[dict] = field(default_factory=list)
     extensions: list[dict] = field(default_factory=list)
+    types: list[dict] = field(default_factory=list)
 
     @property
     def foreign_keys(self) -> list[dict]:
@@ -48,6 +49,7 @@ class SchemaMetadata:
             "views": self.views,
             "sequences": self.sequences,
             "extensions": self.extensions,
+            "types": self.types,
         }
 
 

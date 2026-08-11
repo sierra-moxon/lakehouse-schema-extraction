@@ -20,6 +20,7 @@ from lakehouse_schema_extraction.dialects import (
     get_dialect,
     registered_dialects,
 )
+from lakehouse_schema_extraction.sweep import discover
 
 host_option = click.option(
     "--host", default=DEFAULT_HOST, show_default=True, help="Lakehouse host."
@@ -68,6 +69,48 @@ def catalogs_cmd(host: str, port: int, supported_only: bool) -> None:
         click.echo(f"{mark} {row['catalog_name']:<40} {row['connector_name']}")
     if not supported_only:
         click.echo(f"\n('+' = supported dialect: {', '.join(sorted(known))})", err=True)
+
+
+@cli.command("targets")
+@host_option
+@port_option
+@click.option("--all", "include_all", is_flag=True,
+              help="Include schemas the skip rules would drop.")
+@click.option("--format", "fmt", type=click.Choice(["tsv", "table", "json"]),
+              default="tsv", show_default=True,
+              help="tsv is meant for shell loops; table is for reading.")
+def targets_cmd(host: str, port: int, include_all: bool, fmt: str) -> None:
+    """List every (catalog, schema) pair a sweep would process."""
+    found = discover(host, port, include_all=include_all)
+
+    if fmt == "json":
+        click.echo(json.dumps(
+            {"selected": [t.to_dict() for t in found.selected],
+             "skipped": [t.to_dict() for t in found.skipped],
+             "errors": found.errors},
+            indent=2))
+        return
+
+    if fmt == "tsv":
+        # Consumed by `just` loops: catalog<TAB>schema, nothing else on stdout.
+        for target in found.selected:
+            click.echo(f"{target.catalog}\t{target.schema}")
+    else:
+        for target in found.selected:
+            click.echo(f"  {target.catalog:<28} {target.schema:<22} "
+                       f"{target.table_count:>5} tables {target.view_count:>4} views")
+
+    # Skips and errors go to stderr so they never pollute a shell loop, but are
+    # always shown: a silently dropped schema is indistinguishable from a missing one.
+    for target in found.skipped:
+        click.echo(f"skip {target.catalog}.{target.schema}: {target.skipped}", err=True)
+    for err in found.errors:
+        click.echo(f"ERROR {err['catalog']}: {err['error']}", err=True)
+    click.echo(
+        f"{len(found.selected)} selected, {len(found.skipped)} skipped, "
+        f"{len(found.errors)} unreachable",
+        err=True,
+    )
 
 
 @cli.command("schemas")

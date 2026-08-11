@@ -62,6 +62,30 @@ class TestIndexes:
         assert ddl.index("CREATE INDEX biosample_study_idx") < ddl.index("-- views")
 
 
+class TestUserDefinedTypes:
+    def test_enum_is_created_before_any_table(self, ddl):
+        """A missing enum fails the CREATE TABLE and cascades to its FKs and indexes."""
+        assert "CREATE TYPE gold.strand AS ENUM ('plus', 'minus');" in ddl
+        assert ddl.index("CREATE TYPE") < ddl.index("CREATE TABLE")
+
+    def test_domain_is_emitted_with_its_constraints(self, ddl):
+        assert "CREATE DOMAIN gold.positive_int AS integer NOT NULL;" in ddl
+
+    def test_types_come_after_extensions(self, ddl):
+        assert ddl.index("CREATE EXTENSION") < ddl.index("CREATE TYPE")
+
+
+class TestSearchPath:
+    def test_search_path_is_set_for_unqualified_references(self, ddl):
+        """pg_get_constraintdef emits `REFERENCES foo(id)` unqualified for tables on the
+        source session's path; without this they do not resolve on load."""
+        assert "SET search_path TO gold, public;" in ddl
+        assert ddl.index("SET search_path") < ddl.index("CREATE TABLE")
+
+    def test_search_path_follows_schema_creation(self, ddl):
+        assert ddl.index("CREATE SCHEMA") < ddl.index("SET search_path")
+
+
 class TestExtensions:
     def test_extensions_precede_everything_that_uses_them(self, ddl):
         """GOLD indexes use gin_trgm_ops, which requires pg_trgm to exist first."""

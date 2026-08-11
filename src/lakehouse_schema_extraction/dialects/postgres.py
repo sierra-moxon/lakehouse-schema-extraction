@@ -27,6 +27,20 @@ WHERE nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast')
 ORDER BY nspname
 """
 
+# One query per catalog rather than one per schema: cheap enough to run during
+# discovery, and the table count is what tells an empty schema from a real one.
+Q_TABLE_COUNTS = """
+SELECT n.nspname AS schema_name,
+       count(*) FILTER (WHERE c.relkind IN ('r', 'p')) AS table_count,
+       count(*) FILTER (WHERE c.relkind IN ('v', 'm')) AS view_count
+FROM pg_namespace n
+LEFT JOIN pg_class c ON c.relnamespace = n.oid
+WHERE n.nspname NOT IN ('pg_catalog', 'information_schema', 'pg_toast')
+  AND n.nspname NOT LIKE 'pg_temp%' AND n.nspname NOT LIKE 'pg_toast_temp%'
+GROUP BY n.nspname
+ORDER BY n.nspname
+"""
+
 Q_TABLES = """
 SELECT c.relname AS table_name,
        c.relkind AS relkind,
@@ -88,6 +102,32 @@ ORDER BY tablename, indexname
 # data_type is a regtype, which the Trino connector cannot map (jdbcType 1111/OTHER)
 # and which fails the whole query. Catalog columns of type regtype, oid, name, or
 # pg_node_tree must be cast to text before they cross the connector boundary.
+# Enum types must exist before any table whose column uses one. A missing enum fails
+# the CREATE TABLE, and every index and foreign key on that table then cascades into
+# "relation does not exist" -- one missing type can produce hundreds of errors.
+# quote_literal is applied in-database so labels containing apostrophes survive.
+Q_ENUMS = """
+SELECT t.typname AS type_name,
+       string_agg(quote_literal(e.enumlabel), ', ' ORDER BY e.enumsortorder) AS labels
+FROM pg_type t
+JOIN pg_namespace n ON n.oid = t.typnamespace
+JOIN pg_enum e ON e.enumtypid = t.oid
+WHERE n.nspname = '{schema}' AND t.typtype = 'e'
+GROUP BY t.typname
+ORDER BY t.typname
+"""
+
+Q_DOMAINS = """
+SELECT t.typname AS type_name,
+       format_type(t.typbasetype, t.typtypmod) AS base_type,
+       t.typnotnull AS not_null,
+       pg_get_expr(t.typdefaultbin, 0) AS default_expr
+FROM pg_type t
+JOIN pg_namespace n ON n.oid = t.typnamespace
+WHERE n.nspname = '{schema}' AND t.typtype = 'd'
+ORDER BY t.typname
+"""
+
 # Extensions are database-wide, not schema-scoped, but indexes in the schema can depend
 # on operator classes they provide (GOLD uses gin_trgm_ops from pg_trgm). Without these
 # the index statements fail on a fresh database.
@@ -177,6 +217,10 @@ class PostgresDialect:
         rows = client.passthrough(Q_SCHEMAS)
         return [r["schema_name"] for r in rows]
 
+    def schema_table_counts(self, client) -> list[dict]:
+        """Return [{schema_name, table_count, view_count}] for every user schema."""
+        return client.passthrough(Q_TABLE_COUNTS)
+
     def extract(self, client, schema: str) -> SchemaMetadata:
         def run(template: str) -> list[dict]:
             return client.passthrough(template.format(schema=quote_literal(schema)))
@@ -206,6 +250,10 @@ class PostgresDialect:
             views=order_views(run(Q_VIEWS), run(Q_VIEW_DEPS)),
             sequences=run(Q_SEQUENCES),
             extensions=run(Q_EXTENSIONS),
+            types=(
+                [{**r, "type_kind": "enum"} for r in run(Q_ENUMS)]
+                + [{**r, "type_kind": "domain"} for r in run(Q_DOMAINS)]
+            ),
         )
 
     def render_ddl(self, meta: SchemaMetadata) -> str:
@@ -233,6 +281,11 @@ class PostgresDialect:
             "",
             f"CREATE SCHEMA IF NOT EXISTS {qs};",
             "",
+            "-- pg_get_constraintdef omits the schema for tables on the source session's",
+            "-- search_path, so references like `REFERENCES yesnocv(id)` arrive unqualified.",
+            "-- Setting the path makes them resolve to this schema on load.",
+            f"SET search_path TO {qs}, public;",
+            "",
         ]
 
         if meta.extensions:
@@ -243,6 +296,21 @@ class PostgresDialect:
                 out.append(
                     f"CREATE EXTENSION IF NOT EXISTS {quote_ident(ext['extension_name'])};"
                 )
+            out.append("")
+
+        if meta.types:
+            out.append("-- user-defined types (a missing enum fails every table using it)")
+            for typ in meta.types:
+                name = quote_ident(typ["type_name"])
+                if typ.get("type_kind") == "enum":
+                    out.append(f"CREATE TYPE {qs}.{name} AS ENUM ({typ['labels']});")
+                else:
+                    piece = f"CREATE DOMAIN {qs}.{name} AS {typ['base_type']}"
+                    if typ.get("default_expr"):
+                        piece += f" DEFAULT {typ['default_expr']}"
+                    if typ.get("not_null"):
+                        piece += " NOT NULL"
+                    out.append(piece + ";")
             out.append("")
 
         if meta.sequences:

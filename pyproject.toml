@@ -13,6 +13,7 @@ dependencies = [
 [project.scripts]
 lakehouse-schema = "scripts.extract_ddl:main"
 lakehouse-refine-linkml = "scripts.refine_linkml:main"
+lakehouse-build-index = "scripts.build_index:main"
 
 [dependency-groups]
 dev = [
