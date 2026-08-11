@@ -14,12 +14,16 @@ dependencies = [
 lakehouse-schema = "scripts.extract_ddl:main"
 lakehouse-refine-linkml = "scripts.refine_linkml:main"
 lakehouse-build-index = "scripts.build_index:main"
+lakehouse-build-docs = "scripts.build_docs:main"
 
 [dependency-groups]
 dev = [
     "pytest>=8.0",
     "pyyaml>=6.0.3",
     "ruff>=0.6",
+]
+docs = [
+    "mkdocs-material>=9.5",
 ]
 
 [build-system]

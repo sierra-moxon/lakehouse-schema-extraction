@@ -161,6 +161,59 @@ The catalog level is required, not cosmetic: `public` exists in five different c
 and would otherwise collide. Each catalog also gets its own local database
 (`docs_<catalog>`) for the same reason — see `just db-list`.
 
+## Documentation site
+
+A MkDocs site with LinkML reference pages for every schema, published to GitHub Pages.
+
+```sh
+just testdoc      # build exactly what CI publishes, locally
+just serve        # preview at http://127.0.0.1:8000
+```
+
+**Nothing generated is committed.** `docs/`, `mkdocs.yml`, and `site/` are all
+gitignored and rebuilt from scratch by CI on every push to `main`. What *is* committed
+is `schemas/` — the promoted LinkML files — because the GitHub runner has no lakehouse
+access and no Docker database to introspect. That directory is the CI input.
+
+So the loop is: regenerate schemas locally when a database changes, commit them, and
+let CI rebuild and publish the site.
+
+```sh
+just linkml-all     # regenerate from the lakehouse (needs the local Postgres)
+just promote        # copy out/<catalog>/*.linkml.yaml -> schemas/<catalog>/
+git add schemas && git commit -m "refresh schemas"
+git push            # CI regenerates docs and deploys to gh-pages
+```
+
+`.github/workflows/deploy-docs.yml` triggers on pushes to `main` that touch
+`schemas/**`, `src/**`, the justfile, or the workflow itself — plus manual
+`workflow_dispatch`. It runs `just gendoc` then `just deploy` (`mkdocs gh-deploy`),
+publishing to the `gh-pages` branch.
+
+The index page and `mkdocs.yml` navigation are **generated from the schemas**, not
+hand-maintained: `lakehouse-build-docs` reads every `schemas/<catalog>/<schema>.linkml.yaml`
+and derives the catalog sections, per-schema class/slot/reference counts, and nav tree.
+Adding a database means committing its schema file — no config edit. Display names and
+descriptions for known catalogs live in `docs_site.py`; unknown ones get a tidied
+fallback name automatically.
+
+Reference pages go to `docs/<catalog>/<schema>/`. The catalog level is required:
+`public` exists in four catalogs, and a path keyed on schema name alone would have them
+overwrite each other. Each schema's directory is cleared before regeneration so a
+dropped class cannot leave a stale page behind.
+
+### One local-only caveat
+
+`gen-doc` writes a page per class *and* per slot. A class `Gene` and a slot `gene` want
+`Gene.md` and `gene.md` — which a **case-insensitive filesystem (macOS) stores as a
+single file**. Locally, a handful of pages per schema are therefore merged, and MkDocs
+reports "target not found" for the ones that lost. Measured on this data: 6 pages in
+`gcs-vm-1/public`, 2 in `gold`, 1 in `img/public`.
+
+CI runs on Linux, where both files coexist, so **the published site is complete** and
+these warnings do not appear there. `just testdoc` prints a reminder on macOS. If you
+need a byte-identical local preview, build in a Linux container.
+
 ## Install
 
 ```sh

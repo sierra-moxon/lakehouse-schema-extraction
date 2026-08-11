@@ -10,6 +10,13 @@ build/
 # local config; copy from .env.example. May hold a TRINO_PASSWORD.
 .env
 
+# Generated documentation. Never committed -- CI regenerates it from schemas/ and
+# publishes to the gh-pages branch. schemas/ IS committed: it is the input CI builds
+# from, since the runner cannot reach the lakehouse.
+docs/
+mkdocs.yml
+site/
+
 # extraction output
 out/
 *_schema.sql

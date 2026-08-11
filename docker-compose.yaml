@@ -32,15 +32,18 @@ services:
       retries: 45
       start_period: 5s
 
-  # One-shot: runs, writes ./out/schemaspy, exits. Not started by `up`.
+  # One-shot: runs, writes its output, exits. Not started by `up`.
+  #
+  # No volume is declared here on purpose. The image's entrypoint already passes
+  # `-o /output`, so a second -o is rejected ("Can only specify option -o once") and
+  # per-schema output has to come from mounting a different host directory at /output.
+  # `just schemaspy <catalog> <schema>` supplies that with `docker compose run -v`.
   schemaspy:
     image: schemaspy/schemaspy:latest
     profiles: ["tools"]
     depends_on:
       postgres:
         condition: service_healthy
-    volumes:
-      - ./out/schemaspy:/output
     command:
       - -t
       - pgsql11

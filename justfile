@@ -205,11 +205,13 @@ schemaspy cat=catalog sch=schema:
     #!/usr/bin/env bash
     set -euo pipefail
     db="docs_$(echo '{{cat}}' | tr -cs '[:alnum:]' '_' | tr '[:upper:]' '[:lower:]' | sed 's/_*$//')"
-    mkdir -p "{{out}}/schemaspy/{{cat}}/{{sch}}"
-    docker compose --profile tools run --rm schemaspy \
+    dest="$PWD/{{out}}/schemaspy/{{cat}}/{{sch}}"
+    mkdir -p "$dest"
+    # The image entrypoint already supplies -o /output, so passing our own -o fails.
+    # Per-schema output comes from mounting a different host directory there instead.
+    docker compose --profile tools run --rm -v "$dest:/output" schemaspy \
         -t pgsql11 -host postgres -port 5432 -db "$db" \
-        -u {{pg_user}} -p {{pg_pass}} -s {{sch}} \
-        -o "/output/{{cat}}/{{sch}}" -imageformat svg -vizjs
+        -u {{pg_user}} -p {{pg_pass}} -s {{sch}} -imageformat svg -vizjs
     echo "wrote {{out}}/schemaspy/{{cat}}/{{sch}}/index.html"
 
 # Generate ERDs for every target. Hours of work -- background it.
@@ -232,6 +234,80 @@ index:
 # Open the index page
 browse:
     open {{out}}/index.html
+
+# --- documentation site ---------------------------------------------------
+
+# out/ is generated and gitignored; schemas/ is the tracked, publishable copy that
+# the docs site and CI build from.
+# Promote generated LinkML schemas into the tracked schemas/ directory
+promote:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    count=0
+    for f in {{out}}/*/*.linkml.yaml; do
+        [ -e "$f" ] || { echo "no schemas in {{out}} -- run 'just linkml-all' first"; exit 1; }
+        cat_dir=$(basename "$(dirname "$f")")
+        mkdir -p "schemas/$cat_dir"
+        cp "$f" "schemas/$cat_dir/"
+        count=$((count + 1))
+    done
+    echo "promoted ${count} schemas into schemas/"
+
+# Generate LinkML reference pages for every promoted schema
+gendoc:
+    #!/usr/bin/env bash
+    set -uo pipefail
+    for f in schemas/*/*.linkml.yaml; do
+        [ -e "$f" ] || { echo "nothing in schemas/ -- run 'just promote'"; exit 1; }
+        cat_dir=$(basename "$(dirname "$f")")
+        name=$(basename "$f" .linkml.yaml)
+        echo "=== ${cat_dir}/${name}"
+        # Output is per catalog AND schema: `public` exists in four catalogs and would
+        # otherwise collide. Clearing first keeps a regenerated schema from mixing new
+        # pages with pages for classes that no longer exist.
+        rm -rf "docs/${cat_dir}/${name}"
+        mkdir -p "docs/${cat_dir}/${name}"
+        uvx --from linkml gen-doc -d "docs/${cat_dir}/${name}" "$f" </dev/null \
+            || echo "FAILED ${cat_dir}/${name}"
+    done
+    just docs-index
+
+# Rebuild docs/index.md and the mkdocs nav from schemas/
+docs-index:
+    uv run lakehouse-build-docs
+
+# Build the static site into site/
+site:
+    uv run --group docs mkdocs build
+
+# Build exactly what CI publishes, from the committed schemas/ directory.
+# Nothing here is committed: docs/, mkdocs.yml and site/ are all gitignored.
+# Generate and build the whole docs site locally, as CI does
+testdoc: gendoc site
+    #!/usr/bin/env bash
+    echo ""
+    echo "site built in site/ -- preview it with 'just serve'"
+    # gen-doc writes a page per class AND per slot. A class named Gene and a slot named
+    # gene want Gene.md and gene.md, which a case-insensitive filesystem stores as one
+    # file. mkdocs then reports the other as a broken link. CI runs on Linux, where both
+    # exist, so these warnings are local-only and the published site is complete.
+    if [ "$(uname)" = "Darwin" ]; then
+        echo ""
+        echo "note: macOS has a case-insensitive filesystem, so a few class/slot pages"
+        echo "      whose names differ only by case are merged locally. Expect some"
+        echo "      'target not found' warnings above; the Linux CI build is unaffected."
+    fi
+
+# Serve the documentation site locally at http://127.0.0.1:8000
+serve:
+    uv run --group docs mkdocs serve
+
+# Publish the site to GitHub Pages. CI runs this; run it locally only to force a deploy.
+deploy:
+    uv run --group docs mkdocs gh-deploy --force
+
+# Refresh schemas/ from a fresh extraction, then rebuild the site
+docs: promote testdoc
 
 # Full sweep except ERDs: extract, load, LinkML, index. Minutes, not hours.
 all-postgres: extract-all db-up db-load-all linkml-all index browse
