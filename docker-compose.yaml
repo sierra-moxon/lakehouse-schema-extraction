@@ -1,0 +1,64 @@
+# Local, throwaway services for turning extracted DDL into browsable documentation.
+#
+# Neither service talks to the lakehouse. The Postgres instance holds structure only
+# -- no rows are ever copied out of GOLD -- and exists purely to give SchemaSpy and
+# schema-automator a real database to introspect, since neither can read foreign keys
+# through Trino.
+#
+#   docker compose up -d --wait postgres      start and block until healthy
+#   docker compose run --rm schemaspy         generate the ERD, then exit
+#   docker compose down -v                    remove everything including the volume
+
+name: lakehouse-schema-extraction
+
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION:-17}
+    container_name: lse-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lakehouse}
+      POSTGRES_DB: ${POSTGRES_DB:-golddocs}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      # Extracted .sql is readable inside the container as /dump/<file>.sql
+      - ./out:/dump:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-golddocs}"]
+      interval: 2s
+      timeout: 3s
+      retries: 45
+      start_period: 5s
+
+  # One-shot: runs, writes ./out/schemaspy, exits. Not started by `up`.
+  schemaspy:
+    image: schemaspy/schemaspy:latest
+    profiles: ["tools"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./out/schemaspy:/output
+    command:
+      - -t
+      - pgsql11
+      - -host
+      - postgres
+      - -port
+      - "5432"
+      - -db
+      - ${POSTGRES_DB:-golddocs}
+      - -u
+      - ${POSTGRES_USER:-postgres}
+      - -p
+      - ${POSTGRES_PASSWORD:-lakehouse}
+      - -s
+      - ${TARGET_SCHEMA:-gold}
+      - -imageformat
+      - svg
+      - -vizjs
+
+volumes:
+  pgdata:

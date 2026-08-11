@@ -1,0 +1,40 @@
+[project]
+name = "lakehouse-schema-extraction"
+version = "0.1.0"
+description = "Extract DDL and schema metadata from databases federated behind the JGI Starburst lakehouse"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "trino[external-authentication-token-cache]>=0.330",
+    "click>=8.1",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+lakehouse-schema = "scripts.extract_ddl:main"
+lakehouse-refine-linkml = "scripts.refine_linkml:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pyyaml>=6.0.3",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lakehouse_schema_extraction", "src/scripts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
