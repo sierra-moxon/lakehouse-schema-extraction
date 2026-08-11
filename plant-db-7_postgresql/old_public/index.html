@@ -1,0 +1,4430 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="LinkML schemas generated from databases federated behind the JGI Starburst lakehouse">
+      
+      
+      
+      
+        <link rel="prev" href="../public/">
+      
+      
+        <link rel="next" href="../denormalized/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>old public - JGI Lakehouse Schemas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plant-db-7_postgresqlold_public" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JGI Lakehouse Schemas" class="md-header__button md-logo" aria-label="JGI Lakehouse Schemas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JGI Lakehouse Schemas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              old public
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jgi/lakehouse-schema-extraction" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JGI Lakehouse Schemas" class="md-nav__button md-logo" aria-label="JGI Lakehouse Schemas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JGI Lakehouse Schemas
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jgi/lakehouse-schema-extraction" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GOLD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GOLD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gold-db-2_postgresql/gold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gold-db-2_postgresql/gold_dsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gold dsi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IMG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/imgsg_dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    imgsg dev
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_core_v400/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img core v400
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_sat_v450/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img sat v450
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_ext/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img ext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_gold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_sub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_proteome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img proteome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_rnaseq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img rnaseq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_methylome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img methylome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_i_taxon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img i taxon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phytozome / Plant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phytozome / Plant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    old public
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    old public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../denormalized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    denormalized
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jcarlson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    jcarlson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phillips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phillips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    expression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obsolete_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    obsolete analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genetic_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    genetic code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SMC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SMC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smc-db_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citation Service
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Citation Service
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs-vm-1_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="plant-db-7_postgresqlold_public">plant-db-7_postgresql.old_public<a class="headerlink" href="#plant-db-7_postgresqlold_public" title="Permanent link">&para;</a></h1>
+<p>Generated from plant-db-7_postgresql.old_public by schema-automator, with types and nullability refined from native catalog metadata by lakehouse-schema-extraction.</p>
+<p>URI: https://w3id.org/jgi/old_public</p>
+<p>Name: old_public</p>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Acquisition/">Acquisition</a></td>
+<td>This represents the scanning of hybridized material</td>
+</tr>
+<tr>
+<td><a href="Acquisitionprop/">Acquisitionprop</a></td>
+<td>Parameters associated with image acquisition</td>
+</tr>
+<tr>
+<td><a href="AcquisitionRelationship/">AcquisitionRelationship</a></td>
+<td>Multiple monochrome images may be merged to form a multi-color image</td>
+</tr>
+<tr>
+<td><a href="Analysis/">Analysis</a></td>
+<td>An analysis is a particular type of a</td>
+</tr>
+<tr>
+<td><a href="Analysisfeature/">Analysisfeature</a></td>
+<td>Computational analyses generate features (e</td>
+</tr>
+<tr>
+<td><a href="Analysisfeatureprop/">Analysisfeatureprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Analysisgrp/">Analysisgrp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Analysisgrpmember/">Analysisgrpmember</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Analysisprop/">Analysisprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Arraydesign/">Arraydesign</a></td>
+<td>General properties about an array</td>
+</tr>
+<tr>
+<td><a href="Arraydesignprop/">Arraydesignprop</a></td>
+<td>Extra array design properties that are not accounted for in arraydesign</td>
+</tr>
+<tr>
+<td><a href="Assay/">Assay</a></td>
+<td>An assay consists of a physical instance of</td>
+</tr>
+<tr>
+<td><a href="AssayBiomaterial/">AssayBiomaterial</a></td>
+<td>A biomaterial can be hybridized many times (technical replicates), or combine...</td>
+</tr>
+<tr>
+<td><a href="AssayProject/">AssayProject</a></td>
+<td>Link assays to projects</td>
+</tr>
+<tr>
+<td><a href="Assayprop/">Assayprop</a></td>
+<td>Extra assay properties that are not accounted for in assay</td>
+</tr>
+<tr>
+<td><a href="Atin/">Atin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Biomaterial/">Biomaterial</a></td>
+<td>A biomaterial represents the MAGE concept of BioSource, BioSample, and Labele...</td>
+</tr>
+<tr>
+<td><a href="BiomaterialDbxref/">BiomaterialDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Biomaterialprop/">Biomaterialprop</a></td>
+<td>Extra biomaterial properties that are not accounted for in biomaterial</td>
+</tr>
+<tr>
+<td><a href="Biomaterialpropjson/">Biomaterialpropjson</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BiomaterialRelationship/">BiomaterialRelationship</a></td>
+<td>Relate biomaterials to one another</td>
+</tr>
+<tr>
+<td><a href="BiomaterialTreatment/">BiomaterialTreatment</a></td>
+<td>Link biomaterials to treatments</td>
+</tr>
+<tr>
+<td><a href="CellLine/">CellLine</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineCvterm/">CellLineCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineCvtermprop/">CellLineCvtermprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineDbxref/">CellLineDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineFeature/">CellLineFeature</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineLibrary/">CellLineLibrary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineprop/">CellLineprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLinepropPub/">CellLinepropPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLinePub/">CellLinePub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineRelationship/">CellLineRelationship</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CellLineSynonym/">CellLineSynonym</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Chadoprop/">Chadoprop</a></td>
+<td>This table is different from other prop tables in the database, as it is for ...</td>
+</tr>
+<tr>
+<td><a href="Channel/">Channel</a></td>
+<td>Different array platforms can record signals from one or more channels (cDNA ...</td>
+</tr>
+<tr>
+<td><a href="Contact/">Contact</a></td>
+<td>Model persons, institutes, groups, organizations, etc</td>
+</tr>
+<tr>
+<td><a href="ContactRelationship/">ContactRelationship</a></td>
+<td>Model relationships between contacts</td>
+</tr>
+<tr>
+<td><a href="Control/">Control</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Curate/">Curate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Cv/">Cv</a></td>
+<td>A controlled vocabulary or ontology</td>
+</tr>
+<tr>
+<td><a href="Cvprop/">Cvprop</a></td>
+<td>Additional extensible properties can be attached to a cv using this table</td>
+</tr>
+<tr>
+<td><a href="Cvterm/">Cvterm</a></td>
+<td>A term, class, universal or type within an</td>
+</tr>
+<tr>
+<td><a href="CvtermDbxref/">CvtermDbxref</a></td>
+<td>In addition to the primary</td>
+</tr>
+<tr>
+<td><a href="Cvtermpath/">Cvtermpath</a></td>
+<td>The reflexive transitive closure of</td>
+</tr>
+<tr>
+<td><a href="Cvtermprop/">Cvtermprop</a></td>
+<td>Additional extensible properties can be attached to a cvterm using this table</td>
+</tr>
+<tr>
+<td><a href="CvtermRelationship/">CvtermRelationship</a></td>
+<td>A relationship linking two</td>
+</tr>
+<tr>
+<td><a href="Cvtermsynonym/">Cvtermsynonym</a></td>
+<td>A cvterm actually represents a</td>
+</tr>
+<tr>
+<td><a href="Db/">Db</a></td>
+<td>A database authority</td>
+</tr>
+<tr>
+<td><a href="Dbxref/">Dbxref</a></td>
+<td>A unique, global, public, stable identifier</td>
+</tr>
+<tr>
+<td><a href="Dbxrefprop/">Dbxrefprop</a></td>
+<td>Metadata about a dbxref</td>
+</tr>
+<tr>
+<td><a href="DbxrefRelationship/">DbxrefRelationship</a></td>
+<td>Dbxref can be arranged in</td>
+</tr>
+<tr>
+<td><a href="Eimage/">Eimage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Element/">Element</a></td>
+<td>Represents a feature of the array</td>
+</tr>
+<tr>
+<td><a href="ElementRelationship/">ElementRelationship</a></td>
+<td>Sometimes we want to combine measurements from multiple elements to get a com...</td>
+</tr>
+<tr>
+<td><a href="Elementresult/">Elementresult</a></td>
+<td>An element on an array produces a measurement when hybridized to a biomateria...</td>
+</tr>
+<tr>
+<td><a href="ElementresultRelationship/">ElementresultRelationship</a></td>
+<td>Sometimes we want to combine measurements from multiple elements to get a com...</td>
+</tr>
+<tr>
+<td><a href="Environment/">Environment</a></td>
+<td>The environmental component of a phenotype description</td>
+</tr>
+<tr>
+<td><a href="EnvironmentCvterm/">EnvironmentCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="EutremaAnnot/">EutremaAnnot</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="EutremaExpression/">EutremaExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="EutremaUmap/">EutremaUmap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Expression/">Expression</a></td>
+<td>The expression table is essentially a bridge table</td>
+</tr>
+<tr>
+<td><a href="ExpressionCvterm/">ExpressionCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ExpressionCvtermprop/">ExpressionCvtermprop</a></td>
+<td>Extensible properties for</td>
+</tr>
+<tr>
+<td><a href="ExpressionImage/">ExpressionImage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Expressionprop/">Expressionprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ExpressionPub/">ExpressionPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Feature/">Feature</a></td>
+<td>A feature is a biological sequence or a</td>
+</tr>
+<tr>
+<td><a href="FeatureCvterm/">FeatureCvterm</a></td>
+<td>Associate a term from a cv with a feature, for example, GO annotation</td>
+</tr>
+<tr>
+<td><a href="FeatureCvtermDbxref/">FeatureCvtermDbxref</a></td>
+<td>Additional dbxrefs for an association</td>
+</tr>
+<tr>
+<td><a href="FeatureCvtermprop/">FeatureCvtermprop</a></td>
+<td>Extensible properties for</td>
+</tr>
+<tr>
+<td><a href="FeatureCvtermPub/">FeatureCvtermPub</a></td>
+<td>Secondary pubs for an</td>
+</tr>
+<tr>
+<td><a href="FeatureDbxref/">FeatureDbxref</a></td>
+<td>Links a feature to dbxrefs</td>
+</tr>
+<tr>
+<td><a href="FeatureDbxrefEvidence/">FeatureDbxrefEvidence</a></td>
+<td>the link between</td>
+</tr>
+<tr>
+<td><a href="FeatureExpression/">FeatureExpression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeatureExpressionprop/">FeatureExpressionprop</a></td>
+<td>Extensible properties for</td>
+</tr>
+<tr>
+<td><a href="FeatureGenotype/">FeatureGenotype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeatureGrpmember/">FeatureGrpmember</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Featureloc/">Featureloc</a></td>
+<td>The location of a feature relative to</td>
+</tr>
+<tr>
+<td><a href="FeaturelocPub/">FeaturelocPub</a></td>
+<td>Provenance of featureloc</td>
+</tr>
+<tr>
+<td><a href="Featuremap/">Featuremap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeaturemapPub/">FeaturemapPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeaturePhenotype/">FeaturePhenotype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Featurepos/">Featurepos</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Featureprop/">Featureprop</a></td>
+<td>A feature can have any number of slot-value property tags attached to it</td>
+</tr>
+<tr>
+<td><a href="FeaturepropEvidence/">FeaturepropEvidence</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Featurepropjson/">Featurepropjson</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeaturepropPub/">FeaturepropPub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="FeaturePub/">FeaturePub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="FeaturePubprop/">FeaturePubprop</a></td>
+<td>Property or attribute of a feature_pub link</td>
+</tr>
+<tr>
+<td><a href="Featurerange/">Featurerange</a></td>
+<td>In cases where the start and end of a mapped feature is a range, leftendf and...</td>
+</tr>
+<tr>
+<td><a href="FeatureRelationship/">FeatureRelationship</a></td>
+<td>Features can be arranged in</td>
+</tr>
+<tr>
+<td><a href="FeatureRelationshipprop/">FeatureRelationshipprop</a></td>
+<td>Extensible properties</td>
+</tr>
+<tr>
+<td><a href="FeatureRelationshippropPub/">FeatureRelationshippropPub</a></td>
+<td>Provenance for feature_relationshipprop</td>
+</tr>
+<tr>
+<td><a href="FeatureRelationshipPub/">FeatureRelationshipPub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="FeatureResidues/">FeatureResidues</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FeatureSynonym/">FeatureSynonym</a></td>
+<td>Linking table between feature and synonym</td>
+</tr>
+<tr>
+<td><a href="Genotype/">Genotype</a></td>
+<td>Genetic context</td>
+</tr>
+<tr>
+<td><a href="Genotypeprop/">Genotypeprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GffMeta/">GffMeta</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Grp/">Grp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpCvterm/">GrpCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpDbxref/">GrpDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Grploc/">Grploc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Grpmember/">Grpmember</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpmemberCvterm/">GrpmemberCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpmemberDbxref/">GrpmemberDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Grpmemberprop/">Grpmemberprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpmemberpropPub/">GrpmemberpropPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpmemberPub/">GrpmemberPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Grpprop/">Grpprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrppropPub/">GrppropPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpPub/">GrpPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpPubprop/">GrpPubprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpRelationship/">GrpRelationship</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpRelationshipProp/">GrpRelationshipProp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="GrpRelationshipPub/">GrpRelationshipPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Library/">Library</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LibraryCvterm/">LibraryCvterm</a></td>
+<td>The table library_cvterm links a library to controlled vocabularies which des...</td>
+</tr>
+<tr>
+<td><a href="LibraryDbxref/">LibraryDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LibraryFeature/">LibraryFeature</a></td>
+<td>library_feature links a library to the clones which are contained in the libr...</td>
+</tr>
+<tr>
+<td><a href="LibraryFeatureprop/">LibraryFeatureprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Libraryprop/">Libraryprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LibrarypropPub/">LibrarypropPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LibraryPub/">LibraryPub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="LibrarySynonym/">LibrarySynonym</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Magedocumentation/">Magedocumentation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Mageml/">Mageml</a></td>
+<td>This table is for storing extra bits of MAGEml in a denormalized form</td>
+</tr>
+<tr>
+<td><a href="MaterializedView/">MaterializedView</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdExperiment/">NdExperiment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdExperimentContact/">NdExperimentContact</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdExperimentDbxref/">NdExperimentDbxref</a></td>
+<td>Cross-reference experiment to accessions, images, etc</td>
+</tr>
+<tr>
+<td><a href="NdExperimentGenotype/">NdExperimentGenotype</a></td>
+<td>Linking table: experiments to the genotypes they produce</td>
+</tr>
+<tr>
+<td><a href="NdExperimentPhenotype/">NdExperimentPhenotype</a></td>
+<td>Linking table: experiments to the phenotypes they produce</td>
+</tr>
+<tr>
+<td><a href="NdExperimentProject/">NdExperimentProject</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdExperimentprop/">NdExperimentprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdExperimentProtocol/">NdExperimentProtocol</a></td>
+<td>Linking table: experiments to the protocols they involve</td>
+</tr>
+<tr>
+<td><a href="NdExperimentPub/">NdExperimentPub</a></td>
+<td>Linking nd_experiment(s) to publication(s)</td>
+</tr>
+<tr>
+<td><a href="NdExperimentStock/">NdExperimentStock</a></td>
+<td>Part of a stock or a clone of a stock that is used in an experiment</td>
+</tr>
+<tr>
+<td><a href="NdExperimentStockDbxref/">NdExperimentStockDbxref</a></td>
+<td>Cross-reference experiment_stock to accessions, images, etc</td>
+</tr>
+<tr>
+<td><a href="NdExperimentStockprop/">NdExperimentStockprop</a></td>
+<td>Property/value associations for experiment_stocks</td>
+</tr>
+<tr>
+<td><a href="NdGeolocation/">NdGeolocation</a></td>
+<td>The geo-referencable location of the stock</td>
+</tr>
+<tr>
+<td><a href="NdGeolocationprop/">NdGeolocationprop</a></td>
+<td>Property/value associations for geolocations</td>
+</tr>
+<tr>
+<td><a href="NdProtocol/">NdProtocol</a></td>
+<td>A protocol can be anything that is done as part of the experiment</td>
+</tr>
+<tr>
+<td><a href="NdProtocolprop/">NdProtocolprop</a></td>
+<td>Property/value associations for protocol</td>
+</tr>
+<tr>
+<td><a href="NdProtocolReagent/">NdProtocolReagent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdReagent/">NdReagent</a></td>
+<td>A reagent such as a primer, an enzyme, an adapter oligo, a linker oligo</td>
+</tr>
+<tr>
+<td><a href="NdReagentprop/">NdReagentprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="NdReagentRelationship/">NdReagentRelationship</a></td>
+<td>Relationships between reagents</td>
+</tr>
+<tr>
+<td><a href="Organism/">Organism</a></td>
+<td>The organismal taxonomic</td>
+</tr>
+<tr>
+<td><a href="OrganismDbxref/">OrganismDbxref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="OrganismGrpmember/">OrganismGrpmember</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Organismprop/">Organismprop</a></td>
+<td>Tag-value properties - follows standard chado model</td>
+</tr>
+<tr>
+<td><a href="PacAnnotation/">PacAnnotation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacAnnotationInfo/">PacAnnotationInfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacCluster/">PacCluster</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacClusterWorklist/">PacClusterWorklist</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacExon/">PacExon</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacGene/">PacGene</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacGeneExpressionTable/">PacGeneExpressionTable</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacGeneStage/">PacGeneStage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacHmmNonconstituentScoreIn2/">PacHmmNonconstituentScoreIn2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacOrganism/">PacOrganism</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacProteinAnnotation/">PacProteinAnnotation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacProteinFamily/">PacProteinFamily</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacSyntenyView/">PacSyntenyView</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PacTranscript/">PacTranscript</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PhcsIn2/">PhcsIn2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PhcsIn3/">PhcsIn3</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Phendesc/">Phendesc</a></td>
+<td>A summary of a <em>set</em> of phenotypic statements for any one gcontext made in an...</td>
+</tr>
+<tr>
+<td><a href="Phenotype/">Phenotype</a></td>
+<td>A phenotypic statement, or a single</td>
+</tr>
+<tr>
+<td><a href="PhenotypeComparison/">PhenotypeComparison</a></td>
+<td>Comparison of phenotypes e</td>
+</tr>
+<tr>
+<td><a href="PhenotypeComparisonCvterm/">PhenotypeComparisonCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PhenotypeCvterm/">PhenotypeCvterm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Phenstatement/">Phenstatement</a></td>
+<td>Phenotypes are things like "larval lethal"</td>
+</tr>
+<tr>
+<td><a href="Phylonode/">Phylonode</a></td>
+<td>This is the most pervasive</td>
+</tr>
+<tr>
+<td><a href="PhylonodeDbxref/">PhylonodeDbxref</a></td>
+<td>For example, for orthology, paralogy group identifiers; could also be used fo...</td>
+</tr>
+<tr>
+<td><a href="PhylonodeOrganism/">PhylonodeOrganism</a></td>
+<td>This linking table should only be used for nodes in taxonomy trees; it provid...</td>
+</tr>
+<tr>
+<td><a href="Phylonodeprop/">Phylonodeprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PhylonodePub/">PhylonodePub</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="PhylonodeRelationship/">PhylonodeRelationship</a></td>
+<td>This is for</td>
+</tr>
+<tr>
+<td><a href="Phylotree/">Phylotree</a></td>
+<td>Global anchor for phylogenetic tree</td>
+</tr>
+<tr>
+<td><a href="PhylotreePub/">PhylotreePub</a></td>
+<td>Tracks citations global to the tree e</td>
+</tr>
+<tr>
+<td><a href="Project/">Project</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ProjectContact/">ProjectContact</a></td>
+<td>Linking project(s) to contact(s)</td>
+</tr>
+<tr>
+<td><a href="Projectprop/">Projectprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ProjectPub/">ProjectPub</a></td>
+<td>Linking project(s) to publication(s)</td>
+</tr>
+<tr>
+<td><a href="ProjectRelationship/">ProjectRelationship</a></td>
+<td>A project can be composed of several smaller scale projects</td>
+</tr>
+<tr>
+<td><a href="Protocol/">Protocol</a></td>
+<td>Procedural notes on how data was prepared and processed</td>
+</tr>
+<tr>
+<td><a href="Protocolparam/">Protocolparam</a></td>
+<td>Parameters related to a</td>
+</tr>
+<tr>
+<td><a href="Pub/">Pub</a></td>
+<td>A documented provenance artefact - publications,</td>
+</tr>
+<tr>
+<td><a href="Pubauthor/">Pubauthor</a></td>
+<td>An author for a publication</td>
+</tr>
+<tr>
+<td><a href="PubDbxref/">PubDbxref</a></td>
+<td>Handle links to repositories,</td>
+</tr>
+<tr>
+<td><a href="Pubprop/">Pubprop</a></td>
+<td>Property-value pairs for a pub</td>
+</tr>
+<tr>
+<td><a href="PubRelationship/">PubRelationship</a></td>
+<td>Handle relationships between</td>
+</tr>
+<tr>
+<td><a href="Quantification/">Quantification</a></td>
+<td>Quantification is the transformation of an image acquisition to numeric data</td>
+</tr>
+<tr>
+<td><a href="Quantificationprop/">Quantificationprop</a></td>
+<td>Extra quantification properties that are not accounted for in quantification</td>
+</tr>
+<tr>
+<td><a href="QuantificationRelationship/">QuantificationRelationship</a></td>
+<td>There may be multiple rounds of quantification, this allows us to keep an aud...</td>
+</tr>
+<tr>
+<td><a href="ReleaseInPhytozome/">ReleaseInPhytozome</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="RnaSeqSamples/">RnaSeqSamples</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="RnaSeqSummary/">RnaSeqSummary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Stock/">Stock</a></td>
+<td>Any stock can be globally identified by the</td>
+</tr>
+<tr>
+<td><a href="Stockcollection/">Stockcollection</a></td>
+<td>The lab or stock center distributing the stocks in their collection</td>
+</tr>
+<tr>
+<td><a href="Stockcollectionprop/">Stockcollectionprop</a></td>
+<td>The table stockcollectionprop</td>
+</tr>
+<tr>
+<td><a href="StockcollectionStock/">StockcollectionStock</a></td>
+<td>stockcollection_stock links</td>
+</tr>
+<tr>
+<td><a href="StockCvterm/">StockCvterm</a></td>
+<td>stock_cvterm links a stock to cvterms</td>
+</tr>
+<tr>
+<td><a href="StockCvtermprop/">StockCvtermprop</a></td>
+<td>Extensible properties for</td>
+</tr>
+<tr>
+<td><a href="StockDbxref/">StockDbxref</a></td>
+<td>stock_dbxref links a stock to dbxrefs</td>
+</tr>
+<tr>
+<td><a href="StockDbxrefprop/">StockDbxrefprop</a></td>
+<td>A stock_dbxref can have any number of</td>
+</tr>
+<tr>
+<td><a href="StockGenotype/">StockGenotype</a></td>
+<td>Simple table linking a stock to</td>
+</tr>
+<tr>
+<td><a href="Stockprop/">Stockprop</a></td>
+<td>A stock can have any number of</td>
+</tr>
+<tr>
+<td><a href="StockpropPub/">StockpropPub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="StockPub/">StockPub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="StockRelationship/">StockRelationship</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="StockRelationshipCvterm/">StockRelationshipCvterm</a></td>
+<td>For germplasm maintenance and pedigree data, stock_relationship</td>
+</tr>
+<tr>
+<td><a href="StockRelationshipPub/">StockRelationshipPub</a></td>
+<td>Provenance</td>
+</tr>
+<tr>
+<td><a href="Study/">Study</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="StudyAssay/">StudyAssay</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Studydesign/">Studydesign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Studydesignprop/">Studydesignprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Studyfactor/">Studyfactor</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Studyfactorvalue/">Studyfactorvalue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Studyprop/">Studyprop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="StudypropFeature/">StudypropFeature</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="StudypropFeatureNew/">StudypropFeatureNew</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Synonym/">Synonym</a></td>
+<td>A synonym for a feature</td>
+</tr>
+<tr>
+<td><a href="Tableinfo/">Tableinfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TmpHmmJsonb/">TmpHmmJsonb</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TmpUniquename/">TmpUniquename</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingArchiveDirectory/">TrackingArchiveDirectory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingBundle/">TrackingBundle</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingBundleComponent/">TrackingBundleComponent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingBundleData/">TrackingBundleData</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingBundleFile/">TrackingBundleFile</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TrackingBundleFileData/">TrackingBundleFileData</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Treatment/">Treatment</a></td>
+<td>A biomaterial may undergo multiple</td>
+</tr>
+<tr>
+<td><a href="UncuratedPathwayLayouts/">UncuratedPathwayLayouts</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ViewGrps/">ViewGrps</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="abbreviation/">abbreviation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="accession/">accession</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="acquisition_id/">acquisition_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="acquisition_relationship_id/">acquisition_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="acquisitiondate/">acquisitiondate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="acquisitionprop_id/">acquisitionprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="active/">active</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="algorithm/">algorithm</a></td>
+<td>Algorithm name, e</td>
+</tr>
+<tr>
+<td><a href="altitude/">altitude</a></td>
+<td>The altitude (elevation) of the location in meters</td>
+</tr>
+<tr>
+<td><a href="analysis_id/">analysis_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysisfeature_id/">analysisfeature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysisfeatureprop_id/">analysisfeatureprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysisgrp_id/">analysisgrp_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysisgrpmember_id/">analysisgrpmember_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysisprop_id/">analysisprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="annotation_version/">annotation_version</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ap/">ap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="apid/">apid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="array_dimensions/">array_dimensions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="arraybatchidentifier/">arraybatchidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="arraydesign_id/">arraydesign_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="arraydesignprop_id/">arraydesignprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="arrayidentifier/">arrayidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="assay_biomaterial_id/">assay_biomaterial_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="assay_id/">assay_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="assay_project_id/">assay_project_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="assaydate/">assaydate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="assayprop_id/">assayprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="at/">at</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="atid/">atid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="attr_id/">attr_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="base_end/">base_end</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="base_start/">base_start</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterial/">biomaterial</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterial_dbxref_id/">biomaterial_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterial_id/">biomaterial_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterial_relationship_id/">biomaterial_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterial_treatment_id/">biomaterial_treatment_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterialprop_id/">biomaterialprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biomaterialpropjson_id/">biomaterialpropjson_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="biosourceprovider_id/">biosourceprovider_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bundle_name/">bundle_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bundle_type/">bundle_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cds_fmax/">cds_fmax</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cds_fmin/">cds_fmin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cds_seq/">cds_seq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell/">cell</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_cvterm_id/">cell_line_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_cvtermprop_id/">cell_line_cvtermprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_dbxref_id/">cell_line_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_feature_id/">cell_line_feature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_id/">cell_line_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_library_id/">cell_line_library_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_pub_id/">cell_line_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_relationship_id/">cell_line_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_line_synonym_id/">cell_line_synonym_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_lineprop_id/">cell_lineprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cell_lineprop_pub_id/">cell_lineprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="celltype/">celltype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cgroup/">cgroup</a></td>
+<td>Spatially distinguishable</td>
+</tr>
+<tr>
+<td><a href="chadoprop_id/">chadoprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="channel_id/">channel_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chromosome/">chromosome</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chromosome_id/">chromosome_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chromosome_name/">chromosome_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="chunk/">chunk</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cluster_id/">cluster_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cluster_name/">cluster_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="comment/">comment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="common_name/">common_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="component/">component</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="contact_id/">contact_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="contact_relationship_id/">contact_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="control_id/">control_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="count/">count</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="creation_datetime/">creation_datetime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cv_id/">cv_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvalue_id/">cvalue_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvprop_id/">cvprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvterm_dbxref_id/">cvterm_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvterm_id/">cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvterm_relationship_id/">cvterm_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvterm_type_id/">cvterm_type_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvtermpath_id/">cvtermpath_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvtermprop_id/">cvtermprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="cvtermsynonym_id/">cvtermsynonym_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data/">data</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="datatype_id/">datatype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="db/">db</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="db_id/">db_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dbxref_id/">dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dbxref_relationship_id/">dbxref_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dbxrefprop_id/">dbxrefprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="definition/">definition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="defline/">defline</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="deflines/">deflines</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="description/">description</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="distance/">distance</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="editor/">editor</a></td>
+<td>Indicates whether the author is an editor for linked publication</td>
+</tr>
+<tr>
+<td><a href="eimage_data/">eimage_data</a></td>
+<td>We expect images in eimage_data (e</td>
+</tr>
+<tr>
+<td><a href="eimage_id/">eimage_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="eimage_type/">eimage_type</a></td>
+<td>Describes the type of data in eimage_data</td>
+</tr>
+<tr>
+<td><a href="element_dimensions/">element_dimensions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="element_id/">element_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="element_relationship_id/">element_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="elementresult_id/">elementresult_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="elementresult_relationship_id/">elementresult_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="end_datetime/">end_datetime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="environment1_id/">environment1_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="environment2_id/">environment2_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="environment_cvterm_id/">environment_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="environment_id/">environment_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="exons/">exons</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="experiment_group/">experiment_group</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression/">expression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_cvterm_id/">expression_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_cvtermprop_id/">expression_cvtermprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_id/">expression_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_image_id/">expression_image_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_pub_id/">expression_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expression_qualification/">expression_qualification</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="expressionprop_id/">expressionprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="factorvalue/">factorvalue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="families/">families</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="family_size/">family_size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_cvterm_dbxref_id/">feature_cvterm_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_cvterm_id/">feature_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_cvterm_pub_id/">feature_cvterm_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_cvtermprop_id/">feature_cvtermprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_dbxref_evidence_id/">feature_dbxref_evidence_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_dbxref_id/">feature_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_expression_id/">feature_expression_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_expressionprop_id/">feature_expressionprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_genotype_id/">feature_genotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_grpmember_id/">feature_grpmember_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_id/">feature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_phenotype_id/">feature_phenotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_pub_id/">feature_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_pubprop_id/">feature_pubprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_relationship_id/">feature_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_relationship_pub_id/">feature_relationship_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_relationshipprop_id/">feature_relationshipprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_relationshipprop_pub_id/">feature_relationshipprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="feature_synonym_id/">feature_synonym_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featureloc_id/">featureloc_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featureloc_pub_id/">featureloc_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featuremap_id/">featuremap_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featuremap_pub_id/">featuremap_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featurepos_id/">featurepos_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featureprop_evidence_id/">featureprop_evidence_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featureprop_id/">featureprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featureprop_pub_id/">featureprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featurepropjson_id/">featurepropjson_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="featurerange_id/">featurerange_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="filename/">filename</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="filetype/">filetype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="fmax/">fmax</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="fmin/">fmin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gathering_threshold/">gathering_threshold</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene/">gene</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_id/">gene_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_name/">gene_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_secondaryidentifier/">gene_secondaryidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_uniquename/">gene_uniquename</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genome_version/">genome_version</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genotype1_id/">genotype1_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genotype2_id/">genotype2_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genotype_id/">genotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genotypeprop_id/">genotypeprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="genus/">genus</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="geodetic_datum/">geodetic_datum</a></td>
+<td>The geodetic system on which the geo-reference coordinates are based</td>
+</tr>
+<tr>
+<td><a href="givennames/">givennames</a></td>
+<td>First name, initials</td>
+</tr>
+<tr>
+<td><a href="group_class/">group_class</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_cvterm_id/">grp_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_dbxref_id/">grp_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_id/">grp_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_pub_id/">grp_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_pubprop_id/">grp_pubprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_relationship_id/">grp_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grp_relationship_pub_id/">grp_relationship_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grploc_id/">grploc_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmember_cvterm_id/">grpmember_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmember_dbxref_id/">grpmember_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmember_id/">grpmember_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmember_pub_id/">grpmember_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmemberprop_id/">grpmemberprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpmemberprop_pub_id/">grpmemberprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpprop_id/">grpprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="grpprop_pub_id/">grpprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="hardwaredescription/">hardwaredescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="host/">host</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="hostname/">hostname</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ident/">ident</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="identity/">identity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="image_uri/">image_uri</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="indexed/">indexed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_analysis/">is_analysis</a></td>
+<td>Boolean indicating whether this</td>
+</tr>
+<tr>
+<td><a href="is_current/">is_current</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_fmax_partial/">is_fmax_partial</a></td>
+<td>This is typically</td>
+</tr>
+<tr>
+<td><a href="is_fmin_partial/">is_fmin_partial</a></td>
+<td>This is typically</td>
+</tr>
+<tr>
+<td><a href="is_for_definition/">is_for_definition</a></td>
+<td>A</td>
+</tr>
+<tr>
+<td><a href="is_internal/">is_internal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_not/">is_not</a></td>
+<td>If this is set to true, then this annotation is interpreted as a NEGATIVE ann...</td>
+</tr>
+<tr>
+<td><a href="is_obsolete/">is_obsolete</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_redo/">is_redo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_relationshiptype/">is_relationshiptype</a></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><a href="is_updateable/">is_updateable</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_view/">is_view</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="issue/">issue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="js/">js</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="key/">key</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="label/">label</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="last_update/">last_update</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="latitude/">latitude</a></td>
+<td>The decimal latitude coordinate of the georeference, using positive and negat...</td>
+</tr>
+<tr>
+<td><a href="left_idx/">left_idx</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="leftendf_id/">leftendf_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="leftstartf_id/">leftstartf_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_cvterm_id/">library_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_dbxref_id/">library_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_feature_id/">library_feature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_featureprop_id/">library_featureprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_id/">library_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_pub_id/">library_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="library_synonym_id/">library_synonym_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="libraryprop_id/">libraryprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="libraryprop_pub_id/">libraryprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="locgroup/">locgroup</a></td>
+<td>This is used to manifest redundant,</td>
+</tr>
+<tr>
+<td><a href="longest/">longest</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="longitude/">longitude</a></td>
+<td>The decimal longitude coordinate of the georeference, using positive and nega...</td>
+</tr>
+<tr>
+<td><a href="mage_ml/">mage_ml</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mage_package/">mage_package</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="magedocumentation_id/">magedocumentation_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mageidentifier/">mageidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mageml_id/">mageml_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="manufacturer_id/">manufacturer_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="map_feature_id/">map_feature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mappos/">mappos</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="materialized_view_id/">materialized_view_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="md5checksum/">md5checksum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="md5sum/">md5sum</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="memberprimaryidentifier/">memberprimaryidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="membersecondaryidentifier/">membersecondaryidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="method_id/">method_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="method_name/">method_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="miniref/">miniref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="modification_date/">modification_date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mv_schema/">mv_schema</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mv_specs/">mv_specs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mv_table/">mv_table</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="name/">name</a></td>
+<td>A way of grouping analyses</td>
+</tr>
+<tr>
+<td><a href="namespace/">namespace</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ncount_rna/">ncount_rna</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_contact_id/">nd_experiment_contact_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_dbxref_id/">nd_experiment_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_genotype_id/">nd_experiment_genotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_id/">nd_experiment_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_phenotype_id/">nd_experiment_phenotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_project_id/">nd_experiment_project_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_protocol_id/">nd_experiment_protocol_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_pub_id/">nd_experiment_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_stock_dbxref_id/">nd_experiment_stock_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_stock_id/">nd_experiment_stock_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experiment_stockprop_id/">nd_experiment_stockprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_experimentprop_id/">nd_experimentprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_geolocation_id/">nd_geolocation_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_geolocationprop_id/">nd_geolocationprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_protocol_id/">nd_protocol_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_protocol_reagent_id/">nd_protocol_reagent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_protocolprop_id/">nd_protocolprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_reagent_id/">nd_reagent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_reagent_relationship_id/">nd_reagent_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nd_reagentprop_id/">nd_reagentprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="nfeature_rna/">nfeature_rna</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="normscore/">normscore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_array_columns/">num_array_columns</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_array_rows/">num_array_rows</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_grid_columns/">num_grid_columns</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_grid_rows/">num_grid_rows</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_of_elements/">num_of_elements</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_sub_columns/">num_sub_columns</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="num_sub_rows/">num_sub_rows</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="object_id/">object_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="object_project_id/">object_project_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="object_reagent_id/">object_reagent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="observable_id/">observable_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="operator_id/">operator_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ordinal/">ordinal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_commonname/">organism_commonname</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_dbxref_id/">organism_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_grpmember_id/">organism_grpmember_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_id/">organism_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_name/">organism_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organism_shortname/">organism_shortname</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="organismprop_id/">organismprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pages/">pages</a></td>
+<td>Page number range[s], e</td>
+</tr>
+<tr>
+<td><a href="parent_phylonode_id/">parent_phylonode_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="path/">path</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pathdistance/">pathdistance</a></td>
+<td>The number of steps</td>
+</tr>
+<tr>
+<td><a href="phase/">phase</a></td>
+<td>Phase of translation with</td>
+</tr>
+<tr>
+<td><a href="phendesc_id/">phendesc_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype1_id/">phenotype1_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype2_id/">phenotype2_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype_comparison_cvterm_id/">phenotype_comparison_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype_comparison_id/">phenotype_comparison_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype_cvterm_id/">phenotype_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenotype_id/">phenotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phenstatement_id/">phenstatement_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonode_dbxref_id/">phylonode_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonode_id/">phylonode_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonode_organism_id/">phylonode_organism_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonode_pub_id/">phylonode_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonode_relationship_id/">phylonode_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylonodeprop_id/">phylonodeprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylotree_id/">phylotree_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phylotree_pub_id/">phylotree_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="platformtype_id/">platformtype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="primary_key_column/">primary_key_column</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="primaryidentifier/">primaryidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="program/">program</a></td>
+<td>Program name, e</td>
+</tr>
+<tr>
+<td><a href="programversion/">programversion</a></td>
+<td>Version description, e</td>
+</tr>
+<tr>
+<td><a href="project_contact_id/">project_contact_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="project_id/">project_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="project_pub_id/">project_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="project_relationship_id/">project_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="projectprop_id/">projectprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protein/">protein</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protein_id/">protein_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protein_name/">protein_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protein_seq/">protein_seq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="proteome/">proteome</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="proteome_id/">proteome_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="proteomeid/">proteomeid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocol_id/">protocol_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocoldescription/">protocoldescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="protocolparam_id/">protocolparam_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pub_dbxref_id/">pub_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pub_id/">pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pub_relationship_id/">pub_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pubauthor_id/">pubauthor_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="publication_date/">publication_date</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="publisher/">publisher</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pubplace/">pubplace</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pubprop_id/">pubprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="pyear/">pyear</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="quantification_id/">quantification_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="quantification_relationship_id/">quantification_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="quantificationdate/">quantificationdate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="quantificationprop_id/">quantificationprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="query/">query</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rangestr/">rangestr</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rank/">rank</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rawscore/">rawscore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="reagent_id/">reagent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="refresh_time/">refresh_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="replicate/">replicate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="residue_info/">residue_info</a></td>
+<td>Alternative residues,</td>
+</tr>
+<tr>
+<td><a href="residues/">residues</a></td>
+<td>A sequence of alphabetic characters</td>
+</tr>
+<tr>
+<td><a href="right_idx/">right_idx</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rightendf_id/">rightendf_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rightstartf_id/">rightstartf_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="row_id/">row_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sample/">sample</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sample_name/">sample_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="scaffold/">scaffold</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="score/">score</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="secondaryidentifier/">secondaryidentifier</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="seqlen/">seqlen</a></td>
+<td>The length of the residue feature</td>
+</tr>
+<tr>
+<td><a href="series_name/">series_name</a></td>
+<td>Full name of (journal) series</td>
+</tr>
+<tr>
+<td><a href="seurat_clusters/">seurat_clusters</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="signal/">signal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="significance/">significance</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="size/">size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="softwaredescription/">softwaredescription</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="sourcename/">sourcename</a></td>
+<td>Source name, e</td>
+</tr>
+<tr>
+<td><a href="sourceuri/">sourceuri</a></td>
+<td>This is an optional, permanent URL or URI for the source of the  analysis</td>
+</tr>
+<tr>
+<td><a href="sourceversion/">sourceversion</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="special_index/">special_index</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="species/">species</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="srcfeature_id/">srcfeature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="start_datetime/">start_datetime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="starttime/">starttime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="step/">step</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_cvterm_id/">stock_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_cvtermprop_id/">stock_cvtermprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_dbxref_id/">stock_dbxref_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_dbxrefprop_id/">stock_dbxrefprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_genotype_id/">stock_genotype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_id/">stock_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_pub_id/">stock_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_relationship_cvterm_id/">stock_relationship_cvterm_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_relationship_id/">stock_relationship_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stock_relationship_pub_id/">stock_relationship_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stockcollection_id/">stockcollection_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stockcollection_stock_id/">stockcollection_stock_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stockcollectionprop_id/">stockcollectionprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stockprop_id/">stockprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="stockprop_pub_id/">stockprop_pub_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="strand/">strand</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="study_assay_id/">study_assay_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="study_id/">study_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studydesign_id/">studydesign_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studydesignprop_id/">studydesignprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyfactor_id/">studyfactor_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyfactorvalue_id/">studyfactorvalue_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyprop_feature_id/">studyprop_feature_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="studyprop_id/">studyprop_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="subject_id/">subject_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="subject_project_id/">subject_project_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="subject_reagent_id/">subject_reagent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="substratetype_id/">substratetype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="subtype/">subtype</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="suffix/">suffix</a></td>
+<td>Jr</td>
+</tr>
+<tr>
+<td><a href="superclass_table_id/">superclass_table_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="surname/">surname</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="symbol/">symbol</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="symbols/">symbols</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="synonym/">synonym</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="synonym_id/">synonym_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="synonym_sgml/">synonym_sgml</a></td>
+<td>The fully specified synonym, with any non-ascii characters encoded in SGML</td>
+</tr>
+<tr>
+<td><a href="synonyms/">synonyms</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tableinfo_id/">tableinfo_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tax_id/">tax_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="taxon_id/">taxon_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timeaccessioned/">timeaccessioned</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timeexecuted/">timeexecuted</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="timelastmodified/">timelastmodified</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="title/">title</a></td>
+<td>Descriptive general heading</td>
+</tr>
+<tr>
+<td><a href="total_expression/">total_expression</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tracking_archive_directory_id/">tracking_archive_directory_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tracking_bundle_component_id/">tracking_bundle_component_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tracking_bundle_data_id/">tracking_bundle_data_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tracking_bundle_file_id/">tracking_bundle_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tracking_bundle_id/">tracking_bundle_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="transcript_fmax/">transcript_fmax</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="transcript_fmin/">transcript_fmin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="transcript_id/">transcript_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="transcript_name/">transcript_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="transcripts/">transcripts</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="treatment/">treatment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="treatment_id/">treatment_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="type/">type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="type_id/">type_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="u_x/">u_x</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="u_y/">u_y</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="uniquename/">uniquename</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="unittype_id/">unittype_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="uri/">uri</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="url/">url</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="urlprefix/">urlprefix</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ux/">ux</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="uy/">uy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="value/">value</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="view_on_table_id/">view_on_table_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="volume/">volume</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="volumetitle/">volumetitle</a></td>
+<td>Title of part if one of a series</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Boolean/">Boolean</a></td>
+<td>A binary (true or false) value</td>
+</tr>
+<tr>
+<td><a href="Curie/">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="Date/">Date</a></td>
+<td>a date (year, month and day) in an idealized calendar</td>
+</tr>
+<tr>
+<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
+<td>Either a date or a datetime</td>
+</tr>
+<tr>
+<td><a href="Datetime/">Datetime</a></td>
+<td>The combination of a date and time</td>
+</tr>
+<tr>
+<td><a href="Decimal/">Decimal</a></td>
+<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
+</tr>
+<tr>
+<td><a href="Double/">Double</a></td>
+<td>A real number that conforms to the xsd:double specification</td>
+</tr>
+<tr>
+<td><a href="Float/">Float</a></td>
+<td>A real number that conforms to the xsd:float specification</td>
+</tr>
+<tr>
+<td><a href="Integer/">Integer</a></td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><a href="Jsonpath/">Jsonpath</a></td>
+<td>A string encoding a JSON Path</td>
+</tr>
+<tr>
+<td><a href="Jsonpointer/">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="Ncname/">Ncname</a></td>
+<td>Prefix part of CURIE</td>
+</tr>
+<tr>
+<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
+<td>A URI, CURIE or BNODE that represents a node in a model</td>
+</tr>
+<tr>
+<td><a href="Objectidentifier/">Objectidentifier</a></td>
+<td>A URI or CURIE that represents an object in the model</td>
+</tr>
+<tr>
+<td><a href="Sparqlpath/">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path</td>
+</tr>
+<tr>
+<td><a href="String/">String</a></td>
+<td>A character string</td>
+</tr>
+<tr>
+<td><a href="Time/">Time</a></td>
+<td>A time object represents a (local) time of day, independent of any particular...</td>
+</tr>
+<tr>
+<td><a href="Uri/">Uri</a></td>
+<td>a complete URI</td>
+</tr>
+<tr>
+<td><a href="Uriorcurie/">Uriorcurie</a></td>
+<td>a URI or a CURIE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subsets">Subsets<a class="headerlink" href="#subsets" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2562 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="LinkML schemas generated from databases federated behind the JGI Starburst lakehouse">
+      
+      
+      
+      
+        <link rel="prev" href="../../plant-db-7_postgresql/go/">
+      
+      
+        <link rel="next" href="../../gcs-vm-1_postgresql/public/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>public - JGI Lakehouse Schemas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#smc-db_postgresqlpublic" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="JGI Lakehouse Schemas" class="md-header__button md-logo" aria-label="JGI Lakehouse Schemas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            JGI Lakehouse Schemas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              public
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="cyan"  aria-label="Switch to light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jgi/lakehouse-schema-extraction" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="JGI Lakehouse Schemas" class="md-nav__button md-logo" aria-label="JGI Lakehouse Schemas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    JGI Lakehouse Schemas
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jgi/lakehouse-schema-extraction" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GOLD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GOLD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gold-db-2_postgresql/gold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gold-db-2_postgresql/gold_dsi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gold dsi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IMG
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IMG
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/imgsg_dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    imgsg dev
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_core_v400/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img core v400
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_sat_v450/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img sat v450
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_ext/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img ext
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_gold/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img gold
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_sub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_proteome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img proteome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_rnaseq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img rnaseq
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_methylome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img methylome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/img_i_taxon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    img i taxon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../img-db-2_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phytozome / Plant
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phytozome / Plant
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/old_public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    old public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/denormalized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    denormalized
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/jcarlson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    jcarlson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/phillips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    phillips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/expression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    expression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/obsolete_analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    obsolete analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/genetic_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    genetic code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plant-db-7_postgresql/go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    go
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SMC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SMC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citation Service
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Citation Service
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gcs-vm-1_postgresql/public/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    public
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slots
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="smc-db_postgresqlpublic">smc-db_postgresql.public<a class="headerlink" href="#smc-db_postgresqlpublic" title="Permanent link">&para;</a></h1>
+<p>Generated from smc-db_postgresql.public by schema-automator, with types and nullability refined from native catalog metadata by lakehouse-schema-extraction.</p>
+<p>URI: https://w3id.org/jgi/public</p>
+<p>Name: public</p>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Activity/">Activity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="AnalysisTool/">AnalysisTool</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ApiUsage/">ApiUsage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BgcAnalysis/">BgcAnalysis</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BgcAnalysisToSecmetFile/">BgcAnalysisToSecmetFile</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BgcAnnotation/">BgcAnnotation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BgcClass/">BgcClass</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="BgcToBgcClass/">BgcToBgcClass</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Blog/">Blog</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Collection/">Collection</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CollectionMembers/">CollectionMembers</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Contigs/">Contigs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene/">Gene</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene1/">Gene1</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene10/">Gene10</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene100/">Gene100</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene11/">Gene11</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene12/">Gene12</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene13/">Gene13</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene14/">Gene14</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene15/">Gene15</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene16/">Gene16</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene17/">Gene17</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene18/">Gene18</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene19/">Gene19</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene2/">Gene2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene20/">Gene20</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene21/">Gene21</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene22/">Gene22</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene23/">Gene23</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene24/">Gene24</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene25/">Gene25</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene26/">Gene26</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene27/">Gene27</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene28/">Gene28</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene29/">Gene29</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene3/">Gene3</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene30/">Gene30</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene31/">Gene31</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene32/">Gene32</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene33/">Gene33</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene34/">Gene34</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene35/">Gene35</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene36/">Gene36</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene37/">Gene37</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene38/">Gene38</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene39/">Gene39</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene4/">Gene4</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene40/">Gene40</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene41/">Gene41</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene42/">Gene42</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene43/">Gene43</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene44/">Gene44</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene45/">Gene45</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene46/">Gene46</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene47/">Gene47</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene48/">Gene48</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene49/">Gene49</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene5/">Gene5</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene50/">Gene50</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene51/">Gene51</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene52/">Gene52</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene53/">Gene53</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene54/">Gene54</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene55/">Gene55</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene56/">Gene56</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene57/">Gene57</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene58/">Gene58</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene59/">Gene59</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene6/">Gene6</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene60/">Gene60</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene61/">Gene61</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene62/">Gene62</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene63/">Gene63</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene64/">Gene64</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene65/">Gene65</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene66/">Gene66</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene67/">Gene67</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene68/">Gene68</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene69/">Gene69</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene7/">Gene7</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene70/">Gene70</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene71/">Gene71</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene72/">Gene72</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene73/">Gene73</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene74/">Gene74</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene75/">Gene75</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene76/">Gene76</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene77/">Gene77</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene78/">Gene78</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene79/">Gene79</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene8/">Gene8</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene80/">Gene80</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene81/">Gene81</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene82/">Gene82</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene83/">Gene83</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene84/">Gene84</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene85/">Gene85</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene86/">Gene86</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene87/">Gene87</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene88/">Gene88</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene89/">Gene89</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene9/">Gene9</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene90/">Gene90</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene91/">Gene91</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene92/">Gene92</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene93/">Gene93</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene94/">Gene94</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene95/">Gene95</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene96/">Gene96</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene97/">Gene97</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene98/">Gene98</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Gene99/">Gene99</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Role/">Role</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SmcDownloads/">SmcDownloads</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SmcFiles/">SmcFiles</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SmcUsers/">SmcUsers</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SourceDataToSecmetFiles/">SourceDataToSecmetFiles</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SourceDataType/">SourceDataType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="TaskQueue/">TaskQueue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="UserSession/">UserSession</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="activity_id/">activity_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="activity_type/">activity_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="actor_id/">actor_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="alias/">alias</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysis_file_id/">analysis_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="analysis_tool_id/">analysis_tool_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="annotator_tool/">annotator_tool</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="api_track_id/">api_track_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="attr_id/">attr_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="attributes/">attributes</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bgc_analysis_id/">bgc_analysis_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bgc_annotation_id/">bgc_annotation_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bgc_category/">bgc_category</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bgc_class_id/">bgc_class_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="bgc_id/">bgc_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="blog_id/">blog_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="blog_text/">blog_text</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="class_name/">class_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="collection_id/">collection_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="collection_name/">collection_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="collection_type/">collection_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="contig_id/">contig_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="contig_name/">contig_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="country/">country</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="created/">created</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data_name/">data_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="data_type/">data_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="description/">description</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dna_sequence_file_id/">dna_sequence_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="domain_flag/">domain_flag</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="download_id/">download_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dt_created/">dt_created</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dt_end/">dt_end</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dt_modified/">dt_modified</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dt_publish/">dt_publish</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="dt_start/">dt_start</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="email/">email</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="end_nt/">end_nt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="error_msg/">error_msg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="exit_code/">exit_code</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="file_id/">file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="file_name/">file_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="file_size/">file_size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="file_type/">file_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="first_name/">first_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="full_name/">full_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gc_percent/">gc_percent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_id/">gene_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_name/">gene_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="gene_type/">gene_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="id/">id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="input_file_id/">input_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ip/">ip</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_anonymous/">is_anonymous</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_enabled/">is_enabled</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_hidden/">is_hidden</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_superuser/">is_superuser</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="is_system_owner/">is_system_owner</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="last_name/">last_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="login_count/">login_count</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="member_id/">member_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="meta/">meta</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="method/">method</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="mime_type/">mime_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="modified/">modified</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="object_id/">object_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="object_type/">object_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="output_file_id/">output_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="owner_id/">owner_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="parent_id/">parent_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="permissions/">permissions</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="phase/">phase</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="public_collection/">public_collection</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="rank/">rank</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="role_id/">role_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="role_name/">role_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="route/">route</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="score/">score</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="secmet_file_id/">secmet_file_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="session_id/">session_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="session_timestamp/">session_timestamp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="size/">size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="size_bp/">size_bp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="smc_id/">smc_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="source/">source</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="source_data_id/">source_data_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="source_data_type_id/">source_data_type_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="start_nt/">start_nt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="strand/">strand</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="task_id/">task_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="task_name/">task_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="task_options/">task_options</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="task_options_other/">task_options_other</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="task_status/">task_status</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="title/">title</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="tool_name/">tool_name</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="translate_table/">translate_table</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="translation/">translation</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="uri/">uri</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="url/">url</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="user_agent/">user_agent</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="user_id/">user_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="user_token/">user_token</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="username/">username</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="worker_name/">worker_name</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations<a class="headerlink" href="#enumerations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Boolean/">Boolean</a></td>
+<td>A binary (true or false) value</td>
+</tr>
+<tr>
+<td><a href="Curie/">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="Date/">Date</a></td>
+<td>a date (year, month and day) in an idealized calendar</td>
+</tr>
+<tr>
+<td><a href="DateOrDatetime/">DateOrDatetime</a></td>
+<td>Either a date or a datetime</td>
+</tr>
+<tr>
+<td><a href="Datetime/">Datetime</a></td>
+<td>The combination of a date and time</td>
+</tr>
+<tr>
+<td><a href="Decimal/">Decimal</a></td>
+<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
+</tr>
+<tr>
+<td><a href="Double/">Double</a></td>
+<td>A real number that conforms to the xsd:double specification</td>
+</tr>
+<tr>
+<td><a href="Float/">Float</a></td>
+<td>A real number that conforms to the xsd:float specification</td>
+</tr>
+<tr>
+<td><a href="Integer/">Integer</a></td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><a href="Jsonpath/">Jsonpath</a></td>
+<td>A string encoding a JSON Path</td>
+</tr>
+<tr>
+<td><a href="Jsonpointer/">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="Ncname/">Ncname</a></td>
+<td>Prefix part of CURIE</td>
+</tr>
+<tr>
+<td><a href="Nodeidentifier/">Nodeidentifier</a></td>
+<td>A URI, CURIE or BNODE that represents a node in a model</td>
+</tr>
+<tr>
+<td><a href="Objectidentifier/">Objectidentifier</a></td>
+<td>A URI or CURIE that represents an object in the model</td>
+</tr>
+<tr>
+<td><a href="Sparqlpath/">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path</td>
+</tr>
+<tr>
+<td><a href="String/">String</a></td>
+<td>A character string</td>
+</tr>
+<tr>
+<td><a href="Time/">Time</a></td>
+<td>A time object represents a (local) time of day, independent of any particular...</td>
+</tr>
+<tr>
+<td><a href="Uri/">Uri</a></td>
+<td>a complete URI</td>
+</tr>
+<tr>
+<td><a href="Uriorcurie/">Uriorcurie</a></td>
+<td>a URI or a CURIE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subsets">Subsets<a class="headerlink" href="#subsets" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
